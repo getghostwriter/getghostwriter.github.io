@@ -1,0 +1,62 @@
+Ghost Writer
+Copyright (c) 2026 Ghost Media LLC. All rights reserved.
+
+Ghost Writer runs entirely on your PC. It is built on the open-source work below; thank you
+to their authors. Each is used under its own licence, named here with where to find it.
+
+
+SPEECH RECOGNITION AND FORMATTING
+
+Whisper speech-recognition models (OpenAI) - MIT License
+  https://github.com/openai/whisper
+  Converted for faster-whisper: base.en by SYSTRAN (MIT), large-v3-turbo by Mobius Labs (MIT)
+  https://huggingface.co/Systran/faster-whisper-base.en
+  https://huggingface.co/mobiuslabsgmbh/faster-whisper-large-v3-turbo
+faster-whisper (SYSTRAN) - MIT License, including the Silero VAD model (MIT)
+  https://github.com/SYSTRAN/faster-whisper
+CTranslate2 (OpenNMT) - MIT License
+  https://github.com/OpenNMT/CTranslate2
+Qwen3.5-4B (Alibaba Cloud, Qwen team) - Apache License 2.0   [Advanced mode only]
+  https://huggingface.co/Qwen/Qwen3.5-4B
+llama.cpp and ggml (the ggml authors) - MIT License   [Advanced mode only]
+  https://github.com/ggml-org/llama.cpp
+  Includes the LLVM OpenMP runtime (Apache License 2.0 with LLVM Exceptions)
+NVIDIA CUDA runtime, cuBLAS and NVRTC libraries - NVIDIA proprietary licence, redistributed
+  under the NVIDIA CUDA Toolkit End User License Agreement   [Advanced mode only]
+  https://docs.nvidia.com/cuda/eula/
+ONNX Runtime (Microsoft) - MIT License
+  https://github.com/microsoft/onnxruntime
+
+
+THE APP
+
+Python (Python Software Foundation) - PSF License Agreement, with Tcl/Tk (BSD-style licence)
+  https://www.python.org/
+Pillow - MIT-CMU (HPND) License        https://github.com/python-pillow/Pillow
+NumPy - BSD 3-Clause License           https://numpy.org/
+PyAV - BSD 3-Clause License            https://github.com/PyAV-Org/PyAV
+  PyAV includes FFmpeg libraries, licensed under the GNU LGPL version 2.1 or later. They are
+  separate DLL files in python\Lib\site-packages\av.libs and can be replaced. Source code:
+  https://ffmpeg.org/download.html
+pystray - GNU LGPL version 3            https://github.com/moses-palmer/pystray
+  Used unmodified as a separate Python package (python\Lib\site-packages\pystray); you may
+  replace it with your own copy. Source code is available at the address above.
+sounddevice - MIT License, with PortAudio (MIT License)   https://github.com/spatialaudio/python-sounddevice
+comtypes - MIT License                  https://github.com/enthought/comtypes
+tokenizers, huggingface_hub, hf-xet - Apache License 2.0 (Hugging Face)
+  https://github.com/huggingface
+llama-cpp-python - MIT License          https://github.com/abetlen/llama-cpp-python
+Other Python packages used by the above: anyio (MIT), certifi (MPL-2.0), cffi (MIT-0),
+  click (BSD-3-Clause), colorama (BSD), diskcache (Apache 2.0), filelock (MIT),
+  flatbuffers (Apache 2.0), fsspec (BSD-3-Clause), h11 (MIT), httpcore (BSD-3-Clause),
+  httpx (BSD-3-Clause), idna (BSD-3-Clause), Jinja2 (BSD), MarkupSafe (BSD-3-Clause),
+  packaging (Apache 2.0 or BSD-2-Clause), pip (MIT), protobuf (BSD-3-Clause),
+  pycparser (BSD-3-Clause), PyYAML (MIT), six (MIT), tqdm (MPL-2.0 and MIT),
+  typing_extensions (PSF-2.0)
+Microsoft Visual C++ runtime libraries - redistributed under the Microsoft Visual C++
+  Redistributable licence
+Grenze Gotisch font (Omnibus-Type) - SIL Open Font License 1.1
+  https://fonts.google.com/specimen/Grenze+Gotisch
+
+The full licence texts are on the pages above, and for Python packages in their folders
+under python\Lib\site-packages (the *.dist-info folders).
