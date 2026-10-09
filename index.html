@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ghost Writer</title>
+<title>Ghost Writer (Beta)</title>
 <meta name="description" content="Private dictation that runs entirely on your PC, fully transparent. No cloud, no accounts, no tracking. You are the Ghost.">
-<meta property="og:title" content="Ghost Writer: you are the Ghost">
-<meta property="og:description" content="Private dictation that runs entirely on your PC, fully transparent. Free for Windows.">
+<meta property="og:title" content="Ghost Writer (Beta): you are the Ghost">
+<meta property="og:description" content="Private dictation that runs entirely on your PC, fully transparent. Free public beta for Windows.">
 <meta property="og:image" content="https://getghostwriter.github.io/assets/social.png">
 <meta name="theme-color" content="#0e1014">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -154,11 +154,29 @@ footer { border-top: 1px solid var(--border); padding: 26px 0 40px; color: var(-
 footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 footer a { color: var(--muted); }
 .theme-toggle { background: var(--box); color: var(--muted); border: 1px solid var(--edge); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; font-size: 13px; }
+/* beta */
+.beta-bar { background: linear-gradient(90deg, rgba(150,97,255,.22), rgba(72,120,255,.22)); color: var(--text); text-align: center;
+  font-size: 14px; padding: 9px 16px; border-bottom: 1px solid var(--edge); }
+.beta-bar a { color: var(--text); font-weight: 600; }
+.beta-tag { display: inline-block; vertical-align: middle; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  font-size: 15px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
+  background: linear-gradient(90deg, #9661ff, #4878ff); color: #fff; box-shadow: 0 0 18px rgba(150,112,255,.55); margin-bottom: 14px; }
+dialog.ask { border: 1px solid var(--edge); border-radius: 22px; padding: 0; max-width: 460px; width: calc(100% - 32px);
+  background: var(--card); color: var(--text); box-shadow: 0 30px 80px var(--shadow); }
+dialog.ask::backdrop { background: rgba(5,6,9,.62); backdrop-filter: blur(3px); }
+dialog.ask .inside { padding: 26px 26px 22px; }
+dialog.ask h3 { margin: 0 0 10px; font-size: 22px; }
+dialog.ask p { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
+dialog.ask .row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+dialog.ask .later { background: var(--box); color: var(--text); border: 1px solid var(--edge); border-radius: 999px; padding: 11px 22px; font: inherit; font-weight: 600; cursor: pointer; }
+dialog.ask .download { font-size: 16px; padding: 11px 22px; }
 @media (prefers-reduced-motion: reduce) { .fog, .ghost img { animation: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
 <div class="fog" aria-hidden="true"></div>
+
+<div class="beta-bar" role="note"><b>Public beta.</b> Ghost Writer is new and still being polished: it works well, but you may run into the odd bug. <a href="#beta">What that means</a></div>
 
 <div class="wrap">
   <header class="bar">
@@ -171,6 +189,7 @@ footer a { color: var(--muted); }
       <a href="#how">How it works</a>
       <a href="#privacy">Privacy</a>
       <a href="#install">Install</a>
+      <a href="#beta">Beta</a>
       <a class="keep" href="#download">Download</a>
     </nav>
   </header>
@@ -178,14 +197,15 @@ footer a { color: var(--muted); }
   <main id="top">
     <div class="hero" id="download">
       <div>
+        <span class="beta-tag">Public beta</span>
         <h1 class="name">Ghost Writer</h1>
         <p class="slogan">You are a Ghost. Welcome, Ghost Writer.</p>
         <p class="tagline">Private dictation that runs entirely on this PC, fully transparent. Speak, and your words appear wherever you type.</p>
         <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
-          Download for Windows
+          Download the beta for Windows
         </a>
-        <p class="meta">Free &middot; Version 4.2 &middot; 200 MB &middot; Windows 10 and 11 (64-bit)<br>
+        <p class="meta">Free public beta &middot; Version 4.2 beta &middot; 200 MB &middot; Windows 10 and 11 (64-bit)<br>
           New here? <a href="#install">Windows may show a warning the first time: here's what to click.</a></p>
       </div>
       <div class="ghost">
@@ -199,6 +219,16 @@ footer a { color: var(--muted); }
       <p>Ghost Writer is a transparent system. It listens only while you ask it to, turns your voice into text right here on your PC, and puts the words where your cursor is, in any app. Then it steps back. Nothing goes anywhere else.</p>
       <p>No cloud to send your words to. No account that knows who you are. No tracking, no ads, no BS. You write, and nobody watches. You are the Ghost.</p>
       <p><span class="pill">Works in any app</span><span class="pill">Works with Wi-Fi off</span><span class="pill">No sign-up</span><span class="pill">Free</span></p>
+    </section>
+
+    <section id="beta">
+      <h2>About the beta</h2>
+      <p class="lead">Ghost Writer is in public beta: free to use while it's finished and polished with feedback from people like you.</p>
+      <div class="grid">
+        <div class="card"><h3>What to expect</h3><div class="item"><span class="mark">&#10003;</span><div><b>It works, and it's new</b><span>Dictation, hands-free, the Notepad and Advanced mode are all in. You may still meet the odd bug or rough edge.</span></div></div></div>
+        <div class="card"><h3>Fixes arrive by themselves</h3><div class="item"><span class="mark">&#10003;</span><div><b>One-click updates</b><span>Ghost Writer checks once a day for a new version and offers it with one click. Your dictations, notes and settings are kept.</span></div></div></div>
+        <div class="card"><h3>Tell us</h3><div class="item"><span class="mark">&#10003;</span><div><b>Found a bug?</b><span>Report it, or suggest an idea, on the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>. Never include anything private you dictated.</span></div></div></div>
+      </div>
     </section>
 
     <section id="how">
@@ -251,7 +281,7 @@ footer a { color: var(--muted); }
       <div class="steps">
         <div class="card step">
           <b>Download</b>
-          <p>Click <a href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download for Windows</a>. If your browser says the file "isn't commonly downloaded", choose <b>Keep</b> (in Edge: the &middot;&middot;&middot; menu, then Keep, then Keep anyway).</p>
+          <p>Click <a class="download-link" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download the beta</a>. If your browser says the file "isn't commonly downloaded", choose <b>Keep</b> (in Edge: the &middot;&middot;&middot; menu, then Keep, then Keep anyway).</p>
           <div class="mock edge" aria-hidden="true"><div>Ghost-Writer-Setup.exe isn't commonly downloaded. Make sure you trust it before you open it.</div><div class="btns"><span>Delete</span><span class="hl">Keep</span></div></div>
         </div>
         <div class="card step">
@@ -309,18 +339,48 @@ footer a { color: var(--muted); }
     <section class="final">
       <img class="dark" src="assets/logo-dark.png" alt="">
       <p class="big name" style="font-size:42px;margin:10px 0 18px">Be the Ghost.</p>
-      <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download Ghost Writer 4.2</a>
+      <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download the Ghost Writer 4.2 beta</a>
     </section>
   </main>
 
   <footer>
     <div class="row">
-      <div>&copy; 2026 Ghost Media LLC &middot; Ghost Writer 4.2</div>
+      <div>&copy; 2026 Ghost Media LLC &middot; Ghost Writer 4.2 beta</div>
       <div><a href="NOTICES.txt">Open-source credits</a> &middot; <a href="https://github.com/getghostwriter/getghostwriter.github.io/releases">All downloads</a> &middot;
         <button class="theme-toggle" id="theme" type="button">Theme: auto</button></div>
     </div>
   </footer>
 </div>
+<dialog class="ask" id="ask" aria-labelledby="ask-title">
+  <div class="inside">
+    <h3 id="ask-title">Download the Ghost Writer beta?</h3>
+    <p>Ghost Writer 4.2 is a <b>public beta</b>. It works well, but it's new, so you may run into the odd bug or rough edge. Fixes arrive as one-click updates inside the app.</p>
+    <p>It's free, it runs entirely on your PC, and nothing you say leaves it. Windows may show a warning the first time you open the installer: click <b>More info</b>, then <b>Run anyway</b>.</p>
+    <div class="row">
+      <button class="later" type="button" id="ask-later">Not now</button>
+      <a class="download" id="ask-go" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download the beta</a>
+    </div>
+  </div>
+</dialog>
+<script>
+// Every download button asks first ("Download the beta?"). Without scripts the links still work.
+(function () {
+  var ask = document.getElementById("ask");
+  if (!ask || typeof ask.showModal !== "function") return;
+  var go = document.getElementById("ask-go");
+  document.querySelectorAll("a.download, a.download-link").forEach(function (link) {
+    if (link === go) return;
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      ask.showModal();
+      go.focus();
+    });
+  });
+  document.getElementById("ask-later").addEventListener("click", function () { ask.close(); });
+  go.addEventListener("click", function () { setTimeout(function () { ask.close(); }, 300); });
+  ask.addEventListener("click", function (event) { if (event.target === ask) ask.close(); });  // a click outside
+})();
+</script>
 <script>
 // Theme: follows the device (auto), or a choice remembered on this device.
 (function () {
