@@ -74,9 +74,15 @@ nav a:hover { color: var(--text); }
 .hero h1 { font-size: clamp(54px, 9vw, 96px); line-height: 1; margin: 0 0 14px; }
 .slogan { color: var(--accent2); font-weight: 700; font-size: 20px; margin: 0 0 6px; }
 .tagline { color: var(--muted); font-size: 18px; margin: 0 0 30px; }
-.ghost { position: relative; display: flex; justify-content: center; }
-.ghost img { width: min(340px, 72vw); height: auto; filter: drop-shadow(0 0 28px var(--glow)); animation: float 7s ease-in-out infinite; }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.ghost { position: relative; display: flex; justify-content: center; align-items: center; isolation: isolate; }
+.ghost img { width: min(340px, 72vw); height: auto; filter: drop-shadow(0 0 34px var(--glow)) drop-shadow(0 0 10px var(--glow));
+  animation: float 5.5s ease-in-out infinite; }
+/* the ghost drifts up and down with a slight sway, in a steady glow */
+@keyframes float { 0%, 100% { transform: translateY(6px) rotate(-1.5deg); } 50% { transform: translateY(-26px) rotate(1.5deg); } }
+/* a soft, still aura behind it */
+.ghost::before { content: ""; position: absolute; z-index: -1; top: 50%; left: 50%; width: min(420px, 86vw); aspect-ratio: 1;
+  border-radius: 50%; background: radial-gradient(circle, var(--glow) 0%, transparent 62%); filter: blur(28px);
+  opacity: .22; transform: translate(-50%, -50%); pointer-events: none; }
 .ghost img.light { display: none; }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .ghost img.dark, :root:not([data-theme="dark"]) .brand img.dark { display: none; }
   :root:not([data-theme="dark"]) .ghost img.light, :root:not([data-theme="dark"]) .brand img.light { display: block; } }
@@ -149,7 +155,7 @@ details summary { cursor: pointer; color: var(--accent); font-weight: 600; margi
 
 /* final call + footer */
 .final { text-align: center; padding: 70px 0; }
-.final img { width: 120px; filter: drop-shadow(0 0 22px var(--glow)); }
+.final img { width: 120px; filter: drop-shadow(0 0 22px var(--glow)); animation: float 5.5s ease-in-out infinite; }
 footer { border-top: 1px solid var(--border); padding: 26px 0 40px; color: var(--faint); font-size: 14px; }
 footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 footer a { color: var(--muted); }
@@ -170,7 +176,7 @@ dialog.ask p { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
 dialog.ask .row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 dialog.ask .later { background: var(--box); color: var(--text); border: 1px solid var(--edge); border-radius: 999px; padding: 11px 22px; font: inherit; font-weight: 600; cursor: pointer; }
 dialog.ask .download { font-size: 16px; padding: 11px 22px; }
-@media (prefers-reduced-motion: reduce) { .fog, .ghost img { animation: none; } html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { .fog, .ghost img, .final img { animation: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
