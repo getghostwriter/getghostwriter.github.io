@@ -9,8 +9,10 @@ SPEECH RECOGNITION AND FORMATTING
 
 Whisper speech-recognition models (OpenAI) - MIT License
   https://github.com/openai/whisper
-  Converted for faster-whisper: base.en by SYSTRAN (MIT), large-v3-turbo by Mobius Labs (MIT)
+  Converted for faster-whisper: base.en, tiny.en and small.en by SYSTRAN (MIT), large-v3-turbo by Mobius Labs (MIT)
   https://huggingface.co/Systran/faster-whisper-base.en
+  https://huggingface.co/Systran/faster-whisper-tiny.en
+  https://huggingface.co/Systran/faster-whisper-small.en
   https://huggingface.co/mobiuslabsgmbh/faster-whisper-large-v3-turbo
 faster-whisper (SYSTRAN) - MIT License, including the Silero VAD model (MIT)
   https://github.com/SYSTRAN/faster-whisper
