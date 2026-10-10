@@ -75,14 +75,14 @@ nav a:hover { color: var(--text); }
 .slogan { color: var(--accent2); font-weight: 700; font-size: 20px; margin: 0 0 6px; }
 .tagline { color: var(--muted); font-size: 18px; margin: 0 0 30px; }
 .ghost { position: relative; display: flex; justify-content: center; align-items: center; isolation: isolate; }
-/* the ghost drifts up and down with a slight sway */
+/* the ghost hovers straight up and down */
 .ghost .figure { position: relative; width: min(340px, 72vw); animation: float 5.5s ease-in-out infinite; }
 .ghost .figure img { display: block; width: 100%; height: auto; }
 /* its glow breathes: the original halo (same purple, never brighter) fades from almost nothing to full and back */
 .ghost .figure .halo { filter: drop-shadow(0 0 34px var(--glow)) drop-shadow(0 0 10px var(--glow)); animation: breathe 7s ease-in-out infinite; }
 .ghost .figure .bare { position: absolute; inset: 0; }
 @keyframes breathe { 0%, 100% { opacity: .08; } 50% { opacity: 1; } }
-@keyframes float { 0%, 100% { transform: translateY(6px) rotate(-1.5deg); } 50% { transform: translateY(-26px) rotate(1.5deg); } }
+@keyframes float { 0%, 100% { transform: translateY(6px); } 50% { transform: translateY(-26px); } }
 /* a soft aura behind it, breathing with the glow */
 .ghost::before { content: ""; position: absolute; z-index: -1; top: 50%; left: 50%; width: min(420px, 86vw); aspect-ratio: 1;
   border-radius: 50%; background: radial-gradient(circle, var(--glow) 0%, transparent 62%); filter: blur(28px);
