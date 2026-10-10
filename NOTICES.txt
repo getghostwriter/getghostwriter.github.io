@@ -21,6 +21,11 @@ Qwen3.5-4B (Alibaba Cloud, Qwen team) - Apache License 2.0   [Advanced mode only
 llama.cpp and ggml (the ggml authors) - MIT License   [Advanced mode only]
   https://github.com/ggml-org/llama.cpp
   Includes the LLVM OpenMP runtime (Apache License 2.0 with LLVM Exceptions)
+whisper.cpp (the ggml authors) - MIT License   [Advanced mode on AMD and Intel cards only]
+  https://github.com/ggml-org/whisper.cpp
+  Windows Vulkan build by AMD's Lemonade project (MIT): https://github.com/lemonade-sdk/whisper.cpp-rocm
+  Whisper large-v3-turbo converted for whisper.cpp (ggml, MIT): https://huggingface.co/ggerganov/whisper.cpp
+  Includes SDL2 (zlib License): https://www.libsdl.org/
 NVIDIA CUDA runtime, cuBLAS and NVRTC libraries - NVIDIA proprietary licence, redistributed
   under the NVIDIA CUDA Toolkit End User License Agreement   [Advanced mode only]
   https://docs.nvidia.com/cuda/eula/
