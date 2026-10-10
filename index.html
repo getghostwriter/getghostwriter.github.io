@@ -217,7 +217,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
           Download the beta for Windows
         </a>
-        <p class="meta">Free public beta &middot; Version 4.2 beta &middot; 200 MB &middot; Windows 10 and 11 (64-bit)<br>
+        <p class="meta">Free public beta &middot; Version 4.7 beta &middot; 200 MB &middot; Windows 10 and 11 (64-bit)<br>
           New here? <a href="#install">Windows may show a warning the first time: here's what to click.</a></p>
       </div>
       <div class="ghost">
@@ -259,7 +259,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
           <div class="item"><span class="mark">&#10003;</span><div><b>Offline by design</b><span>Dictation works fully with Wi-Fi off. Ghost Writer only goes online to check once a day for a new version (you can turn that off) and, if you choose, to download Advanced mode. Nothing about you is ever sent.</span></div></div>
           <div class="item"><span class="mark">&#10003;</span><div><b>No cloud</b><span>Your voice and your words are never uploaded anywhere. The sound is kept in memory only until it is typed, then thrown away.</span></div></div>
           <div class="item"><span class="mark">&#10003;</span><div><b>No accounts, no tracking</b><span>No sign-up, no ads, no analytics, nothing reported back. Nobody, including us, sees what you say.</span></div></div>
-          <div class="item"><span class="mark">&#10003;</span><div><b>Hands off what isn't yours</b><span>It never reads password boxes, and only edits right after it typed (its own text, or a grammar fix in the last few sentences).</span></div></div>
+          <div class="item"><span class="mark">&#10003;</span><div><b>Hands off what isn't yours</b><span>It never reads password boxes, and only edits right after it typed (its own text, or a grammar fix in the last few sentences). AI rewrite reads only the text you select, when you ask, and changes it only if you choose Replace.</span></div></div>
         </div>
         <div class="card">
           <h3>What's kept, only on your PC</h3>
@@ -272,7 +272,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
 
     <section id="modes">
       <h2>Standard and Advanced</h2>
-      <p class="lead">Ghost Writer works on any Windows PC. If yours has an NVIDIA graphics card, Advanced makes it even sharper.</p>
+      <p class="lead">Ghost Writer works on any Windows PC. If yours has a graphics card (NVIDIA, AMD or Intel), Advanced makes it even sharper.</p>
       <div class="grid two">
         <div class="card mode">
           <span class="badge standard">&#9679; Standard mode</span>
@@ -281,8 +281,8 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
         </div>
         <div class="card mode">
           <span class="badge advanced">&#9889; Advanced mode</span>
-          <h4>NVIDIA graphics cards</h4>
-          <p>A much bigger speech model for accents and fast speech, plus a small AI that fixes grammar and lays out your writing, all on your graphics card. A one-time 4.8 GB download from inside the app, only if you choose it.</p>
+          <h4>NVIDIA, AMD and Intel graphics cards</h4>
+          <p>A much bigger speech model for accents and fast speech, plus a small AI that fixes grammar and lays out your writing, all on your graphics card. It also rewrites text when you ask: shorter, more formal, an email, meeting notes or a summary. A one-time download from inside the app (3.3 to 4.8 GB, depending on your card), only if you choose it.</p>
         </div>
       </div>
     </section>
@@ -306,17 +306,22 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
           <p>Click Next, and Ghost Writer opens. Hold <b>Ctrl+Win</b>, speak, and let go: your words appear where your cursor is. Welcome, Ghost Writer.</p>
         </div>
       </div>
-      <p class="why">Why the warning? Windows asks for a paid code-signing certificate before it recognises a new app's publisher; Ghost Writer doesn't have one yet. The installer and every update are checked against their published SHA-256 fingerprint: <code>932afea93e0acdfc23940ddc04e6eb0fd51369e410d5f1ee6f7645acff368e8a</code></p>
+      <p class="why">Why the warning? Windows asks for a paid code-signing certificate before it recognises a new app's publisher; Ghost Writer doesn't have one yet. The installer and every update are checked against their published SHA-256 fingerprint: <code>30662fa1b93558decea06c677e47535306f3c6c4f64abf67f4c1c93be9b7c109</code></p>
     </section>
 
     <section id="new">
       <h2>What's new</h2>
       <p class="lead">Every update, in plain words. Ghost Writer checks for new versions once a day and offers them with one click.</p>
-      <div class="changes"><div class="change"><b>Version 4.2</b><ul><li>Ghost Writer has its own installer and website.</li><li>Advanced mode installs from inside the app on PCs with an NVIDIA graphics card.</li><li>Ghost Writer checks once a day for a new version and offers it with one click. You can turn this off in Settings, under Updates.</li></ul></div>
+      <div class="changes"><div class="change"><b>Version 4.7</b><ul><li>New: AI rewrite. Improve, shorten, or turn your text into an email, meeting notes or a summary.</li><li>In Notepad, click ✨ in the toolbar. In any app, select text and press Alt+Shift+R.</li><li>You see the result first; your text only changes if you choose Replace.</li><li>Use your own local AI: pick a model you run with Ollama or LM Studio, in Settings under AI rewrite.</li></ul></div>
+<div class="change"><b>Version 4.6</b><ul><li>Advanced mode now works on AMD and Intel graphics cards too, not just NVIDIA.</li><li>It needs a card with its own memory: 4 GB for the big speech model, 6 GB for smart formatting too.</li><li>Each PC downloads only what its card needs: 3.3 GB for AMD and Intel, 4.8 GB for NVIDIA.</li></ul></div>
+<div class="change"><b>Version 4.5</b><ul><li>New in Settings: Your stats. Words dictated, speaking speed, time saved, streaks and a calendar of your activity.</li><li>See which writing styles and apps you use most, and how much cleanup Ghost Writer did for you.</li><li>Counted on your PC only (numbers, never your words). Reset it whenever you like.</li></ul></div>
+<div class="change"><b>Version 4.4</b><ul><li>Notepad has a formatting toolbar, like a word processor: fonts, sizes, bold, italic, underline and more.</li><li>Text colour, highlight, bulleted and numbered lists, alignment, and undo and redo.</li><li>Attach files to a note (pictures, documents, anything). Click one to open it.</li></ul></div></div>
+      <details><summary>Earlier updates</summary><div class="changes" style="margin-top:12px"><div class="change"><b>Version 4.3</b><ul><li>New Transcribe tab: turn recordings into notes. Choose one or more audio files (MP3, WAV, M4A, FLAC, OGG, WMA and more, or the sound of a video).</li><li>Each transcript is saved in the Transcripts folder of your Notepad, in paragraphs and in your Writing style.</li><li>It all happens on your PC, and a file waits while you dictate.</li></ul></div>
+<div class="change"><b>Version 4.2</b><ul><li>Ghost Writer has its own installer and website.</li><li>Advanced mode installs from inside the app on PCs with an NVIDIA graphics card.</li><li>Ghost Writer checks once a day for a new version and offers it with one click. You can turn this off in Settings, under Updates.</li></ul></div>
 <div class="change"><b>Version 4.1</b><ul><li>A new look for the Ghost: the titanium ghost logo, with eyes and a halo that glow purple in dark mode and light blue in light mode.</li></ul></div>
 <div class="change"><b>Version 4.0</b><ul><li>Light and dark themes: choose Dark, Light or System in Settings, under Appearance.</li><li>System follows your Windows setting and switches by itself when Windows does.</li><li>Dark stays the default. The recording bubble stays dark in every theme, so it reads well over any app.</li></ul></div>
-<div class="change"><b>Version 3.9</b><ul><li>Searching your notes softly highlights the words you typed, in the list and in the open note.</li></ul></div></div>
-      <details><summary>Earlier updates</summary><div class="changes" style="margin-top:12px"><div class="change"><b>Version 3.8</b><ul><li>Notepad folders: sort your notes into folders you can open and close.</li><li>Right-click a folder to add a note to it, rename it or delete it. Deleting a folder keeps its notes.</li></ul></div>
+<div class="change"><b>Version 3.9</b><ul><li>Searching your notes softly highlights the words you typed, in the list and in the open note.</li></ul></div>
+<div class="change"><b>Version 3.8</b><ul><li>Notepad folders: sort your notes into folders you can open and close.</li><li>Right-click a folder to add a note to it, rename it or delete it. Deleting a folder keeps its notes.</li></ul></div>
 <div class="change"><b>Version 3.7</b><ul><li>Right-click a note in Notepad to pin, export or delete it.</li><li>Each note shows when it was created and when it was last updated.</li></ul></div>
 <div class="change"><b>Version 3.6</b><ul><li>New tagline under the name: &quot;Private dictation that runs entirely on this PC, fully transparent.&quot;</li></ul></div>
 <div class="change"><b>Version 3.5</b><ul><li>Scratchpad is now Notepad: keep as many notes as you like, like the Notes app on a phone.</li><li>Search your notes, pin the important ones to the top, and export or import them as text files.</li><li>Start hands-free right from Notepad and dictate straight into a note.</li><li>Your old Scratchpad text is kept as your first note.</li></ul></div>
@@ -344,20 +349,20 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       <div class="grid">
         <div class="card"><h3>Windows</h3><div class="item"><span class="mark">&#10003;</span><div><b>Windows 10 or 11, 64-bit</b><span>About 500 MB of space.</span></div></div></div>
         <div class="card"><h3>A microphone</h3><div class="item"><span class="mark">&#10003;</span><div><b>Any microphone</b><span>Built-in, headset or USB. Windows must let desktop apps use it.</span></div></div></div>
-        <div class="card"><h3>For Advanced (optional)</h3><div class="item"><span class="mark">&#10003;</span><div><b>An NVIDIA graphics card</b><span>4 GB or more for the big speech model; 6 GB or more for smart formatting too.</span></div></div></div>
+        <div class="card"><h3>For Advanced (optional)</h3><div class="item"><span class="mark">&#10003;</span><div><b>A graphics card: NVIDIA, AMD or Intel</b><span>With its own memory: 4 GB or more for the big speech model, 6 GB or more for smart formatting too. Built-in graphics use Standard.</span></div></div></div>
       </div>
     </section>
 
     <section class="final">
       <img class="dark" src="assets/logo-dark.png" alt="">
       <p class="big name" style="font-size:42px;margin:10px 0 18px">Be the Ghost.</p>
-      <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download the Ghost Writer 4.2 beta</a>
+      <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download the Ghost Writer 4.7 beta</a>
     </section>
   </main>
 
   <footer>
     <div class="row">
-      <div>&copy; 2026 Ghost Media LLC &middot; Ghost Writer 4.2 beta</div>
+      <div>&copy; 2026 Ghost Media LLC &middot; Ghost Writer 4.7 beta</div>
       <div><a href="NOTICES.txt">Open-source credits</a> &middot; <a href="https://github.com/getghostwriter/getghostwriter.github.io/releases">All downloads</a> &middot;
         <button class="theme-toggle" id="theme" type="button">Theme: auto</button></div>
     </div>
@@ -366,7 +371,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
   <div class="inside">
     <h3 id="ask-title">Download the Ghost Writer beta?</h3>
-    <p>Ghost Writer 4.2 is a <b>public beta</b>. It works well, but it's new, so you may run into the odd bug or rough edge. Fixes arrive as one-click updates inside the app.</p>
+    <p>Ghost Writer 4.7 is a <b>public beta</b>. It works well, but it's new, so you may run into the odd bug or rough edge. Fixes arrive as one-click updates inside the app.</p>
     <p>It's free, it runs entirely on your PC, and nothing you say leaves it. Windows may show a warning the first time you open the installer: click <b>More info</b>, then <b>Run anyway</b>.</p>
     <div class="row">
       <button class="later" type="button" id="ask-later">Not now</button>
