@@ -75,19 +75,25 @@ nav a:hover { color: var(--text); }
 .slogan { color: var(--accent2); font-weight: 700; font-size: 20px; margin: 0 0 6px; }
 .tagline { color: var(--muted); font-size: 18px; margin: 0 0 30px; }
 .ghost { position: relative; display: flex; justify-content: center; align-items: center; isolation: isolate; }
-.ghost img { width: min(340px, 72vw); height: auto; filter: drop-shadow(0 0 34px var(--glow)) drop-shadow(0 0 10px var(--glow));
-  animation: float 5.5s ease-in-out infinite; }
-/* the ghost drifts up and down with a slight sway, in a steady glow */
+/* the ghost drifts up and down with a slight sway */
+.ghost .figure { position: relative; width: min(340px, 72vw); animation: float 5.5s ease-in-out infinite; }
+.ghost .figure img { display: block; width: 100%; height: auto; }
+/* its glow breathes: the original halo (same purple, never brighter) fades from almost nothing to full and back */
+.ghost .figure .halo { filter: drop-shadow(0 0 34px var(--glow)) drop-shadow(0 0 10px var(--glow)); animation: breathe 7s ease-in-out infinite; }
+.ghost .figure .bare { position: absolute; inset: 0; }
+@keyframes breathe { 0%, 100% { opacity: .08; } 50% { opacity: 1; } }
 @keyframes float { 0%, 100% { transform: translateY(6px) rotate(-1.5deg); } 50% { transform: translateY(-26px) rotate(1.5deg); } }
-/* a soft, still aura behind it */
+/* a soft aura behind it, breathing with the glow */
 .ghost::before { content: ""; position: absolute; z-index: -1; top: 50%; left: 50%; width: min(420px, 86vw); aspect-ratio: 1;
   border-radius: 50%; background: radial-gradient(circle, var(--glow) 0%, transparent 62%); filter: blur(28px);
-  opacity: .22; transform: translate(-50%, -50%); pointer-events: none; }
-.ghost img.light { display: none; }
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .ghost img.dark, :root:not([data-theme="dark"]) .brand img.dark { display: none; }
-  :root:not([data-theme="dark"]) .ghost img.light, :root:not([data-theme="dark"]) .brand img.light { display: block; } }
-:root[data-theme="light"] .ghost img.dark, :root[data-theme="light"] .brand img.dark { display: none; }
-:root[data-theme="light"] .ghost img.light, :root[data-theme="light"] .brand img.light { display: block; }
+  opacity: .22; transform: translate(-50%, -50%); pointer-events: none; animation: aura-breathe 7s ease-in-out infinite; }
+@keyframes aura-breathe { 0%, 100% { opacity: .02; transform: translate(-50%, -50%) scale(.9); }
+  50% { opacity: .22; transform: translate(-50%, -50%) scale(1); } }
+.ghost .figure.light { display: none; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .ghost .figure.dark, :root:not([data-theme="dark"]) .brand img.dark { display: none; }
+  :root:not([data-theme="dark"]) .ghost .figure.light, :root:not([data-theme="dark"]) .brand img.light { display: block; } }
+:root[data-theme="light"] .ghost .figure.dark, :root[data-theme="light"] .brand img.dark { display: none; }
+:root[data-theme="light"] .ghost .figure.light, :root[data-theme="light"] .brand img.light { display: block; }
 .brand img.light { display: none; }
 
 .download { display: inline-flex; align-items: center; gap: 12px; padding: 16px 30px; border-radius: 999px;
@@ -176,7 +182,7 @@ dialog.ask p { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
 dialog.ask .row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 dialog.ask .later { background: var(--box); color: var(--text); border: 1px solid var(--edge); border-radius: 999px; padding: 11px 22px; font: inherit; font-weight: 600; cursor: pointer; }
 dialog.ask .download { font-size: 16px; padding: 11px 22px; }
-@media (prefers-reduced-motion: reduce) { .fog, .ghost img, .final img { animation: none; } html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { .fog, .ghost .figure, .ghost .figure .halo, .ghost::before, .final img { animation: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
@@ -215,8 +221,8 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
           New here? <a href="#install">Windows may show a warning the first time: here's what to click.</a></p>
       </div>
       <div class="ghost">
-        <img class="dark" src="assets/logo-dark.png" alt="The Ghost Writer ghost, its eyes glowing purple">
-        <img class="light" src="assets/logo-light.png" alt="The Ghost Writer ghost, its eyes glowing blue">
+        <div class="figure dark"><img class="halo" src="assets/logo-dark.png" alt=""><img class="bare" src="assets/logo-dark-bare.png" alt="The Ghost Writer ghost, its eyes glowing purple"></div>
+        <div class="figure light"><img class="halo" src="assets/logo-light.png" alt=""><img class="bare" src="assets/logo-light-bare.png" alt="The Ghost Writer ghost, its eyes glowing blue"></div>
       </div>
     </div>
 
