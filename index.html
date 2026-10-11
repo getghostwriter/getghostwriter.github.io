@@ -67,15 +67,38 @@ img { max-width: 100%; }
 :root[data-theme="light"] .dark, :root[data-theme="light"] .shot img.dark { display: none; }
 :root[data-theme="light"] .light, :root[data-theme="light"] .shot img.light { display: block; }
 
-/* top bar */
-header.bar { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
-.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; }
-.brand img { width: 34px; height: auto; }
-.brand .name { font-size: 26px; }
-nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-weight: 600; font-size: 15px; }
-nav a:hover { color: var(--text); }
-nav a.keep { color: var(--accent); }
-@media (max-width: 760px) { nav a:not(.keep) { display: none; } }
+/* top bar: stays at the top while you scroll, with a menu that jumps to each section */
+header.bar { position: sticky; top: 0; z-index: 50; background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 84%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent; transition: border-color .2s ease, box-shadow .2s ease; }
+header.bar.scrolled { border-bottom-color: var(--edge); box-shadow: 0 8px 24px var(--shadow); }
+header.bar .inner { display: flex; align-items: center; gap: 18px; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; flex-shrink: 0; }
+.brand img { width: 30px; height: auto; }
+.brand .name { font-size: 24px; }
+nav { flex: 1; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+nav a:first-child { margin-left: auto; }  /* sits right when it fits; never cuts off the first items when it doesn't */
+nav::-webkit-scrollbar { display: none; }
+nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14.5px; white-space: nowrap;
+  padding: 7px 10px; border-radius: 999px; transition: color .15s ease, background .15s ease; }
+nav a:hover { color: var(--text); background: var(--box); }
+nav a.on { color: var(--text); background: var(--box); box-shadow: inset 0 0 0 1px var(--edge); }
+.get { flex-shrink: 0; color: var(--button-text); text-decoration: none; font-weight: 700; font-size: 14.5px; padding: 8px 16px;
+  border-radius: 999px; background: linear-gradient(var(--button-top), var(--button-bottom)); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
+.get:hover { filter: brightness(1.08); }
+/* narrower screens: the menu becomes its own row you can swipe sideways */
+@media (max-width: 1180px) {
+  header.bar .inner { flex-wrap: wrap; row-gap: 8px; padding-bottom: 8px; }
+  .brand { flex: 1; }
+  nav { order: 3; flex: 1 1 100%; justify-content: flex-start; margin: 0 -8px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10px, #000 calc(100% - 26px), transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 10px, #000 calc(100% - 26px), transparent); }
+  nav a { padding: 6px 11px; font-size: 14px; }
+  nav a:first-child { margin-left: 0; }
+}
+/* jumping to a section leaves room for the bar */
+main section, main .hero { scroll-margin-top: 84px; }
+@media (max-width: 1180px) { main section, main .hero { scroll-margin-top: 120px; } }
 
 /* hero */
 .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 30px 0 40px; }
@@ -203,6 +226,29 @@ h2 .name { font-size: 1.1em; }
 .change ul { margin: 6px 0 0; padding-left: 20px; color: var(--muted); font-size: 15px; }
 details summary { cursor: pointer; color: var(--accent); font-weight: 600; margin-top: 14px; }
 
+/* questions: each one opens when you click it */
+.faq { display: grid; gap: 12px; max-width: 860px; }
+.faq details { background: var(--card); border: 1px solid var(--edge); border-radius: 18px; box-shadow: 0 8px 24px var(--shadow), inset 0 1px 0 var(--edge); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 18px 22px; margin: 0; color: var(--text); font-weight: 650; font-size: 17px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex-shrink: 0; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--box); border: 1px solid var(--edge); color: var(--accent); font-weight: 700; transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--accent); }
+.faq .answer { padding: 0 22px 18px; color: var(--muted); font-size: 15.5px; }
+.faq .answer p { margin: 0 0 8px; } .faq .answer p:last-child { margin-bottom: 0; }
+
+/* back to top: appears once you've scrolled down */
+.to-top { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer; border: 1px solid var(--edge); color: var(--text);
+  background: var(--card); box-shadow: 0 10px 28px var(--shadow);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s ease, transform .2s ease, color .15s ease; }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: var(--accent); }
+.to-top svg { width: 20px; height: 20px; }
+@media (max-width: 600px) { .to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; } }
+
 /* final call + footer */
 .final { text-align: center; padding: 76px 0; }
 .final .ghostmark { width: 120px; margin: 0 auto; filter: drop-shadow(0 0 22px var(--glow)); animation: float 5.5s ease-in-out infinite; }
@@ -234,21 +280,29 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
 
 <div class="beta-bar" role="note"><b>Free public beta.</b> Ghost Writer is new and still being polished: it works well, but you may run into the odd bug. <a href="#beta">What that means</a></div>
 
-<div class="wrap">
-  <header class="bar">
-    <a class="brand" href="#top" aria-label="Ghost Writer home">
+<header class="bar" id="bar">
+  <div class="wrap inner">
+    <a class="brand" href="#top" aria-label="Ghost Writer, back to the top">
       <img class="dark" src="assets/logo-dark.png" alt=""><img class="light" src="assets/logo-light.png" alt="">
       <span class="name">Ghost Writer</span>
     </a>
-    <nav>
+    <nav aria-label="Sections">
       <a href="#features">Features</a>
       <a href="#hey-ghost">Hey Ghost</a>
+      <a href="#everything">All features</a>
+      <a href="#modes" title="Standard and Advanced mode">Modes</a>
       <a href="#privacy">Privacy</a>
+      <a href="#beta">Beta</a>
       <a href="#install">Install</a>
-      <a class="keep" href="#download">Download</a>
+      <a href="#requirements">What you need</a>
+      <a href="#faq">FAQ</a>
+      <a href="#new">What's new</a>
     </nav>
-  </header>
+    <a class="get" href="#download">Download</a>
+  </div>
+</header>
 
+<div class="wrap">
   <main id="top">
     <div class="hero" id="download">
       <div>
@@ -301,7 +355,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       </div>
     </section>
 
-    <section>
+    <section id="smart" data-nav="features">
       <div class="feature flip">
         <div class="words">
           <span class="eyebrow">Smart</span>
@@ -317,7 +371,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       </div>
     </section>
 
-    <section>
+    <section id="rewrite" data-nav="features">
       <div class="feature">
         <div class="words">
           <span class="eyebrow">Rewrite</span>
@@ -366,7 +420,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       </div>
     </section>
 
-    <section>
+    <section id="learns" data-nav="features">
       <div class="feature">
         <div class="words">
           <span class="eyebrow">Learns</span>
@@ -385,7 +439,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       </div>
     </section>
 
-    <section>
+    <section id="stats" data-nav="features">
       <div class="feature flip">
         <div class="words">
           <span class="eyebrow">Your stats</span>
@@ -426,7 +480,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       </div>
     </section>
 
-    <section class="manifesto" id="ghost">
+    <section class="manifesto" id="ghost" data-nav="everything">
       <p class="big name">You are the Ghost.</p>
       <p>Ghost Writer is a transparent system. It listens only when you ask it to, turns your voice into text right here on your PC, and puts the words where your cursor is, in any app. Then it steps back. Nothing goes anywhere else.</p>
       <p>No cloud to send your words to. No account that knows who you are. No tracking, no ads, no BS. You write, and nobody watches. You are the Ghost.</p>
@@ -508,6 +562,65 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       <p class="why">Why the warning? Windows asks for a paid code-signing certificate before it recognises a new app's publisher; Ghost Writer doesn't have one yet. The installer and every update are checked against their published SHA-256 fingerprint: <code>bac6e2cba5d67bc01a12c60538b7948f9c134be1a94e584a78c68a963bc450b8</code></p>
     </section>
 
+    <section id="requirements">
+      <h2>What you need</h2>
+      <div class="grid">
+        <div class="card"><h3>Windows</h3><div class="item"><span class="mark">&#10003;</span><div><b>Windows 10 or 11, 64-bit</b><span>About 1 GB of space. Any processor from the last decade works; Speech accuracy in Settings suits older or faster PCs.</span></div></div></div>
+        <div class="card"><h3>A microphone</h3><div class="item"><span class="mark">&#10003;</span><div><b>Any microphone</b><span>Built-in, headset or USB. Windows must let desktop apps use it.</span></div></div></div>
+        <div class="card"><h3>For Advanced (optional)</h3><div class="item"><span class="mark">&#10003;</span><div><b>A graphics card: NVIDIA, AMD or Intel</b><span>With its own memory: 4 GB or more for the big speech model, 6 GB or more for smart formatting and rewriting too. Built-in graphics use Standard.</span></div></div></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Questions</h2>
+      <p class="lead">Quick answers to the things people ask most.</p>
+      <div class="faq">
+        <details>
+          <summary>Is it really free?</summary>
+          <div class="answer"><p>Yes. There's no subscription, no ads and no account to sign up for. Download it, install it and use everything, including Advanced mode if your PC has a graphics card for it.</p></div>
+        </details>
+        <details>
+          <summary>Does anything I say leave my PC?</summary>
+          <div class="answer"><p>No. Your voice is turned into text on your own PC, and nothing you say or write is uploaded, to us or anyone else. Dictation works with Wi-Fi switched off.</p>
+            <p>Ghost Writer only goes online to check for a new version (you can turn that off in Settings) and, if you choose it, to download Advanced mode.</p></div>
+        </details>
+        <details>
+          <summary>Why does Windows warn me when I install it?</summary>
+          <div class="answer"><p>Windows shows "Windows protected your PC" for new apps from publishers that haven't bought a paid code-signing certificate, and Ghost Writer doesn't have one yet. Click <b>More info</b>, then <b>Run anyway</b>. You'll only see it the first time.</p>
+            <p>Want to be sure it's the real file? Every installer has a published SHA-256 fingerprint, shown under <a href="#install">Installing</a>.</p></div>
+        </details>
+        <details>
+          <summary>Which apps does it work in?</summary>
+          <div class="answer"><p>Almost anywhere you can type: email, Word and Google Docs, chat apps, your browser, code editors and more. Your words appear wherever your cursor is. For your safety, it never types into or reads password boxes.</p></div>
+        </details>
+        <details>
+          <summary>Do I need a graphics card?</summary>
+          <div class="answer"><p>No. Standard mode works on any Windows 10 or 11 PC, using the processor. If your PC has an NVIDIA, AMD or Intel graphics card with its own memory, you can add Advanced mode for even better accuracy and AI rewriting. It's a one-time download from inside the app, only if you choose it.</p></div>
+        </details>
+        <details>
+          <summary>How do I get updates?</summary>
+          <div class="answer"><p>Ghost Writer checks for a new version each time it starts and offers it with one click. Your dictations, notes, dictionary and settings are kept. Everything that changed is listed under <a href="#new">What's new</a>.</p></div>
+        </details>
+        <details>
+          <summary>How do I uninstall it?</summary>
+          <div class="answer"><p>Open Windows <b>Settings</b>, then <b>Apps</b>, then <b>Installed apps</b> (on Windows 10: <b>Apps &amp; features</b>). Find Ghost Writer and choose <b>Uninstall</b>.</p>
+            <p>It asks whether to also delete your saved dictations, notes, dictionary and settings. Choose No to keep them in case you install it again.</p></div>
+        </details>
+        <details>
+          <summary>I found a bug, or I have an idea. Where do I tell you?</summary>
+          <div class="answer"><p>On the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>. Tell us what you were doing and what happened, but please never include anything private you dictated.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="final">
+      <img class="ghostmark dark" src="assets/logo-dark.png" alt=""><img class="ghostmark light" src="assets/logo-light.png" alt="">
+      <h2>Stop typing. Start talking.</h2>
+      <p class="lead" style="margin:0 auto 26px">Supercharge your PC in a minute. Free, private, and entirely yours.</p>
+      <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download Ghost Writer 5.2 beta</a>
+      <p class="meta">Be the Ghost.</p>
+    </section>
+
     <section id="new">
       <h2>What's new</h2>
       <p class="lead">Every update, in plain words. Ghost Writer checks for new versions each time it starts and offers them with one click.</p>
@@ -547,23 +660,6 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
 <div class="change"><b>Version 1.3 to 1.8</b><ul><li>Advanced mode: faster, more accurate speech recognition on NVIDIA graphics cards.</li><li>Smart formatting by a small AI that runs on your PC.</li><li>Choose your own keyboard shortcuts.</li><li>Faster hands-free, and automatic paragraphs.</li><li>Works on more PCs, with plain advice when something goes wrong.</li></ul></div>
 <div class="change"><b>Version 1.0 to 1.2</b><ul><li>The beginning: hold a shortcut, speak, and your words appear wherever you&#x27;re typing. Everything stays on your PC.</li></ul></div></div></details>
     </section>
-
-    <section id="requirements">
-      <h2>What you need</h2>
-      <div class="grid">
-        <div class="card"><h3>Windows</h3><div class="item"><span class="mark">&#10003;</span><div><b>Windows 10 or 11, 64-bit</b><span>About 1 GB of space. Any processor from the last decade works; Speech accuracy in Settings suits older or faster PCs.</span></div></div></div>
-        <div class="card"><h3>A microphone</h3><div class="item"><span class="mark">&#10003;</span><div><b>Any microphone</b><span>Built-in, headset or USB. Windows must let desktop apps use it.</span></div></div></div>
-        <div class="card"><h3>For Advanced (optional)</h3><div class="item"><span class="mark">&#10003;</span><div><b>A graphics card: NVIDIA, AMD or Intel</b><span>With its own memory: 4 GB or more for the big speech model, 6 GB or more for smart formatting and rewriting too. Built-in graphics use Standard.</span></div></div></div>
-      </div>
-    </section>
-
-    <section class="final">
-      <img class="ghostmark dark" src="assets/logo-dark.png" alt=""><img class="ghostmark light" src="assets/logo-light.png" alt="">
-      <h2>Stop typing. Start talking.</h2>
-      <p class="lead" style="margin:0 auto 26px">Supercharge your PC in a minute. Free, private, and entirely yours.</p>
-      <a class="download" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download Ghost Writer 5.2 beta</a>
-      <p class="meta">Be the Ghost.</p>
-    </section>
   </main>
 
   <footer>
@@ -574,6 +670,9 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
     </div>
   </footer>
 </div>
+<button class="to-top" id="to-top" type="button" aria-label="Back to the top" title="Back to the top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
   <div class="inside">
     <h3 id="ask-title">Download the Ghost Writer beta?</h3>
@@ -602,6 +701,39 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
   document.getElementById("ask-later").addEventListener("click", function () { ask.close(); });
   go.addEventListener("click", function () { setTimeout(function () { ask.close(); }, 300); });
   ask.addEventListener("click", function (event) { if (event.target === ask) ask.close(); });  // a click outside
+})();
+</script>
+<script>
+// The menu lights up the section you're reading (data-nav says which menu item a section belongs to).
+(function () {
+  var bar = document.getElementById("bar"), nav = bar.querySelector("nav");
+  var links = {}, sections = [], current = null, waiting = false, toTop = document.getElementById("to-top");
+  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  nav.querySelectorAll("a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  document.querySelectorAll("main section[id]").forEach(function (s) {
+    var key = s.getAttribute("data-nav") || s.id;
+    if (links[key]) sections.push({ el: s, link: links[key] });
+  });
+  function update() {
+    waiting = false;
+    var y = window.scrollY, line = bar.offsetHeight + 40, found = null;
+    bar.classList.toggle("scrolled", y > 8);
+    toTop.classList.toggle("show", y > window.innerHeight);
+    sections.forEach(function (s) { if (s.el.getBoundingClientRect().top <= line) found = s.link; });
+    if (window.innerHeight + y >= document.documentElement.scrollHeight - 4) found = sections[sections.length - 1].link;
+    if (found === current) return;
+    if (current) current.classList.remove("on");
+    current = found;
+    if (current) {
+      current.classList.add("on");
+      // on a phone, slide the menu so the lit item is in view
+      var left = current.offsetLeft - nav.offsetLeft, right = left + current.offsetWidth;
+      if (left < nav.scrollLeft || right > nav.scrollLeft + nav.clientWidth) nav.scrollTo({ left: left - 24, behavior: "smooth" });
+    }
+  }
+  window.addEventListener("scroll", function () { if (!waiting) { waiting = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 })();
 </script>
 <script>
