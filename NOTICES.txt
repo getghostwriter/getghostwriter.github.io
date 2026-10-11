@@ -49,6 +49,10 @@ pystray - GNU LGPL version 3            https://github.com/moses-palmer/pystray
   Used unmodified as a separate Python package (python\Lib\site-packages\pystray); you may
   replace it with your own copy. Source code is available at the address above.
 sounddevice - MIT License, with PortAudio (MIT License)   https://github.com/spatialaudio/python-sounddevice
+PyAudioWPatch (S0D3S) - Apache License 2.0; PortAudio (MIT License), with WASAPI speaker loopback support
+  https://github.com/s0d3s/PyAudioWPatch
+pywebrtc-audio - Apache License 2.0; bindings for WebRTC echo cancellation and noise suppression
+  https://github.com/strands-labs/pywebrtc-audio
 comtypes - MIT License                  https://github.com/enthought/comtypes
 tokenizers, huggingface_hub, hf-xet - Apache License 2.0 (Hugging Face)
   https://github.com/huggingface
