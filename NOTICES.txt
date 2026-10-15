@@ -54,14 +54,13 @@ PyAudioWPatch (S0D3S) - Apache License 2.0; PortAudio (MIT License), with WASAPI
 pywebrtc-audio - Apache License 2.0; bindings for WebRTC echo cancellation and noise suppression
   https://github.com/strands-labs/pywebrtc-audio
 comtypes - MIT License                  https://github.com/enthought/comtypes
-tokenizers, huggingface_hub, hf-xet - Apache License 2.0 (Hugging Face)
+tokenizers, huggingface_hub - Apache License 2.0 (Hugging Face)
   https://github.com/huggingface
-llama-cpp-python - MIT License          https://github.com/abetlen/llama-cpp-python
 Other Python packages used by the above: anyio (MIT), certifi (MPL-2.0), cffi (MIT-0),
-  click (BSD-3-Clause), colorama (BSD), diskcache (Apache 2.0), filelock (MIT),
+  click (BSD-3-Clause), colorama (BSD), filelock (MIT),
   flatbuffers (Apache 2.0), fsspec (BSD-3-Clause), h11 (MIT), httpcore (BSD-3-Clause),
-  httpx (BSD-3-Clause), idna (BSD-3-Clause), Jinja2 (BSD), MarkupSafe (BSD-3-Clause),
-  packaging (Apache 2.0 or BSD-2-Clause), pip (MIT), protobuf (BSD-3-Clause),
+  httpx (BSD-3-Clause), idna (BSD-3-Clause),
+  packaging (Apache 2.0 or BSD-2-Clause), protobuf (BSD-3-Clause),
   pycparser (BSD-3-Clause), PyYAML (MIT), six (MIT), tqdm (MPL-2.0 and MIT),
   typing_extensions (PSF-2.0)
 Microsoft Visual C++ runtime libraries - redistributed under the Microsoft Visual C++
