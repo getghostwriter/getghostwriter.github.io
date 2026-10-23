@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Ghost Media Hub</title>
+<meta name="description" content="Ghost Media Hub: a free video editor for Windows that runs entirely on your PC. Made by Ghost Media LLC.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e1014; --card: #151820; --box: #1a1e27; --border: #232834;
+  --text: #eef1f6; --muted: #a6afbf; --faint: #7e889b;
+  --accent: #6f8cff; --accent2: #b18cff; --fog: rgba(176,102,255,.10);
+  --button-top: #8aa0ff; --button-bottom: #5f78ee; --button-text: #0b0d12;
+  --edge: rgba(255,255,255,.10); --shadow: rgba(0,0,0,.45);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #e9ecf2; --card: #ffffff; --box: #f4f6fa; --border: #d3d8e2;
+    --text: #151a24; --muted: #4b5466; --faint: #646d80;
+    --accent: #3f5ee0; --accent2: #7445d6; --fog: rgba(63,178,255,.12);
+    --button-top: #6481ff; --button-bottom: #3f5ee0; --button-text: #ffffff;
+    --edge: rgba(24,34,60,.12); --shadow: rgba(24,34,60,.14);
+    color-scheme: light;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+a { color: var(--accent); }
+img { max-width: 100%; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.name { font-family: "Grenze Gotisch", "Old English Text MT", serif; font-weight: 800; letter-spacing: .5px; }
+.fog { position: fixed; inset: -20%; z-index: -1; pointer-events: none;
+  background: radial-gradient(40% 35% at 25% 30%, var(--fog), transparent 70%), radial-gradient(35% 30% at 75% 65%, var(--fog), transparent 70%); }
+header.bar { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 84%, transparent);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--edge); }
+header.bar .inner { display: flex; align-items: center; gap: 18px; padding-top: 12px; padding-bottom: 12px; }
+.brand { flex: 1; color: var(--text); text-decoration: none; font-size: 24px; }
+.back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 7px 12px; border-radius: 999px; }
+.back:hover { color: var(--text); background: var(--box); }
+.hero { text-align: center; padding: 48px 0 28px; }
+.hero h1 { font-size: clamp(40px, 7vw, 72px); line-height: 1.05; margin: 0 0 14px; color: var(--accent2); font-weight: 800; }
+.tagline { color: var(--muted); font-size: 19px; margin: 0 auto; max-width: 640px; }
+.shot { margin: 34px auto 0; max-width: 1040px; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--edge); box-shadow: 0 24px 60px var(--shadow); background: var(--card); }
+.shot img { display: block; width: 100%; height: auto; }
+.get-bar { margin: 40px auto 56px; max-width: 760px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  padding: 22px 26px; border-radius: 18px; background: var(--card); border: 1px solid var(--border); box-shadow: 0 10px 30px var(--shadow); }
+.get-bar .what { flex: 1; min-width: 220px; }
+.get-bar b { font-size: 19px; }
+.get-bar span { display: block; color: var(--faint); font-size: 14px; }
+.download { display: inline-flex; align-items: center; gap: 12px; padding: 14px 28px; border-radius: 999px;
+  background: linear-gradient(var(--button-top), var(--button-bottom)); color: var(--button-text);
+  font-weight: 700; font-size: 18px; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+  transition: transform .15s ease, filter .15s ease; }
+.download:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.download svg { width: 22px; height: 22px; }
+@media (max-width: 600px) { .get-bar { flex-direction: column; text-align: center; } .download { width: 100%; justify-content: center; } }
+.tour { display: grid; gap: 56px; margin: 0 0 64px; }
+.tour .row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 36px; align-items: center; }
+.tour .row:nth-child(even) .text { order: 2; }
+.tour h2 { font-size: 28px; line-height: 1.2; margin: 0 0 10px; }
+.tour p { color: var(--muted); margin: 0; font-size: 17px; }
+.tour .shot { margin: 0; }
+@media (max-width: 860px) { .tour .row { grid-template-columns: 1fr; gap: 18px; text-align: center; } .tour .row:nth-child(even) .text { order: 0; } }
+footer { color: var(--faint); font-size: 14px; text-align: center; padding: 0 0 40px; }
+</style>
+</head>
+<body>
+<div class="fog" aria-hidden="true"></div>
+<header class="bar">
+  <div class="wrap inner">
+    <a class="brand name" href="./">Ghost Media Hub</a>
+    <a class="back" href="../">Ghost Writer</a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1 class="name">Ghost Media Hub</h1>
+    <p class="tagline">A free video editor for Windows that runs entirely on your PC: cut, color, add text, music, transitions and captions, record your screen, then export. No cloud, no accounts.</p>
+    <div class="shot"><img src="../assets/screens/media-hub.webp" alt="Ghost Media Hub editing a video: media library, preview player and timeline" width="1440" height="900"></div>
+  </div>
+  <div class="get-bar" id="download">
+    <div class="what"><b>Ghost Media Hub 1.0.0</b><span>Free &middot; Windows 10 and 11 (64-bit)</span></div>
+    <a class="download" href="https://github.com/getghostwriter/ghost-editor/releases/latest/download/Ghost-Media-Hub-Setup.exe">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
+      Download
+    </a>
+  </div>
+  <div class="tour">
+    <div class="row">
+      <div class="text"><h2>Ghost Replay</h2><p>Always keeps the last minutes of your screens. Something great just happened? Press Alt+F10 and the last 30 seconds to 30 minutes are saved, even mid-game.</p></div>
+      <div class="shot"><img src="../assets/screens/media-hub-replay.webp" alt="Ghost Replay: rolling buffer, screens to record, buffer length and instant replay" width="1440" height="900" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="text"><h2>Record your screen</h2><p>Capture a whole screen or one window, with your PC's sound and your mic. The recording opens as a new project, ready to cut.</p></div>
+      <div class="shot"><img src="../assets/screens/media-hub-record.webp" alt="The screen recorder: pick a screen or window and sound sources" width="1440" height="900" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="text"><h2>Color and looks</h2><p>One-click film looks and filters, plus full color controls, previewed live on your clip.</p></div>
+      <div class="shot"><img src="../assets/screens/media-hub-color.webp" alt="The Filters tab with film looks applied to a clip" width="1440" height="900" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="text"><h2>Transitions</h2><p>Dozens of transitions. Hover one to preview it on your own clips, then drag it between them.</p></div>
+      <div class="shot"><img src="../assets/screens/media-hub-transitions.webp" alt="The Transitions tab next to the timeline" width="1440" height="900" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="text"><h2>Text and captions</h2><p>Styled titles, and automatic captions made on your PC that highlight each word as it's spoken.</p></div>
+      <div class="shot"><img src="../assets/screens/media-hub-text.webp" alt="The Text tab with title styles" width="1440" height="900" loading="lazy"></div>
+    </div>
+  </div>
+</main>
+<footer>Made by Ghost Media LLC</footer>
+</body>
+</html>
