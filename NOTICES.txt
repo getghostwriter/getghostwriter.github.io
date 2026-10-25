@@ -1,5 +1,5 @@
 Ghost Writer
-Copyright (c) 2026 Ghost Media LLC. All rights reserved.
+Copyright (c) 2026 Ghost Republic Media LLC. All rights reserved.
 
 Ghost Writer runs entirely on your PC. It is built on the open-source work below; thank you
 to their authors. Each is used under its own licence, named here with where to find it.
