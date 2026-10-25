@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ghost Writer (Beta): supercharge your PC</title>
-<meta name="description" content="Talk instead of type, in any app. Ghost Writer writes, fixes, rewrites and takes orders, entirely on your PC. Free for Windows. No cloud, no accounts, no tracking.">
+<meta name="description" content="Talk instead of type, in any app. Ghost Writer writes, fixes, rewrites and takes orders, entirely on your PC. Free for Windows, by invitation. No cloud, no tracking.">
 <meta property="og:title" content="Ghost Writer: supercharge your PC. Just talk.">
-<meta property="og:description" content="Dictate into any app, rewrite anything you select, and give your PC orders with \"Hey Ghost\". Free, private, entirely on your PC.">
+<meta property="og:description" content="Dictate into any app, rewrite anything you select, and give your PC orders with \"Hey Ghost\". Free by invitation, private, entirely on your PC.">
 <meta property="og:image" content="https://getghostwriter.github.io/assets/social-5.5.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -131,6 +131,11 @@ main section, main .hero { scroll-margin-top: 84px; }
   transition: transform .15s ease, filter .15s ease; }
 .download:hover { transform: translateY(-2px); filter: brightness(1.08); }
 .download svg { width: 22px; height: 22px; }
+/* Request access and Download side by side; Download is the quieter one (you need a key first) */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.final .actions { justify-content: center; }
+.download.second { background: var(--card); color: var(--text); border: 1px solid var(--border);
+  box-shadow: 0 6px 18px var(--shadow); }
 /* Request access form */
 .request-form { display: grid; gap: 14px; max-width: 640px; }
 .request-form label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
@@ -328,11 +333,17 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
         <p class="name title">Ghost Writer</p>
         <h1>Supercharge your PC. <em>Just talk.</em></h1>
         <p class="tagline">Talk instead of type, in any app. Ghost Writer writes what you say, tidies it, rewrites anything you select, learns how you write, and does what you ask: all on your own PC, privately, and free.</p>
-        <a class="download request" href="#request">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 9.2-9.2"/><path d="m17 6 3 3"/><path d="m15 8 2 2"/></svg>
-          Request access, free
-        </a>
-        <p class="meta">Have a key? <a class="download-link" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download Ghost Writer 6.7</a> &middot; 670 MB &middot; Windows 10 and 11 (64-bit)<br>
+        <div class="actions">
+          <a class="download request" href="#request">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 9.2-9.2"/><path d="m17 6 3 3"/><path d="m15 8 2 2"/></svg>
+            Request access, free
+          </a>
+          <a class="download second" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
+            Download
+          </a>
+        </div>
+        <p class="meta">Got your key? Download Ghost Writer 6.7 &middot; 670 MB &middot; Windows 10 and 11 (64-bit)<br>
           New here? <a href="#install">Windows may show a warning the first time: here's what to click.</a></p>
       </div>
       <div class="ghost">
@@ -344,8 +355,8 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
     <div class="proof">
       <div><b>3&times; faster</b><span>Most people speak about three times faster than they type.</span></div>
       <div><b>Any app</b><span>Email, docs, chat, browser, code: wherever your cursor is.</span></div>
-      <div><b>100% on your PC</b><span>No cloud, no account, works with Wi-Fi off.</span></div>
-      <div><b>Free</b><span>No subscription, no ads, no catch.</span></div>
+      <div><b>100% on your PC</b><span>No cloud: your voice and words never leave your PC.</span></div>
+      <div><b>Free</b><span>By invitation. No subscription, no ads.</span></div>
     </div>
 
     <div class="hero-shot shot">
@@ -510,7 +521,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       <div class="center">
         <span class="eyebrow">Everything it does</span>
         <h2>One small app. A whole new way to use your PC.</h2>
-        <p class="lead">Everything below is in the free download, and runs on your PC.</p>
+        <p class="lead">Everything below comes with your free access key, and runs on your PC.</p>
       </div>
       <div class="grid four">
         <div class="card"><div class="icon">&#127908;</div><h4>Push to talk</h4><p>Hold Ctrl+Win, speak, release. Typed where your cursor is.</p></div>
@@ -532,15 +543,15 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
         <div class="card"><div class="icon">&#127763;</div><h4>Dark and light</h4><p>Or follow Windows. Every screen, every multi-monitor setup.</p></div>
         <div class="card"><div class="icon">&#128295;</div><h4>Your own commands</h4><p>Make a Hey Ghost command: up to ten phrases that run one action.</p></div>
         <div class="card"><div class="icon">&#9881;</div><h4>Tidy Settings</h4><p>Fold the sections you do not use. Ghost Writer remembers.</p></div>
-        <div class="card"><div class="icon">&#128274;</div><h4>Private by design</h4><p>No cloud, no account, no tracking. Works offline.</p></div>
+        <div class="card"><div class="icon">&#128274;</div><h4>Private by design</h4><p>No cloud, no tracking. Works offline for days at a time.</p></div>
       </div>
     </section>
 
     <section class="manifesto" id="ghost" data-nav="everything">
       <p class="big name">You are the Ghost.</p>
       <p>Ghost Writer is a transparent system. It listens only when you ask it to, turns your voice into text right here on your PC, and puts the words where your cursor is, in any app. Then it steps back. Nothing goes anywhere else.</p>
-      <p>No cloud to send your words to. No account that knows who you are. No tracking, no ads, no BS. You write, and nobody watches. You are the Ghost.</p>
-      <p><span class="pill">Works in any app</span><span class="pill">Works with Wi-Fi off</span><span class="pill">No sign-up</span><span class="pill">Free</span></p>
+      <p>No cloud to send your words to. No tracking, no ads, no BS. You write, and nobody watches. You are the Ghost.</p>
+      <p><span class="pill">Works in any app</span><span class="pill">Works with Wi-Fi off</span><span class="pill">No ads</span><span class="pill">Free, by invitation</span></p>
     </section>
 
     <section id="modes">
@@ -574,7 +585,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
         <div class="card">
           <h3>Your privacy</h3>
           <div class="item"><span class="mark">&#10003;</span><div><b>Offline by design</b><span>Dictation works fully with Wi-Fi off, for up to 3 days between key checks. Ghost Writer only goes online to check your access key, to check for a new version and, if you choose, to download Advanced mode.</span></div></div>
-          <div class="item"><span class="mark">&#10003;</span><div><b>No cloud, no tracking</b><span>Your voice and words are never uploaded. Just an access key: no sign-up, no ads, no analytics. Nobody, including us, sees what you say.</span></div></div>
+          <div class="item"><span class="mark">&#10003;</span><div><b>No cloud, no tracking</b><span>Your voice and words are never uploaded. No ads, no analytics. The name and email you give to request a key are used only to send it. Nobody, including us, sees what you say.</span></div></div>
           <div class="item"><span class="mark">&#10003;</span><div><b>Hands off what isn't yours</b><span>It never reads password boxes. Screen context, if you turn it on, skips private windows and password managers too, and keeps what it reads in memory only, never saved or sent. Rewrite reads only the text you select, and changes it only if you choose Replace. Always listening acts only on "Hey Ghost" and keeps nothing it hears.</span></div></div>
         </div>
         <div class="card">
@@ -693,7 +704,10 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
       <img class="ghostmark dark" src="assets/logo-dark.png" alt=""><img class="ghostmark light" src="assets/logo-light.png" alt="">
       <h2>Stop typing. Start talking.</h2>
       <p class="lead" style="margin:0 auto 26px">Supercharge your PC. Free, private, and entirely yours.</p>
-      <a class="download request" href="#request">Request access</a>
+      <div class="actions">
+        <a class="download request" href="#request">Request access</a>
+        <a class="download second" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download Ghost Writer 6.7</a>
+      </div>
     </section>
 
     <section id="new">
@@ -755,7 +769,7 @@ dialog.ask .download { font-size: 16px; padding: 11px 22px; }
   <footer>
     <div class="row">
       <div>&copy; 2026 Ghost Republic Media LLC &middot; Ghost Writer 6.7 beta</div>
-      <div><a href="NOTICES.txt">Open-source credits</a> &middot; <a href="https://github.com/getghostwriter/getghostwriter.github.io/releases">All downloads</a> &middot;
+      <div><a href="NOTICES.txt">Open-source credits</a> &middot;
         <button class="theme-toggle" id="theme" type="button">Theme: auto</button></div>
     </div>
   </footer>
