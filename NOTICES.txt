@@ -74,6 +74,13 @@ Nuitka (Kay Hayen) - Apache License 2.0: turns the app's code into one compiled 
   small runtime parts it adds to that file are covered by the same licence
   https://nuitka.net/
 
+
+THE WEBSITE (ghostmediaworks.com, not part of the app)
+
+GSAP and its MotionPath plugin (GreenSock) - GSAP Standard "No Charge" License: plays the
+  opening animation on the website, served from the website itself
+  https://gsap.com/standard-license
+
 The full licence texts are in the licenses folder next to this file (Apache-2.0, MIT,
 OFL-1.1, zlib); Python's is python\LICENSE.txt, and each Python package's is in its folder
 under python\Lib\site-packages (the *.dist-info folders). The Advanced pack carries the
