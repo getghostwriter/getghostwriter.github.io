@@ -1,5 +1,5 @@
 Ghost Writer
-Copyright (c) 2026 Ghost Republic Media LLC. All rights reserved.
+Copyright (c) 2026 Ghost Media Works. All rights reserved.
 
 Ghost Writer runs entirely on your PC. It is built on the open-source work below; thank you
 to their authors. Each is used under its own licence, named here with where to find it.
@@ -14,12 +14,15 @@ Whisper speech-recognition models (OpenAI) - MIT License
   https://huggingface.co/Systran/faster-whisper-tiny.en
   https://huggingface.co/Systran/faster-whisper-small.en
   https://huggingface.co/mobiuslabsgmbh/faster-whisper-large-v3-turbo
-faster-whisper (SYSTRAN) - MIT License, including the Silero VAD model (MIT)
+faster-whisper (SYSTRAN) - MIT License, including the Silero VAD model (Silero Team, MIT)
   https://github.com/SYSTRAN/faster-whisper
+  https://github.com/snakers4/silero-vad
 CTranslate2 (OpenNMT) - MIT License
   https://github.com/OpenNMT/CTranslate2
 Qwen3.5-4B (Alibaba Cloud, Qwen team) - Apache License 2.0   [Advanced mode only]
   https://huggingface.co/Qwen/Qwen3.5-4B
+  Used as a Q4_K_M GGUF file (a smaller copy of the same model made with llama.cpp's tools); its
+  licence file comes with the Advanced pack, next to the model
 llama.cpp and ggml (the ggml authors) - MIT License   [Advanced mode only]
   https://github.com/ggml-org/llama.cpp
   Includes the LLVM OpenMP runtime (Apache License 2.0 with LLVM Exceptions)
@@ -67,6 +70,11 @@ Microsoft Visual C++ runtime libraries - redistributed under the Microsoft Visua
   Redistributable licence
 Grenze Gotisch font (Omnibus-Type) - SIL Open Font License 1.1
   https://fonts.google.com/specimen/Grenze+Gotisch
+Nuitka (Kay Hayen) - Apache License 2.0: turns the app's code into one compiled file; the
+  small runtime parts it adds to that file are covered by the same licence
+  https://nuitka.net/
 
-The full licence texts are on the pages above, and for Python packages in their folders
-under python\Lib\site-packages (the *.dist-info folders).
+The full licence texts are in the licenses folder next to this file (Apache-2.0, MIT,
+OFL-1.1, zlib); Python's is python\LICENSE.txt, and each Python package's is in its folder
+under python\Lib\site-packages (the *.dist-info folders). The Advanced pack carries the
+NVIDIA and Qwen licence files beside the parts they cover.
