@@ -1,0 +1,276 @@
+<!doctype html>
+<!--
+  Ghost Writer boot splash: the logo reveal the app plays while it pre-renders its pages (6.8).
+  Style after the owner's reference reel (francois_dvr, 2026-10): the mark's outline draws on, an
+  oversized blurred body sweeps in and shrinks into it, the eyes light with a bloom, the name slides
+  out letter by letter, the lockup settles and holds. The final frame is the app's own logo
+  (assets/ghost-*-{halo,body,eyes}.png come from ui_art, see dev/design/boot-splash/README.md).
+-->
+<html
+  lang="en"
+  data-composition-variables='[
+    { "id": "bg", "type": "color", "label": "Background", "default": "#0f1116" },
+    { "id": "accent", "type": "color", "label": "Indigo", "default": "#8f91ff" },
+    { "id": "halo_src", "type": "string", "label": "Halo picture", "default": "assets/ghost-dark-halo.png" },
+    { "id": "body_src", "type": "string", "label": "Body picture", "default": "assets/ghost-dark-body.png" },
+    { "id": "eyes_src", "type": "string", "label": "Eyes picture", "default": "assets/ghost-dark-eyes.png" }
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=480, height=480" />
+    <script src="/assets/vendor/gsap/gsap.min.js"></script>
+    <script src="/assets/vendor/gsap/MotionPathPlugin.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Grenze Gotisch";
+        src: url("/assets/fonts/GrenzeGotisch-ExtraBold.ttf") format("truetype");
+        font-weight: 800;
+        font-style: normal;
+      }
+      :root {
+        --bg: #0f1116;
+        --accent: #8f91ff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 480px;
+        height: 480px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #root {
+        position: relative;
+        width: 480px;
+        height: 480px;
+        overflow: hidden;
+      }
+      #ground {
+        position: absolute;
+        inset: 0;
+        background: var(--bg);
+      }
+      #lockup {
+        position: absolute;
+        inset: 0;
+      }
+      #stage {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+      /* The ghost's body box: 574 x 800 drawn at 0.275 = 157.85 x 220, centred on (240, 196). */
+      #ghost {
+        position: absolute;
+        left: 161.075px;
+        top: 86px;
+        width: 157.85px;
+        height: 220px;
+        will-change: transform, filter, opacity;
+      }
+      #ghost img {
+        position: absolute;
+        display: block;
+      }
+      #halo {
+        left: -26.4px;
+        top: -26.4px;
+        width: 210.65px;
+        height: 272.8px;
+        opacity: 0;
+      }
+      #body,
+      #eyes {
+        left: 0;
+        top: 0;
+        width: 157.85px;
+        height: 220px;
+      }
+      #eyes {
+        opacity: 0;
+      }
+      #flash {
+        position: absolute;
+        left: 23px;
+        top: 20px;
+        width: 112px;
+        height: 76px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, #ffffff 0%, var(--accent) 30%, transparent 72%);
+        mix-blend-mode: screen;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+      #trace {
+        position: absolute;
+        left: 161.075px;
+        top: 86px;
+        width: 157.85px;
+        height: 220px;
+        overflow: visible;
+      }
+      .trace-line,
+      .trace-glow {
+        fill: none;
+        stroke: var(--accent);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .trace-line {
+        stroke-width: 9;
+      }
+      .trace-glow {
+        stroke-width: 26;
+        opacity: 0.35;
+        filter: blur(6px);
+      }
+      .tip {
+        opacity: 0;
+      }
+      #name {
+        position: absolute;
+        left: 0;
+        width: 480px;
+        top: 336px;
+        text-align: center;
+        white-space: nowrap;
+        font-family: "Grenze Gotisch", serif;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 1.1;
+        color: var(--accent);
+      }
+      .l {
+        display: inline-block;
+        will-change: transform, opacity, filter;
+      }
+      .gap {
+        width: 0.26em;
+      }
+    
+      html, body { width: 100%; height: 100%; background: transparent; overflow: hidden; }
+      #ground { display: none; }
+      #root { position: absolute; overflow: visible; }
+    </style>
+    <script>
+      window.__timelines = {};
+      function introFit() {
+        var f = [0.9, 0.75, 1.0], s = Math.min(innerWidth * f[0], innerHeight * f[1], 480 * f[2]) / 480;
+        var root = document.getElementById("root");
+        root.style.zoom = s;
+        root.style.left = (innerWidth - 480 * s) / 2 / s + "px";
+        root.style.top = (innerHeight - 480 * s) / 2 / s + "px";
+      }
+      addEventListener("DOMContentLoaded", introFit);
+      addEventListener("resize", introFit);
+    </script>
+  </head>
+  <body>
+    <div data-hf-id="hf-j50k"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="3"
+      data-width="480"
+      data-height="480"
+      data-fps="30"
+    >
+      <div data-hf-id="hf-7hg0" id="ground"></div>
+      <div data-hf-id="hf-02x8" id="lockup" class="clip" data-start="0" data-duration="3" data-track-index="0" data-layout-allow-overflow>
+        <div data-hf-id="hf-1rt5" id="stage">
+          <div data-hf-id="hf-lyo6" id="ghost">
+            <img data-hf-id="hf-a6ex" id="halo" src="/assets/intro/ghost-halo.webp" alt="" / width="766" height="992">
+            <img data-hf-id="hf-9gnv" id="body" src="/assets/intro/ghost-body.webp" alt="" / width="574" height="800">
+            <img data-hf-id="hf-tlxh" id="eyes" src="/assets/intro/ghost-eyes.webp" alt="" / width="574" height="800">
+            <div data-hf-id="hf-hmg5" id="flash"></div>
+          </div>
+          <svg data-hf-id="hf-1znf" id="trace" viewBox="0 0 574 800" aria-hidden="true">
+            <defs data-hf-id="hf-mh0t">
+              <radialGradient data-hf-id="hf-0hsx" id="tip-light">
+                <stop data-hf-id="hf-7b67" offset="0%" stop-color="#ffffff" />
+                <stop data-hf-id="hf-6a2m" offset="35%" stop-color="var(--accent)" />
+                <stop data-hf-id="hf-i0zk" offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <path data-hf-id="hf-56wm" id="glow-right" class="trace-glow" d="M275.0,-0.5 L299.0,-0.5 L300.0,0.5 L319.0,1.5 L320.0,2.5 L328.0,3.5 L329.0,4.5 L333.0,4.5 L334.0,5.5 L348.0,9.5 L371.0,21.5 L388.0,33.5 L401.0,45.5 L409.5,55.0 L420.5,71.0 L427.5,85.0 L427.5,87.0 L429.5,90.0 L429.5,92.0 L433.5,102.0 L433.5,105.0 L435.5,110.0 L435.5,114.0 L436.5,115.0 L436.5,119.0 L437.5,120.0 L437.5,125.0 L438.5,126.0 L438.5,133.0 L439.5,134.0 L439.5,162.0 L440.5,163.0 L440.5,263.0 L441.5,264.0 L442.5,275.0 L443.5,276.0 L443.5,279.0 L446.5,286.0 L446.5,288.0 L451.5,299.0 L453.5,301.0 L455.5,306.0 L459.5,312.0 L468.5,323.0 L470.5,327.0 L488.5,350.0 L490.5,354.0 L520.5,393.0 L522.5,397.0 L528.5,404.0 L540.5,421.0 L549.5,432.0 L551.5,436.0 L563.5,451.0 L567.5,458.0 L570.5,461.0 L573.5,468.0 L573.5,473.0 L570.5,480.0 L558.5,498.0 L555.5,501.0 L547.5,514.0 L544.5,517.0 L540.5,524.0 L537.5,527.0 L532.5,535.0 L524.0,543.5 L522.5,543.0 L522.5,541.0 L521.5,540.0 L522.5,496.0 L520.0,491.5 L516.0,491.5 L508.5,499.0 L508.5,500.0 L484.5,528.0 L472.5,545.0 L468.5,553.0 L467.5,560.0 L466.5,561.0 L466.5,569.0 L467.5,570.0 L467.5,574.0 L476.5,593.0 L475.5,599.0 L472.5,604.0 L468.5,608.0 L462.5,617.0 L458.5,621.0 L443.5,641.0 L441.5,645.0 L438.5,648.0 L421.5,673.0 L409.0,688.5 L406.5,688.0 L406.5,685.0 L405.5,684.0 L405.5,661.0 L404.5,660.0 L404.5,647.0 L403.5,646.0 L403.5,644.0 L400.0,639.5 L397.0,639.5 L393.5,643.0 L392.5,648.0 L390.5,651.0 L388.5,659.0 L387.5,660.0 L387.5,662.0 L386.5,663.0 L386.5,665.0 L378.5,687.0 L378.5,689.0 L376.5,692.0 L375.5,697.0 L373.5,700.0 L373.5,702.0 L367.5,715.0 L367.5,717.0 L360.5,731.0 L360.5,733.0 L349.5,755.0 L347.5,757.0 L343.5,766.0 L341.5,768.0 L337.5,776.0 L333.5,781.0 L332.5,784.0 L326.5,793.0 L321.0,797.5" />
+            <path data-hf-id="hf-x6tx" id="glow-left" class="trace-glow" d="M275.0,-0.5 L274.0,0.5 L260.0,0.5 L259.0,1.5 L252.0,1.5 L251.0,2.5 L247.0,2.5 L239.0,5.5 L236.0,5.5 L233.0,7.5 L225.0,9.5 L220.0,12.5 L218.0,12.5 L198.0,23.5 L187.0,31.5 L183.0,35.5 L182.0,35.5 L166.5,51.0 L152.5,70.0 L143.5,88.0 L140.5,99.0 L138.5,103.0 L137.5,110.0 L136.5,111.0 L136.5,115.0 L135.5,116.0 L135.5,120.0 L134.5,121.0 L134.5,127.0 L133.5,128.0 L133.5,137.0 L132.5,138.0 L132.5,258.0 L131.5,259.0 L131.5,269.0 L130.5,270.0 L130.5,274.0 L129.5,275.0 L129.5,278.0 L128.5,279.0 L128.5,282.0 L126.5,286.0 L126.5,288.0 L123.5,293.0 L123.5,295.0 L121.5,299.0 L119.5,301.0 L118.5,304.0 L112.5,313.0 L3.5,458.0 L-0.5,467.0 L-0.5,475.0 L3.5,484.0 L11.5,496.0 L14.5,499.0 L22.5,512.0 L25.5,515.0 L29.5,522.0 L32.5,525.0 L34.5,529.0 L47.5,543.0 L48.0,544.5 L50.5,543.0 L50.5,539.0 L51.5,538.0 L51.5,536.0 L50.5,535.0 L50.5,495.0 L54.0,490.5 L56.0,490.5 L72.5,509.0 L72.5,510.0 L88.5,529.0 L100.5,545.0 L104.5,553.0 L104.5,556.0 L105.5,557.0 L105.5,572.0 L103.5,576.0 L103.5,578.0 L101.5,581.0 L101.5,583.0 L96.5,591.0 L96.5,598.0 L156.5,681.0 L164.0,687.5 L165.5,687.0 L167.5,682.0 L167.5,650.0 L168.5,649.0 L168.5,646.0 L174.0,639.5 L175.0,639.5 L178.5,643.0 L180.5,647.0 L180.5,649.0 L182.5,652.0 L183.5,657.0 L185.5,660.0 L187.5,668.0 L189.5,671.0 L192.5,682.0 L194.5,685.0 L196.5,693.0 L198.5,696.0 L200.5,704.0 L204.5,712.0 L205.5,717.0 L209.5,725.0 L211.5,732.0 L218.5,745.0 L218.5,747.0 L221.5,751.0 L230.5,769.0 L237.5,779.0 L238.5,782.0 L246.5,794.0 L253.0,799.5 L253.5,791.0 L254.5,790.0 L254.5,594.0 L255.5,593.0 L255.5,590.0 L257.5,587.0 L259.0,585.5 L261.0,585.5 L263.5,588.0 L270.5,635.0 L272.5,639.0 L272.5,642.0 L275.5,648.0 L275.5,650.0 L279.5,657.0 L279.5,659.0 L285.0,663.5 L289.0,662.5 L293.5,658.0 L299.5,646.0 L299.5,642.0 L300.5,641.0 L301.5,632.0 L302.5,631.0 L302.5,626.0 L303.5,625.0 L303.5,621.0 L304.5,620.0 L304.5,615.0 L305.5,614.0 L305.5,609.0 L306.5,608.0 L306.5,603.0 L307.5,602.0 L308.5,590.0 L309.5,588.0 L311.0,586.5 L314.0,586.5 L315.5,588.0 L315.5,590.0 L317.5,594.0 L317.5,611.0 L318.5,612.0 L318.5,721.0 L317.5,722.0 L317.5,780.0 L318.5,781.0 L318.5,794.0 L321.0,797.5" />
+            <path data-hf-id="hf-v11u" id="line-right" class="trace-line" d="M275.0,-0.5 L299.0,-0.5 L300.0,0.5 L319.0,1.5 L320.0,2.5 L328.0,3.5 L329.0,4.5 L333.0,4.5 L334.0,5.5 L348.0,9.5 L371.0,21.5 L388.0,33.5 L401.0,45.5 L409.5,55.0 L420.5,71.0 L427.5,85.0 L427.5,87.0 L429.5,90.0 L429.5,92.0 L433.5,102.0 L433.5,105.0 L435.5,110.0 L435.5,114.0 L436.5,115.0 L436.5,119.0 L437.5,120.0 L437.5,125.0 L438.5,126.0 L438.5,133.0 L439.5,134.0 L439.5,162.0 L440.5,163.0 L440.5,263.0 L441.5,264.0 L442.5,275.0 L443.5,276.0 L443.5,279.0 L446.5,286.0 L446.5,288.0 L451.5,299.0 L453.5,301.0 L455.5,306.0 L459.5,312.0 L468.5,323.0 L470.5,327.0 L488.5,350.0 L490.5,354.0 L520.5,393.0 L522.5,397.0 L528.5,404.0 L540.5,421.0 L549.5,432.0 L551.5,436.0 L563.5,451.0 L567.5,458.0 L570.5,461.0 L573.5,468.0 L573.5,473.0 L570.5,480.0 L558.5,498.0 L555.5,501.0 L547.5,514.0 L544.5,517.0 L540.5,524.0 L537.5,527.0 L532.5,535.0 L524.0,543.5 L522.5,543.0 L522.5,541.0 L521.5,540.0 L522.5,496.0 L520.0,491.5 L516.0,491.5 L508.5,499.0 L508.5,500.0 L484.5,528.0 L472.5,545.0 L468.5,553.0 L467.5,560.0 L466.5,561.0 L466.5,569.0 L467.5,570.0 L467.5,574.0 L476.5,593.0 L475.5,599.0 L472.5,604.0 L468.5,608.0 L462.5,617.0 L458.5,621.0 L443.5,641.0 L441.5,645.0 L438.5,648.0 L421.5,673.0 L409.0,688.5 L406.5,688.0 L406.5,685.0 L405.5,684.0 L405.5,661.0 L404.5,660.0 L404.5,647.0 L403.5,646.0 L403.5,644.0 L400.0,639.5 L397.0,639.5 L393.5,643.0 L392.5,648.0 L390.5,651.0 L388.5,659.0 L387.5,660.0 L387.5,662.0 L386.5,663.0 L386.5,665.0 L378.5,687.0 L378.5,689.0 L376.5,692.0 L375.5,697.0 L373.5,700.0 L373.5,702.0 L367.5,715.0 L367.5,717.0 L360.5,731.0 L360.5,733.0 L349.5,755.0 L347.5,757.0 L343.5,766.0 L341.5,768.0 L337.5,776.0 L333.5,781.0 L332.5,784.0 L326.5,793.0 L321.0,797.5" />
+            <path data-hf-id="hf-s3qd" id="line-left" class="trace-line" d="M275.0,-0.5 L274.0,0.5 L260.0,0.5 L259.0,1.5 L252.0,1.5 L251.0,2.5 L247.0,2.5 L239.0,5.5 L236.0,5.5 L233.0,7.5 L225.0,9.5 L220.0,12.5 L218.0,12.5 L198.0,23.5 L187.0,31.5 L183.0,35.5 L182.0,35.5 L166.5,51.0 L152.5,70.0 L143.5,88.0 L140.5,99.0 L138.5,103.0 L137.5,110.0 L136.5,111.0 L136.5,115.0 L135.5,116.0 L135.5,120.0 L134.5,121.0 L134.5,127.0 L133.5,128.0 L133.5,137.0 L132.5,138.0 L132.5,258.0 L131.5,259.0 L131.5,269.0 L130.5,270.0 L130.5,274.0 L129.5,275.0 L129.5,278.0 L128.5,279.0 L128.5,282.0 L126.5,286.0 L126.5,288.0 L123.5,293.0 L123.5,295.0 L121.5,299.0 L119.5,301.0 L118.5,304.0 L112.5,313.0 L3.5,458.0 L-0.5,467.0 L-0.5,475.0 L3.5,484.0 L11.5,496.0 L14.5,499.0 L22.5,512.0 L25.5,515.0 L29.5,522.0 L32.5,525.0 L34.5,529.0 L47.5,543.0 L48.0,544.5 L50.5,543.0 L50.5,539.0 L51.5,538.0 L51.5,536.0 L50.5,535.0 L50.5,495.0 L54.0,490.5 L56.0,490.5 L72.5,509.0 L72.5,510.0 L88.5,529.0 L100.5,545.0 L104.5,553.0 L104.5,556.0 L105.5,557.0 L105.5,572.0 L103.5,576.0 L103.5,578.0 L101.5,581.0 L101.5,583.0 L96.5,591.0 L96.5,598.0 L156.5,681.0 L164.0,687.5 L165.5,687.0 L167.5,682.0 L167.5,650.0 L168.5,649.0 L168.5,646.0 L174.0,639.5 L175.0,639.5 L178.5,643.0 L180.5,647.0 L180.5,649.0 L182.5,652.0 L183.5,657.0 L185.5,660.0 L187.5,668.0 L189.5,671.0 L192.5,682.0 L194.5,685.0 L196.5,693.0 L198.5,696.0 L200.5,704.0 L204.5,712.0 L205.5,717.0 L209.5,725.0 L211.5,732.0 L218.5,745.0 L218.5,747.0 L221.5,751.0 L230.5,769.0 L237.5,779.0 L238.5,782.0 L246.5,794.0 L253.0,799.5 L253.5,791.0 L254.5,790.0 L254.5,594.0 L255.5,593.0 L255.5,590.0 L257.5,587.0 L259.0,585.5 L261.0,585.5 L263.5,588.0 L270.5,635.0 L272.5,639.0 L272.5,642.0 L275.5,648.0 L275.5,650.0 L279.5,657.0 L279.5,659.0 L285.0,663.5 L289.0,662.5 L293.5,658.0 L299.5,646.0 L299.5,642.0 L300.5,641.0 L301.5,632.0 L302.5,631.0 L302.5,626.0 L303.5,625.0 L303.5,621.0 L304.5,620.0 L304.5,615.0 L305.5,614.0 L305.5,609.0 L306.5,608.0 L306.5,603.0 L307.5,602.0 L308.5,590.0 L309.5,588.0 L311.0,586.5 L314.0,586.5 L315.5,588.0 L315.5,590.0 L317.5,594.0 L317.5,611.0 L318.5,612.0 L318.5,721.0 L317.5,722.0 L317.5,780.0 L318.5,781.0 L318.5,794.0 L321.0,797.5" />
+            <circle data-hf-id="hf-avhg" id="tip-right" class="tip" r="22" fill="url(#tip-light)" />
+            <circle data-hf-id="hf-46vl" id="tip-left" class="tip" r="22" fill="url(#tip-light)" />
+          </svg>
+          <div data-hf-id="hf-ju13" id="name" aria-label="Ghost Writer">
+            <span data-hf-id="hf-eh6c" class="l">G</span><span data-hf-id="hf-ytpl" class="l">h</span><span data-hf-id="hf-yfek" class="l">o</span><span data-hf-id="hf-372w" class="l">s</span><span data-hf-id="hf-0exp" class="l">t</span><span data-hf-id="hf-85gn" class="l gap"></span><span data-hf-id="hf-ku2s" class="l">W</span><span data-hf-id="hf-2srv" class="l">r</span><span data-hf-id="hf-z80m" class="l">i</span><span data-hf-id="hf-2ilt" class="l">t</span><span data-hf-id="hf-qed6" class="l">e</span><span data-hf-id="hf-6dcb" class="l">r</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        "use strict";
+        gsap.registerPlugin(MotionPathPlugin);
+        var vars = window.__hyperframes && window.__hyperframes.getVariables ? window.__hyperframes.getVariables() : {};
+        if (vars.bg) document.documentElement.style.setProperty("--bg", vars.bg);
+        if (vars.accent) document.documentElement.style.setProperty("--accent", vars.accent);
+
+        var right = document.getElementById("line-right");
+        var left = document.getElementById("line-left");
+        var strokes = [right, left, document.getElementById("glow-right"), document.getElementById("glow-left")];
+        strokes.forEach(function (p) {
+          var len = p.getTotalLength();
+          p.style.strokeDasharray = len + " " + len;
+          p.style.strokeDashoffset = String(len);
+        });
+
+        var tl = gsap.timeline({ paused: true });
+        gsap.set("#stage", { transformOrigin: "50% 50%" });
+        gsap.set("#ghost", { transformOrigin: "50% 50%" });
+        gsap.set("#flash", { transformOrigin: "50% 50%" });
+
+        // 1. The outline draws on from the top of the head, down both sides, two lit tips leading.
+        var TRACE = 0.85;
+        tl.to(strokes, { strokeDashoffset: 0, duration: TRACE, ease: "power2.inOut" }, 0.02);
+        tl.to("#tip-right", { motionPath: { path: right, align: right, alignOrigin: [0.5, 0.5] }, duration: TRACE, ease: "power2.inOut" }, 0.02);
+        tl.to("#tip-left", { motionPath: { path: left, align: left, alignOrigin: [0.5, 0.5] }, duration: TRACE, ease: "power2.inOut" }, 0.02);
+        tl.to(".tip", { opacity: 1, duration: 0.1, ease: "power2.out" }, 0.02);
+        tl.to(".tip", { opacity: 0, duration: 0.12, ease: "power2.in" }, 0.02 + TRACE - 0.04);
+
+        // 2. The sweep: the body arrives huge and blurred from the top left and shrinks into the outline.
+        tl.fromTo(
+          "#ghost",
+          { scale: 4.2, x: -230, y: -300, rotation: -12, opacity: 0 },
+          { scale: 1, x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+          0.72
+        );
+        tl.fromTo("#ghost", { filter: "blur(22px)" }, { filter: "blur(0px)", duration: 0.75, ease: "power3.out" }, 0.72);
+
+        // 3. The eyes light with a flash, the outline gives way to the body's own rim, the glow blooms.
+        tl.to("#eyes", { opacity: 1, duration: 0.12, ease: "power4.out" }, 1.38);
+        tl.fromTo("#flash", { opacity: 0, scale: 0.5 }, { opacity: 0.9, scale: 1, duration: 0.08, ease: "power2.out" }, 1.38);
+        tl.to("#flash", { opacity: 0, scale: 1.9, duration: 0.42, ease: "power3.out" }, 1.46);
+        tl.to(".trace-line, .trace-glow", { opacity: 0, duration: 0.25, ease: "power2.out" }, 1.4);
+        tl.to("#halo", { opacity: 1, duration: 0.5, ease: "power2.out" }, 1.42);
+
+        // 4. The name slides out from the middle, letter by letter, the spacing tightening as it lands.
+        tl.fromTo(
+          ".l",
+          { opacity: 0, x: function (i) { return (i - 5.5) * 16; }, filter: "blur(6px)" },
+          { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", stagger: { each: 0.035, from: "center" } },
+          1.55
+        );
+
+        // 5. The lockup settles to its final size and holds; the last frame is the app's own logo.
+        tl.fromTo("#stage", { scale: 1.06 }, { scale: 1, duration: 0.45, ease: "power2.inOut" }, 2.4);
+
+        window.__timelines["main"] = tl;
+        tl.seek(0);
+      })();
+    </script>
+  </body>
+</html>
