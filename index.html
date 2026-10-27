@@ -3,887 +3,207 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ghost Writer (Beta): supercharge your PC</title>
-<meta name="description" content="Talk instead of type, in any app. Ghost Writer writes, fixes, rewrites and takes orders, entirely on your PC. Free for Windows, by invitation. No cloud, no tracking.">
-<meta property="og:title" content="Ghost Writer: supercharge your PC. Just talk.">
-<meta property="og:description" content="Dictate into any app, rewrite anything you select, and give your PC orders with \"Hey Ghost\". Free by invitation, private, entirely on your PC.">
-<meta property="og:image" content="https://getghostwriter.github.io/assets/social-5.5.png">
+<title>Ghost Media Works: private software that runs on your PC</title>
+<meta name="description" content="Ghost Media Works makes private software for Windows that runs on your own PC. Ghost Writer, voice typing for Windows, is free by invitation. Ghost Media Hub is coming soon.">
+<link rel="canonical" href="https://ghostmediaworks.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ghost Media Works">
+<meta property="og:title" content="Ghost Media Works">
+<meta property="og:description" content="Ghost Media Works makes private software for Windows that runs on your own PC. Ghost Writer, voice typing for Windows, is free by invitation. Ghost Media Hub is coming soon.">
+<meta property="og:url" content="https://ghostmediaworks.com/">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ghost Writer. Supercharge your PC. Just talk. Free, private, and entirely yours.">
+<meta property="og:image:alt" content="Ghost Media Works: private software that runs on your PC.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0e1014">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@800&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #0e1014; --card: #151820; --box: #1a1e27; --border: #232834;
-  --text: #eef1f6; --muted: #a6afbf; --faint: #7e889b;
-  --accent: #6f8cff; --accent2: #b18cff; --glow: #b066ff; --good: #3ddc97; --warn: #ffb454;
-  --button-top: #8aa0ff; --button-bottom: #5f78ee; --button-text: #0b0d12;
-  --edge: rgba(255,255,255,.10); --shadow: rgba(0,0,0,.45); --fog: rgba(176,102,255,.10);
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #e9ecf2; --card: #ffffff; --box: #f4f6fa; --border: #d3d8e2;
-    --text: #151a24; --muted: #4b5466; --faint: #646d80;
-    --accent: #3f5ee0; --accent2: #7445d6; --glow: #3fb2ff; --good: #11865a; --warn: #b86a00;
-    --button-top: #6481ff; --button-bottom: #3f5ee0; --button-text: #ffffff;
-    --edge: rgba(24,34,60,.12); --shadow: rgba(24,34,60,.14); --fog: rgba(63,178,255,.12);
-    color-scheme: light;
+<meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/GrenzeGotisch-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/site.c206e3ffae.css">
+<script>
+// Before the page paints: the theme chosen on this device, and old links forwarded (the company page
+// used to be Ghost Writer's page, and installed copies open getghostwriter.github.io/#request).
+(function () {
+  try { var t = localStorage.getItem("gw-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  if (location.pathname !== "/" && location.pathname !== "/index.html") return;
+  var to = {
+    "#request": "/ghost-writer/#request", "#download": "/ghost-writer/#download", "#privacy": "/ghost-writer/#privacy",
+    "#beta": "/ghost-writer/#request", "#install": "/ghost-writer/help/#install", "#requirements": "/ghost-writer/help/#requirements",
+    "#faq": "/ghost-writer/help/#faq", "#new": "/ghost-writer/changelog/", "#features": "/ghost-writer/features/",
+    "#everything": "/ghost-writer/features/", "#hey-ghost": "/ghost-writer/features/#hey-ghost", "#modes": "/ghost-writer/features/#modes",
+    "#smart": "/ghost-writer/features/#reads-the-room", "#rewrite": "/ghost-writer/features/#rewrite", "#search": "/ghost-writer/features/#search",
+    "#learns": "/ghost-writer/features/#learns", "#stats": "/ghost-writer/features/#stats", "#settings-tour": "/ghost-writer/features/#settings"
+  }[location.hash];
+  if (to) location.replace(to);
+})();
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://ghostmediaworks.com/#org",
+   "name": "Ghost Media Works",
+   "url": "https://ghostmediaworks.com/",
+   "logo": "https://ghostmediaworks.com/assets/icons/icon-512.png",
+   "email": "ghostthepatriot@gmail.com"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ghostmediaworks.com/#site",
+   "url": "https://ghostmediaworks.com/",
+   "name": "Ghost Media Works",
+   "publisher": {
+    "@id": "https://ghostmediaworks.com/#org"
+   }
   }
+ ]
 }
-:root[data-theme="light"] {
-  --bg: #e9ecf2; --card: #ffffff; --box: #f4f6fa; --border: #d3d8e2;
-  --text: #151a24; --muted: #4b5466; --faint: #646d80;
-  --accent: #3f5ee0; --accent2: #7445d6; --glow: #3fb2ff; --good: #11865a; --warn: #b86a00;
-  --button-top: #6481ff; --button-bottom: #3f5ee0; --button-text: #ffffff;
-  --edge: rgba(24,34,60,.12); --shadow: rgba(24,34,60,.14); --fog: rgba(63,178,255,.12);
-  color-scheme: light;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0; background: var(--bg); color: var(--text);
-  font: 16px/1.6 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
-}
-a { color: var(--accent); }
-img { max-width: 100%; }
-.wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-.name { font-family: "Grenze Gotisch", "Old English Text MT", serif; font-weight: 800; letter-spacing: .5px; }
-
-/* the fog: two slow drifting glows behind everything */
-.fog { position: fixed; inset: -20%; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(40% 35% at 25% 30%, var(--fog), transparent 70%),
-    radial-gradient(35% 30% at 75% 65%, var(--fog), transparent 70%);
-  animation: drift 28s ease-in-out infinite alternate; }
-@keyframes drift { from { transform: translate(-3%, -2%) scale(1); } to { transform: translate(3%, 2%) scale(1.08); } }
-
-/* light and dark pictures: each theme shows its own */
-.light, .shot img.light { display: none; }
-.shot img.dark { display: block; }
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .dark, :root:not([data-theme="dark"]) .shot img.dark { display: none; } :root:not([data-theme="dark"]) .light, :root:not([data-theme="dark"]) .shot img.light { display: block; } }
-:root[data-theme="light"] .dark, :root[data-theme="light"] .shot img.dark { display: none; }
-:root[data-theme="light"] .light, :root[data-theme="light"] .shot img.light { display: block; }
-
-/* top bar: stays at the top while you scroll, with a menu that jumps to each section */
-header.bar { position: sticky; top: 0; z-index: 50; background: var(--bg);
-  background: color-mix(in srgb, var(--bg) 84%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent; transition: border-color .2s ease, box-shadow .2s ease; }
-header.bar.scrolled { border-bottom-color: var(--edge); box-shadow: 0 8px 24px var(--shadow); }
-header.bar .inner { display: flex; align-items: center; gap: 18px; padding-top: 12px; padding-bottom: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; flex-shrink: 0; }
-.brand img { width: 30px; height: auto; }
-.brand .name { font-size: 24px; }
-nav { flex: 1; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
-nav a:first-child { margin-left: auto; }  /* sits right when it fits; never cuts off the first items when it doesn't */
-nav::-webkit-scrollbar { display: none; }
-nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14.5px; white-space: nowrap;
-  padding: 7px 10px; border-radius: 999px; transition: color .15s ease, background .15s ease; }
-nav a:hover { color: var(--text); background: var(--box); }
-nav a.on { color: var(--text); background: var(--box); box-shadow: inset 0 0 0 1px var(--edge); }
-.get { flex-shrink: 0; color: var(--button-text); text-decoration: none; font-weight: 700; font-size: 14.5px; padding: 8px 16px;
-  border-radius: 999px; background: linear-gradient(var(--button-top), var(--button-bottom)); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
-.get:hover { filter: brightness(1.08); }
-/* narrower screens: the menu becomes its own row you can swipe sideways */
-@media (max-width: 1180px) {
-  header.bar .inner { flex-wrap: wrap; row-gap: 8px; padding-bottom: 8px; }
-  .brand { flex: 1; }
-  nav { order: 3; flex: 1 1 100%; justify-content: flex-start; margin: 0 -8px;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10px, #000 calc(100% - 26px), transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 10px, #000 calc(100% - 26px), transparent); }
-  nav a { padding: 6px 11px; font-size: 14px; }
-  nav a:first-child { margin-left: 0; }
-}
-/* jumping to a section leaves room for the bar */
-main section, main .hero { scroll-margin-top: 84px; }
-@media (max-width: 1180px) { main section, main .hero { scroll-margin-top: 120px; } }
-
-/* hero */
-.hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 30px 0 40px; }
-@media (max-width: 860px) { .hero { grid-template-columns: 1fr; text-align: center; padding-top: 6px; } }
-.hero .name.title { font-size: clamp(30px, 4vw, 40px); margin: 0 0 4px; color: var(--accent2); }
-.hero h1 { font-size: clamp(46px, 7.4vw, 82px); line-height: 1.02; margin: 0 0 18px; letter-spacing: -1.5px; }
-.hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.tagline { color: var(--muted); font-size: 19px; margin: 0 0 30px; max-width: 560px; }
-@media (max-width: 860px) { .tagline { margin-left: auto; margin-right: auto; } }
-.ghost { position: relative; display: flex; justify-content: center; align-items: center; isolation: isolate; }
-.ghost .figure { position: relative; width: min(330px, 70vw); animation: float 5.5s ease-in-out infinite; }
-.ghost .figure img { display: block; width: 100%; height: auto; }
-.ghost .figure .halo { filter: drop-shadow(0 0 34px var(--glow)) drop-shadow(0 0 10px var(--glow)); animation: breathe 7s ease-in-out infinite; }
-.ghost .figure .bare { position: absolute; inset: 0; }
-@keyframes breathe { 0%, 100% { opacity: .08; } 50% { opacity: 1; } }
-@keyframes float { 0%, 100% { transform: translateY(6px); } 50% { transform: translateY(-26px); } }
-.ghost::before { content: ""; position: absolute; z-index: -1; top: 50%; left: 50%; width: min(420px, 86vw); aspect-ratio: 1;
-  border-radius: 50%; background: radial-gradient(circle, var(--glow) 0%, transparent 62%); filter: blur(28px);
-  opacity: .22; transform: translate(-50%, -50%); pointer-events: none; animation: aura-breathe 7s ease-in-out infinite; }
-@keyframes aura-breathe { 0%, 100% { opacity: .02; transform: translate(-50%, -50%) scale(.9); }
-  50% { opacity: .22; transform: translate(-50%, -50%) scale(1); } }
-
-.download { display: inline-flex; align-items: center; gap: 12px; padding: 16px 30px; border-radius: 999px;
-  background: linear-gradient(var(--button-top), var(--button-bottom)); color: var(--button-text);
-  font-weight: 700; font-size: 19px; text-decoration: none; box-shadow: 0 10px 30px var(--shadow), inset 0 1px 0 rgba(255,255,255,.35);
-  transition: transform .15s ease, filter .15s ease; }
-.download:hover { transform: translateY(-2px); filter: brightness(1.08); }
-.download svg { width: 22px; height: 22px; }
-/* Request access and Download side by side; Download is the quieter one (you need a key first) */
-.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.final .actions { justify-content: center; }
-.download.second { background: var(--card); color: var(--text); border: 1px solid var(--border);
-  box-shadow: 0 6px 18px var(--shadow); }
-/* Request access form */
-.request-form { display: grid; gap: 14px; max-width: 640px; }
-.request-form label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
-.request-form input, .request-form textarea { font: inherit; color: var(--text); background: var(--box); border: 1px solid var(--border);
-  border-radius: 12px; padding: 12px 14px; width: 100%; box-sizing: border-box; }
-.request-form textarea { min-height: 96px; resize: vertical; }
-.request-form input:focus, .request-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.request-form .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.request-form button.download { border: 0; cursor: pointer; justify-self: start; font: inherit; font-weight: 700; }
-.request-form .note { font-size: 13px; color: var(--faint); margin: 0; }
-.request-form .result { margin: 0; font-weight: 600; }
-.request-form .result.good { color: var(--good); } .request-form .result.bad { color: var(--warn); }
-.meta { color: var(--faint); font-size: 14px; margin-top: 14px; }
-.meta a { color: var(--muted); }
-
-/* proof strip */
-.proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 10px 0 34px; }
-@media (max-width: 760px) { .proof { grid-template-columns: repeat(2, 1fr); } }
-.proof div { background: var(--card); border: 1px solid var(--edge); border-radius: 18px; padding: 16px 18px; box-shadow: 0 8px 24px var(--shadow), inset 0 1px 0 var(--edge); }
-.proof b { display: block; font-size: 26px; line-height: 1.15; background: linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.proof span { color: var(--muted); font-size: 14px; }
-
-/* screenshots */
-.shot { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--edge);
-  box-shadow: 0 30px 70px var(--shadow), 0 0 0 1px var(--edge), 0 0 60px -10px var(--fog); background: var(--card); }
-.shot img { width: 100%; height: auto; vertical-align: bottom; }
-.hero-shot { margin: 0 auto 30px; max-width: 1060px; }
-.caption { color: var(--faint); font-size: 13px; text-align: center; margin-top: 10px; }
-
-/* sections */
-section { padding: 56px 0; }
-h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -.5px; }
-h2 .name { font-size: 1.1em; }
-.eyebrow { display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 10px; }
-.lead { color: var(--muted); max-width: 720px; margin: 0 0 22px; font-size: 18px; }
-.center { text-align: center; } .center .lead { margin-left: auto; margin-right: auto; }
-
-/* a feature: words on one side, the app on the other */
-.feature { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
-.feature.flip { grid-template-columns: 1.1fr .9fr; }
-.feature.flip .words { order: 2; }
-@media (max-width: 900px) { .feature, .feature.flip { grid-template-columns: 1fr; } .feature.flip .words { order: 0; } }
-.ticks { list-style: none; padding: 0; margin: 0 0 6px; }
-.ticks li { position: relative; padding-left: 30px; margin: 10px 0; color: var(--muted); }
-.ticks li b { color: var(--text); }
-.ticks li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 800; }
-.say { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
-.say span { background: var(--box); border: 1px solid var(--edge); border-radius: 999px; padding: 7px 14px; font-size: 14px; color: var(--text); }
-.say span::before { content: "\201C"; color: var(--accent2); } .say span::after { content: "\201D"; color: var(--accent2); }
-.stack { display: grid; gap: 16px; }
-.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 600px) { .pair { grid-template-columns: 1fr; } }
-.beta { display: inline-block; vertical-align: middle; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 999px; background: linear-gradient(90deg, #9661ff, #4878ff); color: #fff; margin-left: 8px; }
-
-/* cards */
-.grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
-.grid.two { grid-template-columns: repeat(2, 1fr); }
-.grid.four { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 960px) { .grid.four { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 860px) { .grid, .grid.two { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .grid.four { grid-template-columns: 1fr; } }
-.card { background: var(--card); border-radius: 22px; padding: 24px; position: relative;
-  box-shadow: 0 8px 24px var(--shadow), inset 0 1px 0 var(--edge); border: 1px solid var(--edge); }
-.card h3 { margin: 0 0 4px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
-.card h4 { margin: 0 0 6px; font-size: 18px; }
-.card p { margin: 0; color: var(--muted); font-size: 15px; }
-.icon { font-size: 26px; line-height: 1; margin-bottom: 10px; }
-.item { display: grid; grid-template-columns: 26px 1fr; gap: 6px; margin-top: 16px; }
-.item b { display: block; }
-.item span { color: var(--muted); font-size: 15px; }
-.mark { color: var(--accent); font-weight: 700; }
-
-/* the manifesto */
-.manifesto { text-align: center; }
-.manifesto p { max-width: 760px; margin: 0 auto 14px; color: var(--muted); font-size: 18px; }
-.manifesto .big { font-size: clamp(32px, 5vw, 50px); color: var(--text); margin-bottom: 16px; }
-.pill { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--box); border: 1px solid var(--edge);
-  color: var(--muted); font-size: 14px; margin: 4px; }
-
-/* modes */
-.mode h4 { margin: 0 0 6px; font-size: 22px; }
-.mode p { color: var(--muted); margin: 0 0 8px; }
-.badge { display: inline-block; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; }
-.badge.standard { background: var(--box); color: var(--muted); border: 1px solid var(--border); }
-.badge.advanced { background: linear-gradient(90deg, #9661ff, #4878ff); color: #fff; box-shadow: 0 0 18px rgba(150,112,255,.55); }
-
-/* install guide */
-.steps { counter-reset: step; display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
-.step::before { counter-increment: step; content: counter(step); display: inline-grid; place-items: center; width: 34px; height: 34px;
-  border-radius: 50%; background: linear-gradient(var(--button-top), var(--button-bottom)); color: var(--button-text); font-weight: 800; margin-bottom: 10px; }
-.step p { color: var(--muted); margin: 6px 0 0; font-size: 15px; }
-.mock { margin-top: 14px; border-radius: 6px; background: #1f6fb2; color: #fff; padding: 14px 16px; font: 13px/1.45 "Segoe UI", sans-serif; }
-.mock .t { font-size: 17px; margin-bottom: 6px; }
-.mock .more { text-decoration: underline; }
-.mock .btns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
-.mock .btns span { border: 1px solid #fff; padding: 3px 14px; }
-.mock .btns span.hl { background: #fff; color: #1f6fb2; font-weight: 700; outline: 2px solid var(--warn); outline-offset: 2px; }
-.mock.edge { background: #2b2b2b; border: 1px solid #444; }
-.mock.edge .btns span { border-color: #888; }
-.mock.edge .btns span.hl { background: #fff; color: #222; }
-.why { margin-top: 18px; color: var(--faint); font-size: 14px; overflow-wrap: anywhere; }
-
-/* what's new */
-.changes { display: grid; gap: 12px; }
-.change { background: var(--box); border-radius: 16px; padding: 14px 18px; border: 1px solid var(--edge); }
-.change b { color: var(--accent); }
-.change ul { margin: 6px 0 0; padding-left: 20px; color: var(--muted); font-size: 15px; }
-details summary { cursor: pointer; color: var(--accent); font-weight: 600; margin-top: 14px; }
-
-/* questions: each one opens when you click it */
-.faq { display: grid; gap: 12px; max-width: 860px; }
-.faq details { background: var(--card); border: 1px solid var(--edge); border-radius: 18px; box-shadow: 0 8px 24px var(--shadow), inset 0 1px 0 var(--edge); }
-.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  padding: 18px 22px; margin: 0; color: var(--text); font-weight: 650; font-size: 17px; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; flex-shrink: 0; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
-  background: var(--box); border: 1px solid var(--edge); color: var(--accent); font-weight: 700; transition: transform .2s ease; }
-.faq details[open] summary::after { transform: rotate(45deg); }
-.faq summary:hover { color: var(--accent); }
-.faq .answer { padding: 0 22px 18px; color: var(--muted); font-size: 15.5px; }
-.faq .answer p { margin: 0 0 8px; } .faq .answer p:last-child { margin-bottom: 0; }
-
-/* back to top: appears once you've scrolled down */
-.to-top { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 46px; height: 46px; border-radius: 50%;
-  display: grid; place-items: center; cursor: pointer; border: 1px solid var(--edge); color: var(--text);
-  background: var(--card); box-shadow: 0 10px 28px var(--shadow);
-  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s ease, transform .2s ease, color .15s ease; }
-.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
-.to-top:hover { color: var(--accent); }
-.to-top svg { width: 20px; height: 20px; }
-@media (max-width: 600px) { .to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; } }
-
-/* final call + footer */
-.final { text-align: center; padding: 76px 0; }
-.final .ghostmark { width: 120px; margin: 0 auto; filter: drop-shadow(0 0 22px var(--glow)); animation: float 5.5s ease-in-out infinite; }
-.final h2 { margin-top: 14px; }
-footer { border-top: 1px solid var(--border); padding: 26px 0 40px; color: var(--faint); font-size: 14px; }
-footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-footer a { color: var(--muted); }
-.theme-toggle { background: var(--box); color: var(--muted); border: 1px solid var(--edge); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; font-size: 13px; }
-.beta-bar { background: linear-gradient(90deg, rgba(150,97,255,.22), rgba(72,120,255,.22)); color: var(--text); text-align: center;
-  font-size: 14px; padding: 9px 16px; border-bottom: 1px solid var(--edge); }
-.beta-bar a { color: var(--text); font-weight: 600; }
-.beta-tag { display: inline-block; vertical-align: middle; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-  font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
-  background: linear-gradient(90deg, #9661ff, #4878ff); color: #fff; box-shadow: 0 0 18px rgba(150,112,255,.55); margin-bottom: 14px; }
-dialog.ask { border: 1px solid var(--edge); border-radius: 22px; padding: 0; max-width: 460px; width: calc(100% - 32px);
-  background: var(--card); color: var(--text); box-shadow: 0 30px 80px var(--shadow); }
-dialog.ask::backdrop { background: rgba(5,6,9,.62); backdrop-filter: blur(3px); }
-dialog.ask .inside { padding: 26px 26px 22px; }
-dialog.ask h3 { margin: 0 0 10px; font-size: 22px; }
-dialog.ask p { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
-dialog.ask .row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-dialog.ask .later { background: var(--box); color: var(--text); border: 1px solid var(--edge); border-radius: 999px; padding: 11px 22px; font: inherit; font-weight: 600; cursor: pointer; }
-dialog.ask .download { font-size: 16px; padding: 11px 22px; }
-@media (prefers-reduced-motion: reduce) { .fog, .ghost .figure, .ghost .figure .halo, .ghost::before, .final .ghostmark { animation: none; } html { scroll-behavior: auto; } }
-</style>
+</script>
 </head>
 <body>
-<div class="fog" aria-hidden="true"></div>
-
-<div class="beta-bar" role="note"><b>Free, by invitation.</b> Ghost Writer is in beta and opens with an access key. <a href="#request">Request yours</a></div>
-
-<header class="bar" id="bar">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="wrap inner">
-    <a class="brand" href="#top" aria-label="Ghost Writer, back to the top">
-      <img class="dark" src="assets/logo-dark.png" alt=""><img class="light" src="assets/logo-light.png" alt="">
-      <span class="name">Ghost Writer</span>
+    <a class="brand" href="/" aria-label="Ghost Media Works home">
+      <img class="dark-only" src="/assets/ghost-dark-64.png" alt="" width="49" height="64">
+      <img class="light-only" src="/assets/ghost-light-64.png" alt="" width="49" height="64">
+      <span class="wordmark">Ghost Media Works</span>
     </a>
-    <nav aria-label="Sections">
-      <a href="#features">Features</a>
-      <a href="#hey-ghost">Hey Ghost</a>
-      <a href="#everything">All features</a>
-      <a href="#modes" title="Standard and Advanced mode">Modes</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#beta">Beta</a>
-      <a href="#install">Install</a>
-      <a href="#requirements">What you need</a>
-      <a href="#faq">FAQ</a>
-      <a href="#new">What's new</a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="/ghost-writer/" data-nav="ghost-writer">Ghost Writer</a>
+      <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
+      <a href="/about/" data-nav="about">About</a>
     </nav>
-    <a class="get" href="#request">Request access</a>
-    <!-- Hidden for now (owner, 2026-10-25: Ghost Media Hub isn't ready). Put the line back to show it again.
-    <a class="get" href="media-hub/">Get Ghost Media Hub</a> -->
+    <button class="theme-button" id="theme" type="button" aria-label="Theme: follows your device. Click to change.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+    </button>
   </div>
 </header>
 
+<main id="main" tabindex="-1">
 <div class="wrap">
-  <main id="top">
-    <div class="hero" id="download">
-      <div>
-        <span class="beta-tag">Free beta &middot; by invitation</span>
-        <p class="name title">Ghost Writer</p>
-        <h1>Supercharge your PC. <em>Just talk.</em></h1>
-        <p class="tagline">Talk instead of type, in any app. Ghost Writer writes what you say, tidies it, rewrites anything you select, learns how you write, and does what you ask: all on your own PC, privately, and free.</p>
-        <div class="actions">
-          <a class="download request" href="#request">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 9.2-9.2"/><path d="m17 6 3 3"/><path d="m15 8 2 2"/></svg>
-            Request access, free
-          </a>
-          <a class="download second" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
-            Download
-          </a>
-        </div>
-        <p class="meta">Got your key? Download Ghost Writer 6.7 &middot; 670 MB &middot; Windows 10 and 11 (64-bit)<br>
-          New here? <a href="#install">Windows may show a warning the first time: here's what to click.</a></p>
-      </div>
-      <div class="ghost">
-        <div class="figure dark"><img class="halo" src="assets/logo-dark.png" alt=""><img class="bare" src="assets/logo-dark-bare.png" alt="The Ghost Writer ghost, its eyes glowing purple"></div>
-        <div class="figure light"><img class="halo" src="assets/logo-light.png" alt=""><img class="bare" src="assets/logo-light-bare.png" alt="The Ghost Writer ghost, its eyes glowing blue"></div>
-      </div>
-    </div>
-
-    <div class="proof">
-      <div><b>3&times; faster</b><span>Most people speak about three times faster than they type.</span></div>
-      <div><b>Any app</b><span>Email, docs, chat, browser, code: wherever your cursor is.</span></div>
-      <div><b>100% on your PC</b><span>No cloud: your voice and words never leave your PC.</span></div>
-      <div><b>Free</b><span>By invitation. No subscription, no ads.</span></div>
-    </div>
-
-    <div class="hero-shot shot">
-      <img class="dark" src="assets/screens/home-dark.webp" alt="Ghost Writer's home screen: ready to dictate, your recent dictations, and your settings" loading="eager">
-      <img class="light" src="assets/screens/home-light.webp" alt="Ghost Writer's home screen in the light theme" loading="eager">
-    </div>
-    <p class="caption">Ghost Writer, ready: hold Ctrl+Win and talk, in any app.</p>
-
-    <section id="features">
-      <div class="feature">
-        <div class="words">
-          <span class="eyebrow">Dictation</span>
-          <h2>Talk. It types. Anywhere.</h2>
-          <p class="lead">Hold <b>Ctrl+Win</b>, say it, let go: your words appear where your cursor is, in any app. Or turn on hands-free and just talk, and it types each time you pause.</p>
-          <ul class="ticks">
-            <li><b>Punctuation, capitals and paragraphs</b> come out right, without saying "comma".</li>
-            <li><b>Change your mind mid-sentence:</b> "meet Tuesday, no, Wednesday" comes out as Wednesday. Ums and repeats are cleaned up, and a sentence repeated at the end is left out.</li>
-            <li><b>Five writing styles,</b> from Relaxed for chat to Formal for letters, and Caveman for exactly what you said.</li>
-            <li><b>Instant:</b> the microphone opens the moment you press, so your first word is never cut off.</li>
-          </ul>
-        </div>
-        <div class="stack">
-          <div class="shot"><img class="dark" src="assets/screens/bubble-dark.webp" alt="The hands-free bubble at the bottom of the screen while you talk" loading="lazy"><img class="light" src="assets/screens/bubble-light.webp" alt="The hands-free bubble in the light theme" loading="lazy"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="smart" data-nav="features">
-      <div class="feature flip">
-        <div class="words">
-          <span class="eyebrow">Smart</span>
-          <h2>It knows what you're writing about.</h2>
-          <p class="lead">Ghost Writer reads the text already in the box you're dictating into, so it spells the names and terms that are already there, like <b>Siobhan</b>, <b>Okonkwo</b> or <b>Kubernetes</b>, the way you do.</p>
-          <ul class="ticks">
-            <li><b>Names already in the box come out right 47 times in 48</b> in our tests, compared with about half before.</li>
-            <li><b>Matches your tone:</b> dictate into a casual lowercase chat and your words come out casual too.</li>
-            <li><b>Your dictionary:</b> add the names and jargon you use, and it listens out for them.</li>
-            <li><b>Screen context (optional):</b> turn it on and it also reads the words in the window you're dictating into, so names and topic words come out right. Off until you turn it on.</li>
-          </ul>
-        </div>
-        <div class="shot"><img class="dark" src="assets/screens/notepad-dark.webp" alt="The Notepad with a dictated email" loading="lazy"><img class="light" src="assets/screens/notepad-light.webp" alt="The Notepad in the light theme" loading="lazy"></div>
-      </div>
-    </section>
-
-    <section id="rewrite" data-nav="features">
-      <div class="feature">
-        <div class="words">
-          <span class="eyebrow">Rewrite</span>
-          <h2>Fix and rewrite anything, anywhere.</h2>
-          <p class="lead">Select text in any app and a small glowing ghost appears beside it. Click it, and choose.</p>
-          <ul class="ticks">
-            <li><b>Quick fixes on every PC:</b> spelling and grammar, more formal, and letter case, instantly and without AI.</li>
-            <li><b>With Advanced mode's AI:</b> make it shorter, friendlier or more formal, turn it into an email, meeting notes or a summary.</li>
-            <li><b>You decide:</b> you see the result first, and your text only changes when you click Replace.</li>
-          </ul>
-        </div>
-        <div class="stack">
-          <div class="shot"><img class="dark" src="assets/screens/menu-dark.webp" alt="Selected text in a document, with Ghost Writer's quick fixes" loading="lazy"><img class="light" src="assets/screens/menu-light.webp" alt="Selected text with Ghost Writer's quick fixes, light theme" loading="lazy"></div>
-          <div class="pair">
-            <div class="shot"><img class="dark" src="assets/screens/selection-dark.webp" alt="The glowing ghost beside a selection" loading="lazy"><img class="light" src="assets/screens/selection-light.webp" alt="The glowing ghost beside a selection, light theme" loading="lazy"></div>
-            <div class="shot"><img class="dark" src="assets/screens/quickfix-dark.webp" alt="A spelling and grammar fix, ready to replace" loading="lazy"><img class="light" src="assets/screens/quickfix-light.webp" alt="A spelling and grammar fix, light theme" loading="lazy"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="search" data-nav="features">
-      <div class="feature flip">
-        <div class="words">
-          <span class="eyebrow">Search your PC</span>
-          <h2>Find anything. Then free up space.</h2>
-          <p class="lead">Press <b>Alt+Shift+S</b> from anywhere, type a few letters, and open the app, Windows setting, folder or file you mean. It searches a list kept on your PC, so answers appear as you type, and nothing leaves your PC.</p>
-          <ul class="ticks">
-            <li><b>Apps, Settings, folders and files</b> in one box. Filter by kind, or open the folder a file is in.</li>
-            <li><b>Clean up</b> shows each drive's free space and removes junk in one click: temporary files, browser and app caches, thumbnails and crash reports. Your files, history, passwords and sign-ins are never touched, and files in use are skipped.</li>
-            <li><b>Your biggest files</b> are listed too, so you can move the ones you no longer need to the Recycle Bin, and empty the Recycle Bin from the same place.</li>
-            <li><b>No administrator needed,</b> and it works quietly in the background so the app stays quick.</li>
-          </ul>
-        </div>
-        <div class="stack">
-          <div class="shot"><img class="dark" src="assets/screens/search-dark.webp" alt="Search your PC: results for a search, with apps, Settings, folders and files" loading="lazy"><img class="light" src="assets/screens/search-light.webp" alt="Search your PC, light theme" loading="lazy"></div>
-          <div class="shot"><img class="dark" src="assets/screens/cleanup-dark.webp" alt="Clean up: each drive's free space and the junk Ghost Writer can safely remove" loading="lazy"><img class="light" src="assets/screens/cleanup-light.webp" alt="Clean up, light theme" loading="lazy"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="settings-tour" data-nav="features">
-      <div class="feature">
-        <div class="words">
-          <span class="eyebrow">Settings</span>
-          <h2>Everything adjustable. Only what you want to see.</h2>
-          <p class="lead">Every feature has a setting, sorted into clear sections. Click a section's heading to fold it shut, or open it again. Ghost Writer remembers which ones you folded, and the search box finds any setting by name.</p>
-        </div>
-        <div class="shot"><img class="dark" src="assets/screens/settings-fold-dark.webp" alt="Settings with most sections folded shut so only the ones you use are open" loading="lazy"><img class="light" src="assets/screens/settings-fold-light.webp" alt="Settings with folded sections, light theme" loading="lazy"></div>
-      </div>
-    </section>
-
-    <section id="hey-ghost">
-      <div class="feature flip">
-        <div class="words">
-          <span class="eyebrow">Voice commands <span class="beta">Beta</span></span>
-          <h2>"Hey Ghost." Your PC, on command.</h2>
-          <p class="lead">Give an order without typing it. Turn on always listening, or hold <b>Ctrl+Alt</b> and just say the command. You can even make your own commands. Ghost Writer works out what you mean, and does what it understands.</p>
-          <div class="say">
-            <span>Hey Ghost, what time is it</span>
-            <span>Hey Ghost, open Spotify</span>
-            <span>Hey Ghost, set a timer for ten minutes</span>
-            <span>Hey Ghost, set the volume to 50 percent</span>
-            <span>Hey Ghost, next tab</span>
-            <span>Hey Ghost, close this window</span>
-          </div>
-          <ul class="ticks">
-            <li><b>A soft tick and a faint ghost with a question mark</b> tell you it is listening. Say the rest in the same breath, or wait for the tick. The same mark stays when it does not understand. When a command works, a card in the middle of the screen confirms it. Nothing else it hears is kept or acted on.</li>
-            <li><b>Run your PC:</b> open, switch to or close an app by name, open a folder, a Settings page or a website, or search the web. Undo, save, scroll, snap a window, set the volume, set a timer, or play and pause music. The time, copy and paste, and closing the window in front still work, on the screen you are using.</li>
-            <li><b>Commands while you dictate:</b> new paragraph, new line, scratch that, lists, "stop" for hands-free, and "Ghost, enter". Hey Ghost, send presses Enter.</li>
-            <li><b>Always listening is off by default.</b> Turn it on and Ghost Writer remembers. Or hold Ctrl+Alt: you don't have to say Hey Ghost, and those words are never typed.</li>
-          </ul>
-        </div>
-        <div class="stack">
-          <div class="shot"><img class="dark" src="assets/screens/voice-dark.webp" alt="The Voice commands page" loading="lazy"><img class="light" src="assets/screens/voice-light.webp" alt="The Voice commands page, light theme" loading="lazy"></div>
-          <div class="shot"><img class="dark" src="assets/screens/listening-dark.webp" alt="A faint ghost hovering at the bottom of the screen while it waits for your command" loading="lazy"><img class="light" src="assets/screens/listening-light.webp" alt="The listening ghost, light theme" loading="lazy"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="learns" data-nav="features">
-      <div class="feature">
-        <div class="words">
-          <span class="eyebrow">Learns</span>
-          <h2>Fix it twice. It remembers.</h2>
-          <p class="lead">When Ghost Writer gets a word wrong, fix that same word twice while it is open. It learns. A name, or a pair you type yourself, is corrected every time. An ordinary word is corrected again only in the same kind of sentence.</p>
-          <ul class="ticks">
-            <li><b>A faint thinking ghost</b> shows for a moment when it learns something new.</li>
-            <li><b>Names you taught</b> stay right, even with an accent.</li>
-            <li><b>Only real fixes count:</b> rewording or adding words is just editing, and is ignored.</li>
-            <li><b>You're in charge:</b> see everything it learned in Settings, and remove anything.</li>
-          </ul>
-        </div>
-        <div class="stack">
-          <div class="shot"><img class="dark" src="assets/screens/learning-dark.webp" alt="What Ghost Writer has learned from your corrections" loading="lazy"><img class="light" src="assets/screens/learning-light.webp" alt="What Ghost Writer has learned, light theme" loading="lazy"></div>
-          <div class="shot" style="max-width:420px;justify-self:end"><img class="dark" src="assets/screens/thinking-dark.webp" alt="The thinking ghost in the corner of a window" loading="lazy"><img class="light" src="assets/screens/thinking-light.webp" alt="The thinking ghost, light theme" loading="lazy"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="stats" data-nav="features">
-      <div class="feature flip">
-        <div class="words">
-          <span class="eyebrow">Your stats</span>
-          <h2>Watch the hours come back.</h2>
-          <p class="lead">See how many words you've dictated, how fast you speak, your streaks, and how much time you've saved compared with typing. Counted on your PC only, never what you said.</p>
-          <ul class="ticks">
-            <li><b>Time saved</b> against typing, every day.</li>
-            <li><b>A year of activity</b> at a glance.</li>
-          </ul>
-        </div>
-        <div class="shot"><img class="dark" src="assets/screens/stats-dark.webp" alt="Your stats: words dictated, speaking speed, time saved and a year of activity" loading="lazy"><img class="light" src="assets/screens/stats-light.webp" alt="Your stats, light theme" loading="lazy"></div>
-      </div>
-    </section>
-
-    <section id="everything">
-      <div class="center">
-        <span class="eyebrow">Everything it does</span>
-        <h2>One small app. A whole new way to use your PC.</h2>
-        <p class="lead">Everything below comes with your free access key, and runs on your PC.</p>
-      </div>
-      <div class="grid four">
-        <div class="card"><div class="icon">&#127908;</div><h4>Push to talk</h4><p>Hold Ctrl+Win, speak, release. Typed where your cursor is.</p></div>
-        <div class="card"><div class="icon">&#128483;</div><h4>Hands-free</h4><p>Just talk; it types each time you pause. Double-tap Ctrl+Win.</p></div>
-        <div class="card"><div class="icon">&#10024;</div><h4>Rewrite anything</h4><p>Select text in any app: shorter, friendlier, an email, a summary.</p></div>
-        <div class="card"><div class="icon">&#10003;</div><h4>Quick fixes</h4><p>Spelling, grammar and letter case on every PC, no AI needed.</p></div>
-        <div class="card"><div class="icon">&#128123;</div><h4>Hey Ghost <span class="beta">Beta</span></h4><p>Open an app, a website or Settings, set a timer, or change the volume, said your own way.</p></div>
-        <div class="card"><div class="icon">&#129504;</div><h4>Learns from you</h4><p>Fix the same word twice, or type the pair yourself. A name sticks every time.</p></div>
-        <div class="card"><div class="icon">&#128193;</div><h4>Search your PC</h4><p>Find any app, setting, folder or file from anywhere with Alt+Shift+S.</p></div>
-        <div class="card"><div class="icon">&#129529;</div><h4>Clean up</h4><p>See free space, remove junk safely and find your biggest files.</p></div>
-        <div class="card"><div class="icon">&#128270;</div><h4>Reads the room</h4><p>Spells the names already in your text and, if you like, on your screen. Matches your tone.</p></div>
-        <div class="card"><div class="icon">&#9998;</div><h4>Writing styles</h4><p>Relaxed, Natural, Polished, Formal or Caveman.</p></div>
-        <div class="card"><div class="icon">&#128221;</div><h4>Notepad</h4><p>Notes with folders, rich text, attachments and a pop-out window.</p></div>
-        <div class="card"><div class="icon">&#127911;</div><h4>Transcribe recordings</h4><p>MP3, WAV, M4A and video files become notes.</p></div>
-        <div class="card"><div class="icon">&#128218;</div><h4>Your dictionary</h4><p>Names and jargon to listen for. Import and export.</p></div>
-        <div class="card"><div class="icon">&#128200;</div><h4>Your stats</h4><p>Words, speed, streaks and time saved.</p></div>
-        <div class="card"><div class="icon">&#9889;</div><h4>Advanced mode</h4><p>A bigger model and a small AI on your graphics card.</p></div>
-        <div class="card"><div class="icon">&#127891;</div><h4>Speech accuracy</h4><p>Light, Balanced or Most accurate, to suit your PC.</p></div>
-        <div class="card"><div class="icon">&#127763;</div><h4>Dark and light</h4><p>Or follow Windows. Every screen, every multi-monitor setup.</p></div>
-        <div class="card"><div class="icon">&#128295;</div><h4>Your own commands</h4><p>Make a Hey Ghost command: up to ten phrases that run one action.</p></div>
-        <div class="card"><div class="icon">&#9881;</div><h4>Tidy Settings</h4><p>Fold the sections you do not use. Ghost Writer remembers.</p></div>
-        <div class="card"><div class="icon">&#128274;</div><h4>Private by design</h4><p>No cloud, no tracking. Works offline for days at a time.</p></div>
-      </div>
-    </section>
-
-    <section class="manifesto" id="ghost" data-nav="everything">
-      <p class="big name">You are the Ghost.</p>
-      <p>Ghost Writer is a transparent system. It listens only when you ask it to, turns your voice into text right here on your PC, and puts the words where your cursor is, in any app. Then it steps back. Nothing goes anywhere else.</p>
-      <p>No cloud to send your words to. No tracking, no ads, no BS. You write, and nobody watches. You are the Ghost.</p>
-      <p><span class="pill">Works in any app</span><span class="pill">Works with Wi-Fi off</span><span class="pill">No ads</span><span class="pill">Free, by invitation</span></p>
-    </section>
-
-    <section id="modes">
-      <h2>Standard and Advanced</h2>
-      <p class="lead">Ghost Writer works on any Windows PC. If yours has a graphics card (NVIDIA, AMD or Intel), Advanced makes it even sharper.</p>
-      <div class="grid two">
-        <div class="card mode">
-          <span class="badge standard">&#9679; Standard mode</span>
-          <h4>Every PC</h4>
-          <p>Fast, accurate dictation on the processor, with punctuation, paragraphs, writing styles, corrections, Quick fixes and voice commands. Choose Light, Balanced or Most accurate to suit your PC. Included in the download.</p>
-        </div>
-        <div class="card mode">
-          <span class="badge advanced">&#9889; Advanced mode</span>
-          <h4>NVIDIA, AMD and Intel graphics cards</h4>
-          <p>A much bigger speech model for accents and fast speech, plus a small AI that fixes grammar, lays out your writing and rewrites anything you select, all on your graphics card. A one-time download from inside the app (3.3 to 4.8 GB, depending on your card), only if you choose it.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="privacy">
-      <h2>Private, by design</h2>
-      <p class="lead">Everything happens on your PC. Nothing you say leaves it.</p>
-      <div class="grid">
-        <div class="card">
-          <h3>How it works</h3>
-          <div class="item"><span class="mark">1</span><div><b>You speak</b><span>Hold Ctrl+Win, press Win+Alt for hands-free, hold Ctrl+Alt for a command, or say "Hey Ghost" with always listening on. A bubble or a faint ghost shows while it listens.</span></div></div>
-          <div class="item"><span class="mark">2</span><div><b>Your PC listens</b><span>A speech-recognition model (Whisper) turns the sound into words on this PC: on the processor, or on the graphics card in Advanced mode.</span></div></div>
-          <div class="item"><span class="mark">3</span><div><b>It's tidied up</b><span>Punctuation, paragraphs and your corrections, by built-in rules; in Advanced mode a small AI on your graphics card helps.</span></div></div>
-          <div class="item"><span class="mark">4</span><div><b>It's typed for you</b><span>The text appears where your cursor is. What you had copied is put back, and the words just typed do not stay on the clipboard.</span></div></div>
-        </div>
-        <div class="card">
-          <h3>Your privacy</h3>
-          <div class="item"><span class="mark">&#10003;</span><div><b>Offline by design</b><span>Dictation works fully with Wi-Fi off, for up to 3 days between key checks. Ghost Writer only goes online to check your access key, to check for a new version and, if you choose, to download Advanced mode.</span></div></div>
-          <div class="item"><span class="mark">&#10003;</span><div><b>No cloud, no tracking</b><span>Your voice and words are never uploaded. No ads, no analytics. The name and email you give to request a key are used only to send it. Nobody, including us, sees what you say.</span></div></div>
-          <div class="item"><span class="mark">&#10003;</span><div><b>Hands off what isn't yours</b><span>It never reads password boxes. Screen context, if you turn it on, skips private windows and password managers too, and keeps what it reads in memory only, never saved or sent. Rewrite reads only the text you select, and changes it only if you choose Replace. Always listening acts only on "Hey Ghost" and keeps nothing it hears.</span></div></div>
-        </div>
-        <div class="card">
-          <h3>What's kept, only on your PC</h3>
-          <div class="item"><span class="mark">&#10003;</span><div><b>Your last 50 dictations</b><span>So you can copy them again. Clear them any time.</span></div></div>
-          <div class="item"><span class="mark">&#10003;</span><div><b>Your notes, dictionary, learned fixes and settings</b><span>All yours, all visible in the app, all removable.</span></div></div>
-          <div class="item"><span class="mark">&#10003;</span><div><b>All in one folder you control</b><span>In your own Windows profile. Open it from the app's About tab.</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="beta">
-      <h2>About the beta</h2>
-      <p class="lead">Ghost Writer is in beta, free and by invitation: request access and you get a key to use it while it's finished and polished with feedback from people like you. Voice commands are the newest part, marked Beta in the app.</p>
-      <div class="grid">
-        <div class="card"><h3>What to expect</h3><div class="item"><span class="mark">&#10003;</span><div><b>It works, and it's new</b><span>Dictation, hands-free, rewriting, the Notepad and Advanced mode are all in. You may still meet the odd bug or rough edge.</span></div></div></div>
-        <div class="card"><h3>Fixes arrive by themselves</h3><div class="item"><span class="mark">&#10003;</span><div><b>One-click updates</b><span>Ghost Writer checks for a new version each time it starts and offers it with one click. Your dictations, notes and settings are kept.</span></div></div></div>
-        <div class="card"><h3>Tell us</h3><div class="item"><span class="mark">&#10003;</span><div><b>Found a bug?</b><span>Report it, or suggest an idea, on the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>. Never include anything private you dictated.</span></div></div></div>
-      </div>
-    </section>
-
-    <section id="request">
-      <h2>Request access</h2>
-      <p class="lead">Ghost Writer is free, by invitation. Tell us who you are and we'll email you an access key once you're approved.</p>
-      <div class="card">
-        <form class="request-form" id="request-form" novalidate>
-          <label>Your name<input name="name" autocomplete="name" maxlength="80" required></label>
-          <label>Your email (your key is sent here)<input name="contact" type="email" autocomplete="email" maxlength="120" required></label>
-          <label>How would you use Ghost Writer? (optional)<textarea name="reason" maxlength="1000"></textarea></label>
-          <div class="trap" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
-          <button class="download" type="submit">Request access</button>
-          <p class="result" id="request-result" role="status" aria-live="polite"></p>
-          <p class="note">Your name and email go only to Ghost Republic Media LLC, and are used only to send your key. Nothing is shared or sold.</p>
-        </form>
-      </div>
-    </section>
-
-    <section id="install">
-      <h2>Installing</h2>
-      <p class="lead">Ghost Writer installs just for you, with no admin password. Because it's new and independent, Windows may double-check it the first time.</p>
-      <div class="steps">
-        <div class="card step">
-          <b>Download</b>
-          <p>Click <a class="download-link" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download</a>. If your browser says the file "isn't commonly downloaded", choose <b>Keep</b> (in Edge: the &middot;&middot;&middot; menu, then Keep, then Keep anyway).</p>
-          <div class="mock edge" aria-hidden="true"><div>Ghost-Writer-Setup.exe isn't commonly downloaded. Make sure you trust it before you open it.</div><div class="btns"><span>Delete</span><span class="hl">Keep</span></div></div>
-        </div>
-        <div class="card step">
-          <b>Open it</b>
-          <p>Open Ghost-Writer-Setup.exe. If Windows says <b>"Windows protected your PC"</b>, click <b>More info</b>, then <b>Run anyway</b>.</p>
-          <div class="mock" aria-hidden="true"><div class="t">Windows protected your PC</div><div>Microsoft Defender SmartScreen prevented an unrecognized app from starting.</div><div class="more">More info</div><div class="btns"><span class="hl">Run anyway</span><span>Don't run</span></div></div>
-        </div>
-        <div class="card step">
-          <b>Speak</b>
-          <p>Click Next, and Ghost Writer opens. Enter your <a href="#request">access key</a>. Then hold <b>Ctrl+Win</b>, speak, and let go: your words appear where your cursor is. Welcome, Ghost Writer.</p>
-        </div>
-      </div>
-      <p class="why">Why the warning? Windows asks for a paid code-signing certificate before it recognises a new app's publisher; Ghost Writer doesn't have one yet. The installer and every update are checked against their published SHA-256 fingerprint: <code>47f8947a0f54b55f008853815965f4e05b3b5900e5460b7d45c43b9093fe9cdc</code></p>
-    </section>
-
-    <section id="requirements">
-      <h2>What you need</h2>
-      <div class="grid">
-        <div class="card"><h3>Windows</h3><div class="item"><span class="mark">&#10003;</span><div><b>Windows 10 or 11, 64-bit</b><span>About 1 GB of space. Any processor from the last decade works; Speech accuracy in Settings suits older or faster PCs.</span></div></div></div>
-        <div class="card"><h3>A microphone</h3><div class="item"><span class="mark">&#10003;</span><div><b>Any microphone</b><span>Built-in, headset or USB. Windows must let desktop apps use it.</span></div></div></div>
-        <div class="card"><h3>For Advanced (optional)</h3><div class="item"><span class="mark">&#10003;</span><div><b>A graphics card: NVIDIA, AMD or Intel</b><span>With its own memory: 4 GB or more for the big speech model, 6 GB or more for smart formatting and rewriting too. Built-in graphics use Standard.</span></div></div></div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <h2>Questions</h2>
-      <p class="lead">Quick answers to the things people ask most.</p>
-      <div class="faq">
-        <details>
-          <summary>Is it really free?</summary>
-          <div class="answer"><p>Yes. It's free, by invitation: <a href="#request">request access</a> and you get a key. There's no subscription and no ads. With your key you can use everything, including Advanced mode if your PC has a graphics card for it.</p></div>
-        </details>
-        <details>
-          <summary>Does anything I say leave my PC?</summary>
-          <div class="answer"><p>No. Your voice is turned into text on your own PC, and nothing you say or write is uploaded, to us or anyone else. Dictation works with Wi-Fi switched off.</p>
-            <p>Ghost Writer only goes online to check your access key (when it starts and every hour: the key, a scrambled id of your PC and the version, nothing you say or type), to check for a new version and, if you choose it, to download Advanced mode. Without internet it keeps working for up to 3 days since the last key check.</p></div>
-        </details>
-        <details>
-          <summary>How do I get an access key?</summary>
-          <div class="answer"><p>Fill in the <a href="#request">request form</a>. Once you're approved, your key arrives by email. Download Ghost Writer, open it and enter the key. A key works on up to 2 PCs; please don't share it.</p></div>
-        </details>
-        <details>
-          <summary>Why does Windows warn me when I install it?</summary>
-          <div class="answer"><p>Windows shows "Windows protected your PC" for new apps from publishers that haven't bought a paid code-signing certificate, and Ghost Writer doesn't have one yet. Click <b>More info</b>, then <b>Run anyway</b>. You'll only see it the first time.</p>
-            <p>Want to be sure it's the real file? Every installer has a published SHA-256 fingerprint, shown under <a href="#install">Installing</a>.</p></div>
-        </details>
-        <details>
-          <summary>Which apps does it work in?</summary>
-          <div class="answer"><p>Almost anywhere you can type: email, Word and Google Docs, chat apps, your browser, code editors and more. Your words appear wherever your cursor is. For your safety, it never types into or reads password boxes.</p></div>
-        </details>
-        <details>
-          <summary>Do I need a graphics card?</summary>
-          <div class="answer"><p>No. Standard mode works on any Windows 10 or 11 PC, using the processor. If your PC has an NVIDIA, AMD or Intel graphics card with its own memory, you can add Advanced mode for even better accuracy and AI rewriting. It's a one-time download from inside the app, only if you choose it.</p></div>
-        </details>
-        <details>
-          <summary>How do I get updates?</summary>
-          <div class="answer"><p>Ghost Writer checks for a new version each time it starts and offers it with one click. Your dictations, notes, dictionary and settings are kept. Everything that changed is listed under <a href="#new">What's new</a>.</p></div>
-        </details>
-        <details>
-          <summary>How do I uninstall it?</summary>
-          <div class="answer"><p>Open Windows <b>Settings</b>, then <b>Apps</b>, then <b>Installed apps</b> (on Windows 10: <b>Apps &amp; features</b>). Find Ghost Writer and choose <b>Uninstall</b>.</p>
-            <p>It asks whether to also delete your saved dictations, notes, dictionary and settings. Choose No to keep them in case you install it again.</p></div>
-        </details>
-        <details>
-          <summary>I found a bug, or I have an idea. Where do I tell you?</summary>
-          <div class="answer"><p>On the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>. Tell us what you were doing and what happened, but please never include anything private you dictated.</p></div>
-        </details>
-      </div>
-    </section>
-
-    <section class="final">
-      <img class="ghostmark dark" src="assets/logo-dark.png" alt=""><img class="ghostmark light" src="assets/logo-light.png" alt="">
-      <h2>Stop typing. Start talking.</h2>
-      <p class="lead" style="margin:0 auto 26px">Supercharge your PC. Free, private, and entirely yours.</p>
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Ghost Media Works</span>
+      <h1>Software that works for you, on your own PC.</h1>
+      <p class="sub">We make tools for Windows that do their work on your computer, not in someone's cloud. Our first, Ghost Writer, runs on your PC: your voice and words never leave it.</p>
       <div class="actions">
-        <a class="download request" href="#request">Request access</a>
-        <a class="download second" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">Download Ghost Writer 6.7</a>
+        <a class="button" href="/ghost-writer/">Meet Ghost Writer</a>
+        <a class="text-link" href="#promise">Our promise</a>
       </div>
-    </section>
-
-    <section id="new">
-      <h2>What's new</h2>
-      <p class="lead">Every update, in plain words. Ghost Writer checks for new versions each time it starts and offers them with one click.</p>
-      <div class="changes"><div class="change"><b>Version 6.7</b><ul><li>Fixed: on some PCs the access key couldn&#x27;t be checked (&quot;couldn&#x27;t reach the key server&quot;) even with working internet. It works there now.</li><li>If the key can&#x27;t be checked, the key window now says why, and offers a newer version when there is one.</li></ul></div>
-<div class="change"><b>Version 6.6</b><ul><li>Ghost Writer is now free by invitation: it asks for an access key, checked online at start and every hour (up to 3 days offline).</li><li>New: Screen context. Turn it on and Ghost Writer reads the window you&#x27;re typing in, so names and topic words come out right.</li><li>Fixed: when an app was too busy to take a paste, the words typed in its place could lose their spaces (&quot;Youshouldbeable&quot;). They&#x27;re typed again, slowly.</li><li>Fixed: over only background sound (music, a video), hands-free could type made-up words, numbers or one sentence again and again. They&#x27;re left out now.</li><li>Fixed: if an app missed a few letters of those typed words, Ghost Writer now notices and types them again, slowly, so they match what you said.</li><li>Fixed: the ghost beside selected text no longer pops up when you click or drag on empty space, a title bar or a picture. Only text you just selected brings it.</li><li>Settings &gt; AI: choose how long the ghost beside selected text stays. It also goes when you scroll the text away.</li></ul></div>
-<div class="change"><b>Version 6.5</b><ul><li>Fixed: after a long dictation, the speech model could add words you never said at the end (&quot;We&#x27;ll see you next time. Bye.&quot;). They&#x27;re left out now.</li><li>Fixed: saying &quot;Hey Grant, for now...&quot; no longer splits the name onto its own line (&quot;Hey,&quot; / &quot;Grant.&quot;). The greeting stays &quot;Hey Grant,&quot;.</li><li>New in Search your PC: Clean up. See each drive&#x27;s free space and remove junk (temp files, browser and app caches) in one click.</li><li>Clean up lists your biggest files too. Move any of them to the Recycle Bin, and empty the Recycle Bin from there.</li><li>Fixed: when Windows briefly stopped passing keys to Ghost Writer, the Windows key could act on its own (Start opening, or Win seeming stuck).</li><li>Settings: click a section&#x27;s heading (Dictation, Sound &amp; microphone...) to fold it shut or open it again. Ghost Writer remembers which you folded.</li><li>Making your own voice command: the list of actions is now only as wide as its text, so scrolling the page beside it works again.</li></ul></div>
-<div class="change"><b>Version 6.4</b><ul><li>If your microphone is muted (like the mic-mute key on a laptop), Ghost Writer now says so and how to fix it, instead of just &quot;Didn&#x27;t catch anything&quot;.</li><li>&quot;Ghost&quot; and &quot;Hey Ghost&quot; catch more of your commands the first time, and noises, music or other people&#x27;s talk wake it by mistake far less often.</li><li>Hey Ghost now hears you over a show or music playing on your PC and acts right away, instead of missing you or waiting for a pause.</li><li>Over a loud show Hey Ghost checks your words twice before acting, so a misheard command never runs (like locking the PC by mistake).</li><li>New: &quot;Hey Ghost, turn down the volume&quot; and &quot;turn up the volume&quot; work as you&#x27;d expect.</li><li>&quot;Hey Ghost, take a screenshot&quot; now keeps your screen clean: no ghost or message shows up in the picture or after it.</li><li>Faint background sound in a quiet room no longer wakes Hey Ghost or runs a command by mistake.</li><li>Home&#x27;s Shortcuts card starts folded, with a clear Show button to see your shortcuts.</li><li>You can now pick any shortcut. If Windows already uses it (like Win+G), you&#x27;re told why and a ⚠ stays beside it.</li></ul></div></div>
-      <details><summary>Earlier updates</summary><div class="changes" style="margin-top:12px"><div class="change"><b>Version 6.3</b><ul><li>Fixed: on a slow PC, like just after it starts, a search box could get your words twice. Ghost Writer now waits for a slow paste.</li><li>Your settings, history and stats are never reset if Windows briefly can&#x27;t open them at startup. Any problem saving them shows in the error log.</li><li>Your notes are kept safe the same way. If Windows still won&#x27;t open them, Ghost Writer restarts itself once it can, so your settings load.</li><li>Search your PC uses far less power while Windows is busy right after you sign in, so the PC no longer slows down.</li><li>Listening for &quot;Hey Ghost&quot; now uses much less power while you&#x27;re not dictating. It hears you just as well.</li></ul></div>
-<div class="change"><b>Version 6.2</b><ul><li>Click the Ghost Writer name or logo to go Home. Fold the Shortcuts card on Home. On a small window, anything that doesn&#x27;t fit scrolls.</li><li>New tab: Search your PC. Find any file, folder, app or Windows setting by typing its name. Alt+Shift+S opens it anywhere.</li><li>In Advanced mode, Search your PC also finds documents by the words inside them, using Windows&#x27; own search. Change it in Settings.</li><li>New: words it clearly misheard (&quot;meet at the bitch&quot;) are swapped for the sound-alike word that fits (&quot;beach&quot;). Never rewords. Settings.</li><li>New: like a phone keyboard, it uses what&#x27;s already in the box: &quot;three hook structure&quot; is no longer typed as &quot;book&quot;.</li><li>Fixed: Dictionary words were too sticky. Real words you say (&quot;code&quot;, &quot;created&quot;) stay as said, and no made-up repeats.</li><li>Fixed: saying Hey Ghost, hands-free now starts hands-free right away, and works more often.</li><li>Fixed: hands-free now types exactly what you say. It only adds punctuation and capitals, never rewords. Change it in Settings.</li><li>Fixed: with several screens, the dictation bar now shows on the screen you are typing on, Ghost Writer&#x27;s own Notepad included.</li><li>Fixed: if Windows stops passing your shortcuts to Ghost Writer, the press still works and it reconnects, no restart needed.</li><li>Fixed: a Thank you you never said no longer appears at the end of a dictation.</li><li>New in Settings &gt; Dictation: Space between paragraphs. Next line, one blank line (the default) or two.</li><li>New Formatting page in Settings: spaces, full stops, numbers, lists, greetings, sign-offs and web addresses.</li><li>Any setting you changed has a Reset, and Settings has Reset all. Options needing Advanced mode are greyed out without it.</li><li>When Hey Ghost isn&#x27;t listening, Home now says so beside Ready. Click it to turn always listening on. You can hide it in Settings &gt; Voice commands.</li><li>While Hey Ghost is listening, Home shows a small × beside it. Click it to turn always listening off.</li><li>Fixed: dictating after a comma in the middle of a sentence no longer starts with a capital (&quot;let&#x27;s do it, all I need...&quot;).</li><li>Fixed: an email starting &quot;Hey, dude,&quot; keeps the name on the greeting line instead of moving it down.</li><li>Fixed: in email boxes, an AI correction across a blank line no longer leaves a stray line break behind.</li><li>Hands-free no longer types a video, a TV or other voices much quieter than yours (no more Thank you on its own). Change it in Settings.</li><li>Fixed: Hey Ghost, stop now ends hands-free even when more words follow it.</li><li>Fixed: Hey Ghost, hands-free starts more reliably, even when it&#x27;s misheard or said over background talk.</li><li>Videos and music on your PC wake Hey Ghost far less, even after you switch speakers or headphones. Change it in Settings.</li><li>Pop out now opens the Notepad in a separate window and Ghost Writer&#x27;s window stays open. Change it in Settings &gt; App.</li><li>A fresh look: rounded panels in Notepad, Transcribe, Voice commands, Your stats and Settings. Transcribe has a big drop zone that glows as you drag files on.</li></ul></div>
-<div class="change"><b>Version 6.1</b><ul><li>Fixed: Advanced sometimes left out your first few words, or the last ones, when you started or ended softly.</li><li>Fixed: a word you taught Ghost Writer no longer replaces real words like honest or how&#x27;s (Hey Ghost appeared instead).</li><li>Hands-free keeps your words as said: you know and repeats like no, no stay. Only um and uh go. Change it in Settings.</li><li>New Help page: click the ? beside the gear, or say Hey Ghost, help. Ask in your own words; Advanced&#x27;s AI can answer too.</li><li>New switch on Home: Automatic paragraphs. Off, a paragraph starts only when you say Hey Ghost, new paragraph.</li><li>Launch when I sign in has moved from Home to Settings &gt; App.</li></ul></div>
-<div class="change"><b>Version 6.0</b><ul><li>Fixed: saying Hey guys no longer types Hey Ghost. A word you taught Ghost Writer never replaces a different real word.</li><li>Fixed: a sentence could be typed twice when you started talking again straight away, or in apps that show a paste late.</li><li>Quick commands like Ghost paste, Ghost copy and Ghost clipboard work said fast, with no pause, and are heard more reliably.</li><li>Leaner: the app takes 54 MB less space (unused parts removed) and its window opens a little faster.</li><li>Always listening uses less power: long stretches of talk are no longer checked for Hey Ghost. Change it in Settings.</li><li>The Voice commands tab is easier to scan: three ways to start at the top, and each list stays closed until you open it.</li><li>Fixed: dictating over highlighted words now fits the sentence (no stray capital, full stop or extra space), even right after a dictation.</li><li>Fixed: the grammar check after dictation no longer stops halfway on text with numbers or codes.</li><li>Dictating into the middle of text? The grammar check now also fixes the rest of that sentence. Change it in Settings.</li><li>The voice command diary was a testing tool and has been removed.</li></ul></div>
-<div class="change"><b>Version 5.9</b><ul><li>Hey Ghost understands commands where two s sounds run together, like close Spotify or Ghost, stop.</li><li>Hey Ghost, stop ends hands-free more reliably, even right at the end of a sentence. Turn off hands-free and hands-free off work too.</li><li>After Hey Ghost, the listening ghost waits 3.5 seconds for your command, then fades away. Say it in one breath or pause first; both work.</li><li>Say Ghost or Hey Ghost before any command. Ghost, open Spotify works the same as Hey Ghost, open Spotify.</li><li>New on the Voice commands tab: a wake word sensitivity slider, from Speak up to Ultra sensitive. The new default hears softer voices than before.</li><li>Hey Ghost no longer wakes when someone nearby just says Hey Gus or a ghost in a sentence.</li><li>New shortcuts: let go of Win+Alt to turn hands-free on or off. Hold Ctrl+Alt for a voice command. Win+Alt+R and other Win+Alt shortcuts still work.</li><li>Fixed: the listening ghost could stay on screen after a tiny sound, or appear from keys another program sent.</li><li>Fixed: with several screens, the helper ghost no longer jumps between them. It stays on the screen you&#x27;re using.</li><li>Fixed: sound from your own speakers, or a muted microphone&#x27;s faint hiss, could wake Hey Ghost. Your voice is heard as before.</li><li>Hey Ghost, hide works far more often, even when the speech model mishears hide.</li><li>Say an email or web address and it&#x27;s written as one: john dot smith at gmail dot com becomes john.smith@gmail.com.</li><li>Improve writing now really edits: it cuts filler and wordiness and keeps your tone. Changed words show in color (Settings, AI rewrite).</li><li>Hey Ghost guesses a command it doesn&#x27;t know and asks: Did I get that right? Say yes and it learns your words. Switch it in Voice commands.</li><li>New voice command diary (Voice commands tab): records every voice command for a day, on this PC only, so misses can be fixed.</li><li>Settings has a search box and new groups. Sounds, the microphone, hands-free timing and double-tap speed can now be changed there.</li><li>The Hey Ghost helper ghost is easier to see, with a slider in Settings. The ghost beside selected text has its own switch.</li><li>Windows now calls the app Ghost Writer, not Python: on the microphone in use icon, in Task Manager, Startup apps and notifications.</li><li>Pop-ups like Improve writing can be dragged anywhere on the screen.</li><li>New rounded search bars in Settings and Notepad that keep their shape when you click them.</li><li>Settings that change a look show a preview, like the helper ghost&#x27;s visibility. The volume slider plays a sample sound.</li><li>Make your own voice commands: up to 10 phrases each, for a site, an app, keys, text or any command, picked from a scrolling list. Voice tab or Settings.</li><li>Say Ghost, pause, then the command: it now waits for you instead of saying it didn&#x27;t understand.</li><li>Just say a web address after Ghost (Ghost, walmart.com) and it opens. Ghost, close amazon.com closes that browser tab.</li><li>Hey Ghost understands more of how the speech model writes commands, like GhostOpenAmazon.com, pull-up, or and Ghost, close Outlook.</li><li>Apple Music opens its web player when the app isn&#x27;t on your PC. The Voice commands tab explains everything more clearly.</li></ul></div>
-<div class="change"><b>Version 5.8</b><ul><li>Say run, open, or start to launch an app. Close, kill, exit, quit, or shut down closes any app you name.</li><li>Hey Ghost understands many ways to open, switch to, or close an app, open a folder, go to a site, or search.</li><li>If Hey Ghost does not know that app, the question mark ghost comes back. Open Apple Music opens applemusic.com.</li><li>Open amazon.com opens that site. If the app is on your PC, open Amazon opens the app.</li><li>Fixed: starting to dictate after Hey Ghost cancels that command and the listening ghost goes away.</li><li>When a command works, the listening ghost steps aside and a card in the middle of the screen confirms it.</li><li>Say stop to send the listening ghost away, or turn voice commands off.</li><li>Hey Ghost runs play and pause right away, and a finished command is not read a second time.</li></ul></div>
-<div class="change"><b>Version 5.7</b><ul><li>Hey Ghost understands more ways to move windows and tabs, and more ways to ask for the time, a timer, the volume, or a song.</li><li>Say run, launch, or start plus an app name. Run Rocket League opens that game. If no app is found, its website opens.</li><li>When a command goes through, the listening ghost steps aside and a small see-through note takes its place.</li><li>Light mode uses a softer white, so the page is easier on your eyes.</li></ul></div>
-<div class="change"><b>Version 5.6</b><ul><li>A real word is corrected again only in the same kind of sentence. A name, or a pair you type yourself, is still corrected every time.</li><li>Hey Ghost is heard more reliably. Speech that writes HeyGhost, Hey go, or He goes still counts; Hey gosh does not.</li><li>Hold Win+Alt or Ctrl+Alt and say a command. A faint ghost with a question mark shows it is listening.</li><li>Fixed: only one ghost appears when you ask for help, by keys or by saying Hey Ghost.</li><li>Fixed: holding Win+Alt no longer types what you said. It runs it as a Ghost command.</li><li>Hey Ghost runs your PC: open, switch to or close any app by name, open folders and Settings pages, go to a website, or search the web.</li><li>Fixed: close Google or Chrome closes Google Chrome. Minimize Google minimizes that window instead of Ghost Writer.</li><li>Say undo, save, select all, new tab, close the tab, go back, scroll down, zoom in, snap left, or minimize. Hey Ghost, send presses Enter.</li><li>Set a timer or a reminder, ask for the battery or the volume, set the volume to a level, and play, pause, or skip music in any app.</li><li>Fixed: Hey Ghost, unmute no longer mutes a PC that was not muted, and volume up or down now moves a step you can hear.</li><li>Fixed: when paste does not land, the same words are typed in. In Wizard101, press Enter to open chat first.</li><li>Fixed: Hey Ghost, new line or new paragraph no longer presses Enter a second time, which was making Windows play its error sound.</li></ul></div>
-<div class="change"><b>Version 5.5</b><ul><li>Hey Ghost runs more of the app in your own words: open a page, pop the Notepad out or put it back, and it stays on the screen you are using.</li><li>Say it in one breath, or wait for the tick. A pause or a slightly off word still works, and a question mark shows when it does not understand.</li><li>Ask the time or date and a large clock flashes by the ghost. Also mute, volume, lock, screenshot, Calculator, File Explorer, and show desktop.</li><li>Turn hands-free off in your own words, or say Ghost, enter. Copy and paste work in the app you are in, and close shuts File Explorer or the window in front.</li><li>Names you taught stay right with an accent. A fix is saved after two corrections, you can type your own, and clock no longer becomes a saved name.</li><li>A sentence repeated at the end of a dictation is left out. After your words are typed, they come off the Windows clipboard.</li><li>The window is more open, in violet and blue. The title fades between them, and the greeting says you are in Ghost mode.</li><li>The line under the greeting says fully transparent, completely private. The listening ghost is a little easier to see on a light page.</li><li>Light mode is a white page with light blue fields. The title, greeting, buttons, and voice answers stay easy to read.</li><li>Voice commands lists every command in boxes you can open. Advanced ones are marked, the counts are easier to read, and opening a box no longer flashes.</li></ul></div>
-<div class="change"><b>Version 5.4</b><ul><li>Fixed: Hey Ghost is heard even when it isn&#x27;t the first thing you said in a phrase.</li><li>Fixed: in a noisier room, a long stretch of sound no longer makes Hey Ghost vanish.</li><li>You can also say Hi Ghost or Okay Ghost; Ghost Writer treats those as Hey Ghost.</li><li>Fixed: Hey Ghost no longer goes quiet after you dictate; it keeps using the same microphone.</li></ul></div>
-<div class="change"><b>Version 5.3</b><ul><li>Fixed: dragging a browser scrollbar no longer makes the selection ghost appear.</li><li>Drop audio or video files onto the Transcribe page to start a transcript. Choose audio files still works.</li><li>Fixed: dropping audio or video files onto Transcribe no longer closes Ghost Writer.</li><li>The Transcribe drop area is twice as tall and shows a file drop icon.</li><li>While you dictate or use Hey Ghost, Ghost Writer reduces computer playback and background noise on this PC.</li><li>Fixed: Hey Ghost is less likely to miss a quiet start or end of your voice.</li><li>After the chime, a slightly misheard Hey Ghost no longer loses the command.</li><li>Short commands can start sooner when said in one breath; note titles and text still wait for the full phrase.</li><li>Fixed: hands-free can stop when speech recognition hears &quot;Hey Ghost, stop&quot; as &quot;and go stop&quot; or &quot;here goes stop&quot;.</li><li>Fixed: Ghost Writer now tells you when it heard Hey Ghost but couldn&#x27;t understand the command.</li><li>Fixed: Ghost Writer waits for selected text to finish copying before it tries to rewrite it.</li></ul></div>
-<div class="change"><b>Version 5.2</b><ul><li>Ghost Writer now reads the text already in the box you dictate into, and listens out for its names and terms.</li><li>So a name or word that&#x27;s already written, like a colleague&#x27;s name or a product, is heard right far more often.</li><li>Dictating into casual lowercase writing? Your words come out casual too (in the Relaxed and Natural styles).</li><li>Fix a word Ghost Writer got wrong, and it learns: from then on it listens out for that word and fixes it for you.</li><li>See and remove what it has learned in Settings, under Learning from your corrections. It all stays on this PC.</li><li>Hands-free gets all of this too: each phrase hears the box you are in, matches its style, and your fixes are learned.</li><li>The ghost now sits right at the end of the last word you selected, not after a space or on the next line.</li><li>With several screens, the ghost, its menu and every pop-up open on the screen you are working on, never cut off.</li><li>Right-click Ghost Writer on the taskbar: start hands-free, switch mode, a new note, writing style or Settings.</li><li>The tray icon menu has hands-free, writing style and speech accuracy too. The taskbar now says Ghost Writer, not Python.</li><li>Ghost Writer now looks for a new version every time it starts, and tells you with a Windows notification.</li><li>Settings is now the gear at the top right, so the tabs are just what you do: Home, Notepad, Transcribe and About.</li><li>What&#x27;s new has a Check for updates button, and offers the update right there when there is one.</li><li>Fixed: in a small window the Speech accuracy button on Home was cut off.</li><li>Voice commands now start with &quot;Hey Ghost&quot;, like &quot;Hey Ghost, new paragraph&quot;. Without it, the same words are just typed.</li><li>A new Voice commands tab lists every command with an example, and has a switch to turn them off.</li><li>New, off by default: always listen for &quot;Hey Ghost&quot;. Start hands-free, rewrite a selection and more, by voice.</li><li>Say &quot;Hey Ghost, stop&quot; to end hands-free. Settings is now grouped: Dictation, AI, Keyboard and App.</li><li>A command said on its own works too: say &quot;Hey Ghost, new paragraph&quot;, then carry on. &quot;Scratch that&quot; removes your last dictation.</li><li>Always listening gives a soft tick when it hears &quot;Hey Ghost&quot;. Say &quot;Hey Ghost&quot;, wait for it, then the command if you like.</li><li>Your stats is now a tab of its own, next to Home.</li><li>While Ghost Writer waits for your command, a faint ghost hovers at the bottom of the screen, then fades away.</li><li>&quot;Hey Ghost&quot; is picked up far more reliably, and the chime comes as soon as you say it.</li><li>While you dictate, only the dictation commands (new paragraph, new line, scratch that, lists) do anything.</li><li>Fixed: &quot;Hey Ghost&quot; was sometimes written &quot;Hay Ghost&quot;. Common words are no longer mistaken for names to listen for.</li><li>Say commands your way: &quot;Hey Ghost, start a new note and name it Daily Allowance&quot;. It does what it understands.</li><li>Ask for several things at once, open any page, change the theme or check for updates, all by voice.</li><li>One correction is enough: Ghost Writer learns it straight away, and a faint thinking ghost shows when it does.</li><li>Always listening stays as you left it when Ghost Writer restarts, and Home shows when Ghost is listening.</li><li>In hands-free, &quot;Hey Ghost, stop&quot; ends it. Voice commands are marked Beta while they are new.</li><li>Fixed: in Chrome the selection ghost could appear by the mouse instead of after the selected words.</li></ul></div>
-<div class="change"><b>Version 5.1</b><ul><li>Pop-ups no longer stay on screen when you leave: the ? explanations, pickers, menus and boxes close as soon as you click away.</li><li>They also close when you switch to another app, so nothing is left floating over your other windows.</li></ul></div>
-<div class="change"><b>Version 5.0</b><ul><li>Right-click in a note for Cut, Copy, Paste, Delete, Select all, Undo and Redo, plus Rewrite with AI.</li><li>Right-click works in Ghost Writer&#x27;s other text boxes too, like Search.</li><li>Highlighted text in notes is easy to read now: dark ink on the highlight colour, like a real highlighter.</li><li>Pop out the Notepad into its own big window, with nothing else around it. Close it to go back to the app.</li><li>The ‹‹ arrow on the notes list folds it away, so the note you&#x27;re writing gets the whole width. ›› brings it back.</li><li>Attachments show a picture preview, or the file&#x27;s type, with a ✕ to remove each one.</li><li>Select text in a note and a small glowing ghost appears beside it: click it to rewrite just that part with AI.</li><li>The AI rewrite button is now Ghost Writer&#x27;s own glowing ghost.</li><li>The ghost works on every PC: Quick fixes for spelling and grammar, more formal, and letter case need no AI.</li><li>Spelling uses Windows&#x27; own spell checker, offline. Names and words it isn&#x27;t sure about are left alone.</li><li>Menus, like the ghost&#x27;s rewrite options, close as soon as you click elsewhere or switch to another app or tab.</li><li>Select text with the mouse in any app and a small glowing ghost appears beside it: click it for AI rewrite.</li><li>To show it, Ghost Writer only checks that something is selected. Switch it off in Settings, under AI rewrite.</li><li>Fixed: on smaller screens some pages (like Shortcuts) were cut off. Anything that doesn&#x27;t fit now scrolls.</li><li>Smoother scrolling everywhere: the mouse wheel and touchpad glide instead of jumping, and long notes no longer skip.</li><li>Fixed: at the bottom of a page or note, the scrollbar showed as if it were at the top.</li><li>The developer error log only lists real faults now, not things Ghost Writer handled as designed.</li><li>If Advanced stops working mid-session, Standard types that dictation instead (nothing is lost) and Advanced restarts.</li><li>Standard no longer sometimes drops the last unfinished words of a phrase when you pause mid-sentence.</li><li>The bubble says &quot;Starting mic&quot; for the moment the microphone takes to start, then &quot;Listening&quot;.</li><li>The microphone stays ready for a minute after each dictation (was 20 s), so fewer first words are clipped.</li><li>Ghost Writer uses far less processor while idle, which is easier on a laptop&#x27;s battery.</li><li>New in Settings: Speech accuracy. Balanced is the default; Most accurate makes about 40% fewer mistakes.</li><li>Light is quickest, for older PCs. Your choice is saved and kept until you change it.</li><li>Pick it from Home too: a power-level drop-down, shown while Standard does the transcribing. More power, more time.</li><li>If dictation is slow on your PC, Ghost Writer suggests a quicker level once. It never changes it by itself.</li><li>Standard hears soft voices and quiet microphones better (about 12% fewer mistakes there), at no cost in speed.</li><li>Hands-free in Standard is more accurate: it no longer gets thrown off by sentences you already finished.</li><li>Fixed: Always Listening now notices when its microphone fails or disconnects, retries it, and shows when it is starting.</li></ul></div>
-<div class="change"><b>Version 4.9</b><ul><li>Shortcuts has moved into Settings, so the tabs along the top are simpler. Edit on Home still opens it.</li></ul></div>
-<div class="change"><b>Version 4.8</b><ul><li>Fixed: clicking ✨ in Notepad with no text selected made Ghost Writer stop responding.</li></ul></div>
-<div class="change"><b>Version 4.7</b><ul><li>New: AI rewrite. Improve, shorten, or turn your text into an email, meeting notes or a summary.</li><li>In Notepad, click ✨ in the toolbar. In any app, select text and press Alt+Shift+R.</li><li>You see the result first; your text only changes if you choose Replace.</li><li>Use your own local AI: pick a model you run with Ollama or LM Studio, in Settings under AI rewrite.</li></ul></div>
-<div class="change"><b>Version 4.6</b><ul><li>Advanced mode now works on AMD and Intel graphics cards too, not just NVIDIA.</li><li>It needs a card with its own memory: 4 GB for the big speech model, 6 GB for smart formatting too.</li><li>Each PC downloads only what its card needs: 3.3 GB for AMD and Intel, 4.8 GB for NVIDIA.</li></ul></div>
-<div class="change"><b>Version 4.5</b><ul><li>New in Settings: Your stats. Words dictated, speaking speed, time saved, streaks and a calendar of your activity.</li><li>See which writing styles and apps you use most, and how much cleanup Ghost Writer did for you.</li><li>Counted on your PC only (numbers, never your words). Reset it whenever you like.</li></ul></div>
-<div class="change"><b>Version 4.4</b><ul><li>Notepad has a formatting toolbar, like a word processor: fonts, sizes, bold, italic, underline and more.</li><li>Text colour, highlight, bulleted and numbered lists, alignment, and undo and redo.</li><li>Attach files to a note (pictures, documents, anything). Click one to open it.</li></ul></div>
-<div class="change"><b>Version 4.3</b><ul><li>New Transcribe tab: turn recordings into notes. Choose one or more audio files (MP3, WAV, M4A, FLAC, OGG, WMA and more, or the sound of a video).</li><li>Each transcript is saved in the Transcripts folder of your Notepad, in paragraphs and in your Writing style.</li><li>It all happens on your PC, and a file waits while you dictate.</li></ul></div>
-<div class="change"><b>Version 4.2</b><ul><li>Ghost Writer has its own installer and website.</li><li>Advanced mode installs from inside the app on PCs with an NVIDIA graphics card.</li><li>Ghost Writer checks once a day for a new version and offers it with one click. You can turn this off in Settings, under Updates.</li></ul></div>
-<div class="change"><b>Version 4.1</b><ul><li>A new look for the Ghost: the titanium ghost logo, with eyes and a halo that glow purple in dark mode and light blue in light mode.</li></ul></div>
-<div class="change"><b>Version 4.0</b><ul><li>Light and dark themes: choose Dark, Light or System in Settings, under Appearance.</li><li>System follows your Windows setting and switches by itself when Windows does.</li><li>Dark stays the default. The recording bubble stays dark in every theme, so it reads well over any app.</li></ul></div>
-<div class="change"><b>Version 3.9</b><ul><li>Searching your notes softly highlights the words you typed, in the list and in the open note.</li></ul></div>
-<div class="change"><b>Version 3.8</b><ul><li>Notepad folders: sort your notes into folders you can open and close.</li><li>Right-click a folder to add a note to it, rename it or delete it. Deleting a folder keeps its notes.</li></ul></div>
-<div class="change"><b>Version 3.7</b><ul><li>Right-click a note in Notepad to pin, export or delete it.</li><li>Each note shows when it was created and when it was last updated.</li></ul></div>
-<div class="change"><b>Version 3.6</b><ul><li>New tagline under the name: &quot;Private dictation that runs entirely on this PC, fully transparent.&quot;</li></ul></div>
-<div class="change"><b>Version 3.5</b><ul><li>Scratchpad is now Notepad: keep as many notes as you like, like the Notes app on a phone.</li><li>Search your notes, pin the important ones to the top, and export or import them as text files.</li><li>Start hands-free right from Notepad and dictate straight into a note.</li><li>Your old Scratchpad text is kept as your first note.</li></ul></div>
-<div class="change"><b>Version 3.4</b><ul><li>Ghost Writer never types long dashes (—). You get a comma or a full stop instead.</li><li>The app&#x27;s name is always written as two words: Ghost Writer.</li><li>On the About tab, &quot;Ghost&quot; is now in Ghost Writer&#x27;s own lettering.</li></ul></div>
-<div class="change"><b>Version 3.3</b><ul><li>Settings is simpler: a short list you click into, instead of every option at once.</li><li>Writing styles are in order from least to most formal, starting with Caveman.</li></ul></div>
-<div class="change"><b>Version 3.2</b><ul><li>New writing style, Caveman: just your words exactly as heard. No punctuation, no capitals, no fixes.</li></ul></div>
-<div class="change"><b>Version 3.1</b><ul><li>Click the version number (bottom left) to see this list of updates.</li></ul></div>
-<div class="change"><b>Version 3.0</b><ul><li>Slimmer, rounded scrollbars that match the rest of the app.</li><li>Grey text is lighter, so small print is easier to read.</li></ul></div>
-<div class="change"><b>Version 2.9</b><ul><li>Questions like &quot;Delete all?&quot; now appear in Ghost Writer&#x27;s own style instead of a plain Windows box.</li><li>Ghost Writer quietly notes any problems it runs into so they can be fixed. It never records what you say.</li></ul></div>
-<div class="change"><b>Version 2.8</b><ul><li>Fixed: the status light stayed yellow after you turned hands-free off.</li></ul></div>
-<div class="change"><b>Version 2.7</b><ul><li>New About tab: how Ghost Writer works and how it keeps everything private.</li><li>New welcome line: &quot;You are a Ghost. Welcome, Ghost Writer.&quot;</li><li>Removed leftover code, so nothing in the app can reach the internet.</li></ul></div>
-<div class="change"><b>Version 2.6</b><ul><li>A fresh, modern look: rounded glass panels, buttons and tabs.</li></ul></div>
-<div class="change"><b>Version 2.5</b><ul><li>Writing styles: choose Relaxed, Natural, Polished or Formal for how your words come out.</li><li>Dictionary: clear all words, or import and export your list.</li></ul></div>
-<div class="change"><b>Version 2.4</b><ul><li>Advanced mode looks back over your last few sentences and fixes small grammar slips.</li><li>Ghost Writer notices which app you&#x27;re in (chat, email, document, code) and writes to suit it.</li></ul></div>
-<div class="change"><b>Version 2.2</b><ul><li>Corrections are quicker and only change the words that need it, instead of retyping everything.</li></ul></div>
-<div class="change"><b>Version 2.1</b><ul><li>Fixed: text was sometimes deleted by mistake.</li><li>Fixed: stray letters appearing, and typing into Notepad not working.</li></ul></div>
-<div class="change"><b>Version 2.0</b><ul><li>Hands-free understands pauses: it types as you talk, then tidies up the whole thought when you finish.</li><li>Uses your recent dictations to get names and your way of writing right.</li></ul></div>
-<div class="change"><b>Version 1.9</b><ul><li>Scratchpad tab: a notepad inside Ghost Writer to type or dictate into.</li><li>Reads the text box you&#x27;re writing in, so new words fit what&#x27;s already there.</li><li>A button to start and stop hands-free.</li><li>Your last 50 dictations, each with a Copy button.</li><li>A new look: the Ghost Writer lettering, a pulsing status light and a clearer mode badge.</li></ul></div>
-<div class="change"><b>Version 1.3 to 1.8</b><ul><li>Advanced mode: faster, more accurate speech recognition on NVIDIA graphics cards.</li><li>Smart formatting by a small AI that runs on your PC.</li><li>Choose your own keyboard shortcuts.</li><li>Faster hands-free, and automatic paragraphs.</li><li>Works on more PCs, with plain advice when something goes wrong.</li></ul></div>
-<div class="change"><b>Version 1.0 to 1.2</b><ul><li>The beginning: hold a shortcut, speak, and your words appear wherever you&#x27;re typing. Everything stays on your PC.</li></ul></div></div></details>
-    </section>
-  </main>
-
-  <footer>
-    <div class="row">
-      <div>&copy; 2026 Ghost Republic Media LLC &middot; Ghost Writer 6.7 beta</div>
-      <div><a href="NOTICES.txt">Open-source credits</a> &middot;
-        <button class="theme-toggle" id="theme" type="button">Theme: auto</button></div>
     </div>
-  </footer>
-</div>
-<button class="to-top" id="to-top" type="button" aria-label="Back to the top" title="Back to the top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
-</button>
-<dialog class="ask" id="ask" aria-labelledby="ask-title">
-  <div class="inside">
-    <h3 id="ask-title">Download Ghost Writer?</h3>
-    <p>Ghost Writer 6.7 opens with an <b>access key</b>. No key yet? <a href="#request" id="ask-request">Request access</a> first. It's a beta: it works well, but you may run into the odd bug. Fixes arrive as one-click updates inside the app.</p>
-    <p>It's free, it runs entirely on your PC, and nothing you say leaves it. Windows may show a warning the first time you open the installer: click <b>More info</b>, then <b>Run anyway</b>.</p>
-    <div class="row">
-      <button class="later" type="button" id="ask-later">Not now</button>
-      <a class="download" id="ask-go" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">I have a key: download</a>
+    <div class="ghost-art" aria-hidden="true">
+      <img class="dark-only" src="/assets/ghost-dark-600.png" alt="" width="463" height="600">
+      <img class="light-only" src="/assets/ghost-light-600.png" alt="" width="463" height="600">
     </div>
   </div>
-</dialog>
-<script>
-// Every download button asks first ("Download the beta?"). Without scripts the links still work.
-(function () {
-  var ask = document.getElementById("ask");
-  if (!ask || typeof ask.showModal !== "function") return;
-  var go = document.getElementById("ask-go");
-  document.getElementById("ask-request").addEventListener("click", function () { ask.close(); });
-  document.querySelectorAll("a.download, a.download-link").forEach(function (link) {
-    if (link === go || link.classList.contains("request")) return;
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      ask.showModal();
-      go.focus();
-    });
-  });
-  document.getElementById("ask-later").addEventListener("click", function () { ask.close(); });
-  go.addEventListener("click", function () { setTimeout(function () { ask.close(); }, 300); });
-  ask.addEventListener("click", function (event) { if (event.target === ask) ask.close(); });  // a click outside
-})();
-</script>
-<script>
-// The request form goes to the key server (dev/access-server), which only the owner can read.
-(function () {
-  var form = document.getElementById("request-form"), result = document.getElementById("request-result");
-  if (!form) return;
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    var data = { name: form.name.value.trim(), contact: form.contact.value.trim(), reason: form.reason.value.trim(), website: form.website.value };
-    if (!data.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.contact)) {
-      result.className = "result bad"; result.textContent = "Please give your name and a working email address."; return;
-    }
-    var button = form.querySelector("button"); button.disabled = true; button.textContent = "Sending...";
-    fetch("https://ghost-writer-access.ghostrepublic.workers.dev/v1/request", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
-      .then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); })
-      .then(function (r) {
-        if (r.body && r.body.ok) { form.reset(); result.className = "result good"; result.textContent = "Thanks! Your request is in. You'll get your key by email once you're approved."; }
-        else if (r.status === 429) { result.className = "result bad"; result.textContent = "Too many requests from here today. Please try again tomorrow."; }
-        else { result.className = "result bad"; result.textContent = "That didn't go through. Please check your details and try again."; }
-      })
-      .catch(function () { result.className = "result bad"; result.textContent = "That didn't go through. Check your internet connection and try again."; })
-      .then(function () { button.disabled = false; button.textContent = "Request access"; });
-  });
-})();
-</script>
-<script>
-// The menu lights up the section you're reading (data-nav says which menu item a section belongs to).
-(function () {
-  var bar = document.getElementById("bar"), nav = bar.querySelector("nav");
-  var links = {}, sections = [], current = null, waiting = false, toTop = document.getElementById("to-top");
-  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
-  nav.querySelectorAll("a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
-  document.querySelectorAll("main section[id]").forEach(function (s) {
-    var key = s.getAttribute("data-nav") || s.id;
-    if (links[key]) sections.push({ el: s, link: links[key] });
-  });
-  function update() {
-    waiting = false;
-    var y = window.scrollY, line = bar.offsetHeight + 40, found = null;
-    bar.classList.toggle("scrolled", y > 8);
-    toTop.classList.toggle("show", y > window.innerHeight);
-    sections.forEach(function (s) { if (s.el.getBoundingClientRect().top <= line) found = s.link; });
-    if (window.innerHeight + y >= document.documentElement.scrollHeight - 4) found = sections[sections.length - 1].link;
-    if (found === current) return;
-    if (current) current.classList.remove("on");
-    current = found;
-    if (current) {
-      current.classList.add("on");
-      // on a phone, slide the menu so the lit item is in view
-      var left = current.offsetLeft - nav.offsetLeft, right = left + current.offsetWidth;
-      if (left < nav.scrollLeft || right > nav.scrollLeft + nav.clientWidth) nav.scrollTo({ left: left - 24, behavior: "smooth" });
-    }
-  }
-  window.addEventListener("scroll", function () { if (!waiting) { waiting = true; requestAnimationFrame(update); } }, { passive: true });
-  window.addEventListener("resize", update);
-  update();
-})();
-</script>
-<script>
-// Theme: follows the device (auto), or a choice remembered on this device.
-(function () {
-  var root = document.documentElement, button = document.getElementById("theme");
-  var order = ["auto", "dark", "light"], choice = "auto";
-  try { choice = localStorage.getItem("gw-theme") || "auto"; } catch (e) {}
-  var asked = (location.search.match(/theme=(auto|dark|light)/) || [])[1];
-  if (asked) choice = asked;  // a link can ask for a theme (?theme=light)
-  function apply() {
-    if (choice === "auto") root.removeAttribute("data-theme"); else root.setAttribute("data-theme", choice);
-    button.textContent = "Theme: " + choice;
-  }
-  button.addEventListener("click", function () {
-    choice = order[(order.indexOf(choice) + 1) % order.length];
-    try { localStorage.setItem("gw-theme", choice); } catch (e) {}
-    apply();
-  });
-  apply();
-})();
-</script>
+</div>
+
+<section id="products" aria-labelledby="products-title">
+  <div class="wrap">
+    <h2 id="products-title">What we make</h2>
+    <p class="lead">Our first app is in free beta now. The second is on its way.</p>
+    <div class="grid two">
+      <article class="card product-card">
+        <div class="shot"><img class="dark-only" src="/assets/screens/home-dark.webp" alt="Ghost Writer&#x27;s Home page: ready to dictate, with your recent dictations" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/home-light.webp" alt="Ghost Writer&#x27;s Home page: ready to dictate, with your recent dictations, light theme" loading="lazy" width="1242" height="839"></div>
+        <div><span class="badge">Free beta &middot; by invitation</span></div>
+        <h3>Ghost Writer</h3>
+        <p>Voice typing for Windows. Hold a key, talk, and your words appear in almost any app, punctuated and tidied. It can also fix and rewrite text you select, take spoken commands, and keep voice notes.</p>
+        <div class="actions">
+          <a class="button" href="/ghost-writer/">See Ghost Writer</a>
+          <a class="text-link" href="/ghost-writer/#request">Request access</a>
+        </div>
+      </article>
+      <article class="card product-card soon">
+        <div class="shot"><img src="/assets/screens/media-hub.webp" alt="An early build of Ghost Media Hub: media library, preview player and timeline" loading="lazy" width="1440" height="900"></div>
+        <div><span class="badge plain">Coming soon</span></div>
+        <h3>Ghost Media Hub</h3>
+        <p>A video editor for Windows, planned to run on your PC: cut, colour, titles, captions and screen recording. Not available yet.</p>
+        <div class="actions">
+          <a class="button secondary" href="/media-hub/">Have a look</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="promise" aria-labelledby="promise-title">
+  <div class="wrap">
+    <h2 id="promise-title">Our promise</h2>
+    <p class="lead">The rules Ghost Writer follows today, and every app we ship after it.</p>
+    <div class="grid four">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>On your PC</h3>
+        <p>Ghost Writer runs on your PC: your voice and words never leave it, to us or anyone else.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
+        <h3>No ads, no analytics</h3>
+        <p>Ghost Writer has no analytics: the only thing we learn is from the key check, such as how many PCs used it each day. This website sets no cookies of its own and loads nothing from other sites.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg></div>
+        <h3>Straight answers</h3>
+        <p>We say what's in beta, what goes online and why Windows warns about a new app, before you install.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h3>You're in charge</h3>
+        <p>Every setting is yours to change, and everything an app keeps is visible and removable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap center">
+    <h2 id="contact-title">Questions, ideas or a bug?</h2>
+    <p class="lead">Tell us on the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>, or email <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>. Please never include anything private you dictated.</p>
+    <div class="actions"><a class="button secondary" href="/about/">About Ghost Media Works</a></div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about-col">
+        <p class="wordmark">Ghost Media Works</p>
+        <p>Private software for Windows that runs on your own PC.</p>
+      </div>
+      <div>
+        <h2>Products</h2>
+        <ul><li><a href="/ghost-writer/">Ghost Writer</a></li><li><a href="/media-hub/">Ghost Media Hub</a> <span class="small-print">(soon)</span></li></ul>
+      </div>
+      <div>
+        <h2>Ghost Writer</h2>
+        <ul><li><a href="/ghost-writer/#request">Request access</a></li><li><a href="/ghost-writer/features/">Features</a></li>
+          <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li>
+          <li><a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a></li></ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul><li><a href="/terms.html">Terms of use</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/NOTICES.txt">Open-source credits</a></li></ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>&copy; 2026 Ghost Media Works</span>
+      <span>No ads, no analytics, no cookies of our own. <a href="/about/#accessibility">Accessibility</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.e99ffbf249.js" defer></script>
 </body>
 </html>
