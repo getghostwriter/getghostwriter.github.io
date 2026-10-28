@@ -1,0 +1,55 @@
+/* Ghost Writer's speech pill (pill.js). Self-contained: uses the site's colour tokens when present,
+   falls back to the app's own colours. Size it with --gw-pill-width (the whole picture incl. its glow). */
+.gw-pill {
+  --gw-pill-width: 369px; /* 1.5x the app's pill at 100% Windows scaling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
+}
+.gw-pill-stage {
+  width: var(--gw-pill-width);
+  max-width: 100%;
+  aspect-ratio: 246 / 76;
+  line-height: 0;
+}
+.gw-pill-canvas { display: block; width: 100%; height: auto; }
+.gw-pill-static { display: block; width: 100%; height: auto; } /* the no-script picture */
+.gw-pill-controls { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 34em; }
+.gw-pill-mic {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border, #272b34);
+  background: var(--raised, #242934);
+  color: var(--text, #eef1f6);
+  padding: 0.5em 1.1em;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.gw-pill-mic svg { width: 1.15em; height: 1.15em; flex: none; }
+.gw-pill-mic:hover { border-color: var(--accent, #8f91ff); }
+.gw-pill-mic:focus-visible { outline: 3px solid var(--accent, #8f91ff); outline-offset: 3px; }
+.gw-pill-mic:disabled { opacity: 0.6; cursor: progress; }
+.gw-pill-live .gw-pill-mic { background: var(--accent, #8f91ff); color: var(--on-accent, #0f1116); border-color: transparent; }
+.gw-pill-note { margin: 0; font-size: 0.82rem; line-height: 1.4; color: var(--muted, #a2acbc); }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .gw-pill-mic { border-color: var(--border, #dfe3ea); background: var(--card, #ffffff); color: var(--text, #121826); }
+  :root:not([data-theme="dark"]) .gw-pill-live .gw-pill-mic { background: var(--accent, #4f52e0); color: var(--on-accent, #ffffff); }
+  :root:not([data-theme="dark"]) .gw-pill-note { color: var(--muted, #505c6c); }
+}
+:root[data-theme="light"] .gw-pill-mic { border-color: var(--border, #dfe3ea); background: var(--card, #ffffff); color: var(--text, #121826); }
+:root[data-theme="light"] .gw-pill-live .gw-pill-mic { background: var(--accent, #4f52e0); color: var(--on-accent, #ffffff); }
+:root[data-theme="light"] .gw-pill-note { color: var(--muted, #505c6c); }
+
+@media (prefers-reduced-motion: reduce) {
+  .gw-pill-mic { transition: none; }
+}
