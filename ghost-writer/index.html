@@ -23,9 +23,9 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.ba13f0a779.css">
+<link rel="stylesheet" href="/assets/site.5f8b557bcf.css">
 <link rel="stylesheet" href="/assets/media/pill.css">
-<script src="/assets/head.a3c1c49f5f.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
+<script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -163,10 +163,12 @@
 </div>
 
 <main id="main" tabindex="-1">
+<div class="wave-host">
+<canvas class="wave-field" aria-hidden="true"></canvas>
 <div class="wrap">
   <div class="hero">
     <div>
-      <p class="product-lockup"><span class="lockup-ghost" aria-hidden="true"></span><span><span class="lockup-name">Ghost Writer</span><span class="lockup-by">by Ghost Media Works</span></span></p>
+      <p class="product-lockup"><span class="lockup-ghost" aria-hidden="true" data-depth=".05" data-depth-max="10"></span><span><span class="lockup-name">Ghost Writer</span><span class="lockup-by">by Ghost Media Works</span></span></p>
       <div class="badges"><span class="badge">Free beta &middot; by invitation</span><span class="badge plain">Windows 10 and 11</span><span class="badge plain">Works offline</span></div>
       <h1>Free dictation for Windows that stays on your PC.</h1>
       <p class="sub">Hold <b>Ctrl+Win</b>, talk, let go: your words appear wherever your cursor is, in almost any app, with punctuation and paragraphs. Speech to text runs on your own PC, even offline, so nothing you say is uploaded.</p>
@@ -178,6 +180,7 @@
     </div>
     <div class="shot demo"><video class="demo-loop" muted autoplay loop playsinline preload="metadata" width="1920" height="1080" poster="/assets/media/demo-loop-poster.webp" aria-label="Ghost Writer in 15 seconds: dictating an email, rewriting a sentence with Advanced mode, and a Hey Ghost voice command"><source src="/assets/media/demo-loop.webm" type="video/webm"><source src="/assets/media/demo-loop.mp4" type="video/mp4"></video></div>
   </div>
+</div>
 </div>
 
 <section id="get" aria-labelledby="get-title">
@@ -197,34 +200,42 @@
   <div class="wrap">
     <h2 id="what-title">What it does</h2>
     <p class="lead">One small app that makes your PC listen. Everything below runs on your own computer.</p>
-    <div class="grid two">
-      <article class="card">
-        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-dictation-dark.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-dictation-light.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+    <div class="story" data-story>
+    <div class="story-pics" aria-hidden="true"><div class="story-frame">
+      <div class="story-pic on"><div class="shot scene"><picture><source srcset="/assets/media/feature-dictation-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-dictation-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
+      <div class="story-pic"><div class="shot scene"><picture><source srcset="/assets/media/feature-quickfix-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-quickfix-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
+      <div class="story-pic"><div class="shot scene"><picture><source srcset="/assets/media/feature-heyghost-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-heyghost-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
+      <div class="story-pic"><div class="shot scene"><picture><source srcset="/assets/media/feature-voicenotes-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-voicenotes-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
+    </div></div>
+    <div class="grid two story-steps">
+      <article class="card story-step">
+        <div class="shot scene"><picture><source srcset="/assets/media/feature-dictation-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-dictation-dark.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
         <h3>Dictate into almost any app</h3>
         <p>Email, documents, chat, the browser, code. Commas, periods and capitals are added for you, and um and uh are left out. Or go hands-free and it types each time you pause.</p>
         <!-- Ghost Writer's live speech pill. Needs /assets/media/pill.css in <head> and /assets/media/pill.js (defer) once per page.
      pill.js replaces the picture inside with the live pill; without JavaScript the app's own still pill shows. -->
 <div class="gw-pill" data-gw-pill>
-  <img class="gw-pill-static dark-only" src="/assets/media/pill-dark.webp" width="492" height="152" alt="Ghost Writer's listening pill: a wavy line that moves with your voice" loading="lazy" decoding="async">
-  <img class="gw-pill-static light-only" src="/assets/media/pill-light.webp" width="492" height="152" alt="" loading="lazy" decoding="async">
+  <picture><source srcset="/assets/media/pill-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/pill-dark.webp" alt="Ghost Writer's listening pill: a wavy line that moves with your voice" class="gw-pill-static" width="492" height="152" loading="lazy" decoding="async"></picture>
+  
 </div>
 
       </article>
-      <article class="card">
-        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-quickfix-dark.webp" alt="A selected sentence with Ghost Writer&#x27;s small ghost and the rewrite menu: Make it friendlier" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-quickfix-light.webp" alt="A selected sentence with Ghost Writer&#x27;s small ghost and the rewrite menu: Make it friendlier, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+      <article class="card story-step">
+        <div class="shot scene"><picture><source srcset="/assets/media/feature-quickfix-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-quickfix-dark.webp" alt="A selected sentence with Ghost Writer&#x27;s small ghost and the rewrite menu: Make it friendlier" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
         <h3>Fix and rewrite what you select</h3>
         <p>Select text anywhere and a small ghost appears: fix spelling and grammar on any PC, or with Advanced mode make it shorter, friendlier or into an email. Your text changes only when you click Replace.</p>
       </article>
-      <article class="card">
-        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-heyghost-dark.webp" alt="Saying Hey Ghost, open Spotify: the ghost listens and confirms Spotify is open" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-heyghost-light.webp" alt="Saying Hey Ghost, open Spotify: the ghost listens and confirms Spotify is open, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+      <article class="card story-step">
+        <div class="shot scene"><picture><source srcset="/assets/media/feature-heyghost-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-heyghost-dark.webp" alt="Saying Hey Ghost, open Spotify: the ghost listens and confirms Spotify is open" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
         <h3>"Hey Ghost" <span class="badge">Beta</span></h3>
         <p>Say "Hey Ghost, open Spotify", "set a timer for ten minutes" or "next tab". Hold Ctrl+Alt instead if you'd rather not say the words. Always listening is off until you turn it on.</p>
       </article>
-      <article class="card">
-        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-voicenotes-dark.webp" alt="A voice note playing, with its waveform and the transcript following along" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-voicenotes-light.webp" alt="A voice note playing, with its waveform and the transcript following along, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+      <article class="card story-step">
+        <div class="shot scene"><picture><source srcset="/assets/media/feature-voicenotes-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-voicenotes-dark.webp" alt="A voice note playing, with its waveform and the transcript following along" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
         <h3>Voice notes and Train My Ghost <span class="badge">Beta</span></h3>
         <p>Record a note, play it back and search what you said. Fix the words it wasn't sure of, and your Ghost learns them for next time, in dictation too.</p>
       </article>
+    </div>
     </div>
     <p class="center u-mt28"><a class="button secondary" href="/ghost-writer/features/">See every feature</a></p>
   </div>
@@ -369,8 +380,9 @@
   </div>
 </dialog>
 
-<script src="/assets/site.bc1f9b68d3.js" defer></script>
+<script src="/assets/site.bb98e1e790.js" defer></script>
 <script src="/assets/media/pill.js" defer></script>
+<script src="/assets/motion.b898d19690.js" defer></script>
 
 </body>
 </html>
