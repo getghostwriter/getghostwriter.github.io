@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ghost Writer features: dictation, rewriting, Hey Ghost and voice notes</title>
+<title>Ghost Writer features: dictation, speech to text, voice notes</title>
 <meta name="description" content="Dictate into any Windows app, rewrite what you select, run your PC with &quot;Hey Ghost&quot;, keep voice notes, search your PC and more. All on your own PC.">
 <link rel="canonical" href="https://ghostmediaworks.com/ghost-writer/features/">
 <meta property="og:type" content="website">
@@ -11,10 +11,10 @@
 <meta property="og:title" content="Everything Ghost Writer does">
 <meta property="og:description" content="Dictate into any Windows app, rewrite what you select, run your PC with &quot;Hey Ghost&quot;, keep voice notes, search your PC and more. All on your own PC.">
 <meta property="og:url" content="https://ghostmediaworks.com/ghost-writer/features/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.f39c4a4800.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.625aee04c9.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ghost Writer: voice typing for Windows that stays on your PC. Free beta, by invitation.">
+<meta property="og:image:alt" content="Ghost Writer: free dictation for Windows that stays on your PC. Free beta, by invitation.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
@@ -22,30 +22,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/GrenzeGotisch-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="/assets/site.7236d342d4.css">
-<script>
-// Before the page paints: the theme chosen on this device, and old links forwarded (the company page
-// used to be Ghost Writer's page, and installed copies open getghostwriter.github.io/#request).
-(function () {
-  try { var t = localStorage.getItem("gw-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  // The app's start-up logo opens the first page of a visit (site.js plays it); covered until then.
-  try {
-    if (!sessionStorage.getItem("gw-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches)
-      document.documentElement.classList.add("intro");
-  } catch (e) {}
-  if (location.pathname !== "/" && location.pathname !== "/index.html") return;
-  var to = {
-    "#request": "/ghost-writer/#request", "#download": "/ghost-writer/#download", "#privacy": "/ghost-writer/#privacy",
-    "#beta": "/ghost-writer/#request", "#install": "/ghost-writer/help/#install", "#requirements": "/ghost-writer/help/#requirements",
-    "#faq": "/ghost-writer/help/#faq", "#new": "/ghost-writer/changelog/", "#features": "/ghost-writer/features/",
-    "#everything": "/ghost-writer/features/", "#hey-ghost": "/ghost-writer/features/#hey-ghost", "#modes": "/ghost-writer/features/#modes",
-    "#smart": "/ghost-writer/features/#reads-the-room", "#rewrite": "/ghost-writer/features/#rewrite", "#search": "/ghost-writer/features/#search",
-    "#learns": "/ghost-writer/features/#learns", "#stats": "/ghost-writer/features/#stats", "#settings-tour": "/ghost-writer/features/#settings"
-  }[location.hash];
-  if (to) location.replace(to);
-})();
-</script>
+<link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/site.df76a356aa.css">
+<link rel="stylesheet" href="/assets/media/pill.css">
+<script src="/assets/head.a3c1c49f5f.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -54,9 +34,29 @@
    "@type": "Organization",
    "@id": "https://ghostmediaworks.com/#org",
    "name": "Ghost Media Works",
+   "alternateName": [
+    "Ghost Media",
+    "GhostMediaWorks"
+   ],
    "url": "https://ghostmediaworks.com/",
    "logo": "https://ghostmediaworks.com/assets/icons/icon-512.png",
    "email": "ghostthepatriot@gmail.com",
+   "founder": {
+    "@id": "https://ghostmediaworks.com/#ghost"
+   },
+   "sameAs": [
+    "https://www.instagram.com/ghost_1krr/"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://ghostmediaworks.com/#ghost",
+   "name": "Ghost",
+   "alternateName": [
+    "Ghost 1kRR",
+    "ghost_1krr"
+   ],
+   "jobTitle": "Founder",
    "sameAs": [
     "https://www.instagram.com/ghost_1krr/"
    ]
@@ -66,6 +66,7 @@
    "@id": "https://ghostmediaworks.com/#site",
    "url": "https://ghostmediaworks.com/",
    "name": "Ghost Media Works",
+   "alternateName": "Ghost Media",
    "publisher": {
     "@id": "https://ghostmediaworks.com/#org"
    }
@@ -79,16 +80,31 @@
 <header class="site-header">
   <div class="wrap inner">
     <a class="brand" href="/" aria-label="Ghost Media Works home">
-      <img class="dark-only" src="/assets/ghost-dark-64.png" alt="" width="49" height="64">
-      <img class="light-only" src="/assets/ghost-light-64.png" alt="" width="49" height="64">
-      <span class="wordmark">GHOST MEDIA WORKS</span>
+      <span class="brand-ghost" aria-hidden="true"></span>
+      <span class="wordmark" aria-hidden="true"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></span>
     </a>
-    <nav class="main-nav" aria-label="Main">
+    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav class="main-nav" id="site-menu" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer" aria-current="page">Ghost Writer</a>
+      <span class="menu-sub">
+        <a href="/ghost-writer/features/" data-sub="features" aria-current="page">Features</a>
+        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
+        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
+        <a href="/ghost-writer/#request">Request access</a>
+      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
+      <a class="menu-only" href="/press/">Press kit</a>
+      <button class="menu-only menu-theme" type="button" data-theme-button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        <span class="theme-label">Theme: follows your device</span>
+      </button>
     </nav>
-    <button class="theme-button" id="theme" type="button" aria-label="Theme: follows your device. Click to change.">
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
@@ -108,7 +124,7 @@
 
 <main id="main" tabindex="-1">
 <div class="wrap">
-  <div class="hero" style="grid-template-columns:1fr">
+  <div class="hero u-one">
     <div>
       <span class="eyebrow">Ghost Writer features</span>
       <h1>Everything it does, on your PC.</h1>
@@ -117,7 +133,7 @@
         <li><a href="#dictation">Dictation</a></li><li><a href="#reads-the-room">Gets names right</a></li><li><a href="#styles">Writing styles</a></li>
         <li><a href="#rewrite">Rewrite</a></li><li><a href="#hey-ghost">Hey Ghost</a></li><li><a href="#voice-notes">Voice notes</a></li>
         <li><a href="#learns">Learns</a></li><li><a href="#search">Search your PC</a></li><li><a href="#notepad">Notepad</a></li>
-        <li><a href="#stats">Your stats</a></li><li><a href="#settings">Settings</a></li><li><a href="#modes">Standard and Advanced</a></li>
+        <li><a href="#stats">Your stats</a></li><li><a href="#settings">Settings</a></li><li><a href="#modes">Standard and Advanced</a></li><li><a href="#windows-voice-typing">vs Windows voice typing</a></li>
       </ul>
     </div>
   </div>
@@ -135,9 +151,16 @@
         <li><b>A slim listening bar</b> shows your voice as one flowing line while it listens.</li>
         <li><b>Your way of writing:</b> spaces, periods, numbers as digits or words, lists and email greetings, all in Settings.</li>
       </ul>
+      <!-- Ghost Writer's live speech pill. Needs /assets/media/pill.css in <head> and /assets/media/pill.js (defer) once per page.
+     pill.js replaces the picture inside with the live pill; without JavaScript the app's own still pill shows. -->
+<div class="gw-pill" data-gw-pill>
+  <img class="gw-pill-static dark-only" src="/assets/media/pill-dark.webp" width="492" height="152" alt="Ghost Writer's listening pill: a wavy line that moves with your voice" loading="lazy" decoding="async">
+  <img class="gw-pill-static light-only" src="/assets/media/pill-light.webp" width="492" height="152" alt="" loading="lazy" decoding="async">
+</div>
+
     </div>
     <div class="stack">
-      <div class="shot"><img class="dark-only" src="/assets/screens/bubble-dark.webp" alt="The listening bar at the bottom of the screen while you talk" loading="lazy" width="820" height="380"><img class="light-only" src="/assets/screens/bubble-light.webp" alt="The listening bar at the bottom of the screen while you talk, light theme" loading="lazy" width="820" height="380"></div>
+      <div class="shot scene"><img class="dark-only" src="/assets/media/feature-dictation-dark.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-dictation-light.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
     </div>
   </div>
 </section>
@@ -163,7 +186,7 @@
     <span class="eyebrow">Writing styles</span>
     <h2 id="styles-title">Five ways to sound like you.</h2>
     <p class="lead">Pick how formal your words come out, from Home or by saying "Hey Ghost, use the formal style". Polished and Formal turn everyday speech into work-ready writing; their grammar fixes need Advanced mode.</p>
-    <div class="grid four" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    <div class="grid four u-autofit">
       <div class="card"><h3>Relaxed</h3><p>For chat and quick messages.</p></div>
       <div class="card"><h3>Natural</h3><p>Your words, tidied up.</p></div>
       <div class="card"><h3>Polished</h3><p>Everyday speech made ready for work.</p></div>
@@ -285,7 +308,7 @@
       <div class="card"><h3>Notepad</h3><p>Notes with folders, formatting, attachments and a pop-out window. Dictate straight into them.</p></div>
       <div class="card"><h3>Transcribe</h3><p>Drop in audio or video (MP3, WAV, M4A, FLAC, MP4 and more): each becomes a note, in paragraphs, on your PC.</p></div>
     </div>
-    <div class="grid two" style="margin-top:20px">
+    <div class="grid two u-mt20">
       <div class="shot"><img class="dark-only" src="/assets/screens/notepad-dark.webp" alt="The Notepad with a dictated email, folders on the left" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/notepad-light.webp" alt="The Notepad with a dictated email, folders on the left, light theme" loading="lazy" width="1242" height="839"></div>
       <div class="shot"><img class="dark-only" src="/assets/screens/transcribe-dark.webp" alt="Transcribe: drop recordings or videos to turn them into text" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/transcribe-light.webp" alt="Transcribe: drop recordings or videos to turn them into text, light theme" loading="lazy" width="1242" height="839"></div>
     </div>
@@ -319,10 +342,47 @@
     <h2 id="modes-title">Standard and Advanced</h2>
     <p class="lead">Ghost Writer works on any Windows 10 or 11 PC. With a graphics card, Advanced makes it sharper.</p>
     <div class="grid two">
-      <div class="card"><span class="badge plain">Standard mode</span><h3 style="margin-top:12px">Every PC</h3><p>Included in the download. Dictation on the processor, with punctuation, paragraphs, writing styles, quick fixes, voice commands and voice notes. Choose Light, Balanced or Most accurate to suit your PC.</p></div>
-      <div class="card"><span class="badge">Advanced mode</span><h3 style="margin-top:12px">NVIDIA, AMD and Intel graphics cards</h3><p>A much bigger speech model for accents and fast speech, plus a small AI for grammar, paragraphs by topic, rewriting, voice-note summaries and searching inside documents. Needs a graphics card with 4 GB of its own memory or more (6 GB for the AI too). A one-time download from inside the app, 3.3 to 4.8 GB.</p></div>
+      <div class="card"><span class="badge plain">Standard mode</span><h3 class="u-mt12">Every PC</h3><p>Included in the download. Dictation on the processor, with punctuation, paragraphs, writing styles, quick fixes, voice commands and voice notes. Choose Light, Balanced or Most accurate to suit your PC.</p></div>
+      <div class="card"><span class="badge">Advanced mode</span><h3 class="u-mt12">NVIDIA, AMD and Intel graphics cards</h3><p>A much bigger speech model for accents and fast speech, plus a small AI for grammar, paragraphs by topic, rewriting, voice-note summaries and searching inside documents. Needs a graphics card with 4 GB of its own memory or more (6 GB for the AI too). A one-time download from inside the app, 3.3 to 4.8 GB.</p></div>
     </div>
-    <p class="center" style="margin-top:32px"><a class="button" href="/ghost-writer/#request">Request free access</a></p>
+    <p class="center u-mt32"><a class="button" href="/ghost-writer/#request">Request free access</a></p>
+  </div>
+</section>
+
+<section id="windows-voice-typing" aria-labelledby="compare-title">
+  <div class="wrap">
+    <h2 id="compare-title">Ghost Writer and Windows voice typing</h2>
+    <p class="lead">Windows has its own voice typing (Win+H). Here is how the two differ, from Microsoft's own help pages.</p>
+    <!-- Every Windows line is from Microsoft's documentation (checked 2026-10-27):
+         https://support.microsoft.com/en-us/windows/use-voice-typing-to-talk-instead-of-type-on-your-pc-fec94565-c4bd-329d-e59a-af033fa5689f
+           "Press Windows key+H"; "To use voice typing, you'll need to be connected to the internet";
+           "Voice typing uses online speech recognition, which is powered by Azure Speech services.";
+           "Automatic punctuation"; commands "delete that", "select that", "Stop listening";
+           fluid dictation (Copilot+ PCs, English) "automatically corrects grammar, punctuation, and filler words as you speak";
+           the page does not mention adding your own words or rewriting selected text.
+         https://support.microsoft.com/en-us/windows/privacy/speech-voice-activation-inking-typing-and-privacy
+           "Voice typing converts speech to text using online speech recognition.";
+           "Voice data is sent to Microsoft only to provide the service and create text transcriptions."
+         Re-check these pages before each publish; change a line only with a source. -->
+    <div class="compare-wrap">
+      <table class="compare">
+        <caption class="visually-hidden">Ghost Writer compared with Windows voice typing</caption>
+        <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">Ghost Writer</th><th scope="col">Windows voice typing (Win+H)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Start it</th><td data-label="Ghost Writer">Hold Ctrl+Win, talk, let go</td><td data-label="Windows voice typing">Press Win+H</td></tr>
+          <tr><th scope="row">Where speech becomes text</th><td data-label="Ghost Writer">On your PC. Nothing you say is uploaded.</td><td data-label="Windows voice typing">Microsoft's online speech recognition (Azure Speech services). Voice data is sent to Microsoft to create the text.</td></tr>
+          <tr><th scope="row">Needs the internet to dictate</th><td data-label="Ghost Writer">No. Works offline for up to 3 days between key checks.</td><td data-label="Windows voice typing">Yes, says Microsoft's guide.</td></tr>
+          <tr><th scope="row">Punctuation for you</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Yes, with the Automatic punctuation setting</td></tr>
+          <tr><th scope="row">Tidies as you talk</th><td data-label="Ghost Writer">Leaves out um and uh; Advanced mode also fixes grammar</td><td data-label="Windows voice typing">On Copilot+ PCs, fluid dictation corrects grammar, punctuation and filler words</td></tr>
+          <tr><th scope="row">Voice commands</th><td data-label="Ghost Writer">"Hey Ghost": open apps, timers, tabs and more</td><td data-label="Windows voice typing">Editing commands such as "delete that", "select that", "stop listening"</td></tr>
+          <tr><th scope="row">Fix and rewrite text you select</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Not in Microsoft's voice typing guide</td></tr>
+          <tr><th scope="row">Learns your names and words</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Not in Microsoft's voice typing guide</td></tr>
+          <tr><th scope="row">Languages</th><td data-label="Ghost Writer">English, for now</td><td data-label="Windows voice typing">Many languages (Microsoft lists them)</td></tr>
+          <tr><th scope="row">Price</th><td data-label="Ghost Writer">Free beta, by invitation (US)</td><td data-label="Windows voice typing">Comes with Windows</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small-print u-mt14">Windows details from Microsoft's help pages "Use voice typing to talk instead of type on your PC" and "Speech, voice activation, inking, typing, and privacy", October 2026.</p>
   </div>
 </section>
 
@@ -331,7 +391,7 @@
   <div class="wrap">
     <div class="cols">
       <div class="about-col">
-        <p class="wordmark">GHOST MEDIA WORKS</p>
+        <p class="wordmark"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></p>
         <p>Private software for Windows that runs on your own PC.</p>
       </div>
       <div>
@@ -354,8 +414,8 @@
       </div>
     </div>
     <div class="bottom">
-      <span>&copy; 2026 GHOST MEDIA WORKS</span>
-      <span>No ads, no analytics, no cookies of our own. <a href="/about/#accessibility">Accessibility</a></span>
+      <span>&copy; 2026 Ghost Media Works</span>
+      <span>No ads, no analytics scripts or cookies. <a href="/about/#accessibility">Accessibility</a></span>
     </div>
   </div>
 </footer>
@@ -371,6 +431,8 @@
   </div>
 </dialog>
 
-<script src="/assets/site.69c9f5f88f.js" defer></script>
+<script src="/assets/site.bc1f9b68d3.js" defer></script>
+<script src="/assets/media/pill.js" defer></script>
+
 </body>
 </html>
