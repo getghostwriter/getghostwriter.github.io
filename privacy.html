@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ghost Media Works Privacy Policy: Ghost Media Works</title>
+<title>Ghost Media Works Privacy Policy</title>
 <meta name="description" content="Ghost Media Works Privacy Policy for Ghost Writer and the Ghost Media Works website.">
 <link rel="canonical" href="https://ghostmediaworks.com/privacy.html">
 <meta property="og:type" content="website">
@@ -11,7 +11,7 @@
 <meta property="og:title" content="Ghost Media Works Privacy Policy">
 <meta property="og:description" content="Ghost Media Works Privacy Policy for Ghost Writer and the Ghost Media Works website.">
 <meta property="og:url" content="https://ghostmediaworks.com/privacy.html">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.f511ef7cf1.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.de8d4dc66f.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Media Works: private software that runs on your PC.">
@@ -22,30 +22,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/GrenzeGotisch-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="/assets/site.7236d342d4.css">
-<script>
-// Before the page paints: the theme chosen on this device, and old links forwarded (the company page
-// used to be Ghost Writer's page, and installed copies open getghostwriter.github.io/#request).
-(function () {
-  try { var t = localStorage.getItem("gw-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  // The app's start-up logo opens the first page of a visit (site.js plays it); covered until then.
-  try {
-    if (!sessionStorage.getItem("gw-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches)
-      document.documentElement.classList.add("intro");
-  } catch (e) {}
-  if (location.pathname !== "/" && location.pathname !== "/index.html") return;
-  var to = {
-    "#request": "/ghost-writer/#request", "#download": "/ghost-writer/#download", "#privacy": "/ghost-writer/#privacy",
-    "#beta": "/ghost-writer/#request", "#install": "/ghost-writer/help/#install", "#requirements": "/ghost-writer/help/#requirements",
-    "#faq": "/ghost-writer/help/#faq", "#new": "/ghost-writer/changelog/", "#features": "/ghost-writer/features/",
-    "#everything": "/ghost-writer/features/", "#hey-ghost": "/ghost-writer/features/#hey-ghost", "#modes": "/ghost-writer/features/#modes",
-    "#smart": "/ghost-writer/features/#reads-the-room", "#rewrite": "/ghost-writer/features/#rewrite", "#search": "/ghost-writer/features/#search",
-    "#learns": "/ghost-writer/features/#learns", "#stats": "/ghost-writer/features/#stats", "#settings-tour": "/ghost-writer/features/#settings"
-  }[location.hash];
-  if (to) location.replace(to);
-})();
-</script>
+<link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/site.df76a356aa.css">
+<script src="/assets/head.a3c1c49f5f.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -54,9 +33,29 @@
    "@type": "Organization",
    "@id": "https://ghostmediaworks.com/#org",
    "name": "Ghost Media Works",
+   "alternateName": [
+    "Ghost Media",
+    "GhostMediaWorks"
+   ],
    "url": "https://ghostmediaworks.com/",
    "logo": "https://ghostmediaworks.com/assets/icons/icon-512.png",
    "email": "ghostthepatriot@gmail.com",
+   "founder": {
+    "@id": "https://ghostmediaworks.com/#ghost"
+   },
+   "sameAs": [
+    "https://www.instagram.com/ghost_1krr/"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://ghostmediaworks.com/#ghost",
+   "name": "Ghost",
+   "alternateName": [
+    "Ghost 1kRR",
+    "ghost_1krr"
+   ],
+   "jobTitle": "Founder",
    "sameAs": [
     "https://www.instagram.com/ghost_1krr/"
    ]
@@ -66,6 +65,7 @@
    "@id": "https://ghostmediaworks.com/#site",
    "url": "https://ghostmediaworks.com/",
    "name": "Ghost Media Works",
+   "alternateName": "Ghost Media",
    "publisher": {
     "@id": "https://ghostmediaworks.com/#org"
    }
@@ -79,16 +79,31 @@
 <header class="site-header">
   <div class="wrap inner">
     <a class="brand" href="/" aria-label="Ghost Media Works home">
-      <img class="dark-only" src="/assets/ghost-dark-64.png" alt="" width="49" height="64">
-      <img class="light-only" src="/assets/ghost-light-64.png" alt="" width="49" height="64">
-      <span class="wordmark">GHOST MEDIA WORKS</span>
+      <span class="brand-ghost" aria-hidden="true"></span>
+      <span class="wordmark" aria-hidden="true"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></span>
     </a>
-    <nav class="main-nav" aria-label="Main">
+    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav class="main-nav" id="site-menu" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer">Ghost Writer</a>
+      <span class="menu-sub">
+        <a href="/ghost-writer/features/" data-sub="features">Features</a>
+        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
+        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
+        <a href="/ghost-writer/#request">Request access</a>
+      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
+      <a class="menu-only" href="/press/">Press kit</a>
+      <button class="menu-only menu-theme" type="button" data-theme-button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        <span class="theme-label">Theme: follows your device</span>
+      </button>
     </nav>
-    <button class="theme-button" id="theme" type="button" aria-label="Theme: follows your device. Click to change.">
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
@@ -113,21 +128,23 @@
 <p>When you ask Ghost Writer to open a website or search the web, it opens your web browser, and that website&#x27;s own privacy policy applies. If you use an AI tool you run yourself (such as Ollama or LM Studio), Ghost Writer talks to it on your own PC only.</p>
 <p>Whenever your PC connects to a server, that server sees your internet (IP) address. Our key server doesn&#x27;t store it: it keeps a scrambled form of it to limit repeated wrong keys and requests, and those counts are deleted within about 2 days.</p>
 <h2>When you request access</h2>
-<p>The Request access form asks for your name, your email address and, if you like, how you&#x27;d use Ghost Writer. We store these with the date and a scrambled form of your internet address (to stop abuse). We use them only to review your request, email you your access key, and contact you about your key or important changes to Ghost Writer. We don&#x27;t send marketing emails, and we don&#x27;t sell, rent or share your information for advertising.</p>
+<p>The Request access form asks for your name, your email address, and for you to confirm that you&#x27;re in the United States. If you like, it also asks how you&#x27;d use Ghost Writer and how you heard about it (from a short list: Reddit, YouTube, a friend, search, Product Hunt, Hacker News or other). We store these with the date and a scrambled form of your internet address (to stop abuse). If you don&#x27;t confirm that you&#x27;re in the United States, the form isn&#x27;t accepted and nothing is stored.</p>
+<p>We use this information only to review your request, email you your access key, and contact you about your key or important changes to Ghost Writer. We use the &quot;how you heard&quot; answer only to count which places bring people to Ghost Writer. We may also send you one automatic email saying we got your request (at most one a month to the same address), and we note when it was sent. We don&#x27;t send marketing emails, and we don&#x27;t sell, rent or share your information for advertising.</p>
 <p>We also keep a record of what happened to your request and key (for example when it was approved, when a new PC started using it, or when it was turned off), which names you, plus any notes we add to manage your key, such as how many PCs it allows or when it ends.</p>
 <p>We keep your request, key details, the records above and our emails with you while your key is active, and for up to 12 months after it ends or is refused, unless you ask us to delete them sooner. We may keep a short record longer only if the law requires it or to deal with a dispute. Our key server deletes these automatically 12 months after a key ends or a request is refused, and keeps its record of what happened for at most 24 months.</p>
 <h2>When you email us</h2>
 <p>If you email us, for example with Contact us in Ghost Writer, we get your email address and what you write. Contact us opens your own email app with a message that already names your Ghost Writer and Windows versions; nothing is sent until you send it, and a crash log is attached only if you choose to attach it. We use your email only to answer you and fix problems, and delete it within 12 months after we&#x27;re done, unless it&#x27;s part of your key request (see above).</p>
 <h2>This website</h2>
-<p>This website has no ads, no analytics and no tracking cookies. Its fonts and images are served from the website itself. If you pick a light or dark theme, your browser remembers that choice on your own device. The website is hosted by GitHub and delivered through Cloudflare; like any web host, they see visitors&#x27; internet addresses, may keep short-term logs and may use a strictly necessary security cookie to keep out attacks and robots. No other company collects information about your activity across other websites through this website.</p>
+<p>This website has no ads, no analytics scripts and no tracking cookies. Its fonts, images and videos are served from the website itself. If you pick a light or dark theme, your browser remembers that choice on your own device. The website is hosted by GitHub and delivered through Cloudflare; like any web host, they see visitors&#x27; internet addresses, may keep short-term logs and may use a strictly necessary security cookie to keep out attacks and robots. From those server records Cloudflare shows us overall totals, such as how many visits each page had and from which countries, without cookies or scripts in your browser; they don&#x27;t tell us who you are. No other company collects information about your activity across other websites through this website.</p>
+<p>If you choose &quot;Try it with your voice&quot; on our speech pill demo, your browser uses your microphone only to make the pill move with your voice. The sound stays in your browser: nothing is recorded, saved or sent, and it stops when you stop it or leave the page.</p>
 <p>Do Not Track: we don&#x27;t track visitors across websites, so we treat every visitor the same way whether or not their browser sends a &quot;Do Not Track&quot; or Global Privacy Control signal.</p>
 <p>Our feedback page is on GitHub. Anything you post there is public and GitHub&#x27;s own privacy statement applies, so never post anything private.</p>
 <h2>Who helps us</h2>
 <p>We use a few service providers, only to run Ghost Writer and this website, and they may only use your information to provide their service to us:</p>
-<ul><li>Cloudflare runs our key server, stores the access key and request information above, and delivers this website.</li><li>GitHub hosts this website, our downloads, our update information and our feedback page.</li><li>Google (Gmail) is the email service we use to send access keys and reply to you. We are based in the United States, and our providers&#x27; servers may be in the United States or other countries. We may also share information if the law requires it, or to protect our rights or our users&#x27; safety, or as part of a sale or merger of our business (in which case this policy would continue to apply).</li></ul>
+<ul><li>Cloudflare runs our key server, stores the access key and request information above, and delivers this website.</li><li>GitHub hosts this website, our downloads, our update information and our feedback page.</li><li>Resend sends our automatic emails (such as &quot;we got your request&quot;). It receives your email address and the email&#x27;s text, and keeps a record of the emails it sends for about 30 days.</li><li>Google (Gmail) is the email service we use to send access keys and reply to you. We are based in the United States, and our providers&#x27; servers may be in the United States or other countries. We may also share information if the law requires it, or to protect our rights or our users&#x27; safety, or as part of a sale or merger of our business (in which case this policy would continue to apply).</li></ul>
 <h2>Your choices and rights</h2>
 <p>You can ask us to show you, correct or delete the information we hold about you, or to stop using it. Deleting it ends your access key. Email us from the address you gave us (so we know it&#x27;s you) and we&#x27;ll reply within 30 days. Depending on where you live (for example in a US state with a privacy law, the European Union, the United Kingdom or California), you may have further rights under local law, including the right to complain to a data protection authority. We won&#x27;t treat you differently for using these rights. We don&#x27;t sell or &quot;share&quot; personal information as California law defines it, and we don&#x27;t use it for targeted advertising or profiling.</p>
-<p>During the beta, access keys are offered only to people in the United States, and we handle requests from the United States.</p>
+<p>During the beta, access keys are offered only to people in the United States, and the request form asks you to confirm that you&#x27;re in the United States.</p>
 <p>Where EU or UK law applies, we use your request information because you asked us for a key (to take steps at your request) and for our legitimate interest in preventing abuse and keeping Ghost Writer working.</p>
 <h2>Children</h2>
 <p>Ghost Writer and this website are not meant for children under 13, and we don&#x27;t knowingly collect information from them. If you believe a child has sent us information, contact us and we&#x27;ll delete it.</p>
@@ -145,7 +162,7 @@
   <div class="wrap">
     <div class="cols">
       <div class="about-col">
-        <p class="wordmark">GHOST MEDIA WORKS</p>
+        <p class="wordmark"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></p>
         <p>Private software for Windows that runs on your own PC.</p>
       </div>
       <div>
@@ -168,12 +185,13 @@
       </div>
     </div>
     <div class="bottom">
-      <span>&copy; 2026 GHOST MEDIA WORKS</span>
-      <span>No ads, no analytics, no cookies of our own. <a href="/about/#accessibility">Accessibility</a></span>
+      <span>&copy; 2026 Ghost Media Works</span>
+      <span>No ads, no analytics scripts or cookies. <a href="/about/#accessibility">Accessibility</a></span>
     </div>
   </div>
 </footer>
 
-<script src="/assets/site.69c9f5f88f.js" defer></script>
+<script src="/assets/site.bc1f9b68d3.js" defer></script>
+
 </body>
 </html>
