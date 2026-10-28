@@ -11,10 +11,10 @@
 <meta property="og:title" content="Ghost Writer press kit">
 <meta property="og:description" content="Descriptions, logos and screenshots of Ghost Writer, private voice typing for Windows by Ghost Media Works, free to use in articles and videos.">
 <meta property="og:url" content="https://ghostmediaworks.com/press/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.f39c4a4800.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.625aee04c9.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ghost Writer: voice typing for Windows that stays on your PC. Free beta, by invitation.">
+<meta property="og:image:alt" content="Ghost Writer: free dictation for Windows that stays on your PC. Free beta, by invitation.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
@@ -22,30 +22,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/GrenzeGotisch-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="/assets/site.7236d342d4.css">
-<script>
-// Before the page paints: the theme chosen on this device, and old links forwarded (the company page
-// used to be Ghost Writer's page, and installed copies open getghostwriter.github.io/#request).
-(function () {
-  try { var t = localStorage.getItem("gw-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  // The app's start-up logo opens the first page of a visit (site.js plays it); covered until then.
-  try {
-    if (!sessionStorage.getItem("gw-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches)
-      document.documentElement.classList.add("intro");
-  } catch (e) {}
-  if (location.pathname !== "/" && location.pathname !== "/index.html") return;
-  var to = {
-    "#request": "/ghost-writer/#request", "#download": "/ghost-writer/#download", "#privacy": "/ghost-writer/#privacy",
-    "#beta": "/ghost-writer/#request", "#install": "/ghost-writer/help/#install", "#requirements": "/ghost-writer/help/#requirements",
-    "#faq": "/ghost-writer/help/#faq", "#new": "/ghost-writer/changelog/", "#features": "/ghost-writer/features/",
-    "#everything": "/ghost-writer/features/", "#hey-ghost": "/ghost-writer/features/#hey-ghost", "#modes": "/ghost-writer/features/#modes",
-    "#smart": "/ghost-writer/features/#reads-the-room", "#rewrite": "/ghost-writer/features/#rewrite", "#search": "/ghost-writer/features/#search",
-    "#learns": "/ghost-writer/features/#learns", "#stats": "/ghost-writer/features/#stats", "#settings-tour": "/ghost-writer/features/#settings"
-  }[location.hash];
-  if (to) location.replace(to);
-})();
-</script>
+<link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/site.df76a356aa.css">
+<script src="/assets/head.a3c1c49f5f.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -54,9 +33,29 @@
    "@type": "Organization",
    "@id": "https://ghostmediaworks.com/#org",
    "name": "Ghost Media Works",
+   "alternateName": [
+    "Ghost Media",
+    "GhostMediaWorks"
+   ],
    "url": "https://ghostmediaworks.com/",
    "logo": "https://ghostmediaworks.com/assets/icons/icon-512.png",
    "email": "ghostthepatriot@gmail.com",
+   "founder": {
+    "@id": "https://ghostmediaworks.com/#ghost"
+   },
+   "sameAs": [
+    "https://www.instagram.com/ghost_1krr/"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://ghostmediaworks.com/#ghost",
+   "name": "Ghost",
+   "alternateName": [
+    "Ghost 1kRR",
+    "ghost_1krr"
+   ],
+   "jobTitle": "Founder",
    "sameAs": [
     "https://www.instagram.com/ghost_1krr/"
    ]
@@ -66,6 +65,7 @@
    "@id": "https://ghostmediaworks.com/#site",
    "url": "https://ghostmediaworks.com/",
    "name": "Ghost Media Works",
+   "alternateName": "Ghost Media",
    "publisher": {
     "@id": "https://ghostmediaworks.com/#org"
    }
@@ -79,16 +79,31 @@
 <header class="site-header">
   <div class="wrap inner">
     <a class="brand" href="/" aria-label="Ghost Media Works home">
-      <img class="dark-only" src="/assets/ghost-dark-64.png" alt="" width="49" height="64">
-      <img class="light-only" src="/assets/ghost-light-64.png" alt="" width="49" height="64">
-      <span class="wordmark">GHOST MEDIA WORKS</span>
+      <span class="brand-ghost" aria-hidden="true"></span>
+      <span class="wordmark" aria-hidden="true"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></span>
     </a>
-    <nav class="main-nav" aria-label="Main">
+    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav class="main-nav" id="site-menu" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer">Ghost Writer</a>
+      <span class="menu-sub">
+        <a href="/ghost-writer/features/" data-sub="features">Features</a>
+        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
+        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
+        <a href="/ghost-writer/#request">Request access</a>
+      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
+      <a class="menu-only" href="/press/">Press kit</a>
+      <button class="menu-only menu-theme" type="button" data-theme-button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        <span class="theme-label">Theme: follows your device</span>
+      </button>
     </nav>
-    <button class="theme-button" id="theme" type="button" aria-label="Theme: follows your device. Click to change.">
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
@@ -96,8 +111,8 @@
 
 <main id="main" tabindex="-1">
 <div class="wrap">
-  <div class="hero" style="grid-template-columns:1fr;padding-bottom:24px">
-    <div style="max-width:760px">
+  <div class="hero u-one u-pb24">
+    <div class="u-w760">
       <span class="eyebrow">Press kit</span>
       <h1>Writing about Ghost Writer?</h1>
       <p class="sub">Everything you need in one place. Use any of it in articles and videos. Questions: <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>.</p>
@@ -108,10 +123,10 @@
 <section id="facts" aria-labelledby="facts-title">
   <div class="wrap">
     <h2 id="facts-title">In one paragraph</h2>
-    <div class="card" style="max-width:860px">
+    <div class="card u-w860">
       <p><b>Ghost Writer</b> is voice typing for Windows that runs on the user's own PC. Hold a key, talk, and the words appear in almost any app, punctuated and tidied; it can also fix and rewrite selected text, take spoken "Hey Ghost" commands and keep searchable voice notes. Speech is turned into text on the PC, so nothing the user says is uploaded. It is a free beta, by invitation, for Windows 10 and 11 (64-bit), made by Ghost Media Works. Current version: 6.8.</p>
     </div>
-    <div class="grid four" style="margin-top:20px">
+    <div class="grid four u-mt20">
       <div class="card"><h3>Maker</h3><p>Ghost Media Works</p></div>
       <div class="card"><h3>Price</h3><p>Free beta, by invitation</p></div>
       <div class="card"><h3>Platform</h3><p>Windows 10 and 11, 64-bit</p></div>
@@ -126,8 +141,8 @@
     <h2 id="logos-title">Logos</h2>
     <p class="lead">The ghost on a transparent background, PNG, 1024 px tall. Please don't change its colours or shape.</p>
     <div class="grid two">
-      <div class="card center" style="background:#0f1116"><img src="/assets/press/ghost-dark.png" alt="The Ghost Writer ghost for dark backgrounds" style="max-height:200px;width:auto" width="791" height="1024"><p><a href="/assets/press/ghost-dark.png" download>Download for dark backgrounds</a></p></div>
-      <div class="card center" style="background:#f3f5f9"><img src="/assets/press/ghost-light.png" alt="The Ghost Writer ghost for light backgrounds" style="max-height:200px;width:auto" width="791" height="1024"><p><a href="/assets/press/ghost-light.png" download style="color:#4f52e0">Download for light backgrounds</a></p></div>
+      <div class="card center u-bg-dark"><img class="u-logo" src="/assets/press/ghost-dark.png" alt="The Ghost Writer ghost for dark backgrounds" width="791" height="1024"><p><a href="/assets/press/ghost-dark.png" download>Download for dark backgrounds</a></p></div>
+      <div class="card center u-bg-light"><img class="u-logo" src="/assets/press/ghost-light.png" alt="The Ghost Writer ghost for light backgrounds" width="791" height="1024"><p><a class="u-ink-light" href="/assets/press/ghost-light.png" download>Download for light backgrounds</a></p></div>
     </div>
   </div>
 </section>
@@ -137,12 +152,12 @@
     <h2 id="shots-title">Screenshots</h2>
     <p class="lead">Taken from the real app. Click one for the full-size file.</p>
     <div class="grid two">
-      <figure style="margin:0"><a href="/assets/screens/home-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/home-dark.webp" alt="Ghost Writer&#x27;s Home page" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/home-light.webp" alt="Ghost Writer&#x27;s Home page, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Home</figcaption></figure>
-      <figure style="margin:0"><a href="/assets/screens/voice-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/voice-dark.webp" alt="The Voice commands page" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/voice-light.webp" alt="The Voice commands page, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Voice commands</figcaption></figure>
-      <figure style="margin:0"><a href="/assets/screens/menu-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/menu-dark.webp" alt="Quick fixes for selected text" loading="lazy" width="1166" height="640"><img class="light-only" src="/assets/screens/menu-light.webp" alt="Quick fixes for selected text, light theme" loading="lazy" width="1166" height="640"></div></a><figcaption>Fix and rewrite selected text</figcaption></figure>
-      <figure style="margin:0"><a href="/assets/screens/voicenotes-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/voicenotes-dark.webp" alt="A voice note with its transcript" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/voicenotes-light.webp" alt="A voice note with its transcript, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Voice notes</figcaption></figure>
-      <figure style="margin:0"><a href="/assets/screens/train-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/train-dark.webp" alt="Train My Ghost" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/train-light.webp" alt="Train My Ghost, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Train My Ghost</figcaption></figure>
-      <figure style="margin:0"><a href="/assets/screens/searchpopup-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/searchpopup-dark.webp" alt="The Search your PC pop-up" loading="lazy" width="901" height="497"><img class="light-only" src="/assets/screens/searchpopup-light.webp" alt="The Search your PC pop-up, light theme" loading="lazy" width="901" height="497"></div></a><figcaption>Search your PC</figcaption></figure>
+      <figure class="u-m0"><a href="/assets/screens/home-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/home-dark.webp" alt="Ghost Writer&#x27;s Home page" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/home-light.webp" alt="Ghost Writer&#x27;s Home page, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Home</figcaption></figure>
+      <figure class="u-m0"><a href="/assets/screens/voice-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/voice-dark.webp" alt="The Voice commands page" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/voice-light.webp" alt="The Voice commands page, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Voice commands</figcaption></figure>
+      <figure class="u-m0"><a href="/assets/screens/menu-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/menu-dark.webp" alt="Quick fixes for selected text" loading="lazy" width="1166" height="640"><img class="light-only" src="/assets/screens/menu-light.webp" alt="Quick fixes for selected text, light theme" loading="lazy" width="1166" height="640"></div></a><figcaption>Fix and rewrite selected text</figcaption></figure>
+      <figure class="u-m0"><a href="/assets/screens/voicenotes-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/voicenotes-dark.webp" alt="A voice note with its transcript" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/voicenotes-light.webp" alt="A voice note with its transcript, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Voice notes</figcaption></figure>
+      <figure class="u-m0"><a href="/assets/screens/train-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/train-dark.webp" alt="Train My Ghost" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/train-light.webp" alt="Train My Ghost, light theme" loading="lazy" width="1242" height="839"></div></a><figcaption>Train My Ghost</figcaption></figure>
+      <figure class="u-m0"><a href="/assets/screens/searchpopup-dark.webp"><div class="shot"><img class="dark-only" src="/assets/screens/searchpopup-dark.webp" alt="The Search your PC pop-up" loading="lazy" width="901" height="497"><img class="light-only" src="/assets/screens/searchpopup-light.webp" alt="The Search your PC pop-up, light theme" loading="lazy" width="901" height="497"></div></a><figcaption>Search your PC</figcaption></figure>
     </div>
   </div>
 </section>
@@ -152,7 +167,7 @@
   <div class="wrap">
     <div class="cols">
       <div class="about-col">
-        <p class="wordmark">GHOST MEDIA WORKS</p>
+        <p class="wordmark"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></p>
         <p>Private software for Windows that runs on your own PC.</p>
       </div>
       <div>
@@ -175,12 +190,13 @@
       </div>
     </div>
     <div class="bottom">
-      <span>&copy; 2026 GHOST MEDIA WORKS</span>
-      <span>No ads, no analytics, no cookies of our own. <a href="/about/#accessibility">Accessibility</a></span>
+      <span>&copy; 2026 Ghost Media Works</span>
+      <span>No ads, no analytics scripts or cookies. <a href="/about/#accessibility">Accessibility</a></span>
     </div>
   </div>
 </footer>
 
-<script src="/assets/site.69c9f5f88f.js" defer></script>
+<script src="/assets/site.bc1f9b68d3.js" defer></script>
+
 </body>
 </html>
