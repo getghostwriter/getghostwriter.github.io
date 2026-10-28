@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ghost Media Works: private software that runs on your PC</title>
-<meta name="description" content="Ghost Media Works makes private software for Windows that runs on your own PC. Ghost Writer, voice typing for Windows, is free by invitation. Ghost Media Hub is coming soon.">
+<title>Ghost Media Works: Ghost Writer dictation and Ghost Media Hub</title>
+<meta name="description" content="Ghost Writer is free dictation for Windows 10 and 11 that runs on your own PC, even offline. Free beta by invitation, from Ghost Media Works.">
 <link rel="canonical" href="https://ghostmediaworks.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ghost Media Works">
 <meta property="og:title" content="Ghost Media Works">
-<meta property="og:description" content="Ghost Media Works makes private software for Windows that runs on your own PC. Ghost Writer, voice typing for Windows, is free by invitation. Ghost Media Hub is coming soon.">
+<meta property="og:description" content="Ghost Writer is free dictation for Windows 10 and 11 that runs on your own PC, even offline. Free beta by invitation, from Ghost Media Works.">
 <meta property="og:url" content="https://ghostmediaworks.com/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.f511ef7cf1.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.de8d4dc66f.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Media Works: private software that runs on your PC.">
@@ -22,30 +22,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/GrenzeGotisch-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="/assets/site.7236d342d4.css">
-<script>
-// Before the page paints: the theme chosen on this device, and old links forwarded (the company page
-// used to be Ghost Writer's page, and installed copies open getghostwriter.github.io/#request).
-(function () {
-  try { var t = localStorage.getItem("gw-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  // The app's start-up logo opens the first page of a visit (site.js plays it); covered until then.
-  try {
-    if (!sessionStorage.getItem("gw-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches)
-      document.documentElement.classList.add("intro");
-  } catch (e) {}
-  if (location.pathname !== "/" && location.pathname !== "/index.html") return;
-  var to = {
-    "#request": "/ghost-writer/#request", "#download": "/ghost-writer/#download", "#privacy": "/ghost-writer/#privacy",
-    "#beta": "/ghost-writer/#request", "#install": "/ghost-writer/help/#install", "#requirements": "/ghost-writer/help/#requirements",
-    "#faq": "/ghost-writer/help/#faq", "#new": "/ghost-writer/changelog/", "#features": "/ghost-writer/features/",
-    "#everything": "/ghost-writer/features/", "#hey-ghost": "/ghost-writer/features/#hey-ghost", "#modes": "/ghost-writer/features/#modes",
-    "#smart": "/ghost-writer/features/#reads-the-room", "#rewrite": "/ghost-writer/features/#rewrite", "#search": "/ghost-writer/features/#search",
-    "#learns": "/ghost-writer/features/#learns", "#stats": "/ghost-writer/features/#stats", "#settings-tour": "/ghost-writer/features/#settings"
-  }[location.hash];
-  if (to) location.replace(to);
-})();
-</script>
+<link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/site.df76a356aa.css">
+<script src="/assets/head.a3c1c49f5f.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -54,9 +33,29 @@
    "@type": "Organization",
    "@id": "https://ghostmediaworks.com/#org",
    "name": "Ghost Media Works",
+   "alternateName": [
+    "Ghost Media",
+    "GhostMediaWorks"
+   ],
    "url": "https://ghostmediaworks.com/",
    "logo": "https://ghostmediaworks.com/assets/icons/icon-512.png",
    "email": "ghostthepatriot@gmail.com",
+   "founder": {
+    "@id": "https://ghostmediaworks.com/#ghost"
+   },
+   "sameAs": [
+    "https://www.instagram.com/ghost_1krr/"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://ghostmediaworks.com/#ghost",
+   "name": "Ghost",
+   "alternateName": [
+    "Ghost 1kRR",
+    "ghost_1krr"
+   ],
+   "jobTitle": "Founder",
    "sameAs": [
     "https://www.instagram.com/ghost_1krr/"
    ]
@@ -66,6 +65,7 @@
    "@id": "https://ghostmediaworks.com/#site",
    "url": "https://ghostmediaworks.com/",
    "name": "Ghost Media Works",
+   "alternateName": "Ghost Media",
    "publisher": {
     "@id": "https://ghostmediaworks.com/#org"
    }
@@ -79,16 +79,31 @@
 <header class="site-header">
   <div class="wrap inner">
     <a class="brand" href="/" aria-label="Ghost Media Works home">
-      <img class="dark-only" src="/assets/ghost-dark-64.png" alt="" width="49" height="64">
-      <img class="light-only" src="/assets/ghost-light-64.png" alt="" width="49" height="64">
-      <span class="wordmark">GHOST MEDIA WORKS</span>
+      <span class="brand-ghost" aria-hidden="true"></span>
+      <span class="wordmark" aria-hidden="true"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></span>
     </a>
-    <nav class="main-nav" aria-label="Main">
+    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav class="main-nav" id="site-menu" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer">Ghost Writer</a>
+      <span class="menu-sub">
+        <a href="/ghost-writer/features/" data-sub="features">Features</a>
+        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
+        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
+        <a href="/ghost-writer/#request">Request access</a>
+      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
+      <a class="menu-only" href="/press/">Press kit</a>
+      <button class="menu-only menu-theme" type="button" data-theme-button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        <span class="theme-label">Theme: follows your device</span>
+      </button>
     </nav>
-    <button class="theme-button" id="theme" type="button" aria-label="Theme: follows your device. Click to change.">
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
@@ -98,62 +113,58 @@
 <div class="wrap">
   <div class="hero">
     <div>
-      <span class="eyebrow">GHOST MEDIA WORKS</span>
-      <h1>Software that works for you, on your own PC.</h1>
-      <p class="sub">We make tools for Windows that do their work on your computer, not in someone's cloud. Our first, Ghost Writer, runs on your PC: your voice and words never leave it.</p>
+      <div class="badges"><span class="badge">Free beta &middot; by invitation</span><span class="badge plain">Windows 10 and 11</span></div>
+      <h1>Free dictation for Windows that stays on your PC.</h1>
+      <p class="sub">Hold <kbd>Ctrl</kbd> <kbd>Win</kbd>, talk, let go. Your words appear in almost any app, punctuated, and nothing you say leaves your PC.</p>
       <div class="actions">
-        <a class="button" href="/ghost-writer/">Meet Ghost Writer</a>
-        <a class="text-link" href="#promise">Our promise</a>
+        <a class="button" href="/ghost-writer/#request">Request free access</a>
+        <a class="text-link" href="/ghost-writer/">See how Ghost Writer works</a>
       </div>
+      <p class="small-print">Ghost Writer, from Ghost Media Works. Free, no ads, no analytics scripts or cookies.</p>
     </div>
-    <div class="ghost-art" aria-hidden="true">
-      <img class="dark-only" src="/assets/ghost-dark-float-600.png" alt="" width="463" height="600">
-      <img class="light-only" src="/assets/ghost-light-float-600.png" alt="" width="463" height="600">
-      <span class="floor"></span>
-    </div>
+    <div class="shot demo"><video class="demo-loop" muted autoplay loop playsinline preload="metadata" width="1920" height="1080" poster="/assets/media/demo-loop-poster.webp" aria-label="Ghost Writer in 15 seconds: dictating an email, rewriting a sentence with Advanced mode, and a Hey Ghost voice command"><source src="/assets/media/demo-loop.webm" type="video/webm"><source src="/assets/media/demo-loop.mp4" type="video/mp4"></video></div>
   </div>
 </div>
 
-<section id="products" aria-labelledby="products-title">
+<section id="what" aria-labelledby="what-title">
   <div class="wrap">
-    <h2 id="products-title">What we make</h2>
-    <p class="lead">Our first app is in free beta now. The second is on its way.</p>
+    <h2 id="what-title">One small app that makes your PC listen.</h2>
+    <p class="lead">Everything below runs on your own computer, with Wi-Fi on or off.</p>
     <div class="grid two">
-      <article class="card product-card">
-        <div class="shot"><img class="dark-only" src="/assets/screens/home-dark.webp" alt="Ghost Writer&#x27;s Home page: ready to dictate, with your recent dictations" loading="lazy" width="1242" height="839"><img class="light-only" src="/assets/screens/home-light.webp" alt="Ghost Writer&#x27;s Home page: ready to dictate, with your recent dictations, light theme" loading="lazy" width="1242" height="839"></div>
-        <div><span class="badge">Free beta &middot; by invitation</span></div>
-        <h3>Ghost Writer</h3>
-        <p>Voice typing for Windows. Hold a key, talk, and your words appear in almost any app, punctuated and tidied. It can also fix and rewrite text you select, take spoken commands, and keep voice notes.</p>
-        <div class="actions">
-          <a class="button" href="/ghost-writer/">See Ghost Writer</a>
-          <a class="text-link" href="/ghost-writer/#request">Request access</a>
-        </div>
+      <article class="card">
+        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-dictation-dark.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-dictation-light.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+        <h3>Dictate into almost any app</h3>
+        <p>Email, documents, chat, the browser. Commas, periods and capitals are added for you.</p>
       </article>
-      <article class="card product-card soon">
-        <div class="shot"><img src="/assets/screens/media-hub.webp" alt="An early build of Ghost Media Hub: media library, preview player and timeline" loading="lazy" width="1440" height="900"></div>
-        <div><span class="badge plain">Coming soon</span></div>
-        <h3>Ghost Media Hub</h3>
-        <p>A video editor for Windows, planned to run on your PC: cut, colour, titles, captions and screen recording. Not available yet.</p>
-        <div class="actions">
-          <a class="button secondary" href="/media-hub/">Have a look</a>
-        </div>
+      <article class="card">
+        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-quickfix-dark.webp" alt="A selected sentence with Ghost Writer&#x27;s small ghost and the rewrite menu: Make it friendlier" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-quickfix-light.webp" alt="A selected sentence with Ghost Writer&#x27;s small ghost and the rewrite menu: Make it friendlier, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+        <h3>Fix and rewrite what you select</h3>
+        <p>Select text anywhere and a small ghost offers spelling and grammar fixes on any PC. Rewrites like "make it friendlier" need Advanced mode. Your text changes only when you choose.</p>
+      </article>
+      <article class="card">
+        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-heyghost-dark.webp" alt="Saying Hey Ghost, open Spotify: the ghost listens and confirms Spotify is open" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-heyghost-light.webp" alt="Saying Hey Ghost, open Spotify: the ghost listens and confirms Spotify is open, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+        <h3>"Hey Ghost" <span class="badge">Beta</span></h3>
+        <p>Open apps, set timers and switch tabs by voice. Always listening is off until you turn it on.</p>
+      </article>
+      <article class="card">
+        <div class="shot scene"><img class="dark-only" src="/assets/media/feature-voicenotes-dark.webp" alt="A voice note playing, with its waveform and the transcript following along" loading="lazy" decoding="async" width="1600" height="1000"><img class="light-only" src="/assets/media/feature-voicenotes-light.webp" alt="A voice note playing, with its waveform and the transcript following along, light theme" loading="lazy" decoding="async" width="1600" height="1000"></div>
+        <h3>Voice notes <span class="badge">Beta</span></h3>
+        <p>Record a note, play it back and search what you said, all on your PC.</p>
       </article>
     </div>
-    <aside class="card also-card" aria-labelledby="also-title">
-      <img class="also-photo" src="/assets/instagram/lightning-ride.webp" alt="Ghost, founder of Ghost Media Works, on his sport bike under a purple sky full of lightning" loading="lazy" width="300" height="400">
-      <div class="also-text">
-        <h3 id="also-title">Meet Ghost, our founder</h3>
-        <p><strong>@ghost_1krr</strong> on Instagram &middot; 234K followers</p>
-        <p><a class="text-link" href="https://www.instagram.com/ghost_1krr/" rel="noopener">Follow Ghost on Instagram</a></p>
-      </div>
-    </aside>
+    <p class="center u-mt28"><a class="button secondary" href="/ghost-writer/features/">See every feature</a></p>
   </div>
 </section>
 
 <section id="promise" aria-labelledby="promise-title">
   <div class="wrap">
-    <h2 id="promise-title">Our promise</h2>
-    <p class="lead">The rules Ghost Writer follows today, and every app we ship after it.</p>
+    <div class="promise-head">
+      <div>
+        <h2 id="promise-title">Our promise</h2>
+        <p class="lead">Ghost Media Works makes software for Windows that does its work on your own PC. These are the rules Ghost Writer follows today, and every app we ship after it.</p>
+      </div>
+      <div class="ghost-art small" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
+    </div>
     <div class="grid four">
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
@@ -162,8 +173,8 @@
       </div>
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
-        <h3>No ads, no analytics</h3>
-        <p>Ghost Writer has no analytics: the only thing we learn is from the key check, such as how many PCs used it each day. This website sets no cookies of its own and loads nothing from other sites.</p>
+        <h3>No ads, no analytics scripts</h3>
+        <p>Ghost Writer has no analytics: the only thing we learn is from the key check, such as how many PCs used it each day. This website runs no analytics scripts, sets no cookies and loads nothing from other sites.</p>
       </div>
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg></div>
@@ -175,6 +186,19 @@
         <h3>You're in charge</h3>
         <p>Every setting is yours to change, and everything an app keeps is visible and removable.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="next" class="next-strip" aria-labelledby="next-title">
+  <div class="wrap">
+    <div class="card next-card">
+      <span class="badge plain">Coming next</span>
+      <div class="next-text">
+        <h2 id="next-title">Ghost Media Hub</h2>
+        <p>A video editor for Windows, planned to run on your PC. Not available yet.</p>
+      </div>
+      <a class="button secondary small" href="/media-hub/">Have a look</a>
     </div>
   </div>
 </section>
@@ -192,7 +216,7 @@
   <div class="wrap">
     <div class="cols">
       <div class="about-col">
-        <p class="wordmark">GHOST MEDIA WORKS</p>
+        <p class="wordmark"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></p>
         <p>Private software for Windows that runs on your own PC.</p>
       </div>
       <div>
@@ -215,12 +239,13 @@
       </div>
     </div>
     <div class="bottom">
-      <span>&copy; 2026 GHOST MEDIA WORKS</span>
-      <span>No ads, no analytics, no cookies of our own. <a href="/about/#accessibility">Accessibility</a></span>
+      <span>&copy; 2026 Ghost Media Works</span>
+      <span>No ads, no analytics scripts or cookies. <a href="/about/#accessibility">Accessibility</a></span>
     </div>
   </div>
 </footer>
 
-<script src="/assets/site.69c9f5f88f.js" defer></script>
+<script src="/assets/site.bc1f9b68d3.js" defer></script>
+
 </body>
 </html>
