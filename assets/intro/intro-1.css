@@ -1,0 +1,135 @@
+@font-face {
+        font-family: "Grenze Gotisch";
+        src: url("/assets/fonts/GrenzeGotisch-Site.woff") format("truetype");
+        font-weight: 800;
+        font-style: normal;
+      }
+      :root {
+        --bg: #0f1116;
+        --accent: #8f91ff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 480px;
+        height: 480px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #root {
+        position: relative;
+        width: 480px;
+        height: 480px;
+        overflow: hidden;
+      }
+      #ground {
+        position: absolute;
+        inset: 0;
+        background: var(--bg);
+      }
+      #lockup {
+        position: absolute;
+        inset: 0;
+      }
+      #stage {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+      /* The ghost's body box: 574 x 800 drawn at 0.275 = 157.85 x 220, centred on (240, 196). */
+      #ghost {
+        position: absolute;
+        left: 161.075px;
+        top: 86px;
+        width: 157.85px;
+        height: 220px;
+        will-change: transform, filter, opacity;
+      }
+      #ghost img {
+        position: absolute;
+        display: block;
+      }
+      #halo {
+        left: -26.4px;
+        top: -26.4px;
+        width: 210.65px;
+        height: 272.8px;
+        opacity: 0;
+      }
+      #body,
+      #eyes {
+        left: 0;
+        top: 0;
+        width: 157.85px;
+        height: 220px;
+      }
+      #eyes {
+        opacity: 0;
+      }
+      #flash {
+        position: absolute;
+        left: 23px;
+        top: 20px;
+        width: 112px;
+        height: 76px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, #ffffff 0%, var(--accent) 30%, transparent 72%);
+        mix-blend-mode: screen;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+      #trace {
+        position: absolute;
+        left: 161.075px;
+        top: 86px;
+        width: 157.85px;
+        height: 220px;
+        overflow: visible;
+      }
+      .trace-line,
+      .trace-glow {
+        fill: none;
+        stroke: var(--accent);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .trace-line {
+        stroke-width: 9;
+      }
+      .trace-glow {
+        stroke-width: 26;
+        opacity: 0.35;
+        filter: blur(6px);
+      }
+      .tip {
+        opacity: 0;
+      }
+      #name {
+        position: absolute;
+        left: 0;
+        width: 480px;
+        top: 336px;
+        text-align: center;
+        white-space: nowrap;
+        font-family: "Grenze Gotisch", serif;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 1.1;
+        color: var(--accent);
+      }
+      .l {
+        display: inline-block;
+        will-change: transform, opacity, filter;
+      }
+      .gap {
+        width: 0.26em;
+      }
+    
+      html, body { width: 100%; height: 100%; background: transparent; overflow: hidden; }
+      #ground { display: none; }
+      #root { position: absolute; overflow: visible; }
