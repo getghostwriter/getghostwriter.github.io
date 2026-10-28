@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Install and help: Ghost Writer for Windows</title>
-<meta name="description" content="How to install Ghost Writer on Windows 10 and 11, what to do about the SmartScreen warning, antivirus or Smart App Control, what you need, and answers to common questions.">
+<title>Install and help: Ghost Writer dictation for Windows</title>
+<meta name="description" content="How to install Ghost Writer on Windows 10 and 11, the SmartScreen warning, antivirus and Smart App Control, what you need, and common questions.">
 <link rel="canonical" href="https://ghostmediaworks.com/ghost-writer/help/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ghost Media Works">
 <meta property="og:title" content="Ghost Writer: install and help">
-<meta property="og:description" content="How to install Ghost Writer on Windows 10 and 11, what to do about the SmartScreen warning, antivirus or Smart App Control, what you need, and answers to common questions.">
+<meta property="og:description" content="How to install Ghost Writer on Windows 10 and 11, the SmartScreen warning, antivirus and Smart App Control, what you need, and common questions.">
 <meta property="og:url" content="https://ghostmediaworks.com/ghost-writer/help/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.f39c4a4800.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.625aee04c9.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ghost Writer: voice typing for Windows that stays on your PC. Free beta, by invitation.">
+<meta property="og:image:alt" content="Ghost Writer: free dictation for Windows that stays on your PC. Free beta, by invitation.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
@@ -22,30 +22,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/GrenzeGotisch-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="/assets/site.7236d342d4.css">
-<script>
-// Before the page paints: the theme chosen on this device, and old links forwarded (the company page
-// used to be Ghost Writer's page, and installed copies open getghostwriter.github.io/#request).
-(function () {
-  try { var t = localStorage.getItem("gw-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  // The app's start-up logo opens the first page of a visit (site.js plays it); covered until then.
-  try {
-    if (!sessionStorage.getItem("gw-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches)
-      document.documentElement.classList.add("intro");
-  } catch (e) {}
-  if (location.pathname !== "/" && location.pathname !== "/index.html") return;
-  var to = {
-    "#request": "/ghost-writer/#request", "#download": "/ghost-writer/#download", "#privacy": "/ghost-writer/#privacy",
-    "#beta": "/ghost-writer/#request", "#install": "/ghost-writer/help/#install", "#requirements": "/ghost-writer/help/#requirements",
-    "#faq": "/ghost-writer/help/#faq", "#new": "/ghost-writer/changelog/", "#features": "/ghost-writer/features/",
-    "#everything": "/ghost-writer/features/", "#hey-ghost": "/ghost-writer/features/#hey-ghost", "#modes": "/ghost-writer/features/#modes",
-    "#smart": "/ghost-writer/features/#reads-the-room", "#rewrite": "/ghost-writer/features/#rewrite", "#search": "/ghost-writer/features/#search",
-    "#learns": "/ghost-writer/features/#learns", "#stats": "/ghost-writer/features/#stats", "#settings-tour": "/ghost-writer/features/#settings"
-  }[location.hash];
-  if (to) location.replace(to);
-})();
-</script>
+<link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/site.df76a356aa.css">
+<script src="/assets/head.a3c1c49f5f.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -54,9 +33,29 @@
    "@type": "Organization",
    "@id": "https://ghostmediaworks.com/#org",
    "name": "Ghost Media Works",
+   "alternateName": [
+    "Ghost Media",
+    "GhostMediaWorks"
+   ],
    "url": "https://ghostmediaworks.com/",
    "logo": "https://ghostmediaworks.com/assets/icons/icon-512.png",
    "email": "ghostthepatriot@gmail.com",
+   "founder": {
+    "@id": "https://ghostmediaworks.com/#ghost"
+   },
+   "sameAs": [
+    "https://www.instagram.com/ghost_1krr/"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://ghostmediaworks.com/#ghost",
+   "name": "Ghost",
+   "alternateName": [
+    "Ghost 1kRR",
+    "ghost_1krr"
+   ],
+   "jobTitle": "Founder",
    "sameAs": [
     "https://www.instagram.com/ghost_1krr/"
    ]
@@ -66,9 +65,96 @@
    "@id": "https://ghostmediaworks.com/#site",
    "url": "https://ghostmediaworks.com/",
    "name": "Ghost Media Works",
+   "alternateName": "Ghost Media",
    "publisher": {
     "@id": "https://ghostmediaworks.com/#org"
    }
+  },
+  {
+   "@type": "FAQPage",
+   "url": "https://ghostmediaworks.com/ghost-writer/help/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is it really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. It's free, by invitation: request access and you get a key. No subscription, no ads. With your key you can use everything, including Advanced mode if your PC has a graphics card for it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does anything I say leave my PC?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Your voice is turned into text on your own PC, and nothing you say or write is uploaded, to us or anyone else. Dictation works with Wi-Fi off. Ghost Writer only goes online to check your access key (the key, a scrambled id of your PC and the version), to check for a new version and, if you choose it, to download Advanced mode. Privacy policy"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I get an access key?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Fill in the request form . We read every request, and your key arrives by email, usually within a few days. Check your spam folder too. Download Ghost Writer, open it and enter the key."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use my key on more than one PC?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, on up to 2 PCs. Please don't share it. To use a different key: Settings > App > Access key > Change key."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which apps does it work in?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Almost anywhere you can type: email, Word and Google Docs, chat apps, your browser, code editors and more. It's built never to type into or read password boxes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a graphics card?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Standard mode works on any Windows 10 or 11 PC, using the processor. With an NVIDIA, AMD or Intel graphics card that has its own memory, you can add Advanced mode from inside the app."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I get updates?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ghost Writer checks for a new version when it starts and once a day, and offers it with one click (you can turn the check off in Settings > App). Your dictations, notes, dictionary and settings are kept. See What's new ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I uninstall it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Open Windows Settings , then Apps , then Installed apps (on Windows 10: Apps & features ). Find Ghost Writer and choose Uninstall . It asks whether to also delete your saved dictations, notes, dictionary and settings."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a Mac, Linux or phone version? Other languages?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Ghost Writer is for Windows 10 and 11 (64-bit), and it understands English only, for now."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "I found a bug, or I have an idea. Where do I tell you?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On the feedback page , or by email at ghostthepatriot@gmail.com . Tell us what you were doing and what happened, but please never include anything private you dictated."
+     }
+    }
+   ]
   }
  ]
 }
@@ -79,16 +165,31 @@
 <header class="site-header">
   <div class="wrap inner">
     <a class="brand" href="/" aria-label="Ghost Media Works home">
-      <img class="dark-only" src="/assets/ghost-dark-64.png" alt="" width="49" height="64">
-      <img class="light-only" src="/assets/ghost-light-64.png" alt="" width="49" height="64">
-      <span class="wordmark">GHOST MEDIA WORKS</span>
+      <span class="brand-ghost" aria-hidden="true"></span>
+      <span class="wordmark" aria-hidden="true"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></span>
     </a>
-    <nav class="main-nav" aria-label="Main">
+    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav class="main-nav" id="site-menu" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer" aria-current="page">Ghost Writer</a>
+      <span class="menu-sub">
+        <a href="/ghost-writer/features/" data-sub="features">Features</a>
+        <a href="/ghost-writer/help/" data-sub="help" aria-current="page">Install and help</a>
+        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
+        <a href="/ghost-writer/#request">Request access</a>
+      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
+      <a class="menu-only" href="/press/">Press kit</a>
+      <button class="menu-only menu-theme" type="button" data-theme-button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        <span class="theme-label">Theme: follows your device</span>
+      </button>
     </nav>
-    <button class="theme-button" id="theme" type="button" aria-label="Theme: follows your device. Click to change.">
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
@@ -108,15 +209,20 @@
 
 <main id="main" tabindex="-1">
 <div class="wrap">
-  <div class="hero" style="grid-template-columns:1fr;padding-bottom:24px">
+  <div class="hero u-one u-pb24">
     <div>
       <span class="eyebrow">Ghost Writer help</span>
       <h1>Install and help</h1>
       <p class="sub">Installing takes a minute and needs no administrator password. Here's what to expect, and answers to what people ask most.</p>
-      <ul class="jump" aria-label="On this page">
-        <li><a href="#install">Installing</a></li><li><a href="#blocked">If Windows blocks it</a></li><li><a href="#real">Is my download real?</a></li>
-        <li><a href="#requirements">What you need</a></li><li><a href="#known-issues">Known issues</a></li><li><a href="#faq">Questions</a></li>
-      </ul>
+      <nav class="contents" aria-labelledby="contents-title"><h2 id="contents-title">Contents</h2>
+      <ol>
+        <li><a href="#install">Installing</a></li>
+        <li><a href="#blocked">If Windows blocks it</a></li>
+        <li><a href="#real">Is my download real?</a></li>
+        <li><a href="#requirements">What you need</a></li>
+        <li><a href="#known-issues">Known issues</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ol></nav>
     </div>
   </div>
 </div>
@@ -175,7 +281,7 @@
       <li><b>Downloads:</b> github.com/getghostwriter, where every Download button on this site leads.</li>
       <li><b>Keys</b> arrive only by email after you request one here. We never ask for payment or passwords.</li>
     </ul>
-    <div class="card" style="margin-top:20px">
+    <div class="card u-mt20">
       <p>Every installer has a fingerprint. To check yours, open PowerShell and run:</p>
       <p><code>Get-FileHash "$env:USERPROFILE\Downloads\Ghost-Writer-Setup.exe"</code></p>
       <p>The Hash shown must match Ghost Writer 6.8's fingerprint:</p>
@@ -228,7 +334,7 @@
   <div class="wrap">
     <div class="cols">
       <div class="about-col">
-        <p class="wordmark">GHOST MEDIA WORKS</p>
+        <p class="wordmark"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></p>
         <p>Private software for Windows that runs on your own PC.</p>
       </div>
       <div>
@@ -251,8 +357,8 @@
       </div>
     </div>
     <div class="bottom">
-      <span>&copy; 2026 GHOST MEDIA WORKS</span>
-      <span>No ads, no analytics, no cookies of our own. <a href="/about/#accessibility">Accessibility</a></span>
+      <span>&copy; 2026 Ghost Media Works</span>
+      <span>No ads, no analytics scripts or cookies. <a href="/about/#accessibility">Accessibility</a></span>
     </div>
   </div>
 </footer>
@@ -268,6 +374,7 @@
   </div>
 </dialog>
 
-<script src="/assets/site.69c9f5f88f.js" defer></script>
+<script src="/assets/site.bc1f9b68d3.js" defer></script>
+
 </body>
 </html>
