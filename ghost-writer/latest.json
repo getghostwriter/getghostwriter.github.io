@@ -1,0 +1,13 @@
+{
+ "app": "ghost-writer",
+ "full": {
+  "sha256": "be7ba1dfe125aacf60a5f2350a67bdf85702b6230baa96553dbfbb54ed36bc92",
+  "size": 704588002,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.0/Ghost-Writer-Setup.exe"
+ },
+ "issued": 1793314449,
+ "kind": "update-manifest",
+ "notes": "A smoother microphone, and updates you can install from one clear button.",
+ "signature": "7elRRtJ1cjk65AiiudrK52/y463yLNm2Y3omVstJuNSaah7RxJqxphIZVWQQbVoInBhIiim9Wnwr/YkTSFi0Ag==",
+ "version": "7.0"
+}
