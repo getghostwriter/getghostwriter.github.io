@@ -1,13 +1,20 @@
 {
  "app": "ghost-writer",
- "full": {
-  "sha256": "be7ba1dfe125aacf60a5f2350a67bdf85702b6230baa96553dbfbb54ed36bc92",
-  "size": 704588002,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.0/Ghost-Writer-Setup.exe"
+ "delta": {
+  "from": "7.0",
+  "runtime": "b4184842b00d908a28a3c2b085a64663e1eaa8d34e9ffaa675cb14c9c48123cb",
+  "sha256": "295b9d7581881a2f8da1ba22467cb753efe4211a0167557c821668857e98abe2",
+  "size": 7858041,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.1/Ghost-Writer-Update-7.1.zip"
  },
- "issued": 1793314449,
+ "full": {
+  "sha256": "be203a6aa485255311666b43761b5c77d48dbc699765ca161e3c67a83ebc91a7",
+  "size": 704654496,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.1/Ghost-Writer-Setup.exe"
+ },
+ "issued": 1793369922,
  "kind": "update-manifest",
- "notes": "A smoother microphone, and updates you can install from one clear button.",
- "signature": "7elRRtJ1cjk65AiiudrK52/y463yLNm2Y3omVstJuNSaah7RxJqxphIZVWQQbVoInBhIiim9Wnwr/YkTSFi0Ag==",
- "version": "7.0"
+ "notes": "Switch between dark and light with one click.",
+ "signature": "/ZvVE8OKjP8xDdC/abHSqA1mSNlZJq9RRZQg0g9+s3AJfdYwNqxHX3pUKy8Xi2Ao1LkJaCj3iS+kH1r5vCfACA==",
+ "version": "7.1"
 }
