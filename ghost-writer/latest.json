@@ -1,20 +1,13 @@
 {
  "app": "ghost-writer",
- "delta": {
-  "from": "7.0",
-  "runtime": "b4184842b00d908a28a3c2b085a64663e1eaa8d34e9ffaa675cb14c9c48123cb",
-  "sha256": "295b9d7581881a2f8da1ba22467cb753efe4211a0167557c821668857e98abe2",
-  "size": 7858041,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.1/Ghost-Writer-Update-7.1.zip"
- },
  "full": {
-  "sha256": "be203a6aa485255311666b43761b5c77d48dbc699765ca161e3c67a83ebc91a7",
-  "size": 704654496,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.1/Ghost-Writer-Setup.exe"
+  "sha256": "824aa42c2b1ad4908f5fd51a6bcd617cc995485fc6bc19c2be0571e295358ca1",
+  "size": 704831391,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2/Ghost-Writer-Setup.exe"
  },
- "issued": 1793369922,
+ "issued": 1793384232,
  "kind": "update-manifest",
- "notes": "Switch between dark and light with one click.",
- "signature": "/ZvVE8OKjP8xDdC/abHSqA1mSNlZJq9RRZQg0g9+s3AJfdYwNqxHX3pUKy8Xi2Ao1LkJaCj3iS+kH1r5vCfACA==",
- "version": "7.1"
+ "notes": "Move your data to another PC.",
+ "signature": "SxJ4b64+yqzg+7d2ZF1S+MQ/wvG7kiLOiGKh4Jc/koXFIzUN3vSyh47P9ldPpTh9OCV10D4kzbAT/+YS7UC3Bg==",
+ "version": "7.2"
 }
