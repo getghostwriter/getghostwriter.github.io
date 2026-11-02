@@ -23,7 +23,9 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.5f8b557bcf.css">
+<link rel="stylesheet" href="/assets/site.a10a728279.css">
+<link rel="stylesheet" href="/assets/request.55162ab120.css">
+<link rel="stylesheet" href="/assets/gw.4686fe5ce3.css">
 <script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
@@ -164,9 +166,18 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap inner">
-    <a class="brand" href="/" aria-label="Ghost Media Works home">
-      <span class="brand-ghost" aria-hidden="true"></span>
-      <span class="wordmark" aria-hidden="true"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></span>
+    <a class="brand lg" href="/" aria-label="Ghost Media Works home">
+      <span class="lg-press" aria-hidden="true"><span class="lg-sway">
+        <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
+          <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
+          <g class="lg-pus"><path pathLength="100" d="M38 38L38 7"/><path pathLength="100" d="M38 38L67.5 28.4"/><path pathLength="100" d="M38 38L56.2 63.1"/><path pathLength="100" d="M38 38L19.8 63.1"/><path pathLength="100" d="M38 38L8.5 28.4"/></g>
+          <g class="lg-pis"><path pathLength="100" d="M38 7L38 38"/><path pathLength="100" d="M67.5 28.4L38 38"/><path pathLength="100" d="M56.2 63.1L38 38"/><path pathLength="100" d="M19.8 63.1L38 38"/><path pathLength="100" d="M8.5 28.4L38 38"/></g>
+          <g class="lg-rgs"><circle cx="38" cy="7" r="3.2"/><circle cx="67.5" cy="28.4" r="3.2"/><circle cx="56.2" cy="63.1" r="3.2"/><circle cx="19.8" cy="63.1" r="3.2"/><circle cx="8.5" cy="28.4" r="3.2"/></g>
+          <g class="lg-nds"><circle cx="38" cy="7" r="3.2"/><circle cx="67.5" cy="28.4" r="3.2"/><circle cx="56.2" cy="63.1" r="3.2"/><circle cx="19.8" cy="63.1" r="3.2"/><circle cx="8.5" cy="28.4" r="3.2"/></g>
+        </svg><span class="lg-gh"></span></span>
+        <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span>
+          <span class="lg-spec"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span></span>
+      </span></span>
     </a>
     <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
     <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
@@ -179,7 +190,6 @@
         <a href="/ghost-writer/features/" data-sub="features">Features</a>
         <a href="/ghost-writer/help/" data-sub="help" aria-current="page">Install and help</a>
         <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-        <a href="/ghost-writer/#request">Request access</a>
       </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
@@ -284,8 +294,8 @@
     <div class="card u-mt20">
       <p>Every installer has a fingerprint. To check yours, open PowerShell and run:</p>
       <p><code>Get-FileHash "$env:USERPROFILE\Downloads\Ghost-Writer-Setup.exe"</code></p>
-      <p>The Hash shown must match Ghost Writer 7.2's fingerprint:</p>
-      <p><code>824aa42c2b1ad4908f5fd51a6bcd617cc995485fc6bc19c2be0571e295358ca1</code></p>
+      <p>The Hash shown must match Ghost Writer 7.2.0's fingerprint:</p>
+      <p><code>5f4f890764ec1099f51f7b0ab3c4ac091305fa0e1793e22b642883950b3fde85</code></p>
     </div>
   </div>
 </section>
@@ -305,7 +315,7 @@
   <div class="wrap">
     <h2 id="known-title">Known issues</h2>
     <div class="card">
-      <p><b>Ghost Writer 7.2:</b> no known issues listed yet. Voice commands and voice notes are marked beta and still improving.</p>
+      <p><b>Ghost Writer 7.2.0:</b> no known issues listed yet. Voice commands and voice notes are marked beta and still improving.</p>
       <p>Something wrong? Tell us on the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a> or at <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>, and we'll list it here once we know.</p>
     </div>
   </div>
@@ -330,42 +340,40 @@
 </section>
 
 </main>
+<section class="closing" aria-labelledby="closing-title">
+  <span class="closing-mark" aria-hidden="true">Ghost</span>
+  <div class="wrap">
+    <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
+    <p class="eyebrow">Ghost Writer</p>
+    <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
+  </div>
+</section>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="cols">
-      <div class="about-col">
-        <p class="wordmark"><span class="wm-ghost">Ghost</span> <span class="wm-rest">Media Works</span></p>
-        <p>Private software for Windows that runs on your own PC.</p>
-      </div>
-      <div>
-        <h2>Products</h2>
-        <ul><li><a href="/ghost-writer/">Ghost Writer</a></li><li><a href="/media-hub/">Ghost Media Hub</a> <span class="small-print">(soon)</span></li></ul>
-      </div>
-      <div>
-        <h2>Ghost Writer</h2>
-        <ul><li><a href="/ghost-writer/#request">Request access</a></li><li><a href="/ghost-writer/features/">Features</a></li>
-          <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li></ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li><li><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li>
-          <li><a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a></li></ul>
-      </div>
-      <div>
-        <h2>Legal</h2>
-        <ul><li><a href="/terms.html">Terms of use</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/NOTICES.txt">Open-source credits</a></li></ul>
-      </div>
-    </div>
-    <div class="bottom">
-      <span>&copy; 2026 Ghost Media Works</span>
-      <span>No ads, no analytics scripts or cookies. <a href="/about/#accessibility">Accessibility</a></span>
+    <nav class="foot-row" aria-label="Footer">
+      <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
+            <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
+              <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
+              <g class="lg-nds"><circle cx="38" cy="7" r="3.2"/><circle cx="67.5" cy="28.4" r="3.2"/><circle cx="56.2" cy="63.1" r="3.2"/><circle cx="19.8" cy="63.1" r="3.2"/><circle cx="8.5" cy="28.4" r="3.2"/></g>
+            </svg><span class="lg-gh"></span></span>
+            <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
+          </span></span></p>
+      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
+      <a href="/media-hub/">Ghost Media Hub <span class="soon">(soon)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
+      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
+    </nav>
+    <div class="foot-row">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
+      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
     </div>
   </div>
 </footer>
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
   <div class="inside">
     <h2 id="ask-title">Do you have your access key?</h2>
-    <p>Ghost Writer 7.2 opens with a free access key. No key yet? <a href="/ghost-writer/#request" id="ask-request">Request one first</a>: it arrives by email.</p>
+    <p>Ghost Writer 7.2.0 opens with a free access key. No key yet? <a href="/ghost-writer/#request" id="ask-request">Request one first</a>: it arrives by email.</p>
     <p>The download is 672 MB, for Windows 10 and 11 (64-bit). The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>. <a href="/ghost-writer/help/#install">Why?</a></p>
     <div class="row">
       <button class="button secondary" type="button" id="ask-later">Not now</button>
@@ -373,9 +381,64 @@
     </div>
   </div>
 </dialog>
+<dialog class="rq" id="request-dialog" aria-labelledby="rq-title">
+  <div class="rq-inside">
+    <button class="rq-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></button>
+    <div class="rq-dots" aria-hidden="true"><i></i><i></i></div>
+    <h2 id="rq-title">Request free access</h2>
+    <p class="rq-intro"><span class="rq-stepno">Step 1 of 2.</span> Ghost Writer is free while it's in beta. We read every request and email you a key, usually within a few days.</p>
+    <div class="rq-slot"><div class="rq-box">
+      <form class="request-form" id="request-form" data-server="https://ghost-writer-access.ghostrepublic.workers.dev" novalidate>
+        <div class="rq-step rq-step1">
+        <label>Your name<input name="name" autocomplete="name" maxlength="80" required aria-describedby="request-result"></label>
+        <label>Your email <span class="hint">Your key is sent here.</span><input name="contact" type="email" autocomplete="email" maxlength="120" required aria-describedby="request-result"></label>
+        <label class="tick"><input type="checkbox" name="us_resident" value="yes" required aria-describedby="request-result"><span>I'm in the United States <span class="hint">The beta is open to people in the US, for now.</span></span></label>
+        </div>
+        <div class="rq-step rq-step2">
+        <p class="rq-only rq-step2-note">Two optional questions. They help us look after the beta.</p>
+        <label>How would you use Ghost Writer? <span class="hint">Optional.</span><textarea name="reason" maxlength="1000"></textarea></label>
+        <label>How did you hear about Ghost Writer? <span class="hint">Optional.</span>
+          <select name="heard">
+            <option value="">Choose one (optional)</option>
+            <option value="reddit">Reddit</option>
+            <option value="youtube">YouTube</option>
+            <option value="friend">A friend</option>
+            <option value="search">Search</option>
+            <option value="producthunt">Product Hunt</option>
+            <option value="hackernews">Hacker News</option>
+            <option value="other">Other</option>
+          </select></label>
+        </div>
+        <div class="trap" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="rq-buttons">
+          <button class="button rq-only rq-next" type="button">Continue</button>
+          <button class="button rq-send" type="submit">Request access</button>
+          <button class="button secondary rq-only rq-skip" type="button">Skip and send</button>
+        </div>
+        <p class="result" id="request-result" role="status" aria-live="polite"></p>
+        <p class="small-print">We use your name and email only to review your request, send your key, and tell you about your key or important changes to Ghost Writer. No marketing, never sold. <a href="/privacy.html">Privacy policy</a> &middot; <a href="/terms.html">Terms of use</a></p>
+      </form>
+      <div class="rq-done" hidden tabindex="-1">
+        <svg class="rq-env" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="rq-ring" cx="60" cy="60" r="54"/><g class="rq-letter"><rect x="28" y="40" width="64" height="44" rx="6"/><path d="M28 44l32 22 32-22"/></g><path class="rq-tick" d="M78 30l6 6 12-12" stroke-width="3"/></svg>
+        <h3 class="rq-done-title">You're on the list</h3>
+        <p class="rq-done-for">Request received.</p>
+        <ol class="rq-timeline">
+          <li><b>Today</b>We read your request ourselves.</li>
+          <li><b>Within a few days</b>Your key arrives by email. Check your spam folder if you don't see it.</li>
+          <li><b>Then</b>Download Ghost Writer, enter your key, hold Ctrl+Win and talk.</li>
+        </ol>
+      </div>
+      </div>
+</div>
+  </div>
+</dialog>
 
 <script src="/assets/site.bb98e1e790.js" defer></script>
+<script src="/assets/logo.f7e7fe24f3.js" defer></script>
+<script src="/assets/frame.e39da035f4.js" defer></script>
 <script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/request.0fa3d613a8.js" defer></script>
+<script src="/assets/gw.9e842d6eef.js" defer></script>
 
 </body>
 </html>
