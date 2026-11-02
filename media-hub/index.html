@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ghost Media Hub: a private video editor for Windows (coming soon)</title>
-<meta name="description" content="Ghost Media Hub is a video editor for Windows that runs on your own PC, from Ghost Media Works. It is not available yet.">
+<title>Ghost Media Hub: a private video editor for Windows (locked beta)</title>
+<meta name="description" content="Ghost Media Hub: a video editor for Windows that runs on your PC. Free locked beta for invited testers: it opens only with an access key.">
 <link rel="canonical" href="https://ghostmediaworks.com/media-hub/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ghost Media Works">
-<meta property="og:title" content="Ghost Media Hub: coming soon">
-<meta property="og:description" content="Ghost Media Hub is a video editor for Windows that runs on your own PC, from Ghost Media Works. It is not available yet.">
+<meta property="og:title" content="Ghost Media Hub: a video editor that runs on your own PC">
+<meta property="og:description" content="Ghost Media Hub: a video editor for Windows that runs on your PC. Free locked beta for invited testers: it opens only with an access key.">
 <meta property="og:url" content="https://ghostmediaworks.com/media-hub/">
 <meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.10f2a9c13b.png">
 <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a10a728279.css">
+<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
 <script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
@@ -122,78 +122,68 @@
 <div class="wrap">
   <div class="hub-head">
     <div>
-      <span class="stamp">Coming soon</span>
+      <span class="stamp">Locked beta &middot; access key required</span>
       <h1>Ghost Media Hub</h1>
-      <p class="sub">Coming soon: a video editor for Windows, planned to run on your own PC. Cut, colour, add titles and captions, and record your screen.</p>
+      <p class="sub">A video editor for Windows that runs on your own PC. Cut, colour, add titles and captions, and record your screen.</p>
+      <p class="small-print"><b>This is a locked beta.</b> The download only opens with an access key, which beta testers get from us by email. Without a key, Ghost Media Hub installs but stays locked.</p>
     </div>
-    <a class="button secondary" href="/ghost-writer/">Try Ghost Writer meanwhile</a>
+    <div class="actions">
+      <a class="button" href="/media-hub/#request">Request free access</a>
+      <a class="text-link" href="#download">Got your key? Download</a>
+    </div>
   </div>
-  <!-- TODO-OWNER: confirm these captions still match the plan for the first release (media-hub-replay.webp is left out: "Ghost Replay" isn't on the site's list yet). -->
-  <div class="montage" data-montage role="region" aria-label="What's planned for Ghost Media Hub, shown in an early build">
-    <figure><div class="shot"><img src="/assets/screens/media-hub.webp" alt="An early build of Ghost Media Hub: media library, preview player and timeline" loading="eager" fetchpriority="high" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>Planned &middot; 1 of 5</small><b>Edit on a timeline.</b> Cut and arrange clips, music and titles.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-color.webp" alt="An early build of Ghost Media Hub: film looks beside the preview" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>Planned &middot; 2 of 5</small><b>Colour and looks.</b> One-click film looks plus full colour controls, previewed live.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-text.webp" alt="An early build of Ghost Media Hub: a styled title on the preview" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>Planned &middot; 3 of 5</small><b>Text and captions.</b> Styled titles, and captions made on your PC.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-transitions.webp" alt="An early build of Ghost Media Hub: transitions, previewed on clips" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>Planned &middot; 4 of 5</small><b>Transitions.</b> Preview a transition on your own clips before you use it.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-record.webp" alt="An early build of Ghost Media Hub: choosing a screen or window to record" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>Planned &middot; 5 of 5</small><b>Record your screen.</b> A whole screen or one window, with your PC's sound and your mic.</figcaption></figure>
+  <!-- TODO-OWNER: confirm these captions match version 0.1.0 (media-hub-replay.webp is left out: "Ghost Replay" isn't on the site's list yet). -->
+  <div class="montage" data-montage role="region" aria-label="Ghost Media Hub's main parts">
+    <figure><div class="shot"><img src="/assets/screens/media-hub.webp" alt="Ghost Media Hub: media library, preview player and timeline" loading="eager" fetchpriority="high" decoding="async" width="1440" height="900"></div>
+      <figcaption><small>1 of 5</small><b>Edit on a timeline.</b> Cut and arrange clips, music and titles.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/screens/media-hub-color.webp" alt="Ghost Media Hub: film looks beside the preview" loading="lazy" decoding="async" width="1440" height="900"></div>
+      <figcaption><small>2 of 5</small><b>Colour and looks.</b> One-click film looks plus full colour controls, previewed live.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/screens/media-hub-text.webp" alt="Ghost Media Hub: a styled title on the preview" loading="lazy" decoding="async" width="1440" height="900"></div>
+      <figcaption><small>3 of 5</small><b>Text and captions.</b> Styled titles, and captions made on your PC.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/screens/media-hub-transitions.webp" alt="Ghost Media Hub: transitions, previewed on clips" loading="lazy" decoding="async" width="1440" height="900"></div>
+      <figcaption><small>4 of 5</small><b>Transitions.</b> Preview a transition on your own clips before you use it.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/screens/media-hub-record.webp" alt="Ghost Media Hub: choosing a screen or window to record" loading="lazy" decoding="async" width="1440" height="900"></div>
+      <figcaption><small>5 of 5</small><b>Record your screen.</b> A whole screen or one window, with your PC's sound and your mic.</figcaption></figure>
   </div>
-  <p class="small-print hub-foot">An early build. Things will change before it's ready. Not available yet: there's no download. When it's ready, you'll find it here.</p>
 </div>
 
-<section id="building" aria-labelledby="building-title">
+<section id="get" aria-labelledby="get-title">
   <div class="wrap">
-    <p class="eyebrow">On your PC</p>
-    <h2 id="building-title">What's planned</h2>
-    <p class="lead">Planned: editing happens on your computer, with no ads. Cut and arrange clips, colour them, add titles and captions, preview transitions and record your screen.</p>
+    <h2 id="get-title">How to get it</h2>
+    <p class="lead">Ghost Media Hub is free while it's in beta, for invited beta testers. The app is locked: it opens only with an access key, the same kind of key as Ghost Writer (one key can open both).</p>
+    <ol class="steps">
+      <li class="card"><h3>Request access</h3><p>Fill in <a href="#request">the short form</a> below: your name and email, with Ghost Media Hub ticked.</p></li>
+      <li class="card"><h3>Get your key by email</h3><p>We read each request ourselves and email you a key, usually within a few days.</p></li>
+      <li class="card"><h3>Download and edit</h3><p><a href="#download">Download</a> Ghost Media Hub, open it and enter your key.</p></li>
+    </ol>
+    <p class="small-print">Windows may say "Windows protected your PC" the first time, because Ghost Media Hub is new and not yet signed with a paid certificate. Click <b>More info</b>, then <b>Run anyway</b>.</p>
   </div>
 </section>
 
-</main>
-<section class="closing" aria-labelledby="closing-title">
-  <span class="closing-mark" aria-hidden="true">Ghost</span>
-  <div class="wrap">
-    <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
-    <p class="eyebrow">Ghost Writer</p>
-    <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
-    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
-    <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="wrap">
-    <nav class="foot-row" aria-label="Footer">
-      <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
-            <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
-              <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
-              <g class="lg-nds"><circle cx="38" cy="7" r="3.2"/><circle cx="67.5" cy="28.4" r="3.2"/><circle cx="56.2" cy="63.1" r="3.2"/><circle cx="19.8" cy="63.1" r="3.2"/><circle cx="8.5" cy="28.4" r="3.2"/></g>
-            </svg><span class="lg-gh"></span></span>
-            <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
-          </span></span></p>
-      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(soon)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
-      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
-    </nav>
-    <div class="foot-row">
-      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
-      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+<section id="request" aria-labelledby="request-title">
+  <div class="wrap request">
+    <div>
+      <h2 id="request-title">Request access</h2>
+      <p class="lead">Free, by invitation. Tell us who you are and we'll email you an access key. Tick Ghost Media Hub (and Ghost Writer too, if you'd like both).</p>
+      <h3>Before you ask</h3>
+      <ul class="need">
+        <li><span>&#10003;</span><span><b>Windows 10 or 11, 64-bit.</b> Not for Mac, Linux or phones.</span></li>
+        <li><span>&#10003;</span><span><b>A 846 MB download.</b></span></li>
+        <li><span>&#10003;</span><span><b>In the United States:</b> the beta is open to people in the US, for now.</span></li>
+      </ul>
+      <h3>What happens next</h3>
+      <p class="muted">We read every request ourselves. Your key arrives by email, usually within a few days. Check your spam folder if you don't see it.</p>
     </div>
-  </div>
-</footer>
-<dialog class="rq" id="request-dialog" aria-labelledby="rq-title">
-  <div class="rq-inside">
-    <button class="rq-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></button>
-    <div class="rq-dots" aria-hidden="true"><i></i><i></i></div>
-    <h2 id="rq-title">Request free access</h2>
-    <p class="rq-intro"><span class="rq-stepno">Step 1 of 2.</span> Ghost Writer is free while it's in beta. We read every request and email you a key, usually within a few days.</p>
-    <div class="rq-slot"><div class="rq-box">
+    <div class="card">
+      <div class="rq-box">
       <form class="request-form" id="request-form" data-server="https://ghost-writer-access.ghostrepublic.workers.dev" novalidate>
         <div class="rq-step rq-step1">
         <label>Your name<input name="name" autocomplete="name" maxlength="80" required aria-describedby="request-result"></label>
         <label>Your email <span class="hint">Your key is sent here.</span><input name="contact" type="email" autocomplete="email" maxlength="120" required aria-describedby="request-result"></label>
+        <fieldset class="rq-apps"><legend>Which app? <span class="hint">One key can open both.</span></legend>
+          <label class="tick"><input type="checkbox" name="apps" value="gw" checked><span>Ghost Writer</span></label>
+          <label class="tick"><input type="checkbox" name="apps" value="mh"><span>Ghost Media Hub</span></label>
+        </fieldset>
         <label class="tick"><input type="checkbox" name="us_resident" value="yes" required aria-describedby="request-result"><span>I'm in the United States <span class="hint">The beta is open to people in the US, for now.</span></span></label>
         </div>
         <div class="rq-step rq-step2">
@@ -231,14 +221,99 @@
         </ol>
       </div>
       </div>
-</div>
+
+    </div>
+  </div>
+</section>
+
+<section id="download" aria-labelledby="download-title">
+  <div class="wrap">
+    <h2 id="download-title">Got your key? Download</h2>
+    <p class="lead">This download is a <b>locked beta</b> for beta testers. It asks for your access key when you open it, and won't open without one. No key yet? <a href="#request">Request access</a> first.</p>
+    <div class="card">
+      <div class="download-box">
+        <div class="what"><b>Ghost Media Hub 0.1.0</b><span>846 MB &middot; Windows 10 and 11 (64-bit) &middot; locked beta, access key required</span></div>
+        <a class="button" href="https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.1.0/Ghost-Media-Hub-Setup.exe" data-download="mh">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
+          Download the locked beta
+        </a>
+      </div>
+      <p class="fingerprint">By installing, you agree to the <a href="/terms.html">Terms of use</a>. You need an access key to open it: it's checked online at start and every hour, and works offline for up to 3 days. SHA-256 fingerprint: <code>b302af104ea5c95b57304901b102328a63851ea42fb71da5e31442d77b5044b9</code></p>
+    </div>
+  </div>
+</section>
+
+<section id="building" aria-labelledby="building-title">
+  <div class="wrap">
+    <p class="eyebrow">On your PC</p>
+    <h2 id="building-title">Your videos stay on your PC</h2>
+    <p class="lead">Editing happens on your computer, with no ads. Ghost Media Hub goes online to check your access key (the key, a scrambled id of your PC and the version), and when you choose an online extra: downloading optional models or sounds, or an AI assistant you connect yourself. <a href="/privacy.html">Privacy policy</a></p>
+  </div>
+</section>
+
+</main>
+<section class="closing" aria-labelledby="closing-title">
+  <span class="closing-mark" aria-hidden="true">Ghost</span>
+  <div class="wrap">
+    <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
+    <p class="eyebrow">Ghost Writer</p>
+    <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="foot-row" aria-label="Footer">
+      <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
+            <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
+              <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
+              <g class="lg-nds"><circle cx="38" cy="7" r="3.2"/><circle cx="67.5" cy="28.4" r="3.2"/><circle cx="56.2" cy="63.1" r="3.2"/><circle cx="19.8" cy="63.1" r="3.2"/><circle cx="8.5" cy="28.4" r="3.2"/></g>
+            </svg><span class="lg-gh"></span></span>
+            <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
+          </span></span></p>
+      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
+      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
+      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
+    </nav>
+    <div class="foot-row">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
+      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+<dialog class="ask" id="ask" aria-labelledby="ask-title">
+  <div class="inside">
+    <h2 id="ask-title">Do you have your access key?</h2>
+    <div data-app="gw">
+    <p>Ghost Writer 7.2.0 opens with a free access key. No key yet? <a href="/ghost-writer/#request" class="ask-request">Request one first</a>: it arrives by email.</p>
+    <p>The download is 672 MB, for Windows 10 and 11 (64-bit). The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>. <a href="/ghost-writer/help/#install">Why?</a></p>
+    </div>
+    <div data-app="mh" hidden>
+    <p>Ghost Media Hub 0.1.0 is a <b>locked beta</b> for beta testers: it opens only with an access key (one key can open Ghost Writer too). No key yet? <a href="/media-hub/#request" class="ask-request">Request one first</a>: it arrives by email.</p>
+    <p>The download is 846 MB, for Windows 10 and 11 (64-bit). The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>.</p>
+    </div>
+    <div class="row">
+      <button class="button secondary" type="button" id="ask-later">Not now</button>
+      <a class="button" id="ask-go" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">I have a key: download</a>
+    </div>
+  </div>
+</dialog>
+<dialog class="rq" id="request-dialog" aria-labelledby="rq-title">
+  <div class="rq-inside">
+    <button class="rq-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></button>
+    <div class="rq-dots" aria-hidden="true"><i></i><i></i></div>
+    <h2 id="rq-title">Request free access</h2>
+    <p class="rq-intro"><span class="rq-stepno">Step 1 of 2.</span> Ghost Writer is free while it's in beta. We read every request and email you a key, usually within a few days.</p>
+    <div class="rq-slot"></div>
   </div>
 </dialog>
 
-<script src="/assets/site.bb98e1e790.js" defer></script>
+<script src="/assets/site.7005f1863f.js" defer></script>
 <script src="/assets/logo.f7e7fe24f3.js" defer></script>
 <script src="/assets/frame.e39da035f4.js" defer></script>
-<script src="/assets/request.0fa3d613a8.js" defer></script>
+<script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/request.4b66f7353a.js" defer></script>
 
 </body>
 </html>
