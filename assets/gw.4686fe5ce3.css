@@ -1,0 +1,111 @@
+/* Ghost Media Works website: Ghost Writer pages' own look (audit 2026-11-01 picks 1A, 4A/5A, 7A, 9A, GW part).
+   Loaded only on /ghost-writer/ pages (build_site). Shared pieces come from site.css's frame block (.band,
+   .statement, .promise-row, .eyebrow, motion tokens); everything here is gw-prefixed so it can't collide.
+   Motion layouts exist only under html.motion; without it (no script, reduced motion) every part is still. */
+
+/* ---- 1A hero stage + 9A phones ---------------------------------------------------------------------- */
+.gw-hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 0 56px; }
+.gw-hero .product-lockup { justify-content: center; margin-bottom: 14px; }
+.gw-hero .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 14px; }
+.gw-hero h1 { max-width: none; width: min(1140px, calc(100vw - 32px)); flex: none; margin: 0 auto 22px; }  /* two lines at full size: "Free dictation for Windows / that stays on your PC." */
+.gw-hero .sub { color: var(--muted); font-size: 20px; max-width: 760px; margin: 0 auto 24px; }
+.gw-hero .actions { justify-content: center; }
+.gw-fine { color: var(--faint); font-size: 14px; max-width: 720px; margin: 16px auto 0; }
+/* The stage: the product, wide (up to 1200 px, 1360 px on very wide screens), on a soft indigo floor.
+   It is wider than the text column on purpose; flex centring lets it spill evenly on both sides. */
+.gw-stage { order: 10; position: relative; flex: none; width: min(1200px, calc(100vw - 48px)); margin-top: 40px; perspective: 1400px; }
+.gw-stage::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: -60px; height: 140px; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0, color-mix(in srgb, var(--accent) 45%, transparent), transparent 70%); filter: blur(20px); opacity: .6; }
+.gw-stage-in { transform-origin: 50% 0; will-change: transform; }
+.gw-stage .shot { margin: 0; border-radius: 20px; box-shadow: 0 40px 120px -40px color-mix(in srgb, var(--accent) 45%, transparent); }
+.gw-stage .shot.demo video, .gw-stage .shot img { display: block; width: 100%; height: auto; }
+@media (min-width: 1700px) { .gw-stage { width: 1360px; } }
+/* Short laptop screens (1366 x 768, 1280 x 800): tighter spacing so the top of the stage still shows */
+@media (min-width: 721px) and (max-height: 860px) {
+  .gw-hero { padding-top: 20px; }
+  .gw-hero .product-lockup { margin-bottom: 8px; }
+  .gw-hero .badges { margin-bottom: 10px; }
+  .gw-hero h1 { margin-bottom: 14px; font-size: min(92px, 7vw, 10.5vh); }
+  .gw-hero .sub { font-size: 18px; margin-bottom: 18px; }
+  .gw-fine { margin-top: 10px; }
+  .gw-stage { margin-top: 28px; }
+}
+html.motion .gw-stage-in { transform: perspective(1400px) rotateX(8deg) scale(.94); }  /* gw.js flattens it over the first 300 px of scroll */
+
+@media (max-width: 720px) {
+  .gw-hero { align-items: stretch; text-align: left; padding: 28px 0 40px; }
+  .gw-hero .product-lockup, .gw-hero .badges, .gw-hero .actions { justify-content: flex-start; }
+  .gw-hero h1 { margin-inline: 0; }
+  .gw-hero .sub { font-size: 18px; margin: 0 0 22px; }
+  .gw-fine { margin: 14px 0 0; }
+  /* 9A: the product right under the headline, edge to edge, flat */
+  .gw-stage { order: 0; width: auto; margin: 6px -16px 26px; perspective: none; }
+  .gw-stage .shot { border-radius: 0; border-inline: 0; }
+  html.motion .gw-stage-in { transform: none; }
+}
+
+/* ---- 4A + 5A: the privacy band and its "nothing leaves" illustration --------------------------------- */
+.gw-privacy .promise-row.gw-three { grid-template-columns: repeat(3, 1fr); }
+.gw-proof { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; margin: 50px 0 0; }
+.gw-proof > div { border-radius: 18px; border: 1px solid var(--border); background: var(--bg); padding: 24px; min-width: 0; }
+.gw-proof figcaption { grid-column: 1 / -1; margin: 0; }
+.gw-proof-lbl { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 14px; color: var(--muted); font-size: 16px; font-weight: 600;
+  font-family: var(--font-label, inherit); font-variant-caps: all-small-caps; letter-spacing: .14em; }
+.gw-proof-words { font-size: 20px; line-height: 1.55; min-height: 6.2em; margin: 0; color: var(--text); }
+.gw-proof-words .w { opacity: .14; transition: opacity 260ms ease, color 600ms ease; }
+.gw-proof-words .w.on { opacity: 1; }
+.gw-proof-words .w.lit { color: var(--accent); }
+.gw-proof-line { display: block; width: 100%; height: 72px; }
+.gw-proof-zero { font-size: 56px; line-height: 1; letter-spacing: -.04em; margin: 8px 0 0; font-family: var(--font-display, inherit); }
+.gw-proof-zero small { font-size: 18px; color: var(--muted); letter-spacing: 0; }
+.gw-wifi { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; padding: 6px 10px 6px 6px; border-radius: 999px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
+.gw-wifi:hover { color: var(--text); }
+.gw-wifi:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.gw-wifi i { position: relative; width: 38px; height: 22px; border-radius: 999px; background: var(--accent); transition: background var(--t-quick, 160ms) ease; }
+.gw-wifi i::after { content: ""; position: absolute; left: 3px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--on-accent);
+  transform: translateX(16px); transition: transform var(--t-quick, 160ms) var(--ease-out, cubic-bezier(.16, 1, .3, 1)); }
+.gw-wifi[aria-pressed="true"] i { background: var(--border); }
+.gw-wifi[aria-pressed="true"] i::after { transform: none; background: var(--muted); }
+html:not(.js) .gw-wifi { display: none; }
+@media (max-width: 720px) {
+  .gw-privacy .promise-row.gw-three { grid-template-columns: 1fr; }
+  .gw-proof { grid-template-columns: 1fr; }
+  .gw-proof-words { font-size: 18px; min-height: 0; }
+  .gw-proof-zero { font-size: 44px; }
+}
+
+/* ---- 7A: moment crops with a lens (Features) ----------------------------------------------------------
+   Each picture is the real screenshot, cropped by CSS to the part that matters (--cx/--cy: top-left corner,
+   --cw: width, as parts of the whole picture; --ar: the crop's shape), so it stays current with the app.
+   The lens (gw.js copies the same picture into it, already loaded) magnifies one control 2x: --lx/--ly. */
+.gw-moment { position: relative; margin: 0; container-type: inline-size; min-width: 0; }
+.gw-moment .shot { position: relative; aspect-ratio: var(--ar); box-shadow: 0 30px 70px -40px rgba(0, 0, 0, .8); }
+.gw-moment .shot img { position: absolute; left: 0; top: 0; width: calc(100% / var(--cw)); max-width: none; height: auto;
+  transform: translate(calc(var(--cx) * -100%), calc(var(--cy) * -100%)); }
+.gw-lens { position: absolute; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; pointer-events: none; background: var(--card);
+  border: 1.5px solid var(--accent); box-shadow: 0 0 0 6px color-mix(in srgb, var(--bg) 70%, transparent), 0 20px 40px rgba(0, 0, 0, .5),
+  0 0 30px color-mix(in srgb, var(--accent) 35%, transparent); }
+html:not(.js) .gw-lens, .gw-lens:empty { display: none; }
+.gw-lens img { position: absolute; left: 50%; top: 50%; width: calc(200cqw / var(--cw)); max-width: none; height: auto;
+  transform: translate(calc(var(--lx) * -100%), calc(var(--ly) * -100%)); }
+.lens-br .gw-lens { right: -22px; bottom: -26px; }
+.lens-bl .gw-lens { left: -22px; bottom: -26px; }
+.lens-tr .gw-lens { right: -22px; top: -26px; }
+html.motion .gw-lens { transition: transform var(--t-quick, 160ms) var(--ease-out, cubic-bezier(.16, 1, .3, 1)); }
+@media (hover: hover) { html.motion .gw-moment:hover .gw-lens { transform: scale(1.06); } }
+@media (max-width: 720px) {
+  .gw-lens { width: 96px; height: 96px; }
+  .lens-br .gw-lens, .lens-tr .gw-lens { right: -6px; }
+  .lens-bl .gw-lens { left: -6px; }
+}
+/* The crops (fractions of each screenshot; 1242 x 839 unless noted) */
+.m-notepad { --cx: .26; --cy: .04; --cw: .74; --ar: 1.274; --lx: .66; --ly: .37; }
+.m-menu { --cx: .12; --cy: .30; --cw: .70; --ar: 1.822; --lx: .36; --ly: .61; }   /* 1166 x 640 */
+.m-voice { --cx: .26; --cy: .04; --cw: .74; --ar: 1.565; --lx: .37; --ly: .185; }
+.m-voicenotes { --cx: .26; --cy: .04; --cw: .74; --ar: 1.565; --lx: .76; --ly: .35; }
+.m-learning { --cx: .26; --cy: .06; --cw: .74; --ar: 1.217; --lx: .35; --ly: .82; }
+.m-search { --cx: 0; --cy: 0; --cw: 1; --ar: 1.813; --lx: .17; --ly: .34; }       /* 901 x 497 */
+.m-transcribe { --cx: .26; --cy: .04; --cw: .74; --ar: 1.565; }
+.m-stats { --cx: .26; --cy: .04; --cw: .74; --ar: 1.521; --lx: .30; --ly: .27; }
+.m-settings { --cx: .26; --cy: .04; --cw: .74; --ar: 1.565; --lx: .36; --ly: .375; }
