@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a10a728279.css">
+<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
 <link rel="stylesheet" href="/assets/media/pill.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
 <link rel="stylesheet" href="/assets/gw.4686fe5ce3.css">
@@ -400,7 +400,7 @@
             <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
           </span></span></p>
       <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(soon)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
+      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
       <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
     </nav>
     <div class="foot-row">
@@ -412,8 +412,14 @@
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
   <div class="inside">
     <h2 id="ask-title">Do you have your access key?</h2>
-    <p>Ghost Writer 7.2.0 opens with a free access key. No key yet? <a href="/ghost-writer/#request" id="ask-request">Request one first</a>: it arrives by email.</p>
+    <div data-app="gw">
+    <p>Ghost Writer 7.2.0 opens with a free access key. No key yet? <a href="/ghost-writer/#request" class="ask-request">Request one first</a>: it arrives by email.</p>
     <p>The download is 672 MB, for Windows 10 and 11 (64-bit). The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>. <a href="/ghost-writer/help/#install">Why?</a></p>
+    </div>
+    <div data-app="mh" hidden>
+    <p>Ghost Media Hub 0.1.0 is a <b>locked beta</b> for beta testers: it opens only with an access key (one key can open Ghost Writer too). No key yet? <a href="/media-hub/#request" class="ask-request">Request one first</a>: it arrives by email.</p>
+    <p>The download is 846 MB, for Windows 10 and 11 (64-bit). The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>.</p>
+    </div>
     <div class="row">
       <button class="button secondary" type="button" id="ask-later">Not now</button>
       <a class="button" id="ask-go" href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe">I have a key: download</a>
@@ -431,6 +437,10 @@
         <div class="rq-step rq-step1">
         <label>Your name<input name="name" autocomplete="name" maxlength="80" required aria-describedby="request-result"></label>
         <label>Your email <span class="hint">Your key is sent here.</span><input name="contact" type="email" autocomplete="email" maxlength="120" required aria-describedby="request-result"></label>
+        <fieldset class="rq-apps"><legend>Which app? <span class="hint">One key can open both.</span></legend>
+          <label class="tick"><input type="checkbox" name="apps" value="gw" checked><span>Ghost Writer</span></label>
+          <label class="tick"><input type="checkbox" name="apps" value="mh"><span>Ghost Media Hub</span></label>
+        </fieldset>
         <label class="tick"><input type="checkbox" name="us_resident" value="yes" required aria-describedby="request-result"><span>I'm in the United States <span class="hint">The beta is open to people in the US, for now.</span></span></label>
         </div>
         <div class="rq-step rq-step2">
@@ -472,12 +482,12 @@
   </div>
 </dialog>
 
-<script src="/assets/site.bb98e1e790.js" defer></script>
+<script src="/assets/site.7005f1863f.js" defer></script>
 <script src="/assets/logo.f7e7fe24f3.js" defer></script>
 <script src="/assets/frame.e39da035f4.js" defer></script>
 <script src="/assets/media/pill.js" defer></script>
 <script src="/assets/motion.b898d19690.js" defer></script>
-<script src="/assets/request.0fa3d613a8.js" defer></script>
+<script src="/assets/request.4b66f7353a.js" defer></script>
 <script src="/assets/gw.9e842d6eef.js" defer></script>
 
 </body>
