@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Install and help: Ghost Writer dictation for Windows</title>
 <meta name="description" content="How to install Ghost Writer on Windows 10 and 11, the SmartScreen warning, antivirus and Smart App Control, what you need, and common questions.">
 <link rel="canonical" href="https://ghostmediaworks.com/ghost-writer/help/">
@@ -11,22 +11,23 @@
 <meta property="og:title" content="Ghost Writer: install and help">
 <meta property="og:description" content="How to install Ghost Writer on Windows 10 and 11, the SmartScreen warning, antivirus and Smart App Control, what you need, and common questions.">
 <meta property="og:url" content="https://ghostmediaworks.com/ghost-writer/help/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.625aee04c9.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.1f3d88b1f3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Writer: free dictation for Windows that stays on your PC. Free beta, by invitation.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#040508">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
+<link rel="stylesheet" href="/assets/site.cd4bebedfd.css">
+<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<link rel="stylesheet" href="/assets/gw.4686fe5ce3.css">
-<script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
+<link rel="stylesheet" href="/assets/gw.d0d975ddcd.css">
+<link rel="stylesheet" href="/assets/more.63ae14b94c.css">
+<script src="/assets/head.4cda8fda39.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -76,6 +77,14 @@
    "@type": "FAQPage",
    "url": "https://ghostmediaworks.com/ghost-writer/help/",
    "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "(schema: faq reads them), every {{...}}. --> Ghost Writer help Installed in a minute. No administrator password. Windows double-checks it once; here is every click. Get access Start with step 1 Windows 10 and 11, 64-bit · 672 MB Windows protected your PC Microsoft Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk. More info Don't run Step 1 Download it, then choose Keep. Click Download (672 MB). If your browser says it isn't commonly downloaded, choose Keep. More",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In Edge: the ··· menu, then Keep, then Keep anyway. Ghost Writer installs just for you. Because it's new and not yet signed with a paid certificate, Windows double-checks it the first time."
+     }
+    },
     {
      "@type": "Question",
      "name": "Is it really free?",
@@ -179,93 +188,158 @@
           <span class="lg-spec"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span></span>
       </span></span>
     </a>
-    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
-    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <nav class="main-nav" id="site-menu" aria-label="Main">
+    <nav class="main-nav" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer" aria-current="page">Ghost Writer</a>
-      <span class="menu-sub">
-        <a href="/ghost-writer/features/" data-sub="features">Features</a>
-        <a href="/ghost-writer/help/" data-sub="help" aria-current="page">Install and help</a>
-        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
-      <a class="menu-only" href="/press/">Press kit</a>
-      <button class="menu-only menu-theme" type="button" data-theme-button>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
-        <span class="theme-label">Theme: follows your device</span>
-      </button>
     </nav>
-    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
+    <a class="button small header-cta" href="/ghost-writer/#request">Get access</a>
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: dark. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
 </header>
-<div class="product-bar">
-  <div class="wrap inner">
-    <a class="product-name" href="/ghost-writer/">Ghost Writer</a>
-    <nav class="product-nav" aria-label="Ghost Writer">
-      <a href="/ghost-writer/" data-sub="overview">Overview</a>
-      <a href="/ghost-writer/features/" data-sub="features">Features</a>
-      <a href="/ghost-writer/help/" data-sub="help" aria-current="page">Help</a>
-      <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-    </nav>
-    <a class="button small" href="/ghost-writer/#request">Request access</a>
-  </div>
-</div>
-
 <main id="main" tabindex="-1">
-<div class="wrap">
-  <div class="hero u-one u-pb24">
-    <div>
-      <span class="eyebrow">Ghost Writer help</span>
-      <h1>Install and help</h1>
-      <p class="sub">Installing takes a minute and needs no administrator password. Here's what to expect, and answers to what people ask most.</p>
-      <nav class="contents" aria-labelledby="contents-title"><h2 id="contents-title">Contents</h2>
-      <ol>
-        <li><a href="#install">Installing</a></li>
-        <li><a href="#blocked">If Windows blocks it</a></li>
-        <li><a href="#real">Is my download real?</a></li>
-        <li><a href="#requirements">What you need</a></li>
-        <li><a href="#known-issues">Known issues</a></li>
-        <li><a href="#faq">Questions</a></li>
-      </ol></nav>
+<!-- Site film, Install and help (PLAN.html chapter 11, calm on purpose: motion explains, never performs).
+     Kit pieces (scenes.css/js): hero as .hero-film.scene[data-play] with .dialog + .glow (slate); P1-P3 .scene[data-scrub]
+     with .menu, .dialog, .keys, .type, .window.doc, .cue, .ui-btn; P4-P5 .scene.quiet[data-play] with .cue reveals.
+     Own (more.css/js): .tap rings, the drawn Edge panel / SmartScreen box / key window, the copy buttons and the local
+     hash check. Keep: every id below (other pages link #install, #requirements, #faq), the FAQ <details> exactly as
+     plain <details><summary> (schema: faq reads them), every {{...}}. -->
+<section class="hero-film scene" data-play="1400" aria-labelledby="hero-t">
+  <div class="wrap hero-in">
+    <div class="hero-words">
+      <p class="eyebrow">Ghost Writer help</p>
+      <h1 id="hero-t">Installed in a minute.</h1>
+      <p class="hero-line">No administrator password. Windows double-checks it once; here is every click.</p>
+      <div class="hero-actions"><a class="btn" href="/ghost-writer/#request">Get access</a>
+        <a class="text-link" href="#install">Start with step 1</a></div>
+      <p class="hero-fine">Windows 10 and 11, 64-bit &middot; 672 MB</p>
     </div>
-  </div>
-</div>
-
-<section id="install" aria-labelledby="install-title">
-  <div class="wrap">
-    <h2 id="install-title">Installing</h2>
-    <p class="lead">Ghost Writer installs just for you. Because it's new and not yet signed with a paid certificate, Windows double-checks it the first time.</p>
-    <ol class="steps">
-      <li class="card">
-        <h3>Download</h3>
-        <p>Click <a href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe" data-download>Download</a> (672 MB). If your browser says the file "isn't commonly downloaded", choose <b>Keep</b> (in Edge: the &middot;&middot;&middot; menu, then Keep, then Keep anyway).</p>
-        <div class="mock edge" aria-hidden="true"><div>Ghost-Writer-Setup.exe isn't commonly downloaded. Make sure you trust it before you open it.</div><div class="btns"><span>Delete</span><span class="hl">Keep</span></div></div>
-      </li>
-      <li class="card">
-        <h3>Open it</h3>
-        <p>Open Ghost-Writer-Setup.exe. If Windows says <b>"Windows protected your PC"</b>, click <b>More info</b>, then <b>Run anyway</b>.</p>
-        <div class="mock" aria-hidden="true"><div class="t">Windows protected your PC</div><div>Microsoft Defender SmartScreen prevented an unrecognized app from starting.</div><div class="more">More info</div><div class="btns"><span class="hl">Run anyway</span><span>Don't run</span></div></div>
-      </li>
-      <li class="card">
-        <h3>Enter your key and talk</h3>
-        <p>Click through the installer and Ghost Writer opens. Enter your <a href="/ghost-writer/#request">access key</a>. Then click where you want text, hold <b>Ctrl+Win</b>, speak, and let go.</p>
-        <div class="shot"><picture><source srcset="/assets/screens/access-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/access-dark.webp" alt="The access key window Ghost Writer shows at its first start" loading="lazy" width="567" height="625"></picture></div>
-      </li>
-    </ol>
-    <p class="small-print">Why the warning? Windows recognises a publisher once it has a paid code-signing certificate and a track record. Ghost Writer doesn't have one yet. You only see the warning the first time.</p>
+    <div class="hero-object" data-wash="slate"><span class="glow" aria-hidden="true"></span>
+      <div class="dialog ss" data-at=".05" role="img" aria-label="Windows' box that says Windows protected your PC, with More info and Don't run">
+        <p class="dialog-title">Windows protected your PC</p>
+        <p>Microsoft Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.</p>
+        <p class="ss-more">More info<i class="tap" data-at=".7" aria-hidden="true"></i></p>
+        <p class="dialog-row"><span class="ui-btn">Don't run</span></p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="blocked" aria-labelledby="blocked-title">
+<section class="scene" id="install" data-scene="keep" data-scrub="150" data-chapter="Download" aria-labelledby="install-title">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Step 1</p>
+      <h2 id="install-title">Download it, then choose Keep.</h2>
+      <p class="line">Click <a href="https://github.com/getghostwriter/getghostwriter.github.io/releases/latest/download/Ghost-Writer-Setup.exe" data-download>Download</a> (672 MB). If your browser says it isn't commonly downloaded, choose Keep.</p>
+      <details class="more"><summary>More</summary><ul>
+        <li>In Edge: the &middot;&middot;&middot; menu, then Keep, then Keep anyway.</li>
+        <li>Ghost Writer installs just for you. Because it's new and not yet signed with a paid certificate, Windows double-checks it the first time.</li>
+      </ul></details>
+    </div>
+    <div class="stage">
+      <div class="m-col" role="img" aria-label="Edge's downloads list: the three-dot menu, then Keep, then Keep anyway">
+        <div class="m-edge">
+          <p class="m-edge-head">Downloads</p>
+          <div class="m-edge-row"><span class="m-file"></span>
+            <span><b>Ghost-Writer-Setup.exe</b>isn't commonly downloaded. Make sure you trust it before you open it.</span>
+            <span class="m-dots m-hit">&middot;&middot;&middot;<i class="tap" data-at=".08" data-until=".3"></i></span></div>
+        </div>
+        <div class="m-swap">
+          <ul class="menu" data-at=".22" data-until=".58">
+            <li>Delete</li>
+            <li data-at=".4">Keep<i class="tap" data-at=".36" data-until=".54"></i></li>
+            <li>Report this file as safe</li>
+          </ul>
+          <div class="dialog" data-at=".6">
+            <p class="dialog-title">Make sure you trust Ghost-Writer-Setup.exe before you open it</p>
+            <p class="dialog-row"><span class="ui-btn">Delete</span><span class="ui-btn primary">Keep anyway<i class="tap" data-at=".82"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="open" data-scene="run" data-scrub="150" data-chapter="Open it" aria-labelledby="open-title">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Step 2</p>
+      <h2 id="open-title">Windows asks once. Say yes.</h2>
+      <p class="line">Open Ghost-Writer-Setup.exe. If Windows says &ldquo;Windows protected your PC&rdquo;, click More info, then Run anyway.</p>
+      <details class="more"><summary>Why the warning?</summary><p>Windows recognises a publisher once it has a paid code-signing certificate and a track record. Ghost Writer doesn't have one yet. You only see the warning the first time.</p></details>
+    </div>
+    <div class="stage" data-wash="slate">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="dialog ss" data-at=".04" role="img" aria-label="Windows' SmartScreen box: More info, then Run anyway">
+        <p class="dialog-title">Windows protected your PC</p>
+        <p>Microsoft Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.</p>
+        <p class="ss-more">More info<i class="tap" data-at=".18" data-until=".36"></i></p>
+        <p class="ss-app cue" data-at=".36">App: Ghost-Writer-Setup.exe</p>
+        <p class="ss-app cue" data-at=".4">Publisher: Unknown publisher</p>
+        <p class="dialog-row"><span class="ui-btn primary cue" data-at=".48">Run anyway<i class="tap" data-at=".7"></i></span><span class="ui-btn">Don't run</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="key" data-scene="key" data-scrub="180" data-chapter="Your key" aria-labelledby="key-title">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Step 3</p>
+      <h2 id="key-title">Enter your key. Then talk.</h2>
+      <p class="line">Ghost Writer opens after the installer. Paste your <a href="/ghost-writer/#request">access key</a>, then hold Ctrl+Win, speak, and let go.</p>
+    </div>
+    <div class="stage">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="m-swap">
+        <div class="m-key cue" data-at=".02" data-until=".5" role="img" aria-label="Ghost Writer's access key window: a key pasted in, a green tick">
+          <span class="art ghost-small"></span>
+          <p class="m-key-name">Ghost Writer</p>
+          <p>Ghost Writer is now by invitation. Enter your access key to start.</p>
+          <p class="m-key-field"><span class="cue" data-at=".14">GW-ABCD-EFGH-JKLM-NPQR</span><span class="m-tick cue" data-at=".26"></span></p>
+          <p class="m-key-hint">It looks like GW-XXXX-XXXX-XXXX-XXXX</p>
+          <span class="ui-btn primary">Start Ghost Writer<i class="tap" data-at=".34" data-until=".48"></i></span>
+        </div>
+        <div class="m-col cue" data-at=".54">
+          <span class="keys" aria-label="Ctrl plus Win, held"><kbd data-at=".58" data-until=".93">Ctrl</kbd>+<kbd data-at=".6" data-until=".93">Win</kbd></span>
+          <div class="window doc" data-title="Notes"><div class="body"><p class="type" data-from=".62" data-to=".9">Hi Sam, I'm in. This typed itself while I talked.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene quiet" id="real" data-play="900" data-chapter="Is it real?" aria-labelledby="real-title">
+  <div class="wrap">
+    <p class="eyebrow">Step 4, if you like</p>
+    <h2 id="real-title">Is my download real?</h2>
+    <p class="lead">Ghost Writer comes only from these places. Anything else is not from us.</p>
+    <ul class="ticks">
+      <li><b>This website:</b> ghostmediaworks.com (and our older address, getghostwriter.github.io).</li>
+      <li><b>Downloads:</b> github.com/getghostwriter, where every Download button on this site leads.</li>
+      <li><b>Keys</b> arrive only by email after you request one here. We never ask for payment or passwords.</li>
+    </ul>
+    <div class="m-check cue" data-at=".2">
+      <p>Every installer has a fingerprint. To check yours, open PowerShell and run:</p>
+      <div class="m-code"><code id="ps-line">Get-FileHash "$env:USERPROFILE\Downloads\Ghost-Writer-Setup.exe"</code><button type="button" class="m-copy ring" data-copy="ps-line" hidden>Copy</button></div>
+      <p>The Hash shown must match Ghost Writer 7.2.0's fingerprint:</p>
+      <div class="m-code"><code id="sha">5f4f890764ec1099f51f7b0ab3c4ac091305fa0e1793e22b642883950b3fde85</code><button type="button" class="m-copy ring" data-copy="sha" hidden>Copy</button></div>
+      <form class="m-hash" data-against="sha" hidden>
+        <label for="hash-in">Or paste the Hash here to compare</label>
+        <div class="m-hash-row"><input id="hash-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste the Hash"><span class="m-verdict" aria-hidden="true"></span></div>
+        <p class="m-hash-say" role="status" aria-live="polite"></p>
+        <p class="small-print">Compared right here on this page. Nothing is sent.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="scene quiet" id="blocked" data-play="900" data-chapter="If it's blocked" aria-labelledby="blocked-title">
   <div class="wrap">
     <h2 id="blocked-title">If Windows or your antivirus blocks it</h2>
-    <div class="grid">
+    <div class="grid cue" data-at=".1">
       <div class="card">
         <h3>Antivirus blocked it</h3>
         <p>Some antivirus apps are wary of any new app that isn't signed yet. First <a href="#real">check the file is the real one</a>. If it matches, restore or allow it in your antivirus, and please <a href="mailto:ghostthepatriot@gmail.com">tell us</a> which antivirus it was, so we can report the mistake to its maker.</p>
@@ -282,28 +356,10 @@
   </div>
 </section>
 
-<section id="real" aria-labelledby="real-title">
-  <div class="wrap">
-    <h2 id="real-title">How do I know the download is real?</h2>
-    <p class="lead">Ghost Writer comes only from these places. Anything else is not from us.</p>
-    <ul class="ticks">
-      <li><b>This website:</b> ghostmediaworks.com (and our older address, getghostwriter.github.io).</li>
-      <li><b>Downloads:</b> github.com/getghostwriter, where every Download button on this site leads.</li>
-      <li><b>Keys</b> arrive only by email after you request one here. We never ask for payment or passwords.</li>
-    </ul>
-    <div class="card u-mt20">
-      <p>Every installer has a fingerprint. To check yours, open PowerShell and run:</p>
-      <p><code>Get-FileHash "$env:USERPROFILE\Downloads\Ghost-Writer-Setup.exe"</code></p>
-      <p>The Hash shown must match Ghost Writer 7.2.0's fingerprint:</p>
-      <p><code>5f4f890764ec1099f51f7b0ab3c4ac091305fa0e1793e22b642883950b3fde85</code></p>
-    </div>
-  </div>
-</section>
-
-<section id="requirements" aria-labelledby="req-title">
+<section class="scene quiet" id="requirements" data-play="900" data-chapter="What you need" aria-labelledby="req-title">
   <div class="wrap">
     <h2 id="req-title">What you need</h2>
-    <div class="grid">
+    <div class="grid cue" data-at=".1">
       <div class="card"><h3>Windows 10 or 11, 64-bit</h3><p>A 672 MB download and about 1 GB of space once installed. No administrator rights needed. Speech accuracy in Settings (Light, Balanced, Most accurate) suits slower or faster PCs.</p></div>
       <div class="card"><h3>A microphone, and English</h3><p>Ghost Writer understands English only, for now. Any microphone: built-in, headset or USB. Windows must let desktop apps use the microphone (Settings &gt; Privacy &amp; security &gt; Microphone).</p></div>
       <div class="card"><h3>For Advanced (optional)</h3><p>An NVIDIA, AMD or Intel graphics card with its own memory: 4 GB or more for the bigger speech model, 6 GB or more for the AI too. A one-time download from inside the app: 4.8 GB (NVIDIA) or 3.3 GB (AMD and Intel).</p></div>
@@ -311,20 +367,18 @@
   </div>
 </section>
 
-<section id="known-issues" aria-labelledby="known-title">
-  <div class="wrap">
+<section class="scene quiet" id="known-issues" data-play="900" data-chapter="Known issues" aria-labelledby="known-title">
+  <div class="wrap m-plain cue" data-at=".1">
     <h2 id="known-title">Known issues</h2>
-    <div class="card">
-      <p><b>Ghost Writer 7.2.0:</b> no known issues listed yet. Voice commands and voice notes are marked beta and still improving.</p>
-      <p>Something wrong? Tell us on the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a> or at <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>, and we'll list it here once we know.</p>
-    </div>
+    <p><b>Ghost Writer 7.2.0:</b> no known issues listed yet. Voice commands and voice notes are marked beta and still improving.</p>
+    <p>Something wrong? Tell us on the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a> or at <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>, and we'll list it here once we know.</p>
   </div>
 </section>
 
-<section id="faq" aria-labelledby="faq-title">
+<section class="scene quiet" id="faq" data-play="900" data-chapter="Questions" aria-labelledby="faq-title">
   <div class="wrap">
     <h2 id="faq-title">Questions</h2>
-    <div class="faq">
+    <div class="faq cue" data-at=".1">
       <details><summary>Is it really free?</summary><div class="answer"><p>Yes. It's free, by invitation: <a href="/ghost-writer/#request">request access</a> and you get a key. No subscription, no ads. With your key you can use everything, including Advanced mode if your PC has a graphics card for it.</p></div></details>
       <details><summary>Does anything I say leave my PC?</summary><div class="answer"><p>No. Your voice is turned into text on your own PC, and nothing you say or write is uploaded, to us or anyone else. Dictation works with Wi-Fi off.</p><p>Ghost Writer only goes online to check your access key (the key, a scrambled id of your PC and the version), to check for a new version and, if you choose it, to download Advanced mode. <a href="/privacy.html">Privacy policy</a></p></div></details>
       <details><summary>How do I get an access key?</summary><div class="answer"><p>Fill in the <a href="/ghost-writer/#request">request form</a>. We read every request, and your key arrives by email, usually within a few days. Check your spam folder too. Download Ghost Writer, open it and enter the key.</p></div></details>
@@ -346,13 +400,14 @@
     <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
     <p class="eyebrow">Ghost Writer</p>
     <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
-    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Get access</a></div>
+    <p class="closing-more"><a class="text-link" href="/ghost-writer/features/">See every feature</a></p>
     <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
   </div>
 </section>
 <footer class="site-footer">
   <div class="wrap">
-    <nav class="foot-row" aria-label="Footer">
+    <div class="foot-top">
       <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
             <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
               <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
@@ -360,14 +415,23 @@
             </svg><span class="lg-gh"></span></span>
             <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
           </span></span></p>
-      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
-      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
-    </nav>
-    <div class="foot-row">
-      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
-      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+      <a class="button foot-cta" href="/ghost-writer/#request">Get access</a>
     </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div class="foot-col"><p class="foot-h">Ghost Writer</p><ul>
+        <li><a href="/ghost-writer/">Overview</a></li><li><a href="/ghost-writer/features/">Features</a></li>
+        <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li>
+        <li><a href="/ghost-writer/#request">Request access</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Company</p><ul>
+        <li><a href="/media-hub/">Ghost Media Hub</a></li><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li>
+        <li><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Support</p><ul>
+        <li><a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li></ul></div>
+    </nav>
+    <p class="foot-legal">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source notices</a><a href="/about/#accessibility">Accessibility</a>
+      <span>No ads, no analytics scripts or cookies.</span>
+    </p>
   </div>
 </footer>
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
@@ -443,12 +507,15 @@
   </div>
 </dialog>
 
-<script src="/assets/site.7005f1863f.js" defer></script>
-<script src="/assets/logo.f7e7fe24f3.js" defer></script>
-<script src="/assets/frame.e39da035f4.js" defer></script>
-<script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/site.ed3da27f30.js" defer></script>
+<script src="/assets/logo.b5ae365e06.js" defer></script>
+<script src="/assets/stars.e5c827dea4.js" defer></script>
+<script src="/assets/frame.b7f0a42eb2.js" defer></script>
+<script src="/assets/scenes.37d79b3e3c.js" defer></script>
+<script src="/assets/motion.e472a26b23.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
-<script src="/assets/gw.9e842d6eef.js" defer></script>
+<script src="/assets/gw.1647d5152d.js" defer></script>
+<script src="/assets/more.981ee9f866.js" defer></script>
 
 </body>
 </html>
