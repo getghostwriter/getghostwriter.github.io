@@ -1,0 +1,333 @@
+/* Ghost Media Works site film: the scene kit's look (scenes.js does the rest). Manual: dev/design/site-film/README.md.
+   Kit pieces: scene layout + pin, .type, .keys, .pill, .window, .menu, .toast, .confirm, .dialog, .dial, .switch, .meter,
+   .count, .calendar, .curve, .tilt, .build, .wipe, .cue, .glow + washes, .light-pass, .chooser/.chip/.ways, .more, .art.
+   Rules: every piece is written against --t (0..1, the scene's playhead). With no JavaScript or reduced motion --t is 1,
+   so every scene rests on its final frame, complete. Hidden starting states exist only under html.motion (head.js) and,
+   for the ones a script starts, html.kit (scenes.js). Per frame only transform (translate/scale/rotate), opacity,
+   clip-path and stroke-dashoffset change. Internal custom properties start with --k-; the page-facing ones are --t,
+   the timing tokens, --bar-h, --stage-h, --stage-cap, --curve-item and --pill-w. */
+
+@property --t { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --kit-tilt { syntax: "<number>"; inherits: true; initial-value: 1; }
+
+:root {
+  /* timing tokens (CONTRACT.md); floor 150 ms, ceiling 1.5 s except scrubs */
+  --enter: 600ms; --ease: cubic-bezier(.2, .7, .2, 1); --xfade: 300ms; --word: 160ms; --stop: 700ms;
+  --build: 900ms; --assemble: 1.2s; --pass: 1.2s; --wash: 500ms;
+  --k-font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif; /* site.css body */
+  --bar-h: 64px; /* the site header's height (it hides on scroll down); scenes.js measures the real one */
+  /* washes: only the glow takes them */
+  --wash-indigo: var(--accent); --wash-amber: #f2a541; --wash-teal: #2cc5b0; --wash-slate: #8b9bb4; --wash-stone: #a8a097;
+  --wash-violet: #a98bff; --wash-look-warm: #ff9b5e; --wash-look-cool: #5cc2ff; --wash-look-film: #d9b47a; --wash-look-mono: #c3c8d1;
+}
+:root[data-theme="light"] { --wash-amber: #e08a12; --wash-teal: #0f9e8c; --wash-slate: #5f6f88; --wash-stone: #857c72;
+  --wash-violet: #7b55e6; --wash-look-warm: #e8702a; --wash-look-cool: #1f8fd6; --wash-look-film: #b88a3e; --wash-look-mono: #7d8592; }
+/* Motion not welcome: every timing token is instant and every scene sits on its last frame. */
+:root:not(.motion) { --enter: 0ms; --xfade: 0ms; --build: 0ms; --assemble: 0ms; --pass: 0ms; --wash: 0ms; }
+html:not(.motion) .scene { --t: 1 !important; }
+
+/* ---- the scene: words + stage ---------------------------------------------------------------------------------- */
+.scene { position: relative; --t: 1; overflow-x: clip; }
+main section.scene:not(.hero-film) { padding: 0; border-top: 0; } /* site.css pads every main section; a scene's air is inside
+   .scene-in. A hero that is also a scene (.hero-film.scene, for data-play or a .curve) keeps the frame's 96/48 px. */
+.scene-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 96px; }
+@media (min-width: 721px) { .scene.flip .stage { order: -1; } } /* phones keep words, stage, chooser, More */
+.scene.wide .scene-in { grid-template-columns: minmax(0, 1fr); }
+.scene .words > :last-child { margin-bottom: 0; }
+.scene .words > * { position: relative; z-index: 1; } /* above the glow, which reaches past the stage */
+.scene .words h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 24px; }
+.scene .words h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 16px; }
+.scene .line { font-size: clamp(17px, 1.6vw, 19px); line-height: 1.55; color: var(--muted); max-width: 56ch; margin: 0 0 24px; }
+.stage { position: relative; isolation: isolate; display: grid; place-items: center; align-self: center;
+  height: var(--stage-h, min(600px, 70svh)); min-width: 0; container-type: inline-size; }
+.stage.framed { border-radius: 22px; background: color-mix(in srgb, var(--card) 60%, transparent); border: 1px solid var(--edge); }
+.star { box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
+
+@media (max-width: 720px) {
+  .scene-in { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-block: 48px; } /* headlines keep their width */
+  .scene .words { display: contents; }
+  .scene .words > * { order: 1; }
+  .scene .stage { order: 2; width: 100%; height: var(--stage-h, 55svh); margin-block: 24px 0; }
+  .scene .chooser, .scene .more { order: 3; }
+  .scene .more { align-self: flex-start; }
+}
+
+/* Pinned scenes (data-scrub): the words and the stage stay on screen while the visitor scrolls data-scrub vh
+   (120 on phones); --t runs 0 -> 1 over exactly that distance. Short screens (landscape phones) don't pin. */
+.scene[data-scrub] { --scrub: 180; --scrub-phone: 120; --k-run: calc(var(--scrub) * 1svh); }
+@media (max-width: 720px) { .scene[data-scrub] { --k-run: calc(var(--scrub-phone) * 1svh); } }
+@keyframes kit-t { from { --t: 0; } to { --t: 1; } }
+@media (min-height: 700px) {
+  /* The box pins at the very top; its top padding is the header's height, so the header (shown or hidden on
+     scroll) only ever covers the scene's own padding. */
+  html.motion .scene[data-scrub] { height: calc(100svh + var(--k-run)); }
+  html.motion .scene[data-scrub] > .scene-in { position: sticky; top: 0; height: 100svh; padding-block: calc(var(--bar-h) + 32px) 32px; }
+  @supports (animation-timeline: view()) {
+    html.motion .scene[data-scrub] {
+      animation: kit-t 1ms linear both; animation: kit-t auto linear both;
+      animation-timeline: view(); animation-range: contain 0% contain 100%;
+    }
+  }
+}
+@media (min-width: 721px) and (min-height: 700px) {
+  html.motion .scene[data-scrub] > .scene-in { grid-template-rows: minmax(0, 1fr); }
+  html.motion .scene.wide[data-scrub] > .scene-in { grid-template-rows: auto minmax(0, 1fr); }
+  html.motion .scene[data-scrub] .stage { height: min(var(--stage-cap, 640px), 100%); }
+}
+@media (max-width: 720px) and (min-height: 700px) {
+  html.motion .scene[data-scrub] > .scene-in { padding-block: calc(var(--bar-h) + 16px) 16px; }
+  /* with a script the chapter pill (44 px, 14 px up) sits over the bottom; the last line stays above it */
+  html.motion.js .scene[data-scrub] > .scene-in { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+  html.motion .scene[data-scrub] .stage { flex: 1 1 0; min-height: 0; height: auto; margin-block: 16px 8px; }
+  html.motion .scene[data-scrub] .chooser { margin-top: 8px; }
+}
+
+/* Played scenes (data-play="ms"): --t runs 0 -> 1 once over that time when the scene comes into view (and again when
+   a chip replays it). If scenes.js never arrives, a safety animation shows the last frame after 3 s. */
+@keyframes kit-rest { from, to { --t: 1; } }
+html.motion .scene[data-play]:not(.played) { --t: 0; }
+html.motion:not(.kit) .scene[data-play] { animation: kit-rest 1ms 3s forwards; }
+html.motion .scene[data-play].played { --t: 1; transition: --t var(--k-play, var(--assemble)) linear; }
+
+/* ---- shared cue progress: data-at / data-until / data-ramp (scenes.js copies them into --k-at, --k-until, --k-ramp) */
+.scene :is(.cue, .menu, .toast, .confirm, .dialog), .scene .build:not(svg) > *, .scene .menu > li, .scene .keys kbd {
+  --k-at: -1; --k-until: 9;
+  --k-p: calc(clamp(0, (var(--t) - var(--k-at)) / var(--k-ramp, .04), 1) * clamp(0, (var(--k-until) - var(--t)) / var(--k-ramp, .04), 1));
+}
+.scene .cue, .scene .toast, .scene .confirm, .scene .build:not(svg) > * { opacity: max(.001, var(--k-p)); translate: 0 calc((1 - var(--k-p)) * 18px); }
+
+/* ---- .type: words revealed by --t (or typed live at speaking pace with data-live) -----------------------------
+   Scrubbed: scenes.js reads the playhead once a frame and flips .on/.lit only on the words whose state changed, so
+   nothing is restyled per frame by --t. No transitions on scrubbed words: a word appears at once, as typed text
+   does (transitions on many inline words cost a 4x-throttled phone its frames). */
+.scene .type .w { display: inline-block; white-space: nowrap; }
+/* the words never read --t, so it stops at .type: a playhead change restyles the .type alone, not every word */
+html.motion.kit .scene .type:not([data-live]) { --t: 1; }
+html.motion.kit .scene .type :is(.w, .pu) { opacity: .001; }
+html.motion.kit .scene .type :is(.w, .pu).on { opacity: 1; }
+html.motion.kit .scene .type .w.lit { color: var(--accent); }
+html.motion.kit .scene .type[data-live].typed :is(.w, .pu) { opacity: 1; transition: opacity 150ms linear var(--k-ms, 0ms); }
+html.motion.kit .scene .type[data-live].typed .w { animation: kit-lit 640ms linear var(--k-ms, 0ms) backwards; }
+@keyframes kit-lit { from, 60% { color: var(--accent); } } /* no end frame: back to the word's own colour */
+
+/* ---- .keys: drawn keys that press at data-at (and let go at data-until) ---------------------------------------- */
+.scene .keys { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; }
+.scene .keys kbd { --k-at: 9; --k-ramp: .015; position: relative; z-index: 0; isolation: isolate; display: inline-grid; place-items: center; min-width: 48px; height: 44px;
+  padding: 0 14px; border-radius: 10px; border: 1px solid var(--border); border-bottom-width: 3px; background: var(--raised); color: var(--text);
+  font: 600 15px/1 var(--k-font); translate: 0 calc(var(--k-p) * 2px); }
+.scene .keys kbd::before { content: ""; position: absolute; inset: -1px -1px -3px; border-radius: inherit; background: var(--accent-soft);
+  opacity: var(--k-p); z-index: -1; }
+.scene .keys kbd::after { content: ""; position: absolute; inset: -6px -6px -8px; border-radius: 14px; border: 2px solid var(--accent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 45%, transparent); opacity: calc(var(--k-p) * .9); pointer-events: none; }
+
+/* ---- .pill: the app's listening pill (pill.js draws it; the still picture without a script) ------------------- */
+.scene .pill { width: min(100%, var(--pill-w, 369px)); aspect-ratio: 246 / 76; background: url("media/pill-dark.webp") center / contain no-repeat; }
+.scene .pill.live { background: none; }
+.scene .pill canvas { display: block; width: 100%; height: 100%; }
+
+/* ---- the app's own drawn pieces (.art), each theme's file loads only for the showing theme --------------------- */
+.art { display: inline-block; vertical-align: middle; background: center / contain no-repeat; }
+.art.ghost { height: 120px; aspect-ratio: 185 / 240; background-image: url("media/pieces/ghost-dark.webp"); }
+.art.ghost-small { height: 40px; aspect-ratio: 57 / 80; background-image: url("media/pieces/ghost-small-dark.webp"); }
+.art.listen-ghost { height: 154px; aspect-ratio: 262 / 307; background-image: url("media/pieces/listen-ghost-dark.webp"); }
+.art.thinking-ghost { height: 186px; aspect-ratio: 379 / 372; background-image: url("media/pieces/thinking-ghost-dark.webp"); }
+.art.toast-spotify { height: 118px; aspect-ratio: 463 / 236; background-image: url("media/pieces/toast-spotify-dark.webp"); }
+:root[data-theme="light"] .scene .pill:not(.live) { background-image: url("media/pill-light.webp"); }
+:root[data-theme="light"] .art.ghost { background-image: url("media/pieces/ghost-light.webp"); }
+:root[data-theme="light"] .art.ghost-small { background-image: url("media/pieces/ghost-small-light.webp"); }
+:root[data-theme="light"] .art.listen-ghost { background-image: url("media/pieces/listen-ghost-light.webp"); }
+:root[data-theme="light"] .art.thinking-ghost { background-image: url("media/pieces/thinking-ghost-light.webp"); }
+:root[data-theme="light"] .art.toast-spotify { background-image: url("media/pieces/toast-spotify-light.webp"); }
+
+/* ---- .window: a drawn app window (title bar, three dots, body); skins .mail .doc .chat .browser ---------------- */
+.scene .window { position: relative; width: 100%; max-width: 560px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+  overflow: clip; text-align: left; font-size: 15px; line-height: 1.6; }
+.scene .window::before { content: attr(data-title); display: block; height: 36px; padding: 0 16px 0 72px; border-bottom: 1px solid var(--border);
+  font: 600 12px/36px var(--k-font); color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: radial-gradient(circle at 20px 50%, var(--border) 5px, transparent 5.5px), radial-gradient(circle at 38px 50%, var(--border) 5px, transparent 5.5px),
+    radial-gradient(circle at 56px 50%, var(--border) 5px, transparent 5.5px), var(--tile); }
+.scene .window .body { padding: 16px 20px 20px; }
+.scene .window .field { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+.scene .window .field b { color: var(--faint); font-weight: 600; min-width: 4.5em; }
+.scene .window.mail .field + :not(.field) { margin-top: 14px; }
+.scene .window.doc .body { background: var(--tile); padding: 28px 32px; }
+.scene .window.doc .body > * { max-width: 52ch; }
+.scene .window.chat .body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.scene .window .msg { max-width: 82%; margin: 0; padding: 8px 12px; border-radius: 14px; background: var(--raised); }
+.scene .window .msg.me { align-self: flex-end; background: var(--accent-soft); color: var(--accent-soft-text); }
+.scene .window.browser::before { content: ""; }
+.scene .window.browser::after { content: attr(data-url); position: absolute; top: 6px; left: 72px; right: 16px; height: 24px; padding: 0 12px;
+  border-radius: 999px; background: var(--raised); font: 12px/24px var(--k-font); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---- .menu, .toast, .confirm, .dialog: the app's pop-ups, drawn (they enter at data-at) --------------------------- */
+.scene .menu { list-style: none; margin: 0; padding: 6px; width: max-content; min-width: 220px; max-width: 100%; border-radius: 12px;
+  background: var(--raised); border: 1px solid var(--border); font-size: 14px; line-height: 1.3; text-align: left;
+  opacity: max(.001, var(--k-p)); scale: calc(.96 + .04 * var(--k-p)); transform-origin: 0 0; }
+.scene .menu > li { --k-at: 9; position: relative; z-index: 0; padding: 9px 12px; border-radius: 8px; white-space: nowrap; color: var(--text); }
+.scene .menu > li::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--accent-soft); opacity: var(--k-p); }
+.scene .menu > li.on { --k-at: -1; }
+.scene .menu > li.sep { height: 1px; padding: 0; margin: 6px 4px; background: var(--border); }
+.scene .menu > li.head { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); padding: 6px 12px 4px; }
+.scene .toast { display: inline-flex; align-items: center; gap: 14px; height: 58px; padding: 0 16px; border-radius: 14px; background: var(--card);
+  border: 1px solid var(--border); font-size: 19px; font-weight: 700; color: var(--text); white-space: nowrap; }
+.scene .toast .check { position: relative; width: 22px; height: 22px; border-radius: 50%; background: var(--good); flex: none; }
+.scene .toast .check::after { content: ""; position: absolute; left: 8px; top: 4px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; rotate: 45deg; }
+/* .confirm: the app's "Did I get that right?" card (not named .card: build_site loads motion.js's card tilt for that) */
+.scene .confirm { width: min(100%, 400px); padding: 18px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+  text-align: left; font-size: 14px; line-height: 1.45; }
+.scene .confirm p { margin: 0; color: var(--muted); }
+.scene .confirm .confirm-title { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; font-weight: 700; color: var(--text); }
+.scene .confirm .confirm-x { color: var(--muted); font-size: 12px; }
+.scene .confirm .confirm-pick { margin-top: 4px; font-size: 15px; font-weight: 700; color: var(--accent); }
+.scene .confirm .confirm-row { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+.scene .confirm .confirm-row > :first-child { margin-right: auto; color: var(--faint); font-size: 12px; }
+.scene .ui-btn { display: inline-grid; place-items: center; min-height: 30px; padding: 0 16px; border-radius: 999px; background: var(--raised);
+  border: 1px solid var(--border); color: var(--text); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.scene .ui-btn.primary { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+/* .dialog folds open from a line through its middle */
+.scene .dialog { --k-ramp: .1; width: min(100%, 440px); padding: 20px 22px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+  text-align: left; font-size: 14px; line-height: 1.5; color: var(--muted);
+  clip-path: inset(calc((1 - var(--k-p)) * 50%) 0 round 14px); opacity: max(.001, min(1, var(--k-p) * 3)); }
+.scene .dialog p { margin: 0 0 10px; }
+.scene .dialog .dialog-title { font-size: 20px; font-weight: 700; line-height: 1.25; color: var(--text); }
+.scene .dialog .dialog-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin: 16px 0 0; }
+
+/* ---- .dial: five stops (role=radiogroup of buttons); the knob slides to data-stop ----------------------------- */
+.scene .dial { position: relative; z-index: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); width: min(100%, 460px); padding: 4px;
+  border-radius: 999px; border: 1px solid var(--border); background: var(--tile); touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.scene .dial::before { content: ""; position: absolute; z-index: -1; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 5); border-radius: 999px;
+  background: var(--accent-soft); border: 1px solid var(--accent); translate: calc(var(--k-i, 2) * 100%) 0; transition: translate var(--xfade) var(--ease); }
+.scene .dial[data-stop="0"] { --k-i: 0; } .scene .dial[data-stop="1"] { --k-i: 1; } .scene .dial[data-stop="2"] { --k-i: 2; }
+.scene .dial[data-stop="3"] { --k-i: 3; } .scene .dial[data-stop="4"] { --k-i: 4; }
+.scene .dial button { min-height: 44px; padding: 0 2px; border: 0; border-radius: 999px; background: none; color: var(--muted); cursor: pointer;
+  font: 700 12px/1.2 var(--k-font); letter-spacing: .04em; }
+.scene .dial button[aria-checked="true"] { color: var(--text); }
+
+/* ---- .switch: two states (a button, role=switch); data-on mirrors aria-checked ------------------------------- */
+.scene .switch { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--text);
+  font: 600 15px/1.2 var(--k-font); cursor: pointer; }
+.scene .switch > span { opacity: .55; transition: opacity var(--xfade) var(--ease); }
+.scene .switch[aria-checked="false"] > span:first-child, .scene .switch[aria-checked="true"] > span:last-child { opacity: 1; }
+.scene .switch > i { position: relative; z-index: 0; flex: none; width: 46px; height: 26px; border-radius: 999px; background: var(--raised); border: 1px solid var(--border); }
+.scene .switch > i::before { content: ""; position: absolute; z-index: -1; inset: -1px; border-radius: inherit; background: var(--accent); opacity: 0;
+  transition: opacity var(--xfade) var(--ease); }
+.scene .switch > i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--text);
+  transition: translate var(--xfade) var(--ease); }
+.scene .switch[aria-checked="true"] > i::before { opacity: 1; }
+.scene .switch[aria-checked="true"] > i::after { translate: 20px 0; background: var(--on-accent); }
+
+/* ---- .meter: a flat line on purpose (canvas from scenes.js; a drawn line without it) ------------------------- */
+.scene .meter { position: relative; width: 100%; padding-top: 60px; }
+.scene .meter::before { content: ""; position: absolute; left: 0; right: 0; top: 43px; height: 2px; border-radius: 1px; background: var(--accent); }
+.scene .meter.live::before { display: none; }
+.scene .meter canvas { position: absolute; left: 0; top: 0; width: 100%; height: 60px; }
+.scene .meter-label { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---- .count and .calendar: numbers that arrive when they come into view ------------------------------------- */
+.scene .count { display: inline-block; min-width: var(--k-w, 0); font-variant-numeric: tabular-nums; }
+.scene .calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; width: min(100%, 360px); margin: 0; padding: 0; list-style: none; }
+.scene .calendar > * { position: relative; aspect-ratio: 1; border-radius: 6px; background: var(--raised); }
+.scene .calendar > .on::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--accent); }
+html.motion.kit .scene .calendar:not(.filled) > .on::before { opacity: .001; scale: .6; }
+html.motion.kit .scene .calendar.filled > .on::before { transition: opacity 200ms var(--ease) calc(var(--k-i, 0) * var(--k-stagger, 40ms)),
+  scale 200ms var(--ease) calc(var(--k-i, 0) * var(--k-stagger, 40ms)); }
+
+/* ---- .build: SVG outline-draw over data-from..data-to, and lists that assemble in order ----------------------- */
+html.kit .scene svg.build :is(path, line, polyline, polygon, circle, ellipse, rect) {
+  --k-q: clamp(0, (var(--t) - var(--k-from, 0)) / (var(--k-to, 1) - var(--k-from, 0)), 1);
+  stroke-dasharray: 1.02 1; stroke-dashoffset: calc((1 - var(--k-q)) * 1.02); } /* 1.02: Chrome leaves a gap at 1 on closed shapes */
+/* .wipe: shown left to right over data-from..data-to (the pill drawing its line, a progress rail) */
+.scene .wipe { --k-q: clamp(0, (var(--t) - var(--k-from, 0)) / (var(--k-to, 1) - var(--k-from, 0)), 1);
+  clip-path: inset(0 calc((1 - var(--k-q)) * 100%) 0 0); }
+
+/* ---- .glow: the one blob behind the star object; data-wash on its holder (.stage, the frame's .hero-object) picks its colour ------------------------ */
+.stage, [data-wash] { --k-glow: var(--wash-indigo); }
+[data-wash] { isolation: isolate; } /* keeps the glow (z-index -1) above the page background in any holder */
+[data-wash="amber"] { --k-glow: var(--wash-amber); } [data-wash="teal"] { --k-glow: var(--wash-teal); }
+[data-wash="slate"] { --k-glow: var(--wash-slate); } [data-wash="stone"] { --k-glow: var(--wash-stone); }
+[data-wash="violet"] { --k-glow: var(--wash-violet); } [data-wash="look-warm"] { --k-glow: var(--wash-look-warm); }
+[data-wash="look-cool"] { --k-glow: var(--wash-look-cool); } [data-wash="look-film"] { --k-glow: var(--wash-look-film); }
+[data-wash="look-mono"] { --k-glow: var(--wash-look-mono); }
+.glow { position: absolute; inset: -20%; z-index: -1; pointer-events: none; opacity: .25; }
+.glow::before, .glow::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(closest-side, var(--k-glow), transparent); }
+/* the colour it had, fading out over --wash when the wash changes (scenes.js) */
+.glow::after { --k-glow: var(--k-was, transparent); opacity: 0; }
+.glow[data-was="indigo"] { --k-was: var(--wash-indigo); } .glow[data-was="amber"] { --k-was: var(--wash-amber); }
+.glow[data-was="teal"] { --k-was: var(--wash-teal); } .glow[data-was="slate"] { --k-was: var(--wash-slate); }
+.glow[data-was="stone"] { --k-was: var(--wash-stone); } .glow[data-was="violet"] { --k-was: var(--wash-violet); }
+.glow[data-was="look-warm"] { --k-was: var(--wash-look-warm); } .glow[data-was="look-cool"] { --k-was: var(--wash-look-cool); }
+.glow[data-was="look-film"] { --k-was: var(--wash-look-film); } .glow[data-was="look-mono"] { --k-was: var(--wash-look-mono); }
+
+/* ---- .light-pass: one sweep of light when it comes into view (uses ::after) ---------------------------------- */
+.light-pass { position: relative; overflow: clip; }
+.light-pass::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: linear-gradient(100deg, transparent 30%, color-mix(in srgb, var(--accent) 16%, transparent) 50%, transparent 70%); }
+html.motion.kit .light-pass.passed::after { animation: kit-pass var(--pass) var(--ease) both; }
+@keyframes kit-pass { from { translate: -100% 0; opacity: 1; } 80% { opacity: 1; } to { translate: 100% 0; opacity: 0; } }
+
+/* ---- .tilt: the stage opens at a slight tilt and flattens over the first 300 px of scrolling (wide screens) --- */
+@keyframes kit-tilt { from { --kit-tilt: 0; } to { --kit-tilt: 1; } }
+@media (min-width: 721px) {
+  html.motion .stage.tilt { transform-origin: 50% 100%;
+    transform: perspective(1400px) rotateX(calc((1 - var(--kit-tilt)) * 8deg)) scale(calc(.94 + .06 * var(--kit-tilt))); }
+  @supports (animation-timeline: scroll()) {
+    html.motion .stage.tilt { animation: kit-tilt 1ms both; animation: kit-tilt auto both; animation-timing-function: cubic-bezier(.33, 1, .68, 1);
+      animation-timeline: scroll(root); animation-range: 0px 300px; }
+  }
+}
+
+/* ---- .curve: the curved gallery (wide screens, with scenes.js); a swipe strip on phones and without a script -- */
+.scene .curve { display: flex; gap: 12px; width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  padding-inline: 8%; overscroll-behavior-x: contain; }
+.scene .curve::-webkit-scrollbar { display: none; }
+.scene .curve > * { flex: 0 0 84%; scroll-snap-align: center; }
+@media (min-width: 721px) {
+  html.kit .scene .curve { display: block; position: relative; height: 100%; overflow: clip; padding: 0; perspective: 1400px; cursor: grab;
+    touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+  html.kit .scene .curve.dragging { cursor: grabbing; }
+  html.kit .scene .curve > * { --k-d: 0; --k-ad: 0; position: absolute; left: 50%; top: 50%; width: var(--curve-item, 42%);
+    translate: calc(-50% + var(--k-d) * 78%) -50% calc(var(--k-ad) * -160px); rotate: y calc(var(--k-d) * -22deg);
+    opacity: clamp(0, 1.6 - var(--k-ad) * .45, 1); z-index: calc(20 - var(--k-ad) * 2); }
+  html.kit .scene .curve > .on { z-index: 30; } /* nearest card on top; side cards step down by depth (calc rounds) */
+  html.kit .scene .curve > .far { visibility: hidden; }
+}
+
+/* ---- the chooser: chips (real buttons), the scene crossfades between its ways ------------------------------- */
+.scene .chooser { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; }
+.scene .chip { flex: none; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--muted);
+  font: 700 12px/1 var(--k-font); letter-spacing: .12em; cursor: pointer; }
+.scene .chip:hover { color: var(--text); }
+/* the pressed chip wears the site's hairline ring (site.css .button): a dim ring, a bar of light turning under html.motion */
+.scene .chip[aria-pressed="true"] { position: relative; isolation: isolate; overflow: hidden; border-color: transparent; color: var(--text); background: var(--card); }
+.scene .chip[aria-pressed="true"]::before { content: ""; position: absolute; left: 50%; top: 50%; width: 120%; aspect-ratio: 1; z-index: -2; translate: -50% -50%;
+  background: conic-gradient(var(--ring-dim) 0 70%, var(--accent) 84%, #fff 90%, var(--accent) 94%, var(--ring-dim) 100%); }
+.scene .chip[aria-pressed="true"]::after { content: ""; position: absolute; inset: 1px; z-index: -1; border-radius: inherit; background: var(--card); }
+html.motion .scene .chip[aria-pressed="true"]::before { animation: ring-turn 3s linear infinite; }
+@media (max-width: 720px) {
+  .scene .chooser { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
+  .scene .chooser::-webkit-scrollbar { display: none; }
+}
+/* .ways stacks its alternatives in one place so a crossfade never moves the page (only with scenes.js; without it
+   every way shows, one after another) */
+html.kit .scene .ways { display: grid; }
+html.kit .scene .ways > * { grid-area: 1 / 1; }
+html.kit .scene .way-on { transition: opacity var(--xfade) var(--ease), visibility 0s; }
+html.kit .scene .way-off { opacity: 0; visibility: hidden; transition: opacity var(--xfade) var(--ease), visibility 0s linear var(--xfade); }
+/* after the crossfade a way that isn't showing is skipped outright (no style, layout or paint while the scene plays);
+   contain-intrinsic-size auto keeps the size it last showed at, so the stack never changes height */
+html.kit .scene :is(.way-on, .way-off) { contain-intrinsic-size: auto 0px; }
+html.kit .scene .way-gone { content-visibility: hidden; }
+
+/* ---- .more: the fold (plain HTML). In a pinned scene it opens as a panel over the stage so nothing moves. ---- */
+.scene .more { margin-top: 16px; }
+.scene .more > summary { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; list-style: none; color: var(--accent); font-weight: 600; }
+.scene .more > summary::-webkit-details-marker { display: none; }
+.scene .more > summary::after { content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; rotate: 45deg; translate: 0 -2px;
+  transition: rotate var(--xfade) var(--ease), translate var(--xfade) var(--ease); }
+.scene .more[open] > summary::after { rotate: 225deg; translate: 0 2px; }
+.scene .more > :not(summary) { margin: 4px 0 0; color: var(--muted); }
+@media (min-height: 700px) {
+  html.motion .scene[data-scrub] .more { position: relative; z-index: 2; }
+  html.motion .scene[data-scrub] .more[open] > :not(summary) { position: absolute; left: 0; bottom: 100%; width: min(100vw - 32px, 520px); max-height: 50svh;
+    overflow: auto; margin: 0 0 8px; padding: 16px 20px 16px 36px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); }
+}
