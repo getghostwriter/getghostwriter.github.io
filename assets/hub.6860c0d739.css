@@ -1,0 +1,240 @@
+/* Ghost Media Hub's page (/media-hub/), its own pieces only. Loaded by "assets: hub" in the page block; hub.js beside it.
+   Scene kit pieces it builds on (scenes.css/scenes.js, manual dev/design/site-film/README.md): .scene with --t
+   (data-play on the hero, data-scrub on M1-M7), .stage/.stage.tilt, .glow + washes, .window (the editor's frame),
+   .star, .build, .cue, .wipe, .type, .chooser/.chip/.ways + data-way, .more; kit cue variables --k-at (from data-at).
+   What is here: the drawn editor (.mh-ed: preview .mh-pv, drawn pictures .mh-shot s1 street / s2 portrait /
+   s3 product, timeline .mh-tl, clips .mh-clip, playhead .mh-ph driven by --mh-x), the blade (M2), the looks and colour
+   sliders (M3), the title's letters and the caption waveform (M4), the transitions (M5), the record picker and its
+   meters (M6), the three-stop path (M7), and the lit Ghost Media Hub tick on the request form.
+   Rules kept: per frame only translate/scale/opacity/clip-path change (filters and blend modes are static); every value
+   comes from --t, which is 1 with no JavaScript or reduced motion, so each scene rests on its finished picture. */
+
+/* ---- the drawn editor (a kit .window) ------------------------------------------------------------------------- */
+.scene .window.mh-ed { --mh-row: 24px; display: flex; flex-direction: column; width: 100%; max-width: 600px; height: min(100%, 440px);
+  font-size: 12px; line-height: 1.2; }
+.scene .window.mh-ed::before { flex: none; height: 28px; line-height: 28px; }
+.scene .window.mh-ed > .body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: 10px; }
+.mh-pv { position: relative; flex: 1 1 auto; min-height: 72px; border-radius: 8px; overflow: clip; background: #1b1d30; }
+.mh-tl { position: relative; flex: none; display: grid; gap: 6px; padding-top: 14px; }
+.mh-tl::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; opacity: .7;
+  background: repeating-linear-gradient(90deg, var(--border) 0 1px, transparent 1px 10%) 0 0 / 100% 8px,
+              repeating-linear-gradient(90deg, var(--border) 0 1px, transparent 1px 2.5%) 0 4px / 100% 4px no-repeat; }
+.mh-track { position: relative; height: var(--mh-row); border-radius: 6px; background: var(--tile); }
+.mh-clip { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; padding: 0 8px; border-radius: 6px; overflow: clip;
+  white-space: nowrap; color: #fff; font-size: 11px; font-weight: 600; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18); }
+.mh-clip.k-street { background: linear-gradient(90deg, #4a3f86, #b0607e 60%, #e98a6c); }
+.mh-clip.k-face { background: linear-gradient(90deg, #1f4e5f, #2f5d73 60%, #3b4c7a); }
+.mh-clip.k-product { background: linear-gradient(90deg, #f3b2a6, #e98d8f); color: #3a2340; }
+.mh-clip.k-music { background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .55) 0 2px, transparent 2px 6px) 56px 50% / calc(100% - 60px) 42% no-repeat,
+  repeating-linear-gradient(90deg, rgba(255, 255, 255, .3) 0 2px, transparent 2px 6px) 59px 50% / calc(100% - 63px) 76% no-repeat,
+  linear-gradient(90deg, #157a69, #1fae95); }
+.mh-clip.k-title { background: linear-gradient(90deg, #6a5ae0, #8f91ff); }
+/* the playhead: a full-width layer moved by --mh-x (0..1 of the timeline), its line at the left edge */
+.mh-ph { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; pointer-events: none; translate: calc(var(--mh-x, .2) * 100%) 0; }
+.mh-ph::before { content: ""; position: absolute; left: -1px; top: 0; bottom: -2px; width: 2px; border-radius: 1px; background: var(--accent); }
+.mh-ph::after { content: ""; position: absolute; left: -6px; top: -2px; width: 12px; height: 10px; background: var(--accent);
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 50% 100%, 0 45%); }
+@media (max-width: 720px) {
+  .scene .window.mh-ed { --mh-row: 22px; font-size: 11px; }
+  .scene .window.mh-ed > .body { gap: 8px; padding: 8px; }
+}
+
+/* ---- the drawn pictures in the preview (no footage: gradients and shapes; the same in both themes) ------------- */
+.mh-shot { position: absolute; inset: 0; overflow: clip; }
+.mh-shot::before, .mh-shot::after { content: ""; position: absolute; }
+/* s1: a street at dusk */
+.mh-shot.s1 { background: radial-gradient(circle at 70% 46%, #ffe7b0 0 5%, rgba(255, 196, 128, .55) 6.5%, transparent 22%),
+  linear-gradient(#2b2d5c 0%, #6d4c96 38%, #e0806f 70%, #ffc189 100%); }
+.mh-shot.s1::before { left: 0; right: 0; bottom: 18%; height: 56%;
+  background: linear-gradient(#1f2040, #1f2040) 3% 100% / 12% 70% no-repeat, linear-gradient(#2a2a4c, #2a2a4c) 17% 100% / 9% 46% no-repeat,
+    linear-gradient(#1b1c36, #1b1c36) 30% 100% / 14% 92% no-repeat, linear-gradient(#26264a, #26264a) 47% 100% / 10% 58% no-repeat,
+    linear-gradient(#1d1e3a, #1d1e3a) 62% 100% / 9% 80% no-repeat, linear-gradient(#2a2a4c, #2a2a4c) 81% 100% / 13% 52% no-repeat,
+    linear-gradient(#20213e, #20213e) 98% 100% / 10% 76% no-repeat; }
+.mh-shot.s1::after { left: 0; right: 0; bottom: 0; height: 18%;
+  background: linear-gradient(90deg, transparent 40%, #ffd27a 40% 60%, transparent 60%) 0 50% / 12% 7% repeat-x, #17182c; }
+/* s2: a portrait */
+.mh-shot.s2 { background: radial-gradient(circle at 18% 28%, rgba(255, 220, 150, .6) 0 5%, transparent 6%),
+  radial-gradient(circle at 84% 22%, rgba(120, 220, 255, .5) 0 7%, transparent 8%), radial-gradient(circle at 74% 72%, rgba(255, 170, 200, .4) 0 6%, transparent 7%),
+  radial-gradient(circle at 26% 76%, rgba(150, 255, 210, .3) 0 4%, transparent 5%), linear-gradient(135deg, #1f4e5f, #2d2a4f); }
+.mh-shot.s2::before { left: 39%; top: 16%; width: 22%; height: 48%; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #f6d0b1, #cf9672 62%, #a8704f); }
+.mh-shot.s2::after { left: 24%; bottom: -10%; width: 52%; height: 38%; border-radius: 50% 50% 14% 14% / 70% 70% 10% 10%;
+  background: linear-gradient(#e46b4f, #b44a37); }
+/* s3: a product on a table */
+.mh-shot.s3 { background: radial-gradient(ellipse 22% 6% at 50% 85%, rgba(60, 20, 40, .35), transparent), linear-gradient(#ffd9c4, #f6a8a1 62%, #e98d8f); }
+.mh-shot.s3::before { left: 42%; bottom: 15%; width: 16%; height: 54%; border-radius: 18% 18% 12% 12% / 10% 10% 6% 6%;
+  background: linear-gradient(90deg, #4a338a, #8f6fd8 38%, #efe6ff 47%, #8a6ad0 56%, #4a338a); }
+.mh-shot.s3::after { left: 46%; bottom: 69%; width: 8%; height: 9%; border-radius: 3px 3px 1px 1px; background: #2a2340; }
+
+/* ---- hero: the timeline assembles itself (kit .build), then the playhead appears ----------------------------- */
+.mh-hero .h-1 { left: 0; width: calc(34% - 2px); } .mh-hero .h-2 { left: 34%; width: calc(28% - 2px); }
+.mh-hero .h-3 { left: 62%; right: 0; } .mh-hero .h-m { left: 0; right: 0; }
+.mh-hero .mh-ph { --mh-x: .2; opacity: max(.001, clamp(0, (var(--t) - .82) / .1, 1)); }
+
+/* ---- M1: the playhead follows the scroll; the preview cuts from clip to clip; the stamp settles --------------- */
+.mh-m1 { --mh-x: calc(.04 + .92 * var(--t)); }
+.mh-m1 .t-1 { left: 0; width: calc(33.33% - 2px); } .mh-m1 .t-2 { left: 33.33%; width: calc(33.33% - 2px); } .mh-m1 .t-3 { left: 66.67%; right: 0; }
+.mh-m1 .mh-shot.s2 { opacity: max(.001, clamp(0, (var(--mh-x) - .333) / .012, 1)); }
+.mh-m1 .mh-shot.s3 { opacity: max(.001, clamp(0, (var(--mh-x) - .667) / .012, 1)); }
+.mh-m1 .mh-clip::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 2px #fff; opacity: var(--mh-lit, 0); }
+.mh-m1 .t-1 { --mh-lit: clamp(0, (.333 - var(--mh-x)) / .01, 1); }
+.mh-m1 .t-2 { --mh-lit: calc(clamp(0, (var(--mh-x) - .333) / .01, 1) * clamp(0, (.667 - var(--mh-x)) / .01, 1)); }
+.mh-m1 .t-3 { --mh-lit: clamp(0, (var(--mh-x) - .667) / .01, 1); }
+.mh-stamp { position: absolute; top: 10px; right: 10px; padding: 5px 8px 6px 10px; font-size: 11px; letter-spacing: .18em; white-space: nowrap;
+  color: #b8baff; border-color: #b8baff; background: rgba(15, 17, 22, .72);
+  --mh-s: clamp(0, (var(--t) - .8) / .1, 1); opacity: max(.001, var(--mh-s)); scale: calc(1.35 - .35 * var(--mh-s)); }
+
+/* ---- M2: cut, move, add music (each chip plays its edit along the scroll; the earlier edits are already done) --- */
+.mh-m2 .c-1 { left: 0; width: calc(30% - 2px); } .mh-m2 .c-2a { left: 30%; width: 16%; border-radius: 6px 0 0 6px; }
+.mh-m2 .c-2b { left: 46%; width: 16%; border-radius: 0 6px 6px 0; } .mh-m2 .c-3 { left: calc(62% + 2px); right: 0; } .mh-m2 .c-m { left: 0; right: 0; }
+.mh-m2 { --mh-bl: 0; --mh-bo: 0; --mh-split: 1; --mh-lift: 0; --mh-mv: 0; --mh-mus: 0; --mh-x: .46; }
+.mh-m2[data-way="cut"] { --mh-x: calc(.1 + .36 * clamp(0, var(--t) / .3, 1)); --mh-bl: clamp(0, (var(--t) - .32) / .1, 1);
+  --mh-split: clamp(0, (var(--t) - .44) / .08, 1); --mh-bo: clamp(0, (var(--t) - .62) / .08, 1); }
+.mh-m2[data-way="move"] { --mh-lift: calc(clamp(0, (var(--t) - .1) / .1, 1) - clamp(0, (var(--t) - .74) / .1, 1));
+  --mh-mv: clamp(0, (var(--t) - .2) / .5, 1); }
+.mh-m2[data-way="music"] { --mh-mv: 1; --mh-x: calc(.02 + .96 * var(--t)); --mh-mus: clamp(0, (var(--t) - .1) / .35, 1); }
+/* the second half: 3 px gap after the cut, lifted, slid 38% of the track to the end (237.5% of its own width) */
+.mh-m2 .c-2b { translate: calc(var(--mh-mv) * 237.5% + var(--mh-split) * (1 - var(--mh-mv)) * 3px) calc(var(--mh-lift) * -70%); z-index: 1;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18), 0 8px 18px rgba(0, 0, 0, calc(var(--mh-lift) * .4)); }
+.mh-m2 .c-3 { translate: calc(var(--mh-mv) * -16% / .38 - var(--mh-mv) * 2px) 0; }
+.mh-m2 .c-m { translate: calc((var(--mh-mus) - 1) * 40%) 0; opacity: max(.001, var(--mh-mus)); }
+.mh-blade { position: absolute; left: calc(46% - 1px); top: -12px; bottom: -4px; width: 2px; border-radius: 1px; background: var(--text); z-index: 2;
+  translate: 0 calc((var(--mh-bl) - 1) * 30px); opacity: max(.001, var(--mh-bl) * (1 - var(--mh-bo))); }
+.mh-blade::before { content: ""; position: absolute; left: -6px; top: -8px; width: 14px; height: 10px; border-radius: 3px 3px 1px 1px; background: var(--text);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
+
+/* ---- M3: colour and looks ------------------------------------------------------------------------------------ */
+.mh-col { display: flex; flex-direction: column; gap: 12px; width: min(100%, 600px); height: min(100%, 470px); }
+.mh-col > .window.mh-ed { flex: 1 1 0; height: auto; min-height: 0; }
+.mh-m3 { --mh-q: clamp(0, (var(--t) - .15) / .55, 1); --mh-pe: clamp(0, (var(--t) - .08) / .25, 1);
+  --mh-pw: clamp(0, (var(--t) - .38) / .25, 1); --mh-ps: clamp(0, (var(--t) - .68) / .24, 1); }
+.mh-g { position: absolute; inset: 0; }
+.mh-lw { position: absolute; inset: 0; opacity: 0; transition: opacity var(--xfade) var(--ease); }
+.mh-m3[data-mh-look="warm"] .l-warm, .mh-m3[data-mh-look="cool"] .l-cool, .mh-m3[data-mh-look="film"] .l-film { opacity: 1; }
+.mh-lw > .mh-shot { opacity: max(.001, var(--mh-q)); }
+.mh-shot.f-flat { filter: saturate(.25) contrast(.8) brightness(1.08); }
+.mh-shot.f-warm { filter: sepia(.35) saturate(1.5) hue-rotate(-12deg) brightness(1.04); }
+.mh-shot.f-cool { filter: saturate(1.1) hue-rotate(24deg) brightness(.95) contrast(1.06); }
+.mh-shot.f-film { filter: sepia(.5) saturate(.85) contrast(1.28) brightness(.9); }
+.mh-shot.f-mono { filter: grayscale(1) contrast(1.15); opacity: max(.001, var(--mh-ps)); }
+.mh-warmth, .mh-exp { position: absolute; inset: 0; mix-blend-mode: soft-light; }
+.mh-warmth { background: #ff8a3d; opacity: calc(.45 * var(--mh-pw)); }
+.mh-exp { background: #fff; opacity: calc(.3 * var(--mh-pe)); }
+.mh-panel { flex: none; }
+.mh-looks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.mh-look { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 6px 10px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--card); color: var(--muted); font: 600 13px/1.2 var(--k-font); cursor: pointer; }
+.mh-look:hover { color: var(--text); }
+.mh-look[aria-pressed="true"] { border-color: var(--accent); color: var(--text); box-shadow: inset 0 0 0 1px var(--accent); }
+.mh-sw { flex: none; width: 34px; height: 22px; border-radius: 6px; }
+.mh-sw.w-warm { background: linear-gradient(135deg, #ffcf8a, #e8702a); }
+.mh-sw.w-cool { background: linear-gradient(135deg, #a9e4ff, #1f6fb8); }
+.mh-sw.w-film { background: linear-gradient(135deg, #e8d3a8, #6b5434); }
+.mh-sliders { display: grid; gap: 4px; padding: 8px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); }
+.mh-sl { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); align-items: center; gap: 12px; margin: 0; min-height: 22px;
+  font-size: 12px; font-weight: 600; color: var(--muted); }
+.mh-sl > i { position: relative; height: 4px; border-radius: 2px; background: var(--raised); }
+.mh-sl > i > b { position: absolute; inset: 0; translate: calc(var(--mh-v) * 100%) 0; }
+.mh-sl > i > b::before { content: ""; position: absolute; left: -7px; top: -5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+.mh-sl.v-exp { --mh-v: calc(.5 + .2 * var(--mh-pe)); } .mh-sl.v-warm { --mh-v: calc(.5 + .25 * var(--mh-pw)); }
+.mh-sl.v-sat { --mh-v: calc(.5 - .5 * var(--mh-ps)); }
+
+/* ---- M4: a title letter by letter, or captions in time with the waveform -------------------------------------- */
+.mh-m4 { --mh-x: calc(.05 + .9 * var(--t)); }
+.mh-m4 .x-all { left: 0; right: 0; } .mh-m4 .x-title { left: 8%; width: 50%; }
+.mh-title { position: absolute; left: 6%; right: 6%; top: 50%; translate: 0 -50%; margin: 0; text-align: center; color: #fff;
+  font: 700 clamp(18px, 6.5cqi, 40px)/1.05 var(--font-display, var(--k-font)); letter-spacing: -.01em; text-wrap: balance; }
+/* a still, soft shade behind the title (a text-shadow on moving letters would repaint every frame) */
+.mh-title::before { content: ""; position: absolute; inset: -40% -10%; z-index: -1; background: radial-gradient(closest-side, rgba(10, 12, 24, .5), transparent); }
+.mh-title .mh-word { display: inline-block; white-space: nowrap; }
+.mh-title .mh-l { --k-at: -1; display: inline-block; --mh-lq: clamp(0, (var(--t) - var(--k-at)) / .05, 1);
+  opacity: max(.001, var(--mh-lq)); translate: 0 calc((1 - var(--mh-lq)) * -.6em); }
+.mh-ov { position: absolute; inset: 0; }
+.mh-cap { position: absolute; left: 8%; right: 8%; bottom: 8%; text-align: center; }
+.mh-cap > .type { display: inline-block; max-width: 100%; padding: 4px 10px; border-radius: 6px; background: rgba(10, 12, 18, .7); color: #fff;
+  font-size: clamp(11px, 2.8cqi, 15px); line-height: 1.35; }
+.mh-cap .type .w::after { color: #b8baff; }  /* the kit's newest-word light, readable on the caption's dark strip */
+.mh-wave { position: absolute; inset: 2px 6px; width: calc(100% - 12px); height: calc(100% - 4px); fill: none; stroke: var(--accent);
+  stroke-width: 2; stroke-linecap: round; }
+.mh-wave path { vector-effect: non-scaling-stroke; }
+
+/* ---- M5: the join plays as a dissolve, a wipe or a push -------------------------------------------------------- */
+.mh-m5 { --mh-x: calc(.2 + .6 * var(--t)); --mh-p: clamp(0, (var(--t) - .3333) / .3333, 1); }
+html:not(.motion) .mh-m5 { --mh-x: .5; --mh-p: .5; }  /* at rest: the moment of the join, so each way shows itself */
+.mh-m5 .j-a { left: 0; width: calc(50% - 1px); border-radius: 6px 0 0 6px; } .mh-m5 .j-b { left: calc(50% + 1px); right: 0; border-radius: 0 6px 6px 0; }
+.mh-m5 .mh-b { opacity: max(.001, var(--mh-p)); }
+.mh-m5[data-way="wipe"] .mh-b { opacity: 1; clip-path: inset(0 calc((1 - var(--mh-p)) * 100%) 0 0); }
+.mh-m5[data-way="push"] .mh-b { opacity: 1; translate: calc((1 - var(--mh-p)) * 100%) 0; }
+.mh-m5[data-way="push"] .mh-a { translate: calc(var(--mh-p) * -100%) 0; }
+.mh-edge { position: absolute; inset: 0; display: none; pointer-events: none; translate: calc(var(--mh-p) * 100%) 0;
+  opacity: clamp(0, min(var(--mh-p), 1 - var(--mh-p)) * 20, 1); }
+.mh-edge::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; background: #fff; box-shadow: 0 0 12px rgba(255, 255, 255, .8); }
+.mh-m5[data-way="wipe"] .mh-edge { display: block; }
+.mh-join { position: absolute; left: 50%; top: 50%; z-index: 1; width: 20px; height: 20px; translate: -50% -50%; border-radius: 5px;
+  background: var(--card); border: 1.5px solid var(--accent); }
+.mh-join::before { content: ""; position: absolute; inset: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
+.mh-m5[data-way="wipe"] .mh-join::before { background: linear-gradient(90deg, var(--accent) 50%, transparent 50%); }
+.mh-m5[data-way="push"] .mh-join::before { inset: 4px 3px; background: var(--accent); clip-path: polygon(0 30%, 55% 30%, 55% 0, 100% 50%, 55% 100%, 55% 70%, 0 70%); }
+
+/* ---- M6: record a whole screen or one window, with the PC's sound and the mic ------------------------------- */
+.mh-m6 { --mh-red: #e5484d; --mh-ring: clamp(0, (var(--t) - .06) / .12, 1); --mh-rec: clamp(0, (var(--t) - .26) / .06, 1); }
+.mh-rec { width: min(100%, 520px); padding: 16px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); text-align: left; }
+.mh-rec-head { display: flex; justify-content: space-between; align-items: center; margin: 0 0 12px; font-weight: 700; font-size: 15px; }
+.mh-recdot { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--mh-red); }
+.mh-recdot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--mh-red); }
+.mh-tiles { display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 10px; height: clamp(110px, 34cqi, 190px); }
+.mh-tile { position: relative; border-radius: 10px; background: var(--tile); border: 1px solid var(--border); }
+.mh-tile.mh-screen { grid-row: span 2; background: linear-gradient(160deg, #2b2d5c, #6d4c96 60%, #e0806f); }
+.mh-tile > b { position: absolute; left: 8px; bottom: 6px; font-size: 11px; font-weight: 600; color: var(--muted); }
+.mh-tile.mh-screen > b { color: #fff; }
+.mh-mini { position: absolute; border-radius: 4px; background: var(--card); border: 1px solid var(--border);
+  box-shadow: inset 0 6px 0 var(--raised); }
+.mh-tile .mh-mini.m-a { left: 12%; top: 14%; width: 50%; height: 48%; } .mh-tile .mh-mini.m-b { left: 38%; top: 30%; width: 50%; height: 44%; }
+.mh-tile:not(.mh-screen) .mh-mini { left: 12%; top: 14%; width: 76%; height: 54%; }
+.mh-ringw { position: absolute; inset: -5px; pointer-events: none; }
+.mh-ring { position: absolute; inset: 0; border-radius: 14px; border: 2.5px solid var(--mh-red);
+  opacity: max(.001, var(--mh-ring)); scale: calc(1.06 - .06 * var(--mh-ring)); }
+.mh-src { display: grid; grid-template-columns: 6em minmax(0, 1fr); align-items: center; gap: 12px; margin: 10px 0 0; font-size: 13px; }
+.mh-src > b { font-weight: 600; color: var(--muted); }
+.mh-bars { display: flex; align-items: center; gap: 4px; height: 22px; }
+.mh-bars i { flex: none; width: 5px; height: 100%; border-radius: 2px; background: var(--good); transform-origin: 50% 50%;
+  scale: 1 calc(.12 + var(--mh-rec) * (.2 + .3 * (1 + sin(var(--t) * 53 + var(--mh-ph, 0))))); }
+.mh-bars i:nth-child(2) { --mh-ph: 1.3; } .mh-bars i:nth-child(3) { --mh-ph: 2.9; } .mh-bars i:nth-child(4) { --mh-ph: 4.1; }
+.mh-bars i:nth-child(5) { --mh-ph: .7; } .mh-bars i:nth-child(6) { --mh-ph: 3.6; } .mh-bars i:nth-child(7) { --mh-ph: 5.2; }
+.mh-mic .mh-bars i { scale: 1 calc(.12 + var(--mh-rec) * (.15 + .35 * (1 + sin(var(--t) * 71 + var(--mh-ph, 0) + 2)))); }
+.mh-m6[data-mh-sound="off"] .mh-sound, .mh-m6[data-mh-mic="off"] .mh-mic { opacity: .45; }
+.mh-m6[data-mh-sound="off"] .mh-sound .mh-bars i, .mh-m6[data-mh-mic="off"] .mh-mic .mh-bars i { scale: 1 .1; background: var(--faint); }
+.mh-m6 .chooser + .chooser { margin-top: 8px; }
+
+/* ---- M7: the three-stop path; a light travels down it with the scroll --------------------------------------- */
+.mh-path { position: relative; width: min(100%, 460px); text-align: left; }
+.mh-path ol { list-style: none; margin: 0; padding: 0 0 0 52px; display: grid; gap: 22px; counter-reset: mh-stop; }
+.mh-rail { position: absolute; left: 17px; top: 18px; bottom: 18px; width: 2px; background: var(--border); overflow-x: visible; overflow-y: clip; }
+.mh-run { position: absolute; inset: 0; background: var(--accent); translate: 0 calc((var(--t) - 1) * 100%); }
+.mh-run::after { content: ""; position: absolute; left: -5px; bottom: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent), 0 0 18px var(--accent); }
+.mh-stop { --k-at: -1; position: relative; counter-increment: mh-stop; --mh-sp: clamp(0, (var(--t) - var(--k-at)) / .04, 1); }
+.mh-stop::before { content: counter(mh-stop); position: absolute; left: -52px; top: -2px; display: grid; place-items: center; width: 36px; height: 36px;
+  border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-weight: 700; font-size: 15px; }
+.mh-stop::after { content: counter(mh-stop); position: absolute; left: -52px; top: -2px; display: grid; place-items: center; width: 36px; height: 36px;
+  border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 700; font-size: 15px;
+  opacity: var(--mh-sp); scale: calc(.8 + .2 * var(--mh-sp)); }
+.mh-stop h3 { margin: 0 0 4px; font-size: 18px; }
+.mh-stop p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; opacity: calc(.45 + .55 * var(--mh-sp)); }
+.mh-tick { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 4px 12px 4px 8px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent-soft-text); font-size: 13px; font-weight: 700; opacity: calc(.4 + .6 * var(--mh-sp)); }
+.mh-tick::before { content: "\2713" / ""; display: grid; place-items: center; flex: none; width: 18px; height: 18px; border-radius: 5px;
+  background: var(--accent); color: var(--on-accent); font-size: 12px; line-height: 1; }
+@media (max-width: 720px) {
+  .mh-path ol { gap: 16px; }
+  .mh-stop h3 { font-size: 17px; }
+  .mh-stop p { font-size: 14.5px; }
+}
+
+/* ---- without the kit's script, each scene shows only the way named in its HTML (the others would stack) ----- */
+html:not(.kit) .mh-m3[data-way="look"] :not(.chip)[data-way="controls"], html:not(.kit) .mh-m4[data-way="title"] :not(.chip)[data-way="captions"],
+html:not(.kit) .mh-m6[data-way="screen"] :not(.chip)[data-way="window"] { display: none; }
+
+/* ---- the request form on this page: the Ghost Media Hub tick is lit while it is ticked ----------------------- */
+.rq-apps label.tick:has(input[value="mh"]:checked) { margin: -6px 0; padding: 6px 14px 6px 8px; border-radius: 999px; background: var(--accent-soft);
+  color: var(--accent-soft-text); }
