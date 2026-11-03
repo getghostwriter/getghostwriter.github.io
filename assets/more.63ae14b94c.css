@@ -1,0 +1,159 @@
+/* Ghost Media Works site film: the calm pages' own look (Install and help, What's new, About, Press kit, 404).
+   Loaded by "assets: more" in those pages' <!--page --> block, after site.css and scenes.css. Owner: [Claude-site-film-more].
+   Kit pieces it leans on (scenes.css): .scene + data-play / data-scrub, .cue, .dialog, .menu, .keys, .type, .build, .count,
+   .art, .glow, .light-pass, .window, .ui-btn (the kit also gives the hero blocks their air and glow). Added here: .tap (a ring that lands on what to click),
+   the drawn Edge panel, SmartScreen and key windows, the copy rows and hash check, the What's new rail, the online map,
+   the product nodes, the press turntable and the 404 halo. Per frame only opacity, translate/scale and stroke-dashoffset
+   change; at rest (no JS, reduced motion) every picture is its final frame. */
+
+:root { --m-bad: #ff7a7a; }
+:root[data-theme="light"] { --m-bad: #c62828; }
+
+/* quiet sections: a played scene (data-play) for a gentle .cue reveal, with the site's normal section air */
+main section.scene.quiet { padding: 64px 0; }
+main section + section.scene.quiet { border-top: 1px solid var(--edge); }
+@media (max-width: 720px) { main section.scene.quiet { padding: 48px 0; } }
+
+/* stacked pictures: one cell, the next replaces the last (nothing moves the page) */
+.m-swap { display: grid; width: min(100%, 440px); }
+.m-swap > * { grid-area: 1 / 1; }
+.m-col { display: grid; gap: 16px; justify-items: center; width: min(100%, 440px); }
+
+/* .tap: a ring that lands on what to click (enters at data-at, leaves at data-until) */
+.scene .tap { --k-at: -1; --k-until: 9; --k-p: calc(clamp(0, (var(--t) - var(--k-at)) / var(--k-ramp, .04), 1) * clamp(0, (var(--k-until) - var(--t)) / var(--k-ramp, .04), 1));
+  position: absolute; inset: -6px; border-radius: 999px; border: 2px solid var(--accent); pointer-events: none;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 40%, transparent); opacity: var(--k-p); scale: calc(1.25 - .25 * var(--k-p)); }
+.m-hit { position: relative; }
+
+/* ---- Help P1: Edge's downloads panel, its ··· menu, then "Keep anyway" ---- */
+.m-edge { width: 100%; padding: 12px 14px 14px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+  text-align: left; font-size: 13.5px; line-height: 1.4; }
+.m-edge-head { margin: 0 0 10px; font-weight: 700; color: var(--text); font-size: 14px; }
+.m-edge-row { display: flex; align-items: flex-start; gap: 10px; color: var(--muted); }
+.m-edge-row b { display: block; color: var(--text); font-weight: 600; }
+.m-file { flex: none; width: 26px; height: 32px; border-radius: 4px; border: 1px solid var(--border); background: var(--raised); }
+.m-dots { flex: none; display: grid; place-items: center; width: 34px; height: 30px; margin-left: auto; border-radius: 8px; background: var(--raised);
+  color: var(--text); font-weight: 700; letter-spacing: .05em; }
+.scene .m-swap .menu { justify-self: end; align-self: start; transform-origin: 100% 0; }
+.scene .m-swap .dialog { align-self: start; }
+.scene .m-swap .dialog .dialog-title { font-size: 16px; }
+.scene .dialog .ui-btn { position: relative; }
+
+/* ---- Help hero + P2: Windows' SmartScreen box, in Windows' own blue so it is recognised ---- */
+.scene .dialog.ss { background: #1f6fb2; border-color: #1f6fb2; color: #e8f1fa; }
+.scene .dialog.ss .dialog-title { color: #fff; }
+.scene .dialog.ss .ui-btn { border-radius: 2px; background: transparent; border-color: #fff; color: #fff; }
+.scene .dialog.ss .ui-btn.primary { background: #fff; color: #1f6fb2; }
+.scene .dialog.ss .tap { border-color: #fff; box-shadow: 0 0 16px rgba(255, 255, 255, .45); border-radius: 4px; }
+.ss-more { display: inline-block; position: relative; color: #fff; text-decoration: underline; }
+.ss-app { margin: 0 0 2px !important; font-size: 13px; }
+.hero-object .dialog.ss { width: min(100%, 420px); }
+
+/* ---- Help P3: the app's key window, then the keys and one sentence ---- */
+.m-key { width: min(100%, 360px); padding: 20px 22px 18px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+  text-align: center; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.m-key p { margin: 0; }
+.m-key .art { height: 34px; }
+.m-key-name { margin: 4px 0 2px !important; font-size: 19px; font-weight: 600; color: var(--text); }
+.m-key-field { position: relative; display: grid; place-items: center; height: 42px; margin-top: 14px; border-radius: 6px; border: 1px solid var(--accent);
+  background: var(--tile); color: var(--text); font: 14px/1 Consolas, "Cascadia Mono", ui-monospace, monospace; letter-spacing: .02em; }
+.m-tick { position: absolute; right: 10px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; background: var(--good); }
+.m-tick::after { content: ""; position: absolute; left: 7px; top: 3px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; rotate: 45deg; }
+.m-key-hint { margin: 6px 0 14px !important; font-size: 12px; color: var(--faint); }
+.m-key .ui-btn { position: relative; width: 100%; min-height: 36px; }
+
+/* ---- Help P4: copy rows and the local hash check ---- */
+.m-check { max-width: 860px; margin-top: 24px; }
+.m-check > p { color: var(--muted); margin: 18px 0 8px; }
+.m-code { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); }
+.m-code code { flex: 1 1 auto; min-width: 0; color: var(--text); }
+/* .m-copy wears the site's hairline ring (class ring, site.css); done = the accent word */
+.m-copy { flex: none; min-height: 44px; min-width: 76px; padding: 0 16px; border-radius: 999px; font: inherit; font-size: 14px; font-weight: 700; }
+.m-copy.done { color: var(--accent); }
+.m-copy[hidden], .m-hash[hidden] { display: none; }
+.m-hash { margin-top: 24px; padding: 18px 20px; border-radius: 14px; border: 1px dashed var(--border); }
+.m-hash label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--text); }
+.m-hash-row { display: flex; align-items: center; gap: 12px; }
+.m-hash input { flex: 1 1 auto; min-width: 0; min-height: 44px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--tile);
+  color: var(--text); font: 14px/1.4 Consolas, "Cascadia Mono", ui-monospace, monospace; }
+.m-hash input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.m-verdict { flex: none; position: relative; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); }
+.m-verdict.yes { background: var(--good); border-color: transparent; }
+.m-verdict.yes::after { content: ""; position: absolute; left: 11px; top: 6px; width: 7px; height: 14px; border: solid #fff; border-width: 0 3px 3px 0; rotate: 45deg; }
+.m-verdict.no { background: var(--m-bad); border-color: transparent; }
+.m-verdict.no::before, .m-verdict.no::after { content: ""; position: absolute; left: 8px; right: 8px; top: 14.5px; height: 3px; border-radius: 2px; background: #fff; rotate: 45deg; }
+.m-verdict.no::after { rotate: -45deg; }
+.m-hash-say { min-height: 1.5em; margin: 10px 0 4px; font-weight: 600; color: var(--text); }
+.m-hash .small-print { margin: 0; }
+@media (max-width: 720px) {
+  .m-code { flex-wrap: wrap; padding: 12px 12px 12px 16px; }
+  .m-code .m-copy { width: 100%; }
+}
+
+/* ---- What's new: the version stop and the rail hanging under it ---- */
+.m-ver { align-content: center; }
+.m-ver-n { position: relative; margin: 0; text-align: center; line-height: 1; }
+.m-ver-label { display: block; margin-bottom: 12px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.m-ver .count { font-size: clamp(88px, 15vw, 184px); font-weight: 700; letter-spacing: -.04em; color: var(--text); }
+.m-ver-n::after { content: ""; display: block; width: 1px; height: 56px; margin: 20px auto 0; background: linear-gradient(var(--accent), transparent); }
+main section.m-log { padding-top: 0; border-top: 0; }
+.m-log .changes { position: relative; gap: 0; max-width: 860px; padding-left: 36px; }
+.m-log .changes::before { content: ""; position: absolute; left: 7px; top: 12px; bottom: 24px; width: 1px; background: color-mix(in srgb, var(--accent) 35%, transparent); }
+.m-log .change { position: relative; padding: 0 0 44px; background: none; border: 0; border-radius: 0; }
+.m-log .change::before { content: ""; position: absolute; left: -36px; top: 2px; width: 15px; height: 15px; box-sizing: border-box; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent); }
+.m-log .changes:first-child .change:first-child::before { background: var(--accent); }
+.m-log .change-title { margin: 0 0 6px; font-size: 12px; font-weight: 700; line-height: 1.5; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.m-log .change-head { margin: 0 0 12px; font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; line-height: 1.25; letter-spacing: -.01em; color: var(--text); }
+.m-log .change ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 70ch; }
+.m-log .change li + li { margin-top: 6px; }
+.m-log .more-changes > summary { display: inline-flex; align-items: center; min-height: 44px; margin: 0 0 16px; }
+/* bullets arrive as their stop reaches the middle (more.js adds .m-rail, then .reached; without it all show) */
+html.motion .m-rail .change.reached li { transition: opacity var(--enter) var(--ease) calc(var(--m-i, 0) * 40ms), translate var(--enter) var(--ease) calc(var(--m-i, 0) * 40ms); }
+html.motion .m-rail .change:not(.reached) li { opacity: .001; translate: 0 12px; }
+
+/* ---- About: the hub mark, the online map, the two product nodes ---- */
+.m-hub { position: relative; display: grid; place-items: center; width: min(100%, 340px); aspect-ratio: 1; }
+.m-hub > * { grid-area: 1 / 1; }
+.m-hub svg { width: 100%; height: 100%; overflow: visible; }
+.m-hub .hub-ln { fill: none; stroke: color-mix(in srgb, var(--accent) 45%, transparent); stroke-width: .8; }
+.m-hub .hub-nd { fill: var(--bg); stroke: var(--accent); stroke-width: 1.4; }
+.m-hub .art.ghost { height: 46%; }
+.m-map { display: grid; width: min(100%, 440px); }
+.m-map > svg { grid-area: 1 / 1; width: 100%; height: auto; overflow: visible; }
+.m-map .map-ln { fill: none; stroke: color-mix(in srgb, var(--accent) 50%, transparent); stroke-width: 1.2; }
+.m-map .map-stop { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+.m-map .map-pc { fill: var(--card); stroke: var(--border); stroke-width: 1.2; }
+.m-map text { fill: var(--text); font: 600 13px var(--k-font); text-anchor: middle; }
+.m-map text.map-sub { fill: var(--muted); font-weight: 400; font-size: 11px; }
+/* the packet: a dot running the path (pathLength 1) with the playhead; at rest it is home, on the PC */
+.m-map .map-packet { fill: none; stroke: var(--accent); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 0 1;
+  stroke-dashoffset: calc(-1 * clamp(0, (var(--t) - .2) / .75, 1)); }
+.m-nodes { position: relative; display: grid; gap: 32px; margin: 8px 0 0; padding: 0; list-style: none; max-width: 760px; }
+.m-nodes::before { content: ""; position: absolute; left: 11px; top: 24px; bottom: 24px; width: 1px; background: var(--border); }
+.m-nodes > li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 20px; align-items: start; }
+.m-node { position: relative; width: 24px; height: 24px; margin-top: 4px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.m-node::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--accent); }
+.m-node-name { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 6px; font-size: 22px; font-weight: 700; }
+.m-nodes p { margin: 0; color: var(--muted); }
+.m-plain { max-width: 760px; }
+.m-plain p { color: var(--muted); }
+
+/* ---- Press kit: the ghost turns once on open, then stays still (only the showing theme's picture loads) ---- */
+.m-press-ghost { display: block; width: min(72%, 300px); aspect-ratio: 600 / 463; background: url("/assets/ghost-dark-float-600.webp") center / contain no-repeat; }
+:root[data-theme="light"] .m-press-ghost { background-image: url("/assets/ghost-light-float-600.webp"); }
+html.motion.kit .scene.played .m-press-ghost { animation: m-turn 1.4s var(--ease) both; }
+@keyframes m-turn { from { transform: perspective(900px) rotateY(-360deg); } to { transform: perspective(900px) rotateY(0deg); } }
+.m-shots figure a { display: block; border-radius: 14px; }
+.m-shots figcaption { margin-top: 10px; color: var(--muted); font-size: 15px; }
+
+/* ---- 404: the ghost alone under its halo arc (nothing is drawn over the ghost; owner, 2026-11-03) ---- */
+main section.scene.m-lost { padding: 72px 0 96px; text-align: center; } /* .scene: outranks the kit's zero padding */
+.m-lost-ghost { position: relative; isolation: isolate; display: inline-grid; place-items: center; width: 220px; height: 236px; margin-bottom: 24px;
+  --k-glow: var(--wash-indigo); }
+.m-lost-ghost > * { grid-area: 1 / 1; }
+.m-lost-ghost .art.ghost { position: relative; height: 200px; }
+/* the halo: the kit's one glow, drawn as an arc of light over the ghost's head */
+.scene .glow.arc { inset: -12% -30% 30%; opacity: .5; -webkit-mask: linear-gradient(#000 22%, transparent 58%); mask: linear-gradient(#000 22%, transparent 58%); }
+.scene .glow.arc::before { background: radial-gradient(closest-side, transparent 72%, var(--k-glow) 82%, transparent 96%); }
+.m-lost h1 { margin: 0 0 24px; font-size: clamp(32px, 5vw, 52px); letter-spacing: -.02em; text-wrap: balance; }
