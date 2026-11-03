@@ -3,8 +3,8 @@
  "short_name": "Ghost",
  "start_url": "/",
  "display": "browser",
- "background_color": "#0f1116",
- "theme_color": "#0f1116",
+ "background_color": "#040508",
+ "theme_color": "#040508",
  "icons": [
   {
    "src": "/assets/icons/icon-192.png",
