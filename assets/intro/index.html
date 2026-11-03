@@ -1,15 +1,19 @@
 <!doctype html>
 <!--
-  Ghost Writer boot splash: the logo reveal the app plays while it pre-renders its pages (6.8).
-  Style after the owner's reference reel (francois_dvr, 2026-10): the mark's outline draws on, an
-  oversized blurred body sweeps in and shrinks into it, the eyes light with a bloom, the name slides
-  out letter by letter, the lockup settles and holds. The final frame is the app's own logo
-  (assets/ghost-*-{halo,body,eyes}.png come from ui_art, see dev/design/boot-splash/README.md).
+  Ghost Media Works site intro: the website's variant of the app's boot splash. The app's own splash
+  is index.html beside this file (build.bat and the app's WebP files use only that one).
+  build_site.intro_animation() copies this file to the site's /assets/intro/ with string swaps (CDN
+  scripts, font, pictures), so keep those strings as they are in index.html.
+  Same film as index.html, same timings: the outline draws on, the blurred body sweeps in, the eyes
+  light, the name slides out from the middle letter by letter (1.55 to 2.36 s), the lockup settles.
+  Only the name differs: the site's header wordmark (site.css .lg-w / .lg-mw), gothic GHOST on line 1,
+  small-caps "media works" spread to GHOST's width on line 2, so the last frame hands off to the header.
+  The ghost sits 16 px higher than in index.html to make room for the second line.
 -->
 <html
   lang="en"
   data-composition-variables='[
-    { "id": "bg", "type": "color", "label": "Background", "default": "#0f1116" },
+    { "id": "bg", "type": "color", "label": "Background", "default": "#040508" },
     { "id": "accent", "type": "color", "label": "Indigo", "default": "#8f91ff" },
     { "id": "halo_src", "type": "string", "label": "Halo picture", "default": "assets/ghost-dark-halo.png" },
     { "id": "body_src", "type": "string", "label": "Body picture", "default": "assets/ghost-dark-body.png" },
@@ -59,8 +63,9 @@
             <circle data-hf-id="hf-avhg" id="tip-right" class="tip" r="22" fill="url(#tip-light)" />
             <circle data-hf-id="hf-46vl" id="tip-left" class="tip" r="22" fill="url(#tip-light)" />
           </svg>
-          <div data-hf-id="hf-ju13" id="name" aria-label="Ghost Writer">
-            <span data-hf-id="hf-eh6c" class="l">G</span><span data-hf-id="hf-ytpl" class="l">h</span><span data-hf-id="hf-yfek" class="l">o</span><span data-hf-id="hf-372w" class="l">s</span><span data-hf-id="hf-0exp" class="l">t</span><span data-hf-id="hf-85gn" class="l gap"></span><span data-hf-id="hf-ku2s" class="l">W</span><span data-hf-id="hf-2srv" class="l">r</span><span data-hf-id="hf-z80m" class="l">i</span><span data-hf-id="hf-2ilt" class="l">t</span><span data-hf-id="hf-qed6" class="l">e</span><span data-hf-id="hf-6dcb" class="l">r</span>
+          <div data-hf-id="hf-ju13" id="name" aria-label="Ghost Media Works">
+            <div class="w1"><span class="l">G</span><span class="l">H</span><span class="l">O</span><span class="l">S</span><span class="l">T</span></div>
+            <div class="w2"><span class="l">m</span><span class="l">e</span><span class="l">d</span><span class="l">i</span><span class="l">a</span><span class="l gap"></span><span class="l">w</span><span class="l">o</span><span class="l">r</span><span class="l">k</span><span class="l">s</span></div>
           </div>
         </div>
       </div>
