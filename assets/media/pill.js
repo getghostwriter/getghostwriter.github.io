@@ -8,7 +8,7 @@
  * Markup:  <div class="gw-pill" data-gw-pill></div>  (+ <script src=".../pill.js" defer></script>)
  * Options (data- attributes on that element):
  *   data-state="listening|hands_free|transcribing|warming"   (default listening)
- *   data-theme="auto|dark|light"   auto follows the site (html[data-theme], else the system setting)
+ *   data-theme="auto|dark|light"   auto follows the site (html[data-theme]; dark unless it says light)
  *   data-mic="off"                 no "Try it with your voice" button
  *   data-glow="0|1|2"              Off / Soft (default, like the app) / Strong
  * The microphone is used only for its loudness, inside the browser: nothing is recorded, kept or sent.
@@ -288,12 +288,9 @@
 
   // ---- The live component ------------------------------------------------------------------------
   var reduceQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
-  var lightQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
 
   function siteTheme() {
-    var forced = document.documentElement.getAttribute("data-theme");
-    if (forced === "dark" || forced === "light") return forced;
-    return lightQuery && lightQuery.matches ? "light" : "dark";
+    return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";  // dark unless chosen; no device-following theme
   }
 
   // A pleasant still moment for reduced motion (mid-sentence).
@@ -490,7 +487,6 @@
     if ("ResizeObserver" in window) new ResizeObserver(function () { size(); if (!running) paint(1, 0); }).observe(stage);
     else window.addEventListener("resize", function () { size(); if (!running) paint(1, 0); });
     if (reduceQuery && reduceQuery.addEventListener) reduceQuery.addEventListener("change", update);
-    if (lightQuery && lightQuery.addEventListener) lightQuery.addEventListener("change", function () { if (!running) paint(1, 0); });
     new MutationObserver(function () { if (!running) paint(1, 0); })
       .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
