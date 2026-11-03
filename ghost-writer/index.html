@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ghost Writer: free offline dictation software for Windows</title>
 <meta name="description" content="Free dictation and speech to text for Windows 10 and 11. Talk in any app; Ghost Writer types it on your own PC, even offline. Free beta, by invitation.">
 <link rel="canonical" href="https://ghostmediaworks.com/ghost-writer/">
@@ -11,23 +11,22 @@
 <meta property="og:title" content="Ghost Writer: voice typing for Windows that stays on your PC">
 <meta property="og:description" content="Free dictation and speech to text for Windows 10 and 11. Talk in any app; Ghost Writer types it on your own PC, even offline. Free beta, by invitation.">
 <meta property="og:url" content="https://ghostmediaworks.com/ghost-writer/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.625aee04c9.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.1f3d88b1f3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Writer: free dictation for Windows that stays on your PC. Free beta, by invitation.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#040508">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
-<link rel="stylesheet" href="/assets/media/pill.css">
+<link rel="stylesheet" href="/assets/site.cd4bebedfd.css">
+<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<link rel="stylesheet" href="/assets/gw.4686fe5ce3.css">
-<script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
+<link rel="stylesheet" href="/assets/gw.d0d975ddcd.css">
+<script src="/assets/head.4cda8fda39.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -134,168 +133,296 @@
           <span class="lg-spec"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span></span>
       </span></span>
     </a>
-    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
-    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <nav class="main-nav" id="site-menu" aria-label="Main">
+    <nav class="main-nav" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer" aria-current="page">Ghost Writer</a>
-      <span class="menu-sub">
-        <a href="/ghost-writer/features/" data-sub="features">Features</a>
-        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
-        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
-      <a class="menu-only" href="/press/">Press kit</a>
-      <button class="menu-only menu-theme" type="button" data-theme-button>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
-        <span class="theme-label">Theme: follows your device</span>
-      </button>
     </nav>
-    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
+    <a class="button small header-cta" href="/ghost-writer/#request">Get access</a>
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: dark. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
 </header>
-<div class="product-bar">
-  <div class="wrap inner">
-    <a class="product-name" href="/ghost-writer/">Ghost Writer</a>
-    <nav class="product-nav" aria-label="Ghost Writer">
-      <a href="/ghost-writer/" data-sub="overview" aria-current="page">Overview</a>
-      <a href="/ghost-writer/features/" data-sub="features">Features</a>
-      <a href="/ghost-writer/help/" data-sub="help">Help</a>
-      <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-    </nav>
-    <a class="button small" href="/ghost-writer/#request">Request access</a>
-  </div>
-</div>
-
 <main id="main" tabindex="-1">
-<div class="wave-host">
-<canvas class="wave-field" aria-hidden="true"></canvas>
-<div class="wrap">
-  <div class="gw-hero">
-    <p class="product-lockup"><span class="lockup-ghost" aria-hidden="true" data-depth=".05" data-depth-max="10"></span><span><span class="lockup-name">Ghost Writer</span><span class="lockup-by">by Ghost Media Works</span></span></p>
-    <div class="badges"><span class="badge">Free beta &middot; by invitation</span><span class="badge plain">Windows 10 and 11</span><span class="badge plain">Works offline</span></div>
-    <h1>Free dictation for Windows that stays on your PC.</h1>
-    <div class="gw-stage" data-gw-stage>
-      <div class="gw-stage-in">
-        <div class="shot demo"><video class="demo-loop" muted preload="none" data-lazy-play loop playsinline width="1920" height="1080" poster="/assets/media/demo-loop-poster.webp" aria-label="Ghost Writer in 15 seconds: dictating an email, rewriting a sentence with Advanced mode, and a Hey Ghost voice command"><source src="/assets/media/demo-loop.webm" type="video/webm"><source src="/assets/media/demo-loop.mp4" type="video/mp4"></video></div>
+<!-- Ghost Writer's product film (dev/design/site-film/PLAN.html chapter 08, scenes W1 to W10).
+     Scene kit pieces used (site/assets/scenes.*, manual dev/design/site-film/README.md): .scene with data-play (hero, W9)
+     and data-scrub (W2 to W6, W8), .glow + washes (indigo, violet), .type (scrubbed and data-live), .keys, .pill (+ .wipe,
+     data-voice, data-state), .art (ghost, ghost-small, listen-ghost), .window.doc, .menu, .toast, .confirm, .dialog,
+     .ui-btn, .cue, .build (list), .wipe (waveform), .meter, .switch (Wi-Fi; Standard/Advanced with ways), .chooser/.chip
+     + .ways, .more. Page-only look and the bits the kit lacks (selection, playhead, password box, travelling light, the
+     no-script stacking) are gw-* in assets/gw.css; gw.js sets W2's pill state and replays the hero after the intro.
+     Frame pieces: .hero-film blocks, the wave field (motion.js), the request form and download box partials. -->
+<section class="hero-film scene wave-host gw-film" data-scene="hero" data-play="1500" aria-labelledby="hero-t">
+  <canvas class="wave-field" aria-hidden="true"></canvas>
+  <div class="wrap hero-in">
+    <div class="hero-words">
+      <p class="eyebrow">Ghost Writer</p>
+      <h1 id="hero-t">Free dictation, <em>on your PC.</em></h1>
+      <p class="hero-line">Hold Ctrl+Win, talk, let go. Your words appear wherever your cursor is, in almost any app.</p>
+      <div class="hero-actions">
+        <a class="button" href="#request">Get access</a>
+        <a class="text-link" href="#download">Got your key? Download</a>
+      </div>
+      <p class="hero-fine">Free beta &middot; by invitation &middot; Windows 10 and 11 &middot; works offline</p>
+    </div>
+    <div class="hero-object" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-hero-pic">
+        <span class="gw-drift" data-depth=".05" data-depth-max="6"><span class="art ghost cue" data-at="0" data-ramp=".3" role="img" aria-label="The Ghost Writer ghost"></span></span>
+        <div class="window doc star" data-title="Notes">
+          <div class="body"><p class="type" data-live>Running late. Start without me, I'll bring the coffee.</p></div>
+        </div>
+        <span class="keys" aria-label="Ctrl plus Win, held while you talk"><kbd data-at=".2">Ctrl</kbd>+<kbd data-at=".26">Win</kbd></span>
+        <div class="pill wipe" data-from=".3" data-to=".9" data-voice="pretend" role="img" aria-label="Ghost Writer's listening pill"></div>
       </div>
     </div>
-    <p class="sub">Hold <b>Ctrl+Win</b>, talk, let go: your words appear wherever your cursor is, in almost any app, with punctuation and paragraphs. Speech to text runs on your own PC, even offline, so nothing you say is uploaded.</p>
-    <div class="actions">
-      <a class="button" href="#request">Request free access</a>
-      <a class="text-link" href="#download">Got your key? Download</a>
-    </div>
-    <p class="gw-fine">Free, no ads, no analytics scripts or cookies, no subscription &middot; you need a free access key: we email it to you &middot; rewrite tools need Advanced mode (NVIDIA, AMD or Intel graphics).</p>
-  </div>
-</div>
-</div>
-
-<section id="get" aria-labelledby="get-title">
-  <div class="wrap">
-    <h2 id="get-title">How to get it</h2>
-    <p class="lead">Ghost Writer is free while it's in beta. Access is by invitation, so we can look after every new user.</p>
-    <ol class="steps">
-      <li class="card"><h3>Request access</h3><p>Fill in <a href="#request">the short form</a> below: your name and email.</p></li>
-      <li class="card"><h3>Get your key by email</h3><p>We read each request ourselves and email you a key, usually within a few days.</p></li>
-      <li class="card"><h3>Download and talk</h3><p><a href="#download">Download</a> Ghost Writer, open it, enter your key, then hold Ctrl+Win and speak.</p></li>
-    </ol>
-    <p class="small-print">Windows may say "Windows protected your PC" the first time, because Ghost Writer is new and not yet signed with a paid certificate. Click <b>More info</b>, then <b>Run anyway</b>. <a href="/ghost-writer/help/#install">Install help</a></p>
   </div>
 </section>
 
-<section id="what" aria-labelledby="what-title">
-  <div class="wrap">
-    <h2 id="what-title">What it does</h2>
-    <p class="lead">One small app that makes your PC listen. Everything below runs on your own computer.</p>
-    <div class="story" data-story>
-    <div class="story-pics" aria-hidden="true"><div class="story-frame">
-      <div class="story-pic on"><div class="shot scene"><picture><source srcset="/assets/media/feature-dictation-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-dictation-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
-      <div class="story-pic"><div class="shot scene"><picture><source srcset="/assets/media/feature-quickfix-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-quickfix-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
-      <div class="story-pic"><div class="shot scene"><picture><source srcset="/assets/media/feature-heyghost-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-heyghost-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
-      <div class="story-pic"><div class="shot scene"><picture><source srcset="/assets/media/feature-voicenotes-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-voicenotes-dark.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></picture></div></div>
-    </div></div>
-    <div class="grid two story-steps">
-      <article class="card story-step">
-        <div class="shot scene"><picture><source srcset="/assets/media/feature-dictation-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-dictation-dark.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
-        <h3>Dictate into almost any app</h3>
-        <p>Email, documents, chat, the browser, code. Commas, periods and capitals are added for you, and um and uh are left out. Or go hands-free and it types each time you pause.</p>
-        <!-- Ghost Writer's live speech pill. Needs /assets/media/pill.css in <head> and /assets/media/pill.js (defer) once per page.
-     pill.js replaces the picture inside with the live pill; without JavaScript the app's own still pill shows. -->
-<div class="gw-pill" data-gw-pill>
-  <picture><source srcset="/assets/media/pill-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/pill-dark.webp" alt="Ghost Writer's listening pill: a wavy line that moves with your voice" class="gw-pill-static" width="492" height="152" loading="lazy" decoding="async"></picture>
-  
-</div>
-
-      </article>
-      <article class="card story-step">
-        <div class="shot scene"><picture><source srcset="/assets/media/feature-quickfix-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-quickfix-dark.webp" alt="A selected sentence with Ghost Writer&#x27;s small ghost and the rewrite menu: Make it friendlier" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
-        <h3>Fix and rewrite what you select</h3>
-        <p>Select text anywhere and a small ghost appears: fix spelling and grammar on any PC, or with Advanced mode make it shorter, friendlier or into an email. Your text changes only when you click Replace.</p>
-      </article>
-      <article class="card story-step">
-        <div class="shot scene"><picture><source srcset="/assets/media/feature-heyghost-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-heyghost-dark.webp" alt="Saying Hey Ghost, open Spotify: the ghost listens and confirms Spotify is open" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
-        <h3>"Hey Ghost" <span class="badge">Beta</span></h3>
-        <p>Say "Hey Ghost, open Spotify", "set a timer for ten minutes" or "next tab". Hold Ctrl+Alt instead if you'd rather not say the words. Always listening is off until you turn it on.</p>
-      </article>
-      <article class="card story-step">
-        <div class="shot scene"><picture><source srcset="/assets/media/feature-voicenotes-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-voicenotes-dark.webp" alt="A voice note playing, with its waveform and the transcript following along" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
-        <h3>Voice notes and Train My Ghost <span class="badge">Beta</span></h3>
-        <p>Record a note, play it back and search what you said. Fix the words it wasn't sure of, and your Ghost learns them for next time, in dictation too.</p>
-      </article>
-    </div>
-    </div>
-    <p class="center u-mt28"><a class="button secondary" href="/ghost-writer/features/">See every feature</a></p>
-  </div>
-</section>
-
-<section id="privacy" class="band gw-privacy" aria-labelledby="privacy-title">
-  <div class="wrap">
-    <p class="eyebrow">Private by design</p>
-    <h2 id="privacy-title" class="statement">Nothing you say <em>leaves your PC.</em></h2>
-    <p class="lead">Your voice is turned into text on your PC. Nothing you say or type is sent to us or anyone else.</p>
-    <ul class="promise-row gw-three">
-      <li><b>Works offline</b>Dictation works with Wi-Fi off, for up to 3 days between key checks.</li>
-      <li><b>Online for four things only</b>Checking your key (the key, a scrambled id of your PC and the version), checking for updates, moving your data to your other PC when you press Sync (scrambled so only your PCs can read it) and, if you choose it, downloading Advanced mode.</li>
-      <li><b>Hands off what isn't yours</b>It's built never to type into or read password boxes. Optional screen context is off until you turn it on, and never saved. <a href="/privacy.html">Privacy policy</a></li>
-    </ul>
-    <figure class="gw-proof" data-gw-proof>
-      <div class="gw-proof-type">
-        <p class="gw-proof-lbl"><span>On your PC</span><span class="gw-proof-state">Dictating</span></p>
-        <p class="gw-proof-words" data-gw-words>Hi Sam, the figures for the board are attached. Please keep them between us until Thursday.</p>
+<section class="scene gw-film" id="ways" data-chapter="Three ways" data-scene="ways" data-scrub="180" data-way="hold" aria-labelledby="ways-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Three ways to talk</p>
+      <h2 id="ways-t">Talk the way you like.</h2>
+      <p class="line">Hold Ctrl+Win while you talk, go hands-free with Win+Alt, or say “Hey Ghost”.</p>
+      <div class="chooser" role="group" aria-label="Ways to talk">
+        <button type="button" class="chip" aria-pressed="true" data-way="hold">Hold a key</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="free">Hands-free</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="cmd">Say the command</button>
       </div>
-      <div class="gw-proof-meter">
-        <p class="gw-proof-lbl"><span>Your words uploaded</span><span>illustration</span></p>
-        <canvas class="gw-proof-line" aria-hidden="true"></canvas>
-        <p class="gw-proof-zero">0 <small>bytes</small></p>
-        <button class="gw-wifi" type="button" aria-pressed="false"><i aria-hidden="true"></i><span class="gw-wifi-label">Wi-Fi on</span></button>
+      <details class="more"><summary>More</summary><ul><li>Commas, periods and capitals are added for you; um and uh are left out.</li><li>Works in email, documents, chat, the browser and code.</li><li>Hands-free types each time you pause.</li></ul></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-col">
+        <div class="ways gw-trigger">
+          <span class="keys" data-way="hold" aria-label="Ctrl plus Win, held"><kbd data-at=".03" data-until=".9">Ctrl</kbd>+<kbd data-at=".05" data-until=".9">Win</kbd></span>
+          <span class="keys" data-way="free" aria-label="Win plus Alt, pressed once"><kbd data-at=".03" data-until=".08">Win</kbd>+<kbd data-at=".04" data-until=".08">Alt</kbd></span>
+          <p class="gw-said cue" data-way="cmd" data-at=".44">“Hey Ghost, new paragraph”</p>
+        </div>
+        <div class="window doc star" data-title="Notes">
+          <div class="body ways">
+            <div data-way="hold"><p class="type" data-from=".08" data-to=".85">Hi Sam, the figures for the board are attached.</p></div>
+            <div data-way="free"><p><span class="type" data-from=".1" data-to=".26">Hi Sam,</span> <span class="type" data-from=".4" data-to=".58">the figures are attached.</span> <span class="type" data-from=".72" data-to=".86">Talk soon.</span></p></div>
+            <div data-way="cmd"><p class="type" data-from=".06" data-to=".38">Hi Sam, the figures are attached.</p><p class="type" data-from=".6" data-to=".86">Talk soon, Dana</p></div>
+          </div>
+        </div>
+        <div class="pill gw-ways-pill" data-state="listening" role="img" aria-label="Ghost Writer's listening pill"></div>
       </div>
-      <figcaption class="small-print">Illustration of how Ghost Writer works: your words are typed on your PC, and none of them are uploaded, with Wi-Fi on or off.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="modes" aria-labelledby="modes-title">
-  <div class="wrap">
-    <h2 id="modes-title">Runs on any PC. Sharper with a graphics card.</h2>
-    <div class="grid two">
-      <div class="card"><span class="badge plain">Standard mode</span><h3 class="u-mt12">Every Windows 10 and 11 PC</h3><p>Fast, accurate dictation on the processor, with writing styles, quick fixes, voice commands and voice notes. Included in the download.</p></div>
-      <div class="card"><span class="badge">Advanced mode</span><h3 class="u-mt12">NVIDIA, AMD and Intel graphics cards</h3><p>A much bigger speech model for accents and fast speech, plus a small AI for grammar, layout and rewriting, all on your graphics card. An optional one-time download from inside the app (3.3 to 4.8 GB).</p></div>
     </div>
   </div>
 </section>
 
-<section id="request" aria-labelledby="request-title">
-  <div class="wrap request">
+<section class="scene gw-film" id="fix" data-chapter="Fix and rewrite" data-scene="fix" data-scrub="180" data-way="quick" aria-labelledby="fix-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Fix and rewrite</p>
+      <h2 id="fix-t">Select it. Fix it.</h2>
+      <p class="line">Select text anywhere and a small ghost appears. Your text changes only when you click Replace.</p>
+      <div class="chooser" role="group" aria-label="Ways to fix text">
+        <button type="button" class="chip" aria-pressed="true" data-way="quick">Quick fix</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="ai" data-wash="violet">With AI</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="voice">By voice</button>
+      </div>
+      <p class="gw-chipnote">AI rewrites, by click or by voice, need Advanced mode.</p>
+      <details class="more"><summary>More</summary><p>Fix spelling and grammar on any PC. With Advanced mode, make it shorter, friendlier or into an email.</p></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-col">
+        <div class="window doc star" data-title="Notes">
+          <div class="body gw-swap">
+            <p class="cue gw-stack" data-until=".62"><span>sorry im running late, start the meeting without me</span><span class="gw-sel cue" data-at=".06" aria-hidden="true"><span>sorry im running late, start the meeting without me</span></span></p>
+            <div class="ways">
+              <p data-way="quick" class="type" data-from=".62" data-to=".88">Sorry, I'm running late. Start the meeting without me.</p>
+              <p data-way="ai" class="cue" data-at=".64">So sorry, I'm running a little late! Please start without me.</p>
+              <p data-way="voice" class="cue" data-at=".64">Running late. Start without me.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gw-pop">
+          <span class="art ghost-small cue" data-at=".12" role="img" aria-label="Ghost Writer's small ghost, next to the selection"></span>
+          <div class="ways gw-pop-in">
+            <div data-way="quick"><ul class="menu" data-at=".22" data-until=".58" aria-label="Quick fixes menu"><li class="head">Quick fixes</li><li>Fix spelling</li><li data-at=".38">Fix grammar</li></ul></div>
+            <div data-way="ai" class="gw-swap">
+              <ul class="menu" data-at=".18" data-until=".4" aria-label="Rewrite menu"><li class="head">Rewrite with AI</li><li>Make it shorter</li><li data-at=".29">Make it friendlier</li><li>Make it an email</li></ul>
+              <div class="dialog" data-at=".42" data-until=".64"><p class="dialog-title">Make it friendlier</p><p>So sorry, I'm running a little late! Please start without me.</p><p class="dialog-row"><span class="ui-btn">Cancel</span><span class="ui-btn primary">Replace</span></p></div>
+            </div>
+            <div data-way="voice"><p class="gw-said cue" data-at=".24" data-until=".6">“Hey Ghost, make this shorter”</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene gw-film" id="hey-ghost" data-chapter="Hey Ghost" data-scene="hey" data-scrub="200" data-way="say" aria-labelledby="hey-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Hey Ghost &middot; beta</p>
+      <h2 id="hey-t">Ask your PC out loud.</h2>
+      <p class="line">Open apps, set timers, switch tabs. Always listening is off until you turn it on.</p>
+      <div class="chooser" role="group" aria-label="Ways to give a command">
+        <button type="button" class="chip" aria-pressed="true" data-way="say">Say “Hey Ghost”</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="hold">Hold Ctrl+Alt</button>
+      </div>
+      <details class="more"><summary>More</summary><p>Every command starts with “Hey Ghost”, or hold Ctrl+Alt if you'd rather not say the words. When it isn't sure, it asks first.</p></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-col">
+        <span class="art listen-ghost gw-listen" role="img" aria-label="The ghost listening"></span>
+        <div class="ways gw-trigger">
+          <p class="gw-said" data-way="say">“Hey Ghost,”</p>
+          <span class="keys" data-way="hold" aria-label="Ctrl plus Alt, held"><kbd data-at=".03" data-until=".96">Ctrl</kbd>+<kbd data-at=".05" data-until=".96">Alt</kbd></span>
+        </div>
+        <div class="gw-swap gw-cmds">
+          <p class="gw-cmd cue" data-until=".32"><span class="type" data-from=".05" data-to=".14">next tab</span></p>
+          <p class="gw-cmd cue" data-at=".36" data-until=".66"><span class="type" data-from=".37" data-to=".46">set a timer for ten</span></p>
+          <p class="gw-cmd cue" data-at=".7"><span class="type" data-from=".71" data-to=".79">open Spotify</span></p>
+        </div>
+        <div class="gw-swap gw-answers">
+          <div class="toast" data-at=".17" data-until=".32"><span class="art ghost-small" aria-hidden="true"></span>Next tab<span class="check" aria-hidden="true"></span></div>
+          <div class="confirm" data-at=".48" data-until=".66">
+            <p class="confirm-title">Did I get that right? <span class="confirm-x" aria-hidden="true">✕</span></p>
+            <p>You said “set a timer for ten”. Did you mean:</p>
+            <p class="confirm-pick">Set a timer for 10 minutes</p>
+            <p class="confirm-row"><span>Click, or say “yes” or “no”.</span><span class="ui-btn">No</span><span class="ui-btn primary">Yes</span></p>
+          </div>
+          <div class="toast" data-at=".82"><span class="art ghost-small" aria-hidden="true"></span>Spotify<span class="check" aria-hidden="true"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene gw-film" id="voice-notes" data-chapter="Voice notes" data-scene="notes" data-scrub="180" data-way="record" aria-labelledby="notes-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Voice notes &middot; beta</p>
+      <h2 id="notes-t">Talk now. Read it later.</h2>
+      <p class="line">Record a note, play it back, search what you said. Fix a word once; your Ghost learns it.</p>
+      <div class="chooser" role="group" aria-label="Ways to make a voice note">
+        <button type="button" class="chip" aria-pressed="true" data-way="record">Record</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="import">Import from phone</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="train">Train My Ghost</button>
+      </div>
+      <details class="more"><summary>More</summary><p>Train My Ghost: fix the words it wasn't sure of, and your Ghost learns them for next time, in dictation too.</p></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window star gw-note" data-title="Voice notes">
+        <div class="body">
+          <div class="ways gw-note-head">
+            <p data-way="record"><span class="gw-rec" aria-hidden="true"></span>Recording &middot; Monday</p>
+            <p data-way="import">From your phone &middot; Monday.m4a</p>
+            <p data-way="train">Train My Ghost &middot; 1 word to check</p>
+          </div>
+          <div class="gw-wave">
+            <svg class="wipe" data-from=".02" data-to=".22" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true"><path d="M6 32 V48M18.5 19 V61M31 9 V71M43.5 6 V74M56 11 V69M68.5 22 V58M81 28 V52M93.5 18 V62M106 14 V66M118.5 17 V63M131 24 V56M143.5 30 V50M156 31 V49M168.5 30 V50M181 26 V54M193.5 34 V46M206 34 V46M218.5 30 V50M231 22 V58M243.5 12 V68M256 7 V73M268.5 10 V70M281 20 V60M293.5 29 V51M306 17 V63M318.5 11 V69M331 12 V68M343.5 19 V61M356 28 V52M368.5 29 V51M381 28 V52M393.5 36 V44M406 36 V44M418.5 26 V54M431 30 V50M443.5 25 V55M456 16 V64M468.5 10 V70M481 11 V69M493.5 19 V61M506 31 V49M518.5 18 V62M531 10 V70M543.5 9 V71M556 15 V65M568.5 25 V55M581 29 V51M593.5 24 V56"/></svg>
+            <span class="gw-head" aria-hidden="true"></span>
+          </div>
+          <div class="ways">
+            <p data-way="record" class="type" data-from=".25" data-to=".88">Call Priya about the Henley contract on Friday.</p>
+            <p data-way="import" class="type" data-from=".25" data-to=".88">Call Priya about the Henley contract on Friday.</p>
+            <div data-way="train">
+              <p class="type" data-from=".22" data-to=".46">Call Priya about the <u class="gw-unsure"><span class="gw-was cue" data-until=".7">Hendley</span><span class="gw-now cue" data-at=".7">Henley</span><span class="gw-tick cue" data-at=".74" aria-hidden="true"></span></u> contract on Friday.</p>
+              <ul class="menu" data-at=".5" data-until=".7" aria-label="Which word did you say?"><li class="head">Which word?</li><li data-at=".6">Henley</li><li>Hendley</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene gw-film" id="privacy" data-chapter="Private" data-scene="private" data-scrub="180" data-way="on" aria-labelledby="privacy-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Private by design</p>
+      <h2 id="privacy-t">Nothing you say <em class="gw-em">leaves your PC.</em></h2>
+      <p class="line">Your voice becomes text on your PC. Online only for your key, updates, Sync and stats.</p>
+      <details class="more"><summary>More</summary><ul>
+        <li>Dictation works with Wi-Fi off, for up to 3 days between key checks.</li>
+        <li>The key check sends only the key, a scrambled id of your PC and the version. Sync and stats run only when you choose them, scrambled so only your PCs can read them.</li>
+        <li>It's built never to type into or read password boxes. No ads, no analytics, no cookies. <a href="/privacy.html">Privacy policy</a></li>
+      </ul></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-col">
+        <div class="window doc star" data-title="Notes">
+          <div class="body">
+            <p class="type" data-from=".04" data-to=".42">Hi Sam, the figures for the board are attached.</p>
+            <p class="gw-pw cue" data-at=".48"><span>Password</span><span class="gw-pw-box"><i class="gw-caret" aria-hidden="true"></i></span></p>
+            <p class="gw-skip cue" data-at=".6">Password box: Ghost Writer never types here.</p>
+          </div>
+        </div>
+        <div class="meter"><span class="meter-label">Your words sent from your PC: 0 bytes</span></div>
+        <div class="gw-wifi-row">
+          <button type="button" class="switch" aria-checked="false" aria-label="Wi-Fi off" data-way-on="off" data-way-off="on"><span>Wi-Fi on</span><i aria-hidden="true"></i><span>Wi-Fi off</span></button>
+          <p class="ways gw-wifi-note"><span data-way="on">Still 0 bytes.</span> <span data-way="off">It keeps typing.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene gw-film" id="modes" data-chapter="Modes" data-scene="modes" data-way="std" aria-labelledby="modes-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Standard and Advanced</p>
+      <h2 id="modes-t">Every PC. Sharper with a graphics card.</h2>
+      <p class="line">Standard runs on every PC. Advanced is sharper with accents and fast speech, and fixes grammar.</p>
+      <details class="more"><summary>More</summary><p>Advanced is an optional one-time download from inside the app (3.3 to 4.8 GB). Both run entirely on your PC.</p></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-col">
+        <div class="window doc star" data-title="Notes">
+          <div class="body ways">
+            <p data-way="std" class="type" data-live>Can we move the <em class="gw-wrong">cold</em> to Tuesday? <br>Me and Jo is free after ten.</p>
+            <p data-way="adv" class="type" data-live>Can we move the call to Tuesday? <br>Jo and I are free after ten.</p>
+          </div>
+        </div>
+        <button type="button" class="switch" aria-checked="false" data-wash-on="violet" data-wash-off="indigo" data-way-on="adv" data-way-off="std"><span>Standard</span><i aria-hidden="true"></i><span>Advanced</span></button>
+        <ul class="gw-tags" aria-label="What Advanced adds"><li>Accents</li><li>Fast speech</li><li>Grammar</li><li>AI rewrites</li></ul>
+        <p class="gw-small">Advanced needs an NVIDIA, AMD or Intel graphics card; a separate download.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene gw-film" id="get" data-chapter="Get it" data-scene="get" data-scrub="120" aria-labelledby="get-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">How to get it</p>
+      <h2 id="get-t">Free, by invitation. Three steps.</h2>
+      <p class="line">We read every request ourselves and email you a key, usually within a few days.</p>
+      <p><a class="button" href="#request">Request access</a></p>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="gw-path">
+        <span class="gw-rail" aria-hidden="true"><span class="gw-rail-fill"></span><span class="gw-light"></span></span>
+        <ol class="build" data-from=".04" data-to=".9">
+          <li><b>1</b>Request access</li>
+          <li><b>2</b>Get your key by email</li>
+          <li><b>3</b>Download and talk</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="request" data-chapter="Request" aria-labelledby="request-title">
+  <div class="wrap request scene gw-request" data-scene="request" data-play="1200">
     <div>
       <h2 id="request-title">Request access</h2>
       <p class="lead">Free, by invitation. Tell us who you are and we'll email you an access key.</p>
       <h3>Before you ask</h3>
-      <ul class="need">
+      <ul class="need build" data-from=".15" data-to=".95">
         <li><span>&#10003;</span><span><b>Windows 10 or 11, 64-bit.</b> Not for Mac, Linux or phones.</span></li>
         <li><span>&#10003;</span><span><b>A 672 MB download</b> and about 1 GB of free space.</span></li>
         <li><span>&#10003;</span><span><b>A microphone:</b> built-in, headset or USB.</span></li>
@@ -305,7 +432,7 @@
       <h3>What happens next</h3>
       <p class="muted">We read every request ourselves. Your key arrives by email, usually within a few days. Check your spam folder if you don't see it. One key works on up to 2 PCs.</p>
     </div>
-    <div class="card">
+    <div class="card cue" data-at="0" data-ramp=".4">
       <div class="rq-box">
       <form class="request-form" id="request-form" data-server="https://ghost-writer-access.ghostrepublic.workers.dev" novalidate>
         <div class="rq-step rq-step1">
@@ -357,7 +484,7 @@
   </div>
 </section>
 
-<section id="download" aria-labelledby="download-title">
+<section id="download" class="gw-dl" data-chapter="Download" aria-labelledby="download-title">
   <div class="wrap">
     <h2 id="download-title">Got your key? Download</h2>
     <div class="card">
@@ -375,7 +502,7 @@
 
 
 
-<section id="questions" aria-labelledby="questions-title">
+<section id="questions" data-chapter="Answers" aria-labelledby="questions-title">
   <div class="wrap">
     <h2 id="questions-title">Quick answers</h2>
     <div class="faq">
@@ -394,13 +521,14 @@
     <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
     <p class="eyebrow">Ghost Writer</p>
     <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
-    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Get access</a></div>
+    <p class="closing-more"><a class="text-link" href="/ghost-writer/features/">See every feature</a><a class="text-link" href="/ghost-writer/help/">Install and help</a></p>
     <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
   </div>
 </section>
 <footer class="site-footer">
   <div class="wrap">
-    <nav class="foot-row" aria-label="Footer">
+    <div class="foot-top">
       <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
             <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
               <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
@@ -408,14 +536,23 @@
             </svg><span class="lg-gh"></span></span>
             <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
           </span></span></p>
-      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
-      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
-    </nav>
-    <div class="foot-row">
-      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
-      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+      <a class="button foot-cta" href="/ghost-writer/#request">Get access</a>
     </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div class="foot-col"><p class="foot-h">Ghost Writer</p><ul>
+        <li><a href="/ghost-writer/">Overview</a></li><li><a href="/ghost-writer/features/">Features</a></li>
+        <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li>
+        <li><a href="/ghost-writer/#request">Request access</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Company</p><ul>
+        <li><a href="/media-hub/">Ghost Media Hub</a></li><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li>
+        <li><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Support</p><ul>
+        <li><a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li></ul></div>
+    </nav>
+    <p class="foot-legal">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source notices</a><a href="/about/#accessibility">Accessibility</a>
+      <span>No ads, no analytics scripts or cookies.</span>
+    </p>
   </div>
 </footer>
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
@@ -445,13 +582,15 @@
   </div>
 </dialog>
 
-<script src="/assets/site.7005f1863f.js" defer></script>
-<script src="/assets/logo.f7e7fe24f3.js" defer></script>
-<script src="/assets/frame.e39da035f4.js" defer></script>
+<script src="/assets/site.ed3da27f30.js" defer></script>
+<script src="/assets/logo.b5ae365e06.js" defer></script>
+<script src="/assets/stars.e5c827dea4.js" defer></script>
+<script src="/assets/frame.b7f0a42eb2.js" defer></script>
 <script src="/assets/media/pill.js" defer></script>
-<script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/scenes.37d79b3e3c.js" defer></script>
+<script src="/assets/motion.e472a26b23.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
-<script src="/assets/gw.9e842d6eef.js" defer></script>
+<script src="/assets/gw.1647d5152d.js" defer></script>
 
 </body>
 </html>
