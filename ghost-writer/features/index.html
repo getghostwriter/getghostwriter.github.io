@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ghost Writer features: dictation, speech to text, voice notes</title>
 <meta name="description" content="Dictate into any Windows app, rewrite what you select, run your PC with &quot;Hey Ghost&quot;, keep voice notes, search your PC and more. All on your own PC.">
 <link rel="canonical" href="https://ghostmediaworks.com/ghost-writer/features/">
@@ -11,23 +11,23 @@
 <meta property="og:title" content="Everything Ghost Writer does">
 <meta property="og:description" content="Dictate into any Windows app, rewrite what you select, run your PC with &quot;Hey Ghost&quot;, keep voice notes, search your PC and more. All on your own PC.">
 <meta property="og:url" content="https://ghostmediaworks.com/ghost-writer/features/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.625aee04c9.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-ghost-writer.1f3d88b1f3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Writer: free dictation for Windows that stays on your PC. Free beta, by invitation.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#040508">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
-<link rel="stylesheet" href="/assets/media/pill.css">
+<link rel="stylesheet" href="/assets/site.cd4bebedfd.css">
+<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<link rel="stylesheet" href="/assets/gw.4686fe5ce3.css">
-<script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
+<link rel="stylesheet" href="/assets/gw.d0d975ddcd.css">
+<link rel="stylesheet" href="/assets/reel.5375233423.css">
+<script src="/assets/head.4cda8fda39.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -94,287 +94,699 @@
           <span class="lg-spec"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span></span>
       </span></span>
     </a>
-    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
-    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <nav class="main-nav" id="site-menu" aria-label="Main">
+    <nav class="main-nav" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer" aria-current="page">Ghost Writer</a>
-      <span class="menu-sub">
-        <a href="/ghost-writer/features/" data-sub="features" aria-current="page">Features</a>
-        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
-        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
-      <a class="menu-only" href="/press/">Press kit</a>
-      <button class="menu-only menu-theme" type="button" data-theme-button>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
-        <span class="theme-label">Theme: follows your device</span>
-      </button>
     </nav>
-    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
+    <a class="button small header-cta" href="/ghost-writer/#request">Get access</a>
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: dark. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
 </header>
-<div class="product-bar">
-  <div class="wrap inner">
-    <a class="product-name" href="/ghost-writer/">Ghost Writer</a>
-    <nav class="product-nav" aria-label="Ghost Writer">
-      <a href="/ghost-writer/" data-sub="overview">Overview</a>
-      <a href="/ghost-writer/features/" data-sub="features" aria-current="page">Features</a>
-      <a href="/ghost-writer/help/" data-sub="help">Help</a>
-      <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-    </nav>
-    <a class="button small" href="/ghost-writer/#request">Request access</a>
-  </div>
-</div>
-
 <main id="main" tabindex="-1">
-<div class="wrap">
-  <div class="hero u-one">
-    <div>
-      <span class="eyebrow">Ghost Writer features</span>
-      <h1>Everything it does, on your PC.</h1>
-      <p class="sub">Every feature below comes with your free access key and runs on your own computer.</p>
-      <ul class="jump" aria-label="Jump to a feature">
-        <li><a href="#dictation">Dictation</a></li><li><a href="#reads-the-room">Gets names right</a></li><li><a href="#styles">Writing styles</a></li>
-        <li><a href="#rewrite">Rewrite</a></li><li><a href="#hey-ghost">Hey Ghost</a></li><li><a href="#voice-notes">Voice notes</a></li>
-        <li><a href="#learns">Learns</a></li><li><a href="#search">Search your PC</a></li><li><a href="#notepad">Notepad</a></li>
-        <li><a href="#stats">Your stats</a></li><li><a href="#settings">Settings</a></li><li><a href="#modes">Standard and Advanced</a></li><li><a href="#windows-voice-typing">vs Windows voice typing</a></li>
-      </ul>
+<!-- Features: the reel (dev/design/site-film/PLAN.html chapter 09). Look in assets/reel.css, the hero curve's
+     link handling in assets/reel.js; everything else is the scene kit (dev/design/site-film/README.md).
+     Kit pieces used: .scene (data-scrub / data-play / still), .curve (hero, 13 cards), .glow + washes, .type
+     (scrubbed and data-live), .keys, .pill, .window (.mail .doc .chat .browser), .menu, .toast, .confirm, .dialog,
+     .cue, .ui-btn, .art (ghost-small, thinking-ghost), .dial, .switch, .count, .calendar, .build (list + SVG),
+     .wipe, .chooser/.chip/.ways, .more. reel.* add only: the card previews, the fan of windows (F1), the floating
+     hint (F2), the swap/selection (F4), the result layers (F5), the drive bar (F8), the stage theme (F11) and the
+     comparison rows (F13). Chapter ids are the old page's anchors, kept. -->
+
+<section class="hero-film scene" data-scene="reel-hero" data-play="1600" aria-labelledby="hero-t">
+  <div class="wrap hero-in">
+    <div class="hero-words">
+      <p class="eyebrow">Ghost Writer features</p>
+      <h1 id="hero-t">Every feature, <em>on your PC.</em></h1>
+      <p class="hero-line">Every feature below comes with your free access key and runs on your own computer.</p>
+      <div class="hero-actions"><a class="btn" href="/ghost-writer/#request">Get access</a>
+        <a class="text-link" href="#dictation">See them all</a></div>
+      <p class="hero-fine">Drag or swipe to explore. Pick one to jump to it.</p>
+    </div>
+    <div class="hero-object" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="curve" aria-label="Features, drag to explore" data-index="0">
+        <a class="reel-frame" href="#dictation" draggable="false"><span class="reel-cap"><b>01</b>Dictation</span>
+          <span class="reel-pv cue" data-at=".05" aria-hidden="true"><span class="reel-m-keys"><i>Ctrl</i><i>Win</i></span><span class="reel-m-text">Running late, so start without me.</span><span class="reel-m-line"></span></span></a>
+        <a class="reel-frame" href="#reads-the-room" draggable="false"><span class="reel-cap"><b>02</b>Gets names right</span>
+          <span class="reel-pv cue" data-at=".12" aria-hidden="true"><span class="reel-m-bar">Priya Raghunathan · Chat</span><span class="reel-m-text">Sure, <b>Priya</b>. Sending it now.</span></span></a>
+        <a class="reel-frame" href="#styles" draggable="false"><span class="reel-cap"><b>03</b>Writing styles</span>
+          <span class="reel-pv cue" data-at=".19" aria-hidden="true"><span class="reel-m-dial"><i></i><i></i><i class="on"></i><i></i><i></i></span><span class="reel-m-text">So I'm gonna be late cause I missed the bus.</span></span></a>
+        <a class="reel-frame" href="#rewrite" draggable="false"><span class="reel-cap"><b>04</b>Rewrite</span>
+          <span class="reel-pv cue" data-at=".26" aria-hidden="true"><span class="reel-m-text"><mark>Their sending it tomorow</mark></span><span class="reel-m-menu"><i class="on">Fix spelling</i><i>Fix grammar</i><i>More formal</i></span></span></a>
+        <a class="reel-frame" href="#hey-ghost" draggable="false"><span class="reel-cap"><b>05</b>Hey Ghost</span>
+          <span class="reel-pv cue" data-at=".33" aria-hidden="true"><span class="reel-m-say">“Hey Ghost, open Spotify”</span><span class="reel-m-toast"><span class="art ghost-small"></span>Spotify<i></i></span></span></a>
+        <a class="reel-frame" href="#voice-notes" draggable="false"><span class="reel-cap"><b>06</b>Voice notes</span>
+          <span class="reel-pv cue" data-at=".4" aria-hidden="true"><span class="reel-m-wave"></span><span class="reel-m-text">Dentist on Friday at nine.</span></span></a>
+        <a class="reel-frame" href="#learns" draggable="false"><span class="reel-cap"><b>07</b>Learns</span>
+          <span class="reel-pv cue" data-at=".47" aria-hidden="true"><span class="reel-m-text">Meeting with <s>Shivan</s> <b>Siobhan</b></span><span class="art thinking-ghost"></span></span></a>
+        <a class="reel-frame" href="#search" draggable="false"><span class="reel-cap"><b>08</b>Search your PC</span>
+          <span class="reel-pv cue" data-at=".54" aria-hidden="true"><span class="reel-m-box">budget</span><span class="reel-m-menu"><i class="on">Budget 2026.xlsx</i><i>Budgets</i><i>Budget notes.docx</i></span></span></a>
+        <a class="reel-frame" href="#notepad" draggable="false"><span class="reel-cap"><b>09</b>Notepad</span>
+          <span class="reel-pv cue" data-at=".61" aria-hidden="true"><span class="reel-m-split"><span class="reel-m-menu"><i class="on">Work</i><i>Home</i><i>Ideas</i></span><span class="reel-m-text">Ask Sam about the venue.</span></span></span></a>
+        <a class="reel-frame" href="#stats" draggable="false"><span class="reel-cap"><b>10</b>Your stats</span>
+          <span class="reel-pv cue" data-at=".68" aria-hidden="true"><span class="reel-m-num">12,480</span><span class="reel-m-sub">words dictated</span><span class="reel-m-cal"></span></span></a>
+        <a class="reel-frame" href="#settings" draggable="false"><span class="reel-cap"><b>11</b>Settings</span>
+          <span class="reel-pv cue" data-at=".75" aria-hidden="true"><span class="reel-m-box">mic</span><span class="reel-m-row">Start sound<i class="reel-m-sw on"></i></span></span></a>
+        <a class="reel-frame" href="#modes" draggable="false"><span class="reel-cap"><b>12</b>Standard and Advanced</span>
+          <span class="reel-pv cue" data-at=".82" aria-hidden="true"><span class="reel-m-row">Standard<i class="reel-m-sw on"></i>Advanced</span><span class="reel-m-sub">Every PC · sharper with a graphics card</span></span></a>
+        <a class="reel-frame" href="#windows-voice-typing" draggable="false"><span class="reel-cap"><b>13</b>vs Windows voice typing</span>
+          <span class="reel-pv cue" data-at=".89" aria-hidden="true"><span class="reel-m-vs"><span>Your PC</span><span>vs</span><span>Online</span></span><span class="reel-m-sub">Where speech becomes text</span></span></a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<section id="dictation" aria-labelledby="dictation-title">
-  <div class="wrap feature">
+<!-- F1 Dictation: four app windows fan past, the same sentence types into each -->
+<section class="scene" id="dictation" data-chapter="Dictation" data-scene="dictation" data-scrub="150" data-way="hold" aria-labelledby="dictation-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Dictation</span>
-      <h2 id="dictation-title">Talk. It types. Anywhere.</h2>
-      <p class="lead">Hold <b>Ctrl+Win</b>, say it, let go: your words appear where your cursor is, in almost any app. Or press <b>Win+Alt</b> for hands-free and it types each time you pause.</p>
-      <ul class="ticks">
+      <p class="eyebrow">Dictation</p>
+      <h2 id="dictation-t">Talk. It types. Anywhere.</h2>
+      <p class="line">Hold Ctrl+Win and talk, or press Win+Alt for hands-free. Words appear where your cursor is.</p>
+      <div class="chooser" role="group" aria-label="Ways to dictate">
+        <button type="button" class="chip" aria-pressed="true" data-way="hold">Hold Ctrl+Win</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="free">Hands-free Win+Alt</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li><b>Hold Ctrl+Win</b>, say it, let go: your words appear where your cursor is, in almost any app. Or press <b>Win+Alt</b> for hands-free and it types each time you pause.</li>
         <li><b>Punctuation, capitals and paragraphs</b> come out right, without saying "comma".</li>
         <li><b>Um and uh are left out,</b> and sound-alike slips like "park in the garbage" become "garage".</li>
         <li><b>A slim listening bar</b> shows your voice as one flowing line while it listens.</li>
         <li><b>Your way of writing:</b> spaces, periods, numbers as digits or words, lists and email greetings, all in Settings.</li>
-      </ul>
-      <!-- Ghost Writer's live speech pill. Needs /assets/media/pill.css in <head> and /assets/media/pill.js (defer) once per page.
-     pill.js replaces the picture inside with the live pill; without JavaScript the app's own still pill shows. -->
-<div class="gw-pill" data-gw-pill>
-  <picture><source srcset="/assets/media/pill-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/pill-dark.webp" alt="Ghost Writer's listening pill: a wavy line that moves with your voice" class="gw-pill-static" width="492" height="152" loading="lazy" decoding="async"></picture>
-  
-</div>
-
+      </ul></details>
     </div>
-    <div class="stack">
-      <div class="shot scene"><picture><source srcset="/assets/media/feature-dictation-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/media/feature-dictation-dark.webp" alt="An email being written by voice: the newest words light up as they arrive, with Ghost Writer&#x27;s listening pill below" loading="lazy" decoding="async" width="1600" height="1000"></picture></div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col">
+        <div class="ways">
+          <span class="keys" data-way="hold" aria-label="Ctrl plus Win, held while you talk"><kbd data-at=".01" data-until=".96">Ctrl</kbd>+<kbd data-at=".02" data-until=".96">Win</kbd></span>
+          <span class="keys" data-way="free" aria-label="Win plus Alt, pressed once for hands-free"><kbd data-at=".01" data-until=".07">Win</kbd>+<kbd data-at=".02" data-until=".07">Alt</kbd></span>
+        </div>
+        <div class="reel-fan">
+          <div class="window mail reel-f0" data-title="New message"><div class="body">
+            <p class="field"><b>To</b> Sam</p>
+            <p class="reel-um-host"><span class="reel-um" aria-hidden="true">um,</span><span class="type" data-from=".06" data-to=".22">Running late, so start without me. Back by noon.</span></p>
+          </div></div>
+          <div class="window doc reel-f1" data-title="Plans.docx"><div class="body"><p class="type" data-from=".3" data-to=".46">Running late, so start without me. Back by noon.</p></div></div>
+          <div class="window chat reel-f2" data-title="Team chat"><div class="body"><p class="msg">Where are you?</p><p class="msg me type" data-from=".55" data-to=".71">Running late, so start without me. Back by noon.</p></div></div>
+          <div class="window browser reel-f3" data-url="mail.example.com" data-title=""><div class="body"><p class="reel-field type" data-from=".8" data-to=".95">Running late, so start without me. Back by noon.</p></div></div>
+        </div>
+        <div class="pill reel-pill" role="img" aria-label="Ghost Writer's listening pill"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="reads-the-room" aria-labelledby="room-title">
-  <div class="wrap feature flip">
+<!-- F2 Gets names right: the name in the window floats to the box as a hint (Screen context on) -->
+<section class="scene flip" id="reads-the-room" data-chapter="Gets names right" data-scene="names" data-scrub="130" data-way="on" aria-labelledby="room-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Gets names right</span>
-      <h2 id="room-title">It knows what you're writing about.</h2>
-      <p class="lead">Ghost Writer reads the text already in the box you're dictating into, so names and terms that are already there, like <b>Siobhan</b> or <b>Kubernetes</b>, come out spelled your way.</p>
-      <ul class="ticks">
+      <p class="eyebrow">Gets names right</p>
+      <h2 id="room-t">It knows what you're writing about.</h2>
+      <p class="line">Names already in the box, like Siobhan or Kubernetes, come out spelled your way.</p>
+      <div class="chooser" role="group" aria-label="Screen context">
+        <button type="button" class="chip" aria-pressed="true" data-way="on">Screen context on</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="off">Screen context off</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>Ghost Writer reads the text already in the box you're dictating into, so names and terms that are already there, like <b>Siobhan</b> or <b>Kubernetes</b>, come out spelled your way.</li>
         <li><b>Fits the app:</b> it notices chat, email, documents or code and writes to suit.</li>
         <li><b>Your dictionary:</b> add the names and jargon you use, and it listens out for them.</li>
         <li><b>Screen context (optional):</b> it can also use the words in the window you're dictating into. Off until you turn it on, and never saved.</li>
-      </ul>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-notepad lens-br"><div class="shot"><picture><source srcset="/assets/screens/notepad-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/notepad-dark.webp" alt="The Notepad with a dictated email" loading="lazy" width="1242" height="839"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
-  </div>
-</section>
-
-<section id="styles" aria-labelledby="styles-title">
-  <div class="wrap">
-    <span class="eyebrow">Writing styles</span>
-    <h2 id="styles-title">Five ways to sound like you.</h2>
-    <p class="lead">Pick how formal your words come out, from Home or by saying "Hey Ghost, use the formal style". Polished and Formal turn everyday speech into work-ready writing; their grammar fixes need Advanced mode.</p>
-    <div class="grid four u-autofit">
-      <div class="card"><h3>Relaxed</h3><p>For chat and quick messages.</p></div>
-      <div class="card"><h3>Natural</h3><p>Your words, tidied up.</p></div>
-      <div class="card"><h3>Polished</h3><p>Everyday speech made ready for work.</p></div>
-      <div class="card"><h3>Formal</h3><p>For letters and official writing.</p></div>
-      <div class="card"><h3>Caveman</h3><p>Exactly what you said, nothing more.</p></div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col">
+        <div class="window chat reel-names" data-title="Priya Raghunathan · Chat"><div class="body">
+          <p class="msg">Can you send the deck before lunch?</p>
+          <div class="ways reel-lane"><span class="reel-hint" data-way="on">Priya Raghunathan</span></div>
+          <div class="reel-box ways">
+            <p class="type" data-way="on" data-from=".46" data-to=".85">Sure, <b class="reel-right">Priya</b>. Sending it now.</p>
+            <p class="type" data-way="off" data-from=".46" data-to=".85">Sure, <b class="reel-wrong">Pria</b>. Sending it now.</p>
+          </div>
+        </div></div>
+        <p class="reel-note ways"><span data-way="on">On: the words in the window help with names.</span><span data-way="off">Off: only the words already in the box help.</span></p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="rewrite" aria-labelledby="rewrite-title">
-  <div class="wrap feature">
+<!-- F3 Writing styles: the dial's five stops re-render one spoken sentence (the app's own examples, styles.py) -->
+<section class="scene" id="styles" data-chapter="Writing styles" data-scene="styles" data-way="natural" aria-labelledby="styles-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Fix and rewrite</span>
-      <h2 id="rewrite-title">Fix and rewrite anything, anywhere.</h2>
-      <p class="lead">Select text in almost any app and a small ghost appears beside it. Click it, and choose.</p>
-      <ul class="ticks">
+      <p class="eyebrow">Writing styles</p>
+      <h2 id="styles-t">Five ways to sound like you.</h2>
+      <p class="line">Pick a style on Home, or say “Hey Ghost, use the formal style”.</p>
+      <div class="chooser reel-dialrow">
+        <div class="dial" aria-label="Writing style" data-stop="2">
+          <button data-way="caveman" data-wash="stone">Caveman</button>
+          <button data-way="relaxed" data-wash="amber">Relaxed</button>
+          <button data-way="natural" data-wash="indigo">Natural</button>
+          <button data-way="polished" data-wash="teal">Polished</button>
+          <button data-way="formal" data-wash="slate">Formal</button>
+        </div>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>Pick how formal your words come out, from Home or by saying "Hey Ghost, use the formal style". Polished and Formal turn everyday speech into work-ready writing; their grammar fixes need Advanced mode.</li>
+        <li><b>Caveman:</b> exactly what you said, nothing more.</li>
+        <li><b>Relaxed:</b> for chat and quick messages.</li>
+        <li><b>Natural:</b> your words, tidied up.</li>
+        <li><b>Polished:</b> everyday speech made ready for work.</li>
+        <li><b>Formal:</b> for letters and official writing.</li>
+      </ul></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col">
+        <p class="reel-said">You said: “um so I'm gonna be late cause I missed the bus, so let's start without me”</p>
+        <div class="window doc reel-styles" data-title="Message"><div class="ways">
+          <div class="body" data-way="caveman"><p class="type" data-live>um so i'm gonna be late cause i missed the bus so let's start without me</p></div>
+          <div class="body" data-way="relaxed"><p class="type" data-live>So I'm gonna be late cause I missed the bus, so let's start without me</p></div>
+          <div class="body" data-way="natural"><p class="type" data-live>So I'm gonna be late cause I missed the bus, so let's start without me.</p></div>
+          <div class="body" data-way="polished"><p class="type" data-live>I'm <b>going to</b> be late <b>because</b> I missed the bus, so let's start without me.</p></div>
+          <div class="body" data-way="formal"><p class="type" data-live><b>I am going to</b> be late <b>because</b> I missed the bus, so let's start without me.</p></div>
+        </div></div>
+        <div class="ways reel-tagrow">
+          <p class="reel-tag" data-way="caveman">No punctuation, no capitals, no fixes</p>
+          <p class="reel-tag" data-way="relaxed">Light punctuation, no period at the end</p>
+          <p class="reel-tag" data-way="natural">Normal punctuation, in your own voice</p>
+          <p class="reel-tag" data-way="polished">Grammar fixes need Advanced mode</p>
+          <p class="reel-tag" data-way="formal">Grammar fixes need Advanced mode</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- F4 Rewrite: selection, the small ghost, the menu (or your voice), the result, Replace -->
+<section class="scene flip" id="rewrite" data-chapter="Rewrite" data-scene="rewrite" data-scrub="150" data-way="quick" aria-labelledby="rewrite-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Fix and rewrite</p>
+      <h2 id="rewrite-t">Fix anything you select.</h2>
+      <p class="line">Select text in almost any app and a small ghost appears beside it. Click it, and choose.</p>
+      <div class="chooser" role="group" aria-label="Ways to fix and rewrite">
+        <button type="button" class="chip" aria-pressed="true" data-way="quick">Quick fix</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="ai">With AI</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="voice">By voice</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
         <li><b>Quick fixes on every PC:</b> spelling, grammar, more formal and letter case, instantly and without AI.</li>
         <li><b>With Advanced mode's AI:</b> shorter, friendlier, an email, meeting notes or a summary.</li>
         <li><b>By voice:</b> select text and say "Hey Ghost, make this shorter".</li>
         <li><b>You decide:</b> you see the result first; your text changes only when you click Replace.</li>
-      </ul>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-menu lens-br"><div class="shot"><picture><source srcset="/assets/screens/menu-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/menu-dark.webp" alt="Selected text in a document, with Ghost Writer&#x27;s quick fixes menu open" loading="lazy" width="1166" height="640"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col reel-rw">
+        <div class="window doc" data-title="Notes"><div class="body reel-rw-body"><div class="ways">
+          <p class="reel-swap" data-way="quick"><span class="reel-old">Their sending the report tomorow, can you check it?</span><span class="reel-new">They're sending the report tomorrow. Can you check it?</span></p>
+          <p class="reel-swap" data-way="ai"><span class="reel-old">I wanted to let you know that the meeting has been moved to Thursday afternoon instead.</span><span class="reel-new">The meeting is now on Thursday afternoon.</span></p>
+          <p class="reel-swap" data-way="voice"><span class="reel-old">I wanted to let you know that the meeting has been moved to Thursday afternoon instead.</span><span class="reel-new">The meeting is now on Thursday afternoon.</span></p>
+        </div>
+          <span class="reel-rw-ghost cue" data-at=".15" data-until=".84" aria-hidden="true"><span class="art ghost-small"></span></span>
+        </div></div>
+        <div class="reel-stack reel-rw-pop">
+          <div class="ways">
+            <ul class="menu" data-way="quick" data-at=".24" data-until=".5" aria-label="Quick fixes menu">
+              <li class="head">Quick fixes</li><li data-at=".36">Fix spelling</li><li>Fix grammar</li><li>More formal</li><li>Letter case</li>
+            </ul>
+            <ul class="menu" data-way="ai" data-at=".24" data-until=".5" aria-label="Rewrite with AI menu">
+              <li class="head">Rewrite with AI · Advanced</li><li data-at=".36">Make it shorter</li><li>Make it friendlier</li><li>Turn into an email</li><li>Summary</li>
+            </ul>
+            <p class="reel-cmd cue" data-way="voice" data-at=".24" data-until=".5">“Hey Ghost, make this shorter”</p>
+          </div>
+          <div class="ways">
+            <div class="dialog" data-way="quick" data-at=".52"><p class="dialog-title">Result</p><p>They're sending the report tomorrow. Can you check it?</p><p class="dialog-row"><span class="ui-btn">Cancel</span><span class="ui-btn primary reel-press">Replace</span></p></div>
+            <div class="dialog" data-way="ai" data-at=".52"><p class="dialog-title">Result</p><p>The meeting is now on Thursday afternoon.</p><p class="dialog-row"><span class="ui-btn">Cancel</span><span class="ui-btn primary reel-press">Replace</span></p></div>
+            <div class="dialog" data-way="voice" data-at=".52"><p class="dialog-title">Result</p><p>The meeting is now on Thursday afternoon.</p><p class="dialog-row"><span class="ui-btn">Cancel</span><span class="ui-btn primary reel-press">Replace</span></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="hey-ghost" aria-labelledby="hey-title">
-  <div class="wrap feature flip">
+<!-- F5 Hey Ghost: commands cycle with the scroll; the question card once, at the end -->
+<section class="scene" id="hey-ghost" data-chapter="Hey Ghost" data-scene="hey-ghost" data-scrub="190" data-way="say" aria-labelledby="hey-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Voice commands &middot; beta</span>
-      <h2 id="hey-title">"Hey Ghost." Your PC, on command.</h2>
-      <p class="lead">Give an order without typing it. Turn on always listening, or hold <b>Ctrl+Alt</b> and just say the command.</p>
-      <ul class="say" aria-label="Examples">
-        <li>Hey Ghost, what time is it</li><li>Hey Ghost, open Spotify</li><li>Hey Ghost, set a timer for ten minutes</li>
-        <li>Hey Ghost, search my PC for invoices</li><li>Hey Ghost, next tab</li>
-      </ul>
-      <ul class="ticks">
-        <li><b>Run your PC:</b> open, switch to or close apps, folders and websites, manage windows and tabs, set the volume, timers and reminders, play and pause music.</li>
-        <li><b>Your own commands:</b> up to ten phrases of your own for one action.</li>
-        <li><b>A small card confirms</b> what was done. When it has to guess, it asks "Did I get that right?"</li>
-        <li><b>Always listening is off by default.</b> It acts only on "Hey Ghost" and keeps nothing it hears.</li>
-      </ul>
+      <p class="eyebrow">Voice commands &middot; beta</p>
+      <h2 id="hey-t">"Hey Ghost." Your PC, on command.</h2>
+      <p class="line">Give an order without typing it: open apps, set timers, switch tabs and more.</p>
+      <div class="chooser" role="group" aria-label="Ways to give a command">
+        <button type="button" class="chip" aria-pressed="true" data-way="say">Say "Hey Ghost"</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="hold">Hold Ctrl+Alt</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="own">Your own phrase</button>
+      </div>
+      <details class="more"><summary>More</summary><div>
+        <p>Give an order without typing it. Turn on always listening, or hold <b>Ctrl+Alt</b> and just say the command.</p>
+        <ul class="say" aria-label="Examples">
+          <li>Hey Ghost, what time is it</li><li>Hey Ghost, open Spotify</li><li>Hey Ghost, set a timer for ten minutes</li>
+          <li>Hey Ghost, search my PC for invoices</li><li>Hey Ghost, next tab</li>
+        </ul>
+        <ul>
+          <li><b>Run your PC:</b> open, switch to or close apps, folders and websites, manage windows and tabs, set the volume, timers and reminders, play and pause music.</li>
+          <li><b>Your own commands:</b> up to ten phrases of your own for one action.</li>
+          <li><b>A small card confirms</b> what was done. When it has to guess, it asks "Did I get that right?"</li>
+          <li><b>Always listening is off by default.</b> It acts only on "Hey Ghost" and keeps nothing it hears.</li>
+        </ul>
+      </div></details>
     </div>
-    <figure class="gw-moment m-voice lens-bl"><div class="shot"><picture><source srcset="/assets/screens/voice-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/voice-dark.webp" alt="The Voice commands page: say Hey Ghost, then what you want" loading="lazy" width="1242" height="839"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-stack reel-hg">
+        <div class="reel-col reel-hg-a">
+          <div class="ways">
+            <div class="reel-stack" data-way="say">
+              <p class="reel-cmd cue" data-at=".02" data-until=".19">“Hey Ghost, open Spotify”</p>
+              <p class="reel-cmd cue" data-at=".19" data-until=".36">“Hey Ghost, set a timer for ten minutes”</p>
+              <p class="reel-cmd cue" data-at=".36" data-until=".52">“Hey Ghost, next tab”</p>
+              <p class="reel-cmd cue" data-at=".52" data-until=".68">“Hey Ghost, search my PC for invoices”</p>
+              <p class="reel-cmd cue" data-at=".68" data-until=".84">“Hey Ghost, volume up”</p>
+              <p class="reel-cmd cue" data-at=".84">“Hey Ghost, open spotty”</p>
+            </div>
+            <div class="reel-col reel-tight" data-way="hold">
+              <span class="keys" aria-label="Ctrl plus Alt, held"><kbd data-at=".01" data-until=".97">Ctrl</kbd>+<kbd data-at=".02" data-until=".97">Alt</kbd></span>
+              <div class="reel-stack">
+                <p class="reel-cmd cue" data-at=".02" data-until=".19">“open Spotify”</p>
+                <p class="reel-cmd cue" data-at=".19" data-until=".36">“set a timer for ten minutes”</p>
+                <p class="reel-cmd cue" data-at=".36" data-until=".52">“next tab”</p>
+                <p class="reel-cmd cue" data-at=".52" data-until=".68">“search my PC for invoices”</p>
+                <p class="reel-cmd cue" data-at=".68" data-until=".84">“volume up”</p>
+                <p class="reel-cmd cue" data-at=".84">“open spotty”</p>
+              </div>
+            </div>
+          </div>
+          <div class="reel-stack reel-hg-res" aria-hidden="true">
+            <div class="toast" data-at=".07" data-until=".19"><span class="art ghost-small"></span>Spotify<span class="check"></span></div>
+            <div class="reel-timer cue" data-at=".22" data-until=".36"><svg class="build" data-from=".23" data-to=".35" viewBox="0 0 48 48" width="64" height="64" fill="none" stroke="currentColor" stroke-width="3"><circle cx="24" cy="24" r="20"/></svg><span>Timer · 10:00</span></div>
+            <div class="reel-tabs cue" data-at=".38" data-until=".52"><span>Inbox</span><span>Report</span><span>Music</span><i></i></div>
+            <div class="reel-pop cue" data-at=".55" data-until=".68"><p class="reel-sbox">invoices</p><p class="reel-row-on">Invoices<i>Folder</i></p><p>Invoice March.pdf<i>File</i></p></div>
+            <div class="reel-vol cue" data-at=".71" data-until=".84"><span>Volume</span><i></i></div>
+            <div class="confirm" data-at=".87"><p class="confirm-title">Did I get that right? <span class="confirm-x">✕</span></p><p>You said “open spotty”. Did you mean:</p><p class="confirm-pick">Open Spotify</p><p class="confirm-row"><span>Click, or say “yes” or “no”.</span><span class="ui-btn">No</span><span class="ui-btn primary">Yes</span></p></div>
+          </div>
+        </div>
+        <div class="reel-col reel-own" data-way="own">
+          <p class="reel-cmd">“Hey Ghost, …”</p>
+          <ol class="build reel-phr" data-from=".05" data-to=".55" aria-label="Ten phrases of your own">
+            <li>music time</li><li>play my tunes</li><li>tunes please</li><li>start the music</li><li>my playlist</li>
+            <li>focus music</li><li>I need music</li><li>beats on</li><li>play some songs</li><li>something to listen to</li>
+          </ol>
+          <p class="reel-note cue" data-at=".62">All ten, one action:</p>
+          <div class="toast" data-at=".68"><span class="art ghost-small" aria-hidden="true"></span>Spotify<span class="check" aria-hidden="true"></span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="voice-notes" aria-labelledby="notes-title">
-  <div class="wrap feature">
+<!-- F6 Voice notes: record, import, transcribe a file or train your Ghost; then one search lights three notes -->
+<section class="scene flip" id="voice-notes" data-chapter="Voice notes" data-scene="voice-notes" data-scrub="150" data-way="record" aria-labelledby="notes-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Voice notes &middot; beta</span>
-      <h2 id="notes-title">Say it now. Find it later.</h2>
-      <p class="lead">Record a voice note, play it back at your own speed and search every note's words. Import recordings from your phone, or save a note as sound, text or subtitles. With Advanced mode, get a summary, key points or a to-do list.</p>
-      <ul class="ticks">
+      <p class="eyebrow">Voice notes &middot; beta</p>
+      <h2 id="notes-t">Say it now. Find it later.</h2>
+      <p class="line">Record a note, play it back at your own speed, and search every note's words.</p>
+      <div class="chooser" role="group" aria-label="Ways to make a voice note">
+        <button type="button" class="chip" aria-pressed="true" data-way="record">Record</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="import">Import</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="file">Transcribe a file</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="train">Train My Ghost</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>Record a voice note, play it back at your own speed and search every note's words. Import recordings from your phone, or save a note as sound, text or subtitles. With Advanced mode, get a summary, key points or a to-do list.</li>
         <li><b>Train My Ghost:</b> words it wasn't sure of are underlined. Click one to hear it, pick or type what you said, and your Ghost learns it, in dictation too.</li>
         <li><b>See your Ghost improve:</b> words heard right, notes checked and words learned, first checks against the latest.</li>
         <li><b>Kept on your PC.</b> Recording other people? Get their OK first: in some places the law requires everyone's consent.</li>
-      </ul>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-voicenotes lens-br"><div class="shot"><picture><source srcset="/assets/screens/voicenotes-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/voicenotes-dark.webp" alt="A voice note open, with its waveform, player and transcript" loading="lazy" width="1242" height="839"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col">
+        <div class="window reel-vn" data-title="Voice notes"><div class="body"><div class="ways">
+          <div data-way="record">
+            <p class="reel-rec"><i aria-hidden="true"></i>Recording</p>
+            <svg class="reel-wave wipe" data-from=".04" data-to=".42" viewBox="0 0 240 40" aria-hidden="true"><path d="M3 16V24M9 6V34M15 3V37M21 6V34M27 13V27M33 14V26M39 15V25M45 12V28M51 8V32M57 9V31M63 16V24M69 6V34M75 2V38M81 2V38M87 10V30M93 13V27M99 10V30M105 12V28M111 14V26M117 12V28M123 16V24M129 9V31M135 2V38M141 2V38M147 9V31M153 13V27M159 6V34M165 6V34M171 11V29M177 15V25M183 14V26M189 13V27M195 7V33M201 5V35M207 10V30M213 13V27M219 4V36M225 2V38M231 6V34M237 14V26"/></svg>
+            <p class="type" data-from=".1" data-to=".48">Dentist on Friday at nine, then pick up the dry cleaning.</p>
+          </div>
+          <div data-way="import">
+            <p class="reel-file cue" data-at=".04">Voice memo from my phone.m4a</p>
+            <svg class="reel-wave" viewBox="0 0 240 40" aria-hidden="true"><path d="M3 16V24M9 6V34M15 3V37M21 6V34M27 13V27M33 14V26M39 15V25M45 12V28M51 8V32M57 9V31M63 16V24M69 6V34M75 2V38M81 2V38M87 10V30M93 13V27M99 10V30M105 12V28M111 14V26M117 12V28M123 16V24M129 9V31M135 2V38M141 2V38M147 9V31M153 13V27M159 6V34M165 6V34M171 11V29M177 15V25M183 14V26M189 13V27M195 7V33M201 5V35M207 10V30M213 13V27M219 4V36M225 2V38M231 6V34M237 14V26"/></svg>
+            <p class="type" data-from=".16" data-to=".48">Book the dentist for Friday, and call Mum back tonight.</p>
+          </div>
+          <div data-way="file">
+            <p class="reel-file cue" data-at=".04">Team meeting.mp3</p>
+            <ol class="build reel-paras" data-from=".14" data-to=".48">
+              <li>Thanks, everyone. First, the dentist booking system goes live on Monday.</li>
+              <li>Next, the launch moves to Friday.</li>
+            </ol>
+          </div>
+          <div data-way="train">
+            <p class="reel-train">Meet <span class="reel-unsure"><s>a nook</s><b>Anouk</b></span> at the station, after the dentist.</p>
+            <ul class="menu reel-pick" data-at=".1" data-until=".36" aria-label="What did you say?">
+              <li data-at=".22">Anouk</li><li>a nook</li><li>Type it</li>
+            </ul>
+            <p class="reel-learned cue" data-at=".4">Your Ghost learned “Anouk”</p>
+          </div>
+        </div></div></div>
+        <div class="reel-find">
+          <p class="reel-sbox"><span class="type" data-from=".56" data-to=".66">dentist</span></p>
+          <ul class="menu reel-notes" aria-label="Notes that say dentist">
+            <li data-at=".7">Monday reminders</li><li data-at=".75">Friday plans</li><li data-at=".8">Errands</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="learns" aria-labelledby="learns-title">
-  <div class="wrap feature flip">
+<!-- F7 Learns: fix a word where it was typed; the thinking ghost blinks; next time it's right -->
+<section class="scene" id="learns" data-chapter="Learns" data-scene="learns" data-scrub="130" data-way="fix" aria-labelledby="learns-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Learns from you</span>
-      <h2 id="learns-title">Fix a word once. It remembers.</h2>
-      <p class="lead">When Ghost Writer gets a word wrong, fix it where it was typed, within a minute or so, and it's right next time.</p>
-      <ul class="ticks">
+      <p class="eyebrow">Learns from you</p>
+      <h2 id="learns-t">Fix a word once. It remembers.</h2>
+      <p class="line">Fix a wrong word where it was typed, within a minute or so. It's right next time.</p>
+      <div class="chooser" role="group" aria-label="Ways it learns">
+        <button type="button" class="chip" aria-pressed="true" data-way="fix">Fix it as you type</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="dict">Add to your dictionary</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>When Ghost Writer gets a word wrong, fix it where it was typed, within a minute or so, and it's right next time.</li>
         <li><b>A faint thinking ghost</b> shows for a moment when it learns something.</li>
         <li><b>Your dictionary:</b> add names and unusual words to listen for; import and export them.</li>
         <li><b>You're in charge:</b> see everything it learned in Settings, and remove anything.</li>
-      </ul>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-learning lens-tr"><div class="shot"><picture><source srcset="/assets/screens/learning-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/learning-dark.webp" alt="Settings: what Ghost Writer has learned from your corrections" loading="lazy" width="1242" height="839"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col">
+        <div class="window doc reel-learn" data-title="Notes"><div class="body"><div class="ways">
+          <div data-way="fix">
+            <p>Meeting with <span class="reel-fix"><s>Shivan</s><b>Siobhan</b></span> at noon.</p>
+            <p class="type" data-from=".6" data-to=".88"><b>Siobhan</b> has booked the room.</p>
+          </div>
+          <div data-way="dict">
+            <p class="reel-sbox reel-add"><span class="type" data-from=".05" data-to=".2">Kubernetes</span><span class="ui-btn primary">Add</span></p>
+            <p class="type" data-from=".5" data-to=".88">The <b>Kubernetes</b> cluster is ready.</p>
+          </div>
+        </div>
+          <span class="reel-think cue" data-at=".32" data-until=".55" aria-hidden="true"><span class="art thinking-ghost"></span></span>
+        </div></div>
+        <div class="reel-dict">
+          <p class="reel-dict-h">Your words</p>
+          <ul>
+            <li>Raghunathan</li><li>Ghost Media Works</li>
+            <li class="ways"><span class="cue" data-way="fix" data-at=".36">Siobhan</span><span class="cue" data-way="dict" data-at=".24">Kubernetes</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="search" aria-labelledby="search-title">
-  <div class="wrap feature">
+<!-- F8 Search your PC: keys (or your voice), the pop-up, results as you type; then Clean up -->
+<section class="scene flip" id="search" data-chapter="Search your PC" data-scene="search" data-scrub="160" data-way="keys" aria-labelledby="search-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Search your PC</span>
-      <h2 id="search-title">Find anything. Then free up space.</h2>
-      <p class="lead">Press <b>Alt+Shift+S</b> from any app, or say "Hey Ghost, search my PC", type a few letters, and open the app, Windows setting, folder or file you mean. Drag a result straight into another app.</p>
-      <ul class="ticks">
+      <p class="eyebrow">Search your PC</p>
+      <h2 id="search-t">Find anything. Then free up space.</h2>
+      <p class="line">Press Alt+Shift+S from any app, type a few letters, and open what you mean.</p>
+      <div class="chooser" role="group" aria-label="Ways to open Search your PC">
+        <button type="button" class="chip" aria-pressed="true" data-way="keys">Press the keys</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="say">Say it</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>Press <b>Alt+Shift+S</b> from any app, or say "Hey Ghost, search my PC", type a few letters, and open the app, Windows setting, folder or file you mean. Drag a result straight into another app.</li>
         <li><b>Apps, Settings, folders and files</b> in one box, as you type.</li>
         <li><b>Clean up</b> shows each drive's free space, safe junk (temporary files, caches, thumbnails, crash reports) and your biggest files. It's built to leave your files, history, passwords and sign-ins alone, and it shows what it will remove first.</li>
         <li><b>No administrator needed,</b> and nothing leaves your PC.</li>
-      </ul>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-search lens-br"><div class="shot"><picture><source srcset="/assets/screens/searchpopup-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/searchpopup-dark.webp" alt="The Search your PC pop-up: typing budget finds files, folders, apps and settings" loading="lazy" width="901" height="497"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="reel-col reel-srch">
+        <div class="ways reel-srch-trig">
+          <span class="keys" data-way="keys" aria-label="Alt plus Shift plus S"><kbd data-at=".01" data-until=".08">Alt</kbd>+<kbd data-at=".02" data-until=".08">Shift</kbd>+<kbd data-at=".03" data-until=".08">S</kbd></span>
+          <p class="reel-cmd" data-way="say">“Hey Ghost, search my PC”</p>
+        </div>
+        <div class="reel-pop cue" data-at=".08">
+          <p class="reel-sbox"><span class="type" data-from=".12" data-to=".22">budget</span></p>
+          <p class="reel-row-on cue" data-at=".2">Budget 2026.xlsx<i>File</i></p>
+          <p class="cue" data-at=".24">Budgets<i>Folder</i></p>
+          <p class="cue" data-at=".28">Budget notes.docx<i>File</i></p>
+        </div>
+        <div class="reel-clean cue" data-at=".55">
+          <p class="reel-clean-h">Clean up<span>Local Disk (C:)</span></p>
+          <p class="reel-drive" aria-hidden="true"><i></i></p>
+          <ul class="menu reel-junk" aria-label="Safe to clean">
+            <li data-at=".72">Temporary files</li><li data-at=".76">Caches</li><li data-at=".8">Thumbnails</li><li data-at=".84">Crash reports</li>
+          </ul>
+          <p class="reel-big cue" data-at=".9">Your biggest files, largest first</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="notepad" aria-labelledby="notepad-title">
-  <div class="wrap">
-    <span class="eyebrow">Notepad and Transcribe</span>
-    <h2 id="notepad-title">Notes, and recordings into text.</h2>
-    <div class="grid two">
-      <div class="card"><h3>Notepad</h3><p>Notes with folders, formatting, attachments and a pop-out window. Dictate straight into them.</p></div>
-      <div class="card"><h3>Transcribe</h3><p>Drop in audio or video (MP3, WAV, M4A, FLAC, MP4 and more): each becomes a note, in paragraphs, on your PC.</p></div>
-    </div>
-    <div class="grid two u-mt20">
-      <figure class="gw-moment m-notepad"><div class="shot"><picture><source srcset="/assets/screens/notepad-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/notepad-dark.webp" alt="The Notepad with a dictated email, folders on the left" loading="lazy" width="1242" height="839"></picture></div></figure>
-      <figure class="gw-moment m-transcribe"><div class="shot"><picture><source srcset="/assets/screens/transcribe-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/transcribe-dark.webp" alt="Transcribe: drop recordings or videos to turn them into text" loading="lazy" width="1242" height="839"></picture></div></figure>
-    </div>
-  </div>
-</section>
-
-<section id="stats" aria-labelledby="stats-title">
-  <div class="wrap feature flip">
+<!-- F9 Notepad and Transcribe: a note dictated beside its folders; a recording dropped in becomes paragraphs -->
+<section class="scene" id="notepad" data-chapter="Notepad" data-scene="notepad" data-scrub="130" data-way="notepad" aria-labelledby="notepad-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Your stats</span>
-      <h2 id="stats-title">See the time you get back.</h2>
-      <p class="lead">Words dictated, how fast you speak, time saved, streaks and an activity calendar. Numbers only, never what you said, kept on your PC, and you can reset them any time.</p>
+      <p class="eyebrow">Notepad and Transcribe</p>
+      <h2 id="notepad-t">Notes, and recordings into text.</h2>
+      <p class="line">Dictate straight into your notes, or drop in a recording and get it back as text.</p>
+      <div class="chooser" role="group" aria-label="Notepad or Transcribe">
+        <button type="button" class="chip" aria-pressed="true" data-way="notepad">Notepad</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="transcribe">Transcribe</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li><b>Notepad:</b> notes with folders, formatting, attachments and a pop-out window. Dictate straight into them.</li>
+        <li><b>Transcribe:</b> drop in audio or video (MP3, WAV, M4A, FLAC, MP4 and more): each becomes a note, in paragraphs, on your PC.</li>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-stats lens-br"><div class="shot"><picture><source srcset="/assets/screens/stats-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/stats-dark.webp" alt="Your stats: words dictated, speaking speed, time saved and a year of activity" loading="lazy" width="1242" height="839"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="ways reel-np">
+        <div class="window reel-np-win" data-way="notepad" data-title="Notepad"><div class="body reel-np-split">
+          <ol class="build reel-folders" data-from=".04" data-to=".26" aria-label="Folders"><li class="on">Work</li><li>Home</li><li>Ideas</li></ol>
+          <div>
+            <p class="reel-np-h">Call notes</p>
+            <p class="type" data-from=".3" data-to=".88">Ask Sam about the venue, then book the train for Tuesday.</p>
+          </div>
+        </div></div>
+        <div class="window reel-np-win" data-way="transcribe" data-title="Transcribe"><div class="body">
+          <p class="reel-drop"><span class="reel-file cue" data-at=".04">Interview.mp3</span></p>
+          <ol class="build reel-paras" data-from=".34" data-to=".86">
+            <li>Thanks for coming in. Let's start with your time at the studio.</li>
+            <li>Sure. I joined in the spring and worked on the launch.</li>
+          </ol>
+        </div></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="settings" aria-labelledby="settings-title">
-  <div class="wrap feature">
+<!-- F10 Your stats: the numbers count up and the calendar fills as they arrive (example numbers) -->
+<section class="scene flip" id="stats" data-chapter="Your stats" data-scene="stats" aria-labelledby="stats-t">
+  <div class="wrap scene-in">
     <div class="words">
-      <span class="eyebrow">Settings</span>
-      <h2 id="settings-title">Everything adjustable.</h2>
-      <p class="lead">Every feature has a setting, grouped into cards (Dictation, Voice commands, Sound and microphone, AI, Search your PC, Keyboard, Voice notes, App), with a search box. Dark, light, or follow Windows; every shortcut can be changed.</p>
+      <p class="eyebrow">Your stats</p>
+      <h2 id="stats-t">See the time you get back.</h2>
+      <p class="line">Numbers only, never what you said. Kept on your PC, and you can reset them any time.</p>
+      <details class="more"><summary>More</summary><ul>
+        <li>Words dictated, how fast you speak, time saved, streaks and an activity calendar. Numbers only, never what you said, kept on your PC, and you can reset them any time.</li>
+      </ul></details>
     </div>
-    <figure class="gw-moment m-settings lens-br"><div class="shot"><picture><source srcset="/assets/screens/settings-light.webp" media="(prefers-color-scheme: light)" data-theme-source><img src="/assets/screens/settings-dark.webp" alt="Ghost Writer&#x27;s Settings page" loading="lazy" width="1242" height="839"></picture></div><span class="gw-lens" aria-hidden="true"></span></figure>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window reel-stats" data-title="Your stats · example"><div class="body">
+        <div class="reel-nums">
+          <p><span class="count">12,480</span><small>words dictated</small></p>
+          <p><span class="count">142</span><small>words a minute</small></p>
+          <p><span class="count">12</span><small>days in a row</small></p>
+        </div>
+        <ol class="calendar" aria-label="Days with dictation this month (example)">
+          <li></li><li class="on"></li><li class="on"></li><li></li><li class="on"></li><li class="on"></li><li></li>
+          <li class="on"></li><li class="on"></li><li class="on"></li><li></li><li class="on"></li><li></li><li></li>
+          <li class="on"></li><li></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li>
+          <li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li>
+        </ol>
+        <p class="reel-reset"><span class="ui-btn">Reset</span></p>
+      </div></div>
+    </div>
   </div>
 </section>
 
-<section id="modes" aria-labelledby="modes-title">
-  <div class="wrap">
-    <h2 id="modes-title">Standard and Advanced</h2>
-    <p class="lead">Ghost Writer works on any Windows 10 or 11 PC. With a graphics card, Advanced makes it sharper.</p>
-    <div class="grid two">
-      <div class="card"><span class="badge plain">Standard mode</span><h3 class="u-mt12">Every PC</h3><p>Included in the download. Dictation on the processor, with punctuation, paragraphs, writing styles, quick fixes, voice commands and voice notes. Choose Light, Balanced or Most accurate to suit your PC.</p></div>
-      <div class="card"><span class="badge">Advanced mode</span><h3 class="u-mt12">NVIDIA, AMD and Intel graphics cards</h3><p>A much bigger speech model for accents and fast speech, plus a small AI for grammar, paragraphs by topic, rewriting, voice-note summaries and searching inside documents. Needs a graphics card with 4 GB of its own memory or more (6 GB for the AI too). A one-time download from inside the app, 3.3 to 4.8 GB.</p></div>
+<!-- F11 Settings: the cards, the search filtering them, one switch flipping; the chips change the stage's theme -->
+<section class="scene" id="settings" data-chapter="Settings" data-scene="settings" data-play="2400" data-way="follow" aria-labelledby="settings-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Settings</p>
+      <h2 id="settings-t">Everything adjustable.</h2>
+      <p class="line">Every feature has a setting, with a search box to find it. Every shortcut can be changed.</p>
+      <div class="chooser" role="group" aria-label="App theme">
+        <button type="button" class="chip" aria-pressed="false" data-way="dark">Dark</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="light">Light</button>
+        <button type="button" class="chip" aria-pressed="true" data-way="follow">Follow Windows</button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>Every feature has a setting, grouped into cards (Dictation, Voice commands, Sound and microphone, AI, Search your PC, Keyboard, Voice notes, App), with a search box. Dark, light, or follow Windows; every shortcut can be changed.</li>
+      </ul></details>
     </div>
-    <p class="center u-mt32"><a class="button" href="/ghost-writer/#request">Request free access</a></p>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window reel-set" data-title="Settings"><div class="body">
+        <p class="reel-sbox"><span class="type" data-from=".12" data-to=".3">microphone</span></p>
+        <ul class="build reel-tiles" data-from=".02" data-to=".3" aria-label="Setting cards">
+          <li>Dictation</li><li>Voice commands</li><li class="hit">Sound and microphone</li><li>AI</li>
+          <li>Search your PC</li><li>Keyboard</li><li>Voice notes</li><li>App</li>
+        </ul>
+        <p class="reel-setrow">Start sound<i class="reel-sw" aria-hidden="true"></i></p>
+      </div></div>
+    </div>
   </div>
 </section>
 
-<section id="windows-voice-typing" aria-labelledby="compare-title">
-  <div class="wrap">
-    <h2 id="compare-title">Ghost Writer and Windows voice typing</h2>
-    <p class="lead">Windows has its own voice typing (Win+H). Here is how the two differ, from Microsoft's own help pages.</p>
-    <!-- Every Windows line is from Microsoft's documentation (checked 2026-10-27):
-         https://support.microsoft.com/en-us/windows/use-voice-typing-to-talk-instead-of-type-on-your-pc-fec94565-c4bd-329d-e59a-af033fa5689f
-           "Press Windows key+H"; "To use voice typing, you'll need to be connected to the internet";
-           "Voice typing uses online speech recognition, which is powered by Azure Speech services.";
-           "Automatic punctuation"; commands "delete that", "select that", "Stop listening";
-           fluid dictation (Copilot+ PCs, English) "automatically corrects grammar, punctuation, and filler words as you speak";
-           the page does not mention adding your own words or rewriting selected text.
-         https://support.microsoft.com/en-us/windows/privacy/speech-voice-activation-inking-typing-and-privacy
-           "Voice typing converts speech to text using online speech recognition.";
-           "Voice data is sent to Microsoft only to provide the service and create text transcriptions."
-         Re-check these pages before each publish; change a line only with a source. -->
-    <div class="compare-wrap">
-      <table class="compare">
-        <caption class="visually-hidden">Ghost Writer compared with Windows voice typing</caption>
-        <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">Ghost Writer</th><th scope="col">Windows voice typing (Win+H)</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Start it</th><td data-label="Ghost Writer">Hold Ctrl+Win, talk, let go</td><td data-label="Windows voice typing">Press Win+H</td></tr>
-          <tr><th scope="row">Where speech becomes text</th><td data-label="Ghost Writer">On your PC. Nothing you say is uploaded.</td><td data-label="Windows voice typing">Microsoft's online speech recognition (Azure Speech services). Voice data is sent to Microsoft to create the text.</td></tr>
-          <tr><th scope="row">Needs the internet to dictate</th><td data-label="Ghost Writer">No. Works offline for up to 3 days between key checks.</td><td data-label="Windows voice typing">Yes, says Microsoft's guide.</td></tr>
-          <tr><th scope="row">Punctuation for you</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Yes, with the Automatic punctuation setting</td></tr>
-          <tr><th scope="row">Tidies as you talk</th><td data-label="Ghost Writer">Leaves out um and uh; Advanced mode also fixes grammar</td><td data-label="Windows voice typing">On Copilot+ PCs, fluid dictation corrects grammar, punctuation and filler words</td></tr>
-          <tr><th scope="row">Voice commands</th><td data-label="Ghost Writer">"Hey Ghost": open apps, timers, tabs and more</td><td data-label="Windows voice typing">Editing commands such as "delete that", "select that", "stop listening"</td></tr>
-          <tr><th scope="row">Fix and rewrite text you select</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Not in Microsoft's voice typing guide</td></tr>
-          <tr><th scope="row">Learns your names and words</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Not in Microsoft's voice typing guide</td></tr>
-          <tr><th scope="row">Languages</th><td data-label="Ghost Writer">English, for now</td><td data-label="Windows voice typing">Many languages (Microsoft lists them)</td></tr>
-          <tr><th scope="row">Price</th><td data-label="Ghost Writer">Free beta, by invitation (US)</td><td data-label="Windows voice typing">Comes with Windows</td></tr>
-        </tbody>
-      </table>
+<!-- F12 Standard and Advanced: the switch washes the stage and swaps what each mode brings -->
+<section class="scene flip" id="modes" data-chapter="Standard and Advanced" data-scene="modes" data-play="1400" data-way="std" aria-labelledby="modes-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Standard and Advanced</p>
+      <h2 id="modes-t">Any PC. Sharper with a graphics card.</h2>
+      <p class="line">Standard comes in the download. Advanced needs an NVIDIA, AMD or Intel graphics card.</p>
+      <div class="chooser">
+        <button type="button" class="switch" aria-checked="false" aria-label="Advanced mode" data-wash-on="violet" data-wash-off="indigo" data-way-on="adv" data-way-off="std"><span>Standard</span><i aria-hidden="true"></i><span>Advanced</span></button>
+      </div>
+      <details class="more"><summary>More</summary><ul>
+        <li>Ghost Writer works on any Windows 10 or 11 PC. With a graphics card, Advanced makes it sharper.</li>
+        <li><b>Standard mode, every PC:</b> included in the download. Dictation on the processor, with punctuation, paragraphs, writing styles, quick fixes, voice commands and voice notes. Choose Light, Balanced or Most accurate to suit your PC.</li>
+        <li><b>Advanced mode, NVIDIA, AMD and Intel graphics cards:</b> a much bigger speech model for accents and fast speech, plus a small AI for grammar, paragraphs by topic, rewriting, voice-note summaries and searching inside documents. Needs a graphics card with 4 GB of its own memory or more (6 GB for the AI too). A one-time download from inside the app, 3.3 to 4.8 GB.</li>
+      </ul></details>
     </div>
-    <p class="small-print u-mt14">Windows details from Microsoft's help pages "Use voice typing to talk instead of type on your PC" and "Speech, voice activation, inking, typing, and privacy", October 2026.</p>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window reel-mode" data-title="Ghost Writer"><div class="body"><div class="ways">
+        <div data-way="std">
+          <p class="reel-badge">Standard mode</p>
+          <p class="reel-mode-h">Every PC</p>
+          <ol class="build" data-from=".1" data-to=".9">
+            <li>Included in the download</li><li>Dictation on the processor</li><li>Punctuation, paragraphs and writing styles</li>
+            <li>Quick fixes, voice commands and voice notes</li><li>Light, Balanced or Most accurate</li>
+          </ol>
+        </div>
+        <div data-way="adv">
+          <p class="reel-badge on">Advanced mode</p>
+          <p class="reel-mode-h">NVIDIA, AMD and Intel graphics cards</p>
+          <ol class="build" data-from=".1" data-to=".9">
+            <li>A much bigger speech model for accents and fast speech</li><li>A small AI for grammar, rewriting and summaries</li>
+            <li>4 GB of graphics memory or more (6 GB for the AI too)</li><li>A one-time download from inside the app, 3.3 to 4.8 GB</li>
+          </ol>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- F13 Ghost Writer and Windows voice typing: each row plays (2 s) as it arrives; the table stays in More -->
+<section class="scene wide" id="windows-voice-typing" data-chapter="vs Windows voice typing" data-scene="compare" aria-labelledby="compare-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Compared</p>
+      <h2 id="compare-t">Ghost Writer and Windows voice typing</h2>
+      <p class="line">Windows has its own voice typing (Win+H). Here is how the two differ, from Microsoft's own help pages.</p>
+      <!-- Every Windows line is from Microsoft's documentation (checked 2026-10-27):
+           https://support.microsoft.com/en-us/windows/use-voice-typing-to-talk-instead-of-type-on-your-pc-fec94565-c4bd-329d-e59a-af033fa5689f
+             "Press Windows key+H"; "To use voice typing, you'll need to be connected to the internet";
+             "Voice typing uses online speech recognition, which is powered by Azure Speech services.";
+             "Automatic punctuation"; commands "delete that", "select that", "Stop listening";
+             fluid dictation (Copilot+ PCs, English) "automatically corrects grammar, punctuation, and filler words as you speak";
+             the page does not mention adding your own words or rewriting selected text.
+           https://support.microsoft.com/en-us/windows/privacy/speech-voice-activation-inking-typing-and-privacy
+             "Voice typing converts speech to text using online speech recognition.";
+             "Voice data is sent to Microsoft only to provide the service and create text transcriptions."
+           Re-check these pages before each publish; change a line only with a source. -->
+      <details class="more"><summary>The table</summary><div class="compare-wrap">
+        <table class="compare">
+          <caption class="visually-hidden">Ghost Writer compared with Windows voice typing</caption>
+          <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">Ghost Writer</th><th scope="col">Windows voice typing (Win+H)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Start it</th><td data-label="Ghost Writer">Hold Ctrl+Win, talk, let go</td><td data-label="Windows voice typing">Press Win+H</td></tr>
+            <tr><th scope="row">Where speech becomes text</th><td data-label="Ghost Writer">On your PC. Nothing you say is uploaded.</td><td data-label="Windows voice typing">Microsoft's online speech recognition (Azure Speech services). Voice data is sent to Microsoft to create the text.</td></tr>
+            <tr><th scope="row">Needs the internet to dictate</th><td data-label="Ghost Writer">No. Works offline for up to 3 days between key checks.</td><td data-label="Windows voice typing">Yes, says Microsoft's guide.</td></tr>
+            <tr><th scope="row">Punctuation for you</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Yes, with the Automatic punctuation setting</td></tr>
+            <tr><th scope="row">Tidies as you talk</th><td data-label="Ghost Writer">Leaves out um and uh; Advanced mode also fixes grammar</td><td data-label="Windows voice typing">On Copilot+ PCs, fluid dictation corrects grammar, punctuation and filler words</td></tr>
+            <tr><th scope="row">Voice commands</th><td data-label="Ghost Writer">"Hey Ghost": open apps, timers, tabs and more</td><td data-label="Windows voice typing">Editing commands such as "delete that", "select that", "stop listening"</td></tr>
+            <tr><th scope="row">Fix and rewrite text you select</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Not in Microsoft's voice typing guide</td></tr>
+            <tr><th scope="row">Learns your names and words</th><td data-label="Ghost Writer">Yes</td><td data-label="Windows voice typing">Not in Microsoft's voice typing guide</td></tr>
+            <tr><th scope="row">Languages</th><td data-label="Ghost Writer">English, for now</td><td data-label="Windows voice typing">Many languages (Microsoft lists them)</td></tr>
+            <tr><th scope="row">Price</th><td data-label="Ghost Writer">Free beta, by invitation (US)</td><td data-label="Windows voice typing">Comes with Windows</td></tr>
+          </tbody>
+        </table>
+      </div></details>
+    </div>
+    <div class="stage reel-cmp">
+      <div class="reel-rows" aria-hidden="true">
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Start it</p>
+          <div class="reel-gw cue" data-at=".05"><span class="keys"><kbd data-at=".2" data-until=".8">Ctrl</kbd>+<kbd data-at=".24" data-until=".8">Win</kbd></span><p>Hold Ctrl+Win, talk, let go</p></div>
+          <div class="reel-win cue" data-at=".4"><span class="keys"><kbd data-at=".55" data-until=".9">Win</kbd>+<kbd data-at=".58" data-until=".9">H</kbd></span><p>Press Win+H</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Where speech becomes text</p>
+          <div class="reel-gw cue" data-at=".05"><span class="reel-g reel-g-pc"><i></i></span><p>On your PC. Nothing you say is uploaded.</p></div>
+          <div class="reel-win cue" data-at=".4"><span class="reel-g reel-g-out"><i></i><b></b></span><p>Microsoft's online speech recognition (Azure Speech services). Voice data is sent to Microsoft to create the text.</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Needs the internet to dictate</p>
+          <div class="reel-gw cue" data-at=".05"><span class="reel-g reel-g-net"><i></i></span><p>No. Works offline for up to 3 days between key checks.</p></div>
+          <div class="reel-win cue" data-at=".4"><span class="reel-g reel-g-net stop"><i></i></span><p>Yes, says Microsoft's guide.</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Punctuation for you</p>
+          <div class="reel-gw cue" data-at=".05"><p>Yes</p></div>
+          <div class="reel-win cue" data-at=".4"><p>Yes, with the Automatic punctuation setting</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Tidies as you talk</p>
+          <div class="reel-gw cue" data-at=".05"><p>Leaves out um and uh; Advanced mode also fixes grammar</p></div>
+          <div class="reel-win cue" data-at=".4"><p>On Copilot+ PCs, fluid dictation corrects grammar, punctuation and filler words</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Voice commands</p>
+          <div class="reel-gw cue" data-at=".05"><p>"Hey Ghost": open apps, timers, tabs and more</p></div>
+          <div class="reel-win cue" data-at=".4"><p>Editing commands such as "delete that", "select that", "stop listening"</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Fix and rewrite text you select</p>
+          <div class="reel-gw cue" data-at=".05"><p>Yes</p></div>
+          <div class="reel-win cue" data-at=".4"><p>Not in Microsoft's voice typing guide</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Learns your names and words</p>
+          <div class="reel-gw cue" data-at=".05"><p>Yes</p></div>
+          <div class="reel-win cue" data-at=".4"><p>Not in Microsoft's voice typing guide</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Languages</p>
+          <div class="reel-gw cue" data-at=".05"><p>English, for now</p></div>
+          <div class="reel-win cue" data-at=".4"><p>Many languages (Microsoft lists them)</p></div>
+        </div>
+        <div class="scene reel-row" data-play="2000">
+          <p class="reel-row-h">Price</p>
+          <div class="reel-gw cue" data-at=".05"><p>Free beta, by invitation (US)</p></div>
+          <div class="reel-win cue" data-at=".4"><p>Comes with Windows</p></div>
+        </div>
+      </div>
+      <p class="small-print reel-src">Windows details from Microsoft's help pages "Use voice typing to talk instead of type on your PC" and "Speech, voice activation, inking, typing, and privacy", October 2026.</p>
+    </div>
   </div>
 </section>
 
@@ -385,13 +797,14 @@
     <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
     <p class="eyebrow">Ghost Writer</p>
     <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
-    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Get access</a></div>
+    <p class="closing-more"><a class="text-link" href="/ghost-writer/help/">Install and help</a></p>
     <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
   </div>
 </section>
 <footer class="site-footer">
   <div class="wrap">
-    <nav class="foot-row" aria-label="Footer">
+    <div class="foot-top">
       <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
             <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
               <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
@@ -399,14 +812,23 @@
             </svg><span class="lg-gh"></span></span>
             <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
           </span></span></p>
-      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
-      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
-    </nav>
-    <div class="foot-row">
-      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
-      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+      <a class="button foot-cta" href="/ghost-writer/#request">Get access</a>
     </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div class="foot-col"><p class="foot-h">Ghost Writer</p><ul>
+        <li><a href="/ghost-writer/">Overview</a></li><li><a href="/ghost-writer/features/">Features</a></li>
+        <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li>
+        <li><a href="/ghost-writer/#request">Request access</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Company</p><ul>
+        <li><a href="/media-hub/">Ghost Media Hub</a></li><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li>
+        <li><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Support</p><ul>
+        <li><a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li></ul></div>
+    </nav>
+    <p class="foot-legal">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source notices</a><a href="/about/#accessibility">Accessibility</a>
+      <span>No ads, no analytics scripts or cookies.</span>
+    </p>
   </div>
 </footer>
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
@@ -482,13 +904,15 @@
   </div>
 </dialog>
 
-<script src="/assets/site.7005f1863f.js" defer></script>
-<script src="/assets/logo.f7e7fe24f3.js" defer></script>
-<script src="/assets/frame.e39da035f4.js" defer></script>
+<script src="/assets/site.ed3da27f30.js" defer></script>
+<script src="/assets/logo.b5ae365e06.js" defer></script>
+<script src="/assets/stars.e5c827dea4.js" defer></script>
+<script src="/assets/frame.b7f0a42eb2.js" defer></script>
 <script src="/assets/media/pill.js" defer></script>
-<script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/scenes.37d79b3e3c.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
-<script src="/assets/gw.9e842d6eef.js" defer></script>
+<script src="/assets/gw.1647d5152d.js" defer></script>
+<script src="/assets/reel.acdfc73770.js" defer></script>
 
 </body>
 </html>
