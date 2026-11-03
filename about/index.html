@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About Ghost Media Works</title>
 <meta name="description" content="Ghost Media Works, founded by Ghost (@ghost_1krr), makes private apps for Windows that run on your own PC: Ghost Writer, and Ghost Media Hub (in beta).">
 <link rel="canonical" href="https://ghostmediaworks.com/about/">
@@ -11,21 +11,22 @@
 <meta property="og:title" content="About Ghost Media Works">
 <meta property="og:description" content="Ghost Media Works, founded by Ghost (@ghost_1krr), makes private apps for Windows that run on your own PC: Ghost Writer, and Ghost Media Hub (in beta).">
 <meta property="og:url" content="https://ghostmediaworks.com/about/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.10f2a9c13b.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.ee70ac8720.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Media Works: private software that runs on your PC.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#040508">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
+<link rel="stylesheet" href="/assets/site.cd4bebedfd.css">
+<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
+<link rel="stylesheet" href="/assets/more.63ae14b94c.css">
+<script src="/assets/head.4cda8fda39.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -92,48 +93,91 @@
           <span class="lg-spec"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span></span>
       </span></span>
     </a>
-    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
-    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <nav class="main-nav" id="site-menu" aria-label="Main">
+    <nav class="main-nav" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer">Ghost Writer</a>
-      <span class="menu-sub">
-        <a href="/ghost-writer/features/" data-sub="features">Features</a>
-        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
-        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-      </span>
       <a href="/media-hub/" data-nav="media-hub">Media Hub</a>
       <a href="/about/" data-nav="about" aria-current="page">About</a>
-      <a class="menu-only" href="/press/">Press kit</a>
-      <button class="menu-only menu-theme" type="button" data-theme-button>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
-        <span class="theme-label">Theme: follows your device</span>
-      </button>
     </nav>
-    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
+    <a class="button small header-cta" href="/ghost-writer/#request">Get access</a>
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: dark. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
 </header>
-
 <main id="main" tabindex="-1">
-<div class="wrap">
-  <div class="hero u-one u-pb24">
-    <div class="u-w760">
+<!-- Site film, About (PLAN.html chapter 13). Star object: the hub mark alone (the header logo's five nodes, _layout.html
+     .lg-hub geometry, with the ghost inside).
+     Kit pieces (scenes.css/js): hero as .hero-film.scene[data-play] with svg.build (the mark draws itself), .art.ghost,
+     .cue, .glow; A1 .scene[data-scrub] with .light-pass, svg.build and .more; A2/A3 .scene.quiet[data-play] with .cue and
+     .build (the two product nodes assemble). Own (more.css): .m-hub, .m-map (the packet is a dash running a pathLength-1
+     path with --t), .m-nodes. Keep id="accessibility" (the footer links to it). -->
+<section class="hero-film scene" data-play="1400" aria-labelledby="hero-t">
+  <div class="wrap hero-in">
+    <div class="hero-words">
       <p class="eyebrow">About</p>
-      <h1>We build software that stays on your PC.</h1>
-      <p class="sub">Ghost Media Works is a small, independent software maker. We make apps for Windows that do their work on your own computer. Our first, Ghost Writer, turns your voice into text on your PC, so what you say stays with you.</p>
+      <h1 id="hero-t">Software that stays on <em>your PC.</em></h1>
+      <p class="hero-line">Ghost Media Works is a small, independent maker of Windows apps that work on your own PC.</p>
+      <div class="hero-actions"><a class="btn" href="/ghost-writer/#request">Get access</a>
+        <a class="text-link" href="#products">What we make</a></div>
+    </div>
+    <div class="hero-object" data-wash="indigo"><span class="glow" aria-hidden="true"></span>
+      <div class="m-hub" role="img" aria-label="The Ghost Media Works mark: the ghost inside a ring of five points">
+        <svg class="build" data-from="0" data-to=".7" viewBox="0 0 76 76" aria-hidden="true">
+          <path class="hub-ln" d="M38 38L38 7"/><path class="hub-ln" d="M38 38L67.5 28.4"/><path class="hub-ln" d="M38 38L56.2 63.1"/>
+          <path class="hub-ln" d="M38 38L19.8 63.1"/><path class="hub-ln" d="M38 38L8.5 28.4"/>
+          <circle class="hub-nd" cx="38" cy="7" r="3.2"/><circle class="hub-nd" cx="67.5" cy="28.4" r="3.2"/><circle class="hub-nd" cx="56.2" cy="63.1" r="3.2"/>
+          <circle class="hub-nd" cx="19.8" cy="63.1" r="3.2"/><circle class="hub-nd" cx="8.5" cy="28.4" r="3.2"/>
+        </svg>
+        <span class="art ghost cue" data-at=".45"></span>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<section id="founder" aria-labelledby="founder-title">
+<section class="scene" id="principles" data-scene="online" data-scrub="150" data-chapter="How we work" aria-labelledby="principles-title">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">How we work</p>
+      <h2 class="light-pass" id="principles-title">If a job can run on your PC, it runs on your PC.</h2>
+      <p class="line">Ghost Writer goes online for four things only. Nothing you say leaves your PC.</p>
+      <details class="more"><summary>More</summary><ul>
+        <li><b>Key check:</b> the key, a scrambled id of your PC and the version.</li>
+        <li><b>Updates:</b> new versions, and Advanced mode if you choose it.</li>
+        <li><b>Sync:</b> your data moves to your other PC only when you press Sync, scrambled so only your PCs can read it.</li>
+        <li><b>Stats:</b> only if you keep your stats in step between your PCs, scrambled the same way.</li>
+        <li>No ads, no analytics scripts. We don't sell data. Ghost Writer sends no usage data about what you do; the key check shows us only how many PCs used it each day.</li>
+        <li>This website runs no analytics scripts, sets no cookies and loads nothing from other sites.</li>
+        <li>Beta means beta: we list what's new and what's known to be wrong, and explain warnings before you meet them.</li>
+        <li>Ghost Writer is free by invitation while it grows, and shaped by the feedback of the people using it.</li>
+      </ul></details>
+    </div>
+    <div class="stage">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="m-map" role="img" aria-label="Your PC in the middle, linked to four stops only: key check, updates, Sync and stats">
+        <svg viewBox="0 0 320 250" aria-hidden="true">
+          <path class="map-packet" pathLength="1" d="M160 125L58 48L160 125L262 48L160 125L262 192L160 125L58 192L160 125"/>
+        </svg>
+        <svg class="build" data-from="0" data-to=".2" viewBox="0 0 320 250" aria-hidden="true">
+          <path class="map-ln" d="M160 125L58 48"/><path class="map-ln" d="M160 125L262 48"/>
+          <path class="map-ln" d="M160 125L262 192"/><path class="map-ln" d="M160 125L58 192"/>
+          <circle class="map-stop" cx="58" cy="48" r="12"/><circle class="map-stop" cx="262" cy="48" r="12"/>
+          <circle class="map-stop" cx="262" cy="192" r="12"/><circle class="map-stop" cx="58" cy="192" r="12"/>
+          <rect class="map-pc" x="96" y="99" width="128" height="54" rx="12"/>
+          <text x="160" y="122">Your PC</text>
+          <text x="58" y="22">Key check</text><text x="262" y="22">Updates</text>
+          <text x="262" y="226">Sync</text><text x="58" y="226">Stats</text>
+          <text class="map-sub" x="160" y="140">Your words stay here</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene quiet" id="founder" data-play="900" data-chapter="Founder" aria-labelledby="founder-title">
   <div class="wrap">
     <p class="eyebrow">The founder</p>
     <h2 id="founder-title">Who's behind it</h2>
-    <div class="card founder-card">
+    <div class="card founder-card cue" data-at=".05">
       <img class="founder-photo" src="/assets/instagram/lightning-ride.webp" alt="Ghost, founder of Ghost Media Works, on his sport bike under a purple sky full of lightning" loading="lazy" width="300" height="400">
       <div>
         <p class="founder-line">Ghost Media Works was founded by <strong>Ghost</strong>.</p>
@@ -143,40 +187,28 @@
   </div>
 </section>
 
-<section id="principles" class="band" aria-labelledby="principles-title">
-  <div class="wrap">
-    <p class="eyebrow">How we work</p>
-    <h2 class="statement" id="principles-title">If a job can run on your PC, it runs on your PC.</h2>
-    <ul class="promise-row">
-      <li><b>Local first</b>Our apps go online only for what they say they do, such as checking for updates.</li>
-      <li><b>No ads, no analytics scripts</b>We don't sell data or show ads. Ghost Writer sends no usage data about what you do. The only thing its key check shows us is how many PCs used it each day. This website runs no analytics scripts, sets no cookies and loads nothing from other sites.</li>
-      <li><b>Honest about the rough edges</b>Beta means beta. We list what's new and what's known to be wrong, and we explain warnings before you meet them.</li>
-      <li><b>Built with the people who use it</b>Ghost Writer is free by invitation while it grows, and shaped by the feedback of the people using it.</li>
-    </ul>
-    <p class="proof"><b>Ghost Writer goes online for four things only:</b> checking your key (the key, a scrambled id of your PC and the version), checking for updates, moving your data to your other PC when you press Sync (scrambled so only your PCs can read it) and, if you choose it, downloading Advanced mode.</p>
-  </div>
-</section>
-
-<section id="products" aria-labelledby="about-products-title">
+<section class="scene quiet" id="products" data-play="1000" data-chapter="What we make" aria-labelledby="about-products-title">
   <div class="wrap">
     <p class="eyebrow">Ghost Media Works</p>
     <h2 id="about-products-title">What we make</h2>
-    <div class="grid two">
-      <div class="card"><span class="badge">Free beta</span><h3 class="u-mt12"><a href="/ghost-writer/">Ghost Writer</a></h3><p>Voice typing and AI writing for Windows, on your own PC.</p></div>
-      <div class="card"><span class="badge plain">Locked beta</span><h3 class="u-mt12"><a href="/media-hub/">Ghost Media Hub</a></h3><p>A video editor for Windows that runs on your PC. In beta for invited testers, with an access key.</p></div>
-    </div>
+    <ol class="m-nodes build" data-from=".05" data-to=".6">
+      <li><span class="m-node" aria-hidden="true"></span><div>
+        <p class="m-node-name"><a href="/ghost-writer/">Ghost Writer</a><span class="badge">Free beta</span></p>
+        <p>Voice typing and AI writing for Windows, on your own PC. What you say stays with you.</p></div></li>
+      <li><span class="m-node" aria-hidden="true"></span><div>
+        <p class="m-node-name"><a href="/media-hub/">Ghost Media Hub</a><span class="badge plain">Locked beta</span></p>
+        <p>A video editor for Windows that runs on your PC. In beta for invited testers, with an access key.</p></div></li>
+    </ol>
   </div>
 </section>
 
-<section id="contact" aria-labelledby="contact-title">
-  <div class="wrap">
+<section id="contact" data-chapter="Contact" aria-labelledby="contact-title">
+  <div class="wrap m-plain">
     <p class="eyebrow">Support and questions</p>
     <h2 id="contact-title">Contact</h2>
-    <div class="grid two">
-      <div class="card"><h3>Support and questions</h3><p>Email <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>. Please never send anything private you dictated.</p></div>
-      <div class="card"><h3>Bugs and ideas</h3><p>Use the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>, so others can see it's known.</p></div>
-    </div>
-    <p class="u-mt24" id="accessibility">We want everyone to be able to use this site and Ghost Writer. If something doesn't work for you, email ghostthepatriot@gmail.com and we'll fix it or help another way.</p>
+    <p>Support and questions: email <a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a>. Please never send anything private you dictated.</p>
+    <p>Bugs and ideas: use the <a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">feedback page</a>, so others can see it's known.</p>
+    <p id="accessibility">We want everyone to be able to use this site and Ghost Writer. If something doesn't work for you, email ghostthepatriot@gmail.com and we'll fix it or help another way.</p>
     <p class="small-print u-mt20">Writing about us? See the <a href="/press/">press kit</a>. Legal: <a href="/terms.html">Terms of use</a> &middot; <a href="/privacy.html">Privacy policy</a></p>
   </div>
 </section>
@@ -188,13 +220,13 @@
     <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
     <p class="eyebrow">Ghost Writer</p>
     <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
-    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Get access</a></div>
     <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
   </div>
 </section>
 <footer class="site-footer">
   <div class="wrap">
-    <nav class="foot-row" aria-label="Footer">
+    <div class="foot-top">
       <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
             <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
               <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
@@ -202,14 +234,23 @@
             </svg><span class="lg-gh"></span></span>
             <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
           </span></span></p>
-      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
-      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
-    </nav>
-    <div class="foot-row">
-      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
-      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+      <a class="button foot-cta" href="/ghost-writer/#request">Get access</a>
     </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div class="foot-col"><p class="foot-h">Ghost Writer</p><ul>
+        <li><a href="/ghost-writer/">Overview</a></li><li><a href="/ghost-writer/features/">Features</a></li>
+        <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li>
+        <li><a href="/ghost-writer/#request">Request access</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Company</p><ul>
+        <li><a href="/media-hub/">Ghost Media Hub</a></li><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li>
+        <li><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Support</p><ul>
+        <li><a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li></ul></div>
+    </nav>
+    <p class="foot-legal">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source notices</a><a href="/about/#accessibility">Accessibility</a>
+      <span>No ads, no analytics scripts or cookies.</span>
+    </p>
   </div>
 </footer>
 <dialog class="rq" id="request-dialog" aria-labelledby="rq-title">
@@ -268,11 +309,14 @@
   </div>
 </dialog>
 
-<script src="/assets/site.7005f1863f.js" defer></script>
-<script src="/assets/logo.f7e7fe24f3.js" defer></script>
-<script src="/assets/frame.e39da035f4.js" defer></script>
-<script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/site.ed3da27f30.js" defer></script>
+<script src="/assets/logo.b5ae365e06.js" defer></script>
+<script src="/assets/stars.e5c827dea4.js" defer></script>
+<script src="/assets/frame.b7f0a42eb2.js" defer></script>
+<script src="/assets/scenes.37d79b3e3c.js" defer></script>
+<script src="/assets/motion.e472a26b23.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
+<script src="/assets/more.981ee9f866.js" defer></script>
 
 </body>
 </html>
