@@ -44,14 +44,20 @@
         tl.to("#halo", { opacity: 1, duration: 0.5, ease: "power2.out" }, 1.42);
 
         // 4. The name slides out from the middle, letter by letter, the spacing tightening as it lands.
-        tl.fromTo(
-          ".l",
-          { opacity: 0, x: function (i) { return (i - 5.5) * 16; }, filter: "blur(6px)" },
-          { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", stagger: { each: 0.035, from: "center" } },
-          1.55
-        );
+        // Each line on its own, both from 1.55 s: the stagger is scaled to the line's length so the
+        // middle-to-edge spread stays index.html's 0.1925 s (0.035 x 5.5) and both lines land by 2.35 s;
+        // the slide distance is scaled to the line's size (16 px a letter at 58 px, 6.3 at 22.9 px).
+        [[".w1 .l", 16], [".w2 .l", 6.3]].forEach(function (line) {
+          var n = document.querySelectorAll(line[0]).length, mid = (n - 1) / 2;
+          tl.fromTo(
+            line[0],
+            { opacity: 0, x: function (i) { return (i - mid) * line[1]; }, filter: "blur(6px)" },
+            { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", stagger: { each: 0.1925 / mid, from: "center" } },
+            1.55
+          );
+        });
 
-        // 5. The lockup settles to its final size and holds; the last frame is the app's own logo.
+        // 5. The lockup settles to its final size and holds; the last frame is the site's header wordmark.
         tl.fromTo("#stage", { scale: 1.06 }, { scale: 1, duration: 0.45, ease: "power2.inOut" }, 2.4);
 
         window.__timelines["main"] = tl;
