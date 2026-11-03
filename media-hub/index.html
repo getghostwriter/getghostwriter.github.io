@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ghost Media Hub: a private video editor for Windows (locked beta)</title>
 <meta name="description" content="Ghost Media Hub: a video editor for Windows that runs on your PC. Free locked beta for invited testers: it opens only with an access key.">
 <link rel="canonical" href="https://ghostmediaworks.com/media-hub/">
@@ -11,21 +11,22 @@
 <meta property="og:title" content="Ghost Media Hub: a video editor that runs on your own PC">
 <meta property="og:description" content="Ghost Media Hub: a video editor for Windows that runs on your PC. Free locked beta for invited testers: it opens only with an access key.">
 <meta property="og:url" content="https://ghostmediaworks.com/media-hub/">
-<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.10f2a9c13b.png">
+<meta property="og:image" content="https://ghostmediaworks.com/assets/social-company.ee70ac8720.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ghost Media Works: private software that runs on your PC.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f1116" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#040508">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.a00c4c6bac.css">
+<link rel="stylesheet" href="/assets/site.cd4bebedfd.css">
+<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<script src="/assets/head.3f117de3dd.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
+<link rel="stylesheet" href="/assets/hub.6860c0d739.css">
+<script src="/assets/head.4cda8fda39.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -92,71 +93,292 @@
           <span class="lg-spec"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span></span>
       </span></span>
     </a>
-    <a class="button small header-request" href="/ghost-writer/#request">Request<span class="visually-hidden"> access to Ghost Writer</span></a>
-    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <nav class="main-nav" id="site-menu" aria-label="Main">
+    <nav class="main-nav" aria-label="Main">
       <a href="/ghost-writer/" data-nav="ghost-writer">Ghost Writer</a>
-      <span class="menu-sub">
-        <a href="/ghost-writer/features/" data-sub="features">Features</a>
-        <a href="/ghost-writer/help/" data-sub="help">Install and help</a>
-        <a href="/ghost-writer/changelog/" data-sub="changelog">What's new</a>
-      </span>
       <a href="/media-hub/" data-nav="media-hub" aria-current="page">Media Hub</a>
       <a href="/about/" data-nav="about">About</a>
-      <a class="menu-only" href="/press/">Press kit</a>
-      <button class="menu-only menu-theme" type="button" data-theme-button>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
-        <span class="theme-label">Theme: follows your device</span>
-      </button>
     </nav>
-    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: follows your device. Click to change.">
+    <a class="button small header-cta" href="/ghost-writer/#request">Get access</a>
+    <button class="theme-button header-theme" id="theme" type="button" data-theme-button aria-label="Theme: dark. Click to change.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
     </button>
   </div>
 </header>
-
 <main id="main" tabindex="-1">
-<div class="wrap">
-  <div class="hub-head">
-    <div>
-      <span class="stamp">Locked beta &middot; access key required</span>
-      <h1>Ghost Media Hub</h1>
-      <p class="sub">A video editor for Windows that runs on your own PC. Cut, colour, add titles and captions, and record your screen.</p>
-      <p class="small-print"><b>This is a locked beta.</b> The download only opens with an access key, which beta testers get from us by email. Without a key, Ghost Media Hub installs but stays locked.</p>
-    </div>
-    <div class="actions">
-      <a class="button" href="/media-hub/#request">Request free access</a>
-      <a class="text-link" href="#download">Got your key? Download</a>
-    </div>
-  </div>
-  <!-- TODO-OWNER: confirm these captions match version 0.2.0 (media-hub-replay.webp is left out: "Ghost Replay" isn't on the site's list yet). -->
-  <div class="montage" data-montage role="region" aria-label="Ghost Media Hub's main parts">
-    <figure><div class="shot"><img src="/assets/screens/media-hub.webp" alt="Ghost Media Hub: media library, preview player and timeline" loading="eager" fetchpriority="high" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>1 of 5</small><b>Edit on a timeline.</b> Cut and arrange clips, music and titles.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-color.webp" alt="Ghost Media Hub: film looks beside the preview" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>2 of 5</small><b>Colour and looks.</b> One-click film looks plus full colour controls, previewed live.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-text.webp" alt="Ghost Media Hub: a styled title on the preview" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>3 of 5</small><b>Text and captions.</b> Styled titles, and captions made on your PC.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-transitions.webp" alt="Ghost Media Hub: transitions, previewed on clips" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>4 of 5</small><b>Transitions.</b> Preview a transition on your own clips before you use it.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/screens/media-hub-record.webp" alt="Ghost Media Hub: choosing a screen or window to record" loading="lazy" decoding="async" width="1440" height="900"></div>
-      <figcaption><small>5 of 5</small><b>Record your screen.</b> A whole screen or one window, with your PC's sound and your mic.</figcaption></figure>
-  </div>
-</div>
+<!-- [site-film] Ghost Media Hub's product film (dev/design/site-film/PLAN.html chapter 10): the hero, then M1 to M7.
+     Scene kit pieces used (scenes.js/scenes.css): .scene (data-play on the hero, data-scrub on M1-M7), .stage + .tilt
+     (hero only), .glow + look-* / indigo washes, .window (the drawn editor's frame), .star, .build (the hero's clips
+     assemble), .cue, .wipe, .type (M4 captions), .chooser/.chip + data-way, .more. The page's own pieces are in
+     assets/hub.css + hub.js (the drawn editor, preview pictures, timeline and playhead, the blade, the look buttons,
+     the sliders, the transitions, the record picker and its meters, the three-stop path, the title's letters, the
+     sound toggles). No screenshots, no inline script or style. -->
 
-<section id="get" aria-labelledby="get-title">
-  <div class="wrap">
-    <h2 id="get-title">How to get it</h2>
-    <p class="lead">Ghost Media Hub is free while it's in beta, for invited beta testers. The app is locked: it opens only with an access key, the same kind of key as Ghost Writer (one key can open both).</p>
-    <ol class="steps">
-      <li class="card"><h3>Request access</h3><p>Fill in <a href="#request">the short form</a> below: your name and email, with Ghost Media Hub ticked.</p></li>
-      <li class="card"><h3>Get your key by email</h3><p>We read each request ourselves and email you a key, usually within a few days.</p></li>
-      <li class="card"><h3>Download and edit</h3><p><a href="#download">Download</a> Ghost Media Hub, open it and enter your key.</p></li>
-    </ol>
-    <p class="small-print">Windows may say "Windows protected your PC" the first time, because Ghost Media Hub is new and not yet signed with a paid certificate. Click <b>More info</b>, then <b>Run anyway</b>.</p>
+<section class="scene hero-film mh-hero" data-scene="hub-hero" data-play="1400" aria-labelledby="hero-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Ghost Media Hub</p>
+      <h1 id="hero-t">Edit video. <em>On your PC.</em></h1>
+      <p class="hero-line">A video editor for Windows that runs on your own PC. Free while it's in beta.</p>
+      <div class="hero-actions">
+        <a class="button" href="/media-hub/#request">Request free access</a>
+        <a class="text-link" href="#download">Got your key? Download</a>
+      </div>
+      <p class="hero-fine">Locked beta &middot; by invitation &middot; Windows 10 and 11 (64-bit)</p>
+    </div>
+    <div class="stage tilt" data-wash="look-film">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window mh-ed star" data-title="Ghost Media Hub" role="img" aria-label="A drawn Ghost Media Hub editor: a preview above a timeline of three clips and a music track.">
+        <div class="body">
+          <div class="mh-pv cue" data-at=".02"><span class="mh-shot s1"></span></div>
+          <div class="mh-tl">
+            <div class="mh-track build" data-from=".15" data-to=".7">
+              <span class="mh-clip k-street h-1">Street</span>
+              <span class="mh-clip k-face h-2">Portrait</span>
+              <span class="mh-clip k-product h-3">Product</span>
+            </div>
+            <div class="mh-track build" data-from=".7" data-to=".8"><span class="mh-clip k-music h-m">Music</span></div>
+            <span class="mh-ph"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene flip mh-m1" id="building" data-chapter="On your PC" data-scene="hub-timeline" data-scrub="180" aria-labelledby="building-title">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">On your PC</p>
+      <h2 id="building-title">Your videos stay on your PC</h2>
+      <p class="line">Editing happens on your computer, with no ads.</p>
+      <details class="more"><summary>More</summary><p>Ghost Media Hub goes online to check your access key (the key, a scrambled id of your PC and the version), and when you choose an online extra: downloading optional models or sounds, or an AI assistant you connect yourself. <a href="/privacy.html">Privacy policy</a></p></details>
+    </div>
+    <div class="stage" data-wash="look-film">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window mh-ed star" data-title="My video" role="img" aria-label="A drawn editor: as you scroll, the playhead moves along three clips and the preview changes from a street to a portrait to a product. A stamp reads: locked beta, access key required.">
+        <div class="body">
+          <div class="mh-pv">
+            <span class="mh-shot s1"></span><span class="mh-shot s2"></span><span class="mh-shot s3"></span>
+            <span class="stamp mh-stamp">Locked beta &middot; access key required</span>
+          </div>
+          <div class="mh-tl">
+            <div class="mh-track">
+              <span class="mh-clip k-street t-1">Street</span>
+              <span class="mh-clip k-face t-2">Portrait</span>
+              <span class="mh-clip k-product t-3">Product</span>
+            </div>
+            <span class="mh-ph"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TODO-OWNER: confirm these scenes match Ghost Media Hub 0.2.0: cutting at the playhead, moving a clip and
+     adding a music track; one-click looks (drawn here as Warm, Cool and Film) and colour controls (Exposure, Warmth,
+     Saturation); styled titles and captions made on the PC; the Dissolve, Wipe and Push transitions previewed on your own
+     clips; recording a whole screen or one window with the PC's sound and the mic. ("Ghost Replay" is still left out:
+     it isn't on the site's list yet.) -->
+<section class="scene mh-m2" id="cut" data-chapter="Cut and arrange" data-scene="hub-cut" data-scrub="180" data-way="cut" aria-labelledby="cut-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Cut and arrange</p>
+      <h2 id="cut-t">Split it, move it, add music.</h2>
+      <p class="line">Cut a clip at the playhead, drag the piece where it belongs, lay music underneath.</p>
+      <div class="chooser" role="group" aria-label="Edits to watch">
+        <button type="button" class="chip" aria-pressed="true" data-way="cut">Cut</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="move">Move</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="music">Add music</button>
+      </div>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window mh-ed star" data-title="My video" role="img" aria-label="A drawn timeline: a blade splits the portrait clip under the playhead, the second half moves to the end, and a music track slides in underneath.">
+        <div class="body">
+          <div class="mh-pv"><span class="mh-shot s2"></span></div>
+          <div class="mh-tl">
+            <div class="mh-track">
+              <span class="mh-clip k-street c-1">Street</span>
+              <span class="mh-clip k-face c-2a">Portrait</span>
+              <span class="mh-clip k-face c-2b">Portrait</span>
+              <span class="mh-clip k-product c-3">Product</span>
+              <span class="mh-blade"></span>
+            </div>
+            <div class="mh-track"><span class="mh-clip k-music c-m">Music</span></div>
+            <span class="mh-ph"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene flip mh-m3" id="colour" data-chapter="Colour and looks" data-scene="hub-colour" data-scrub="180" data-way="look" data-mh-look="film" aria-labelledby="colour-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Colour and looks</p>
+      <h2 id="colour-t">One click to a new look.</h2>
+      <p class="line">Pick a look, or set the colour yourself. The preview follows as you go.</p>
+      <div class="chooser" role="group" aria-label="Ways to colour">
+        <button type="button" class="chip" aria-pressed="true" data-way="look">One-click look</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="controls">Your own colour controls</button>
+      </div>
+    </div>
+    <div class="stage" data-wash="look-film">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="mh-col">
+        <div class="window mh-ed star" data-title="Colour" role="img" aria-label="A drawn preview of a street at dusk: it starts flat and takes on the chosen look, or follows the colour sliders to black and white.">
+          <div class="body">
+            <div class="mh-pv">
+              <span class="mh-shot s1"></span>
+              <span class="mh-g" data-way="look">
+                <span class="mh-shot s1 f-flat"></span>
+                <span class="mh-lw l-warm"><span class="mh-shot s1 f-warm"></span></span>
+                <span class="mh-lw l-cool"><span class="mh-shot s1 f-cool"></span></span>
+                <span class="mh-lw l-film"><span class="mh-shot s1 f-film"></span></span>
+              </span>
+              <span class="mh-g" data-way="controls">
+                <span class="mh-shot s1 f-mono"></span><span class="mh-warmth"></span><span class="mh-exp"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="ways mh-panel">
+          <div class="mh-looks" data-way="look" role="group" aria-label="Looks">
+            <button type="button" class="mh-look" data-mh-look="warm" aria-pressed="false"><span class="mh-sw w-warm" aria-hidden="true"></span>Warm</button>
+            <button type="button" class="mh-look" data-mh-look="cool" aria-pressed="false"><span class="mh-sw w-cool" aria-hidden="true"></span>Cool</button>
+            <button type="button" class="mh-look" data-mh-look="film" aria-pressed="true"><span class="mh-sw w-film" aria-hidden="true"></span>Film</button>
+          </div>
+          <div class="mh-sliders" data-way="controls" aria-hidden="true">
+            <p class="mh-sl v-exp"><span>Exposure</span><i><b></b></i></p>
+            <p class="mh-sl v-warm"><span>Warmth</span><i><b></b></i></p>
+            <p class="mh-sl v-sat"><span>Saturation</span><i><b></b></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene mh-m4" id="text" data-chapter="Text and captions" data-scene="hub-text" data-scrub="180" data-way="title" aria-labelledby="text-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Text and captions</p>
+      <h2 id="text-t">Titles and captions, in time.</h2>
+      <p class="line">Drop in a styled title, or add captions made on your PC.</p>
+      <div class="chooser" role="group" aria-label="Kinds of text">
+        <button type="button" class="chip" aria-pressed="true" data-way="title">Title</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="captions">Captions</button>
+      </div>
+    </div>
+    <div class="stage" data-wash="look-warm">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window mh-ed star" data-title="My video" role="img" aria-label="A drawn editor: a title drops onto the preview letter by letter, or a caption line appears in time with a waveform.">
+        <div class="body">
+          <div class="mh-pv">
+            <span class="mh-shot s1"></span>
+            <p class="mh-title" data-way="title" data-mh-letters data-from=".08" data-to=".55">Summer in the city</p>
+            <span class="mh-ov" data-way="captions"><span class="mh-shot s2"></span><span class="mh-cap"><span class="type" data-from=".12" data-to=".85">We drove all night to see the sea.</span></span></span>
+          </div>
+          <div class="mh-tl">
+            <div class="mh-track"><span class="mh-clip k-street x-all" data-way="title">Street</span><span class="mh-clip k-face x-all" data-way="captions">Portrait</span></div>
+            <div class="mh-track">
+              <span class="mh-clip k-title x-title wipe" data-way="title" data-from=".08" data-to=".55">Title</span>
+              <svg class="mh-wave wipe" data-way="captions" data-from=".12" data-to=".85" viewBox="0 0 128 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.5v3 M6 7v6 M10 5.5v9 M14 7.5v5 M18 4v12 M22 3v14 M26 6v8 M30 8v4 M34 5v10 M38 2v16 M42 4v12 M46 7v6 M50 8.5v3 M54 6v8 M58 3.5v13 M62 5.5v9 M66 7.5v5 M70 9v2 M74 6.5v7 M78 4.5v11 M82 2.5v15 M86 5v10 M90 7v6 M94 5.5v9 M98 3.5v13 M102 6v8 M106 8v4 M110 7v6 M114 5v10 M118 6.5v7 M122 8.5v3 M126 7.5v5"/></svg>
+            </div>
+            <span class="mh-ph"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene flip mh-m5" id="transitions" data-chapter="Transitions" data-scene="hub-transitions" data-scrub="180" data-way="dissolve" aria-labelledby="transitions-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Transitions</p>
+      <h2 id="transitions-t">Smooth joins between your clips.</h2>
+      <p class="line">Preview a transition on your own clips before you use it.</p>
+      <div class="chooser" role="group" aria-label="Transitions">
+        <button type="button" class="chip" aria-pressed="true" data-way="dissolve">Dissolve</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="wipe">Wipe</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="push">Push</button>
+      </div>
+    </div>
+    <div class="stage" data-wash="look-cool">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="window mh-ed star" data-title="My video" role="img" aria-label="A drawn editor: where two clips meet, the street turns into the portrait with the chosen transition as the playhead crosses the join.">
+        <div class="body">
+          <div class="mh-pv"><span class="mh-shot s1 mh-a"></span><span class="mh-shot s2 mh-b"></span><span class="mh-edge"></span></div>
+          <div class="mh-tl">
+            <div class="mh-track">
+              <span class="mh-clip k-street j-a">Street</span>
+              <span class="mh-clip k-face j-b">Portrait</span>
+              <span class="mh-join"></span>
+            </div>
+            <span class="mh-ph"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene mh-m6" id="record" data-chapter="Record your screen" data-scene="hub-record" data-scrub="150" data-way="screen" data-mh-sound="on" data-mh-mic="on" aria-labelledby="record-t">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Record your screen</p>
+      <h2 id="record-t">Record your screen or one window.</h2>
+      <p class="line">With your PC's sound, your mic, or both.</p>
+      <div class="chooser" role="group" aria-label="What to record">
+        <button type="button" class="chip" aria-pressed="true" data-way="screen">Whole screen</button>
+        <button type="button" class="chip" aria-pressed="false" data-way="window">One window</button>
+      </div>
+      <div class="chooser" role="group" aria-label="Sound to record">
+        <button type="button" class="chip" aria-pressed="true" data-mh-toggle="sound">PC sound</button>
+        <button type="button" class="chip" aria-pressed="true" data-mh-toggle="mic">Your mic</button>
+      </div>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="mh-rec star" role="img" aria-label="A drawn recording picker: the whole screen or one window gets a red ring, and meters for the PC's sound and the mic move.">
+        <p class="mh-rec-head"><span>Record</span><span class="mh-recdot cue" data-at=".3">Recording</span></p>
+        <div class="mh-tiles">
+          <div class="mh-tile mh-screen"><i class="mh-mini m-a"></i><i class="mh-mini m-b"></i><b>Whole screen</b><span class="mh-ringw" data-way="screen"><span class="mh-ring"></span></span></div>
+          <div class="mh-tile"><i class="mh-mini m-a"></i><b>Browser</b><span class="mh-ringw" data-way="window"><span class="mh-ring"></span></span></div>
+          <div class="mh-tile"><i class="mh-mini m-b"></i><b>Notes</b></div>
+        </div>
+        <p class="mh-src mh-sound"><b>PC sound</b><span class="mh-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+        <p class="mh-src mh-mic"><b>Your mic</b><span class="mh-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene flip mh-m7" id="get" data-chapter="How to get it" data-scene="hub-get" data-scrub="120" aria-labelledby="get-title">
+  <div class="wrap scene-in">
+    <div class="words">
+      <p class="eyebrow">Locked beta</p>
+      <h2 id="get-title">How to get it</h2>
+      <p class="line">Free while it's in beta, for invited beta testers. One key can open both apps.</p>
+      <details class="more"><summary>More</summary><div>
+        <p>Ghost Media Hub is free while it's in beta, for invited beta testers. The app is locked: it opens only with an access key, the same kind of key as Ghost Writer (one key can open both).</p>
+        <p><b>This is a locked beta.</b> The download only opens with an access key, which beta testers get from us by email. Without a key, Ghost Media Hub installs but stays locked.</p>
+      </div></details>
+    </div>
+    <div class="stage" data-wash="indigo">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="mh-path">
+        <span class="mh-rail" aria-hidden="true"><span class="mh-run"></span></span>
+        <ol>
+          <li class="mh-stop" data-at=".02"><h3>Request access</h3><p>Fill in <a href="#request">the short form</a> below: your name and email, with Ghost Media Hub ticked.</p><span class="mh-tick">Tick Ghost Media Hub</span></li>
+          <li class="mh-stop" data-at=".48"><h3>Get your key by email</h3><p>We read each request ourselves and email you a key, usually within a few days.</p></li>
+          <li class="mh-stop" data-at=".92"><h3>Download and edit</h3><p><a href="#download">Download</a> Ghost Media Hub, open it and enter your key.</p></li>
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -240,14 +462,7 @@
       </div>
       <p class="fingerprint">By installing, you agree to the <a href="/terms.html">Terms of use</a>. You need an access key to open it: it's checked online at start and every hour, and works offline for up to 3 days. SHA-256 fingerprint: <code>2db0f68b19b428cbb09de3fd005849a2bd7d1e812b1b08cdb1f90eb71833fc92</code></p>
     </div>
-  </div>
-</section>
-
-<section id="building" aria-labelledby="building-title">
-  <div class="wrap">
-    <p class="eyebrow">On your PC</p>
-    <h2 id="building-title">Your videos stay on your PC</h2>
-    <p class="lead">Editing happens on your computer, with no ads. Ghost Media Hub goes online to check your access key (the key, a scrambled id of your PC and the version), and when you choose an online extra: downloading optional models or sounds, or an AI assistant you connect yourself. <a href="/privacy.html">Privacy policy</a></p>
+    <p class="small-print">Windows may say "Windows protected your PC" the first time, because Ghost Media Hub is new and not yet signed with a paid certificate. Click <b>More info</b>, then <b>Run anyway</b>.</p>
   </div>
 </section>
 
@@ -258,13 +473,13 @@
     <div class="ghost-art closing-ghost" aria-hidden="true"><span class="ghost"></span><span class="floor"></span></div>
     <p class="eyebrow">Ghost Writer</p>
     <h2 class="statement" id="closing-title">Your PC is ready to listen.</h2>
-    <div class="actions"><a class="button" href="/ghost-writer/#request">Request free access</a></div>
+    <div class="actions"><a class="button" href="/ghost-writer/#request">Get access</a></div>
     <p class="fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>
   </div>
 </section>
 <footer class="site-footer">
   <div class="wrap">
-    <nav class="foot-row" aria-label="Footer">
+    <div class="foot-top">
       <p class="lg lg-still"><span class="visually-hidden">Ghost Media Works</span><span class="lg-press" aria-hidden="true"><span class="lg-sway">
             <span class="lg-orb"><span class="lg-halo"></span><svg class="lg-hub" viewBox="0 0 76 76" focusable="false">
               <g class="lg-lns"><path d="M38 38L38 7"/><path d="M38 38L67.5 28.4"/><path d="M38 38L56.2 63.1"/><path d="M38 38L19.8 63.1"/><path d="M38 38L8.5 28.4"/></g>
@@ -272,14 +487,23 @@
             </svg><span class="lg-gh"></span></span>
             <span class="lg-col"><span class="lg-w"><span class="lg-l">G</span><span class="lg-l">H</span><span class="lg-l">O</span><span class="lg-l">S</span><span class="lg-l">T</span></span><span class="lg-mw"><span>m</span><span>e</span><span>d</span><span>i</span><span>a</span><span class="lg-sp"></span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></span></span>
           </span></span></p>
-      <a href="/ghost-writer/">Ghost Writer</a><a href="/ghost-writer/#request">Request access</a><a href="/ghost-writer/features/">Features</a><a href="/ghost-writer/help/">Install and help</a><a href="/ghost-writer/changelog/">What's new</a>
-      <a href="/media-hub/">Ghost Media Hub <span class="soon">(beta)</span></a><a href="/about/">About</a><a href="/press/">Press kit</a><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a>
-      <a href="mailto:ghostthepatriot@gmail.com">Support: ghostthepatriot@gmail.com</a>
-    </nav>
-    <div class="foot-row">
-      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source credits</a>
-      <span>No ads, no analytics scripts or cookies.</span><a href="/about/#accessibility">Accessibility</a>
+      <a class="button foot-cta" href="/ghost-writer/#request">Get access</a>
     </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div class="foot-col"><p class="foot-h">Ghost Writer</p><ul>
+        <li><a href="/ghost-writer/">Overview</a></li><li><a href="/ghost-writer/features/">Features</a></li>
+        <li><a href="/ghost-writer/help/">Install and help</a></li><li><a href="/ghost-writer/changelog/">What's new</a></li>
+        <li><a href="/ghost-writer/#request">Request access</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Company</p><ul>
+        <li><a href="/media-hub/">Ghost Media Hub</a></li><li><a href="/about/">About</a></li><li><a href="/press/">Press kit</a></li>
+        <li><a href="https://www.instagram.com/ghost_1krr/" rel="noopener">Instagram</a></li></ul></div>
+      <div class="foot-col"><p class="foot-h">Support</p><ul>
+        <li><a href="mailto:ghostthepatriot@gmail.com">ghostthepatriot@gmail.com</a></li><li><a href="https://github.com/getghostwriter/getghostwriter.github.io/issues">Feedback and bugs</a></li></ul></div>
+    </nav>
+    <p class="foot-legal">
+      <span>&copy; 2026 Ghost Media Works</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy</a><a href="/NOTICES.txt">Open-source notices</a><a href="/about/#accessibility">Accessibility</a>
+      <span>No ads, no analytics scripts or cookies.</span>
+    </p>
   </div>
 </footer>
 <dialog class="ask" id="ask" aria-labelledby="ask-title">
@@ -309,11 +533,14 @@
   </div>
 </dialog>
 
-<script src="/assets/site.7005f1863f.js" defer></script>
-<script src="/assets/logo.f7e7fe24f3.js" defer></script>
-<script src="/assets/frame.e39da035f4.js" defer></script>
-<script src="/assets/motion.b898d19690.js" defer></script>
+<script src="/assets/site.ed3da27f30.js" defer></script>
+<script src="/assets/logo.b5ae365e06.js" defer></script>
+<script src="/assets/stars.e5c827dea4.js" defer></script>
+<script src="/assets/frame.b7f0a42eb2.js" defer></script>
+<script src="/assets/scenes.37d79b3e3c.js" defer></script>
+<script src="/assets/motion.e472a26b23.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
+<script src="/assets/hub.269e8e938d.js" defer></script>
 
 </body>
 </html>
