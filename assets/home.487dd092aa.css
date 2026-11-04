@@ -1,0 +1,177 @@
+/* Ghost Media Works website: the home page's own look (build_site loads it on "/" only, after site.css and scenes.css).
+   The company film, PLAN.html chapter 07: H1 umbrella, H2 Ghost Writer, H3 Ghost Media Hub, H4 promise, H5 path, H6 close.
+   Kit pieces it builds on (scenes.css): .scene + --t, .cue, svg.build, .art, .glow, .window.doc, .type, .keys, .pill,
+   .menu, .toast, .meter, .switch, .light-pass, .chooser, .more, .star. This file holds only what the kit doesn't draw.
+   Rules: every moment is written against --t (1 at rest, so no JS and reduced motion show the finished frame); per frame
+   only opacity, translate, scale and transform change. */
+
+/* ---- H1: the umbrella. The hero is .hero-film (site.css) and a played .scene (the mark builds itself) ---- */
+/* the boot logo covers the page on a first visit: hold the build until it has gone, then the kit's transition plays it */
+html.intro .scene.h-hero[data-play].played { --t: 0; }
+
+/* the hub mark: the header logo's geometry (76 x 76, five nodes), drawn large */
+.h-mark { position: relative; width: min(440px, 100%); aspect-ratio: 1; container-type: inline-size; }
+.h-mark svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.h-spokes path { fill: none; stroke: color-mix(in srgb, var(--accent) 45%, transparent); stroke-width: .5; stroke-linecap: round; }
+.h-nodes circle { fill: var(--bg); stroke: var(--accent); stroke-width: .8; stroke-linecap: round; transform-box: fill-box; transform-origin: center; }
+.h-mark .h-ghost { position: absolute; inset: 0; margin: auto; height: 50cqi; width: calc(50cqi * 185 / 240); }
+/* the two lower nodes (bottom right, bottom left): HTML rings sitting exactly where the mark's nodes are. They never
+   leave the mark (owner, 2026-11-03: circles drifting off down the page looked broken). */
+.h-trav { position: absolute; top: 78.82%; width: 8.42%; aspect-ratio: 1; border-radius: 50%; box-sizing: border-box;
+  border: max(1.5px, 1.05cqi) solid var(--accent); background: var(--bg); }
+.h-trav-r { left: 69.74%; }
+.h-trav-l { left: 21.84%; }
+/* the five nodes pulse once, clockwise from the top, after the mark has built */
+.h-hero .h-nodes circle:nth-child(1) { --h-at: .58; } .h-hero .h-nodes circle:nth-child(2) { --h-at: .64; }
+.h-hero .h-trav-r { --h-at: .7; } .h-hero .h-trav-l { --h-at: .76; } .h-hero .h-nodes circle:nth-child(3) { --h-at: .82; }
+.h-hero :is(.h-nodes circle, .h-trav) { scale: calc(1 + .5 * clamp(0, min((var(--t) - var(--h-at)) / .05, (var(--h-at) + .12 - var(--t)) / .07), 1)); }
+
+/* the node that arrives on each product scene's eyebrow (it drops in from above) */
+.h-node { flex: none; width: 10px; height: 10px; border-radius: 50%; box-sizing: border-box; border: 2px solid var(--accent); background: var(--bg); }
+.scene .h-node.cue { translate: 0 calc((1 - var(--k-p)) * -24px); }
+
+/* shared: one phrase of a scene headline in the accent; text links and buttons as the scene's one action */
+.h-hub h2 em, .h-promise h2 em { color: var(--accent); }  /* serif italic: site.css .scene h2 em */
+.h-act { margin: 24px 0 0; }
+:is(.h-act, .h-foot, .h-links) .text-link { display: inline-flex; align-items: center; min-height: 44px; }
+/* .h-foot: a scene's last row (its link and More fold), in the words (on phones above the stage) */
+.h-foot { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; margin-top: 16px; }
+.h-foot .more { margin-top: 0; }
+
+/* ---- H2: Ghost Writer, live ---- */
+.h-writer .stage { --stage-cap: 560px; }
+.h-doc { max-width: 520px; }
+.h-writer .window.h-doc .body { position: relative; min-height: 300px; padding: 24px 56px 156px 28px; font-size: 16px; }
+.h-doc p { margin: 0; }
+.h-doc .body > .type { margin-top: 10px; }
+/* the sentence that gets rewritten: the dictated one and the friendlier one share one place, so nothing moves */
+.h-swap { display: grid; }
+.h-swap > p { grid-area: 1 / 1; align-self: start; }
+.scene .h-swap > .cue { translate: none; }
+.h-old { position: relative; z-index: 0; width: fit-content; }
+.h-old::before { content: ""; position: absolute; inset: -1px -4px; z-index: -1; border-radius: 4px; background: color-mix(in srgb, var(--accent) 30%, transparent);
+  opacity: clamp(0, min((var(--t) - .4) / .03, (.6 - var(--t)) / .02), 1); } /* selected from .4 to .6 */
+.h-doc .h-mini { position: absolute; right: 14px; top: 18px; height: 30px; }
+.h-doc .h-menu { position: absolute; right: 14px; top: 56px; min-width: 200px; transform-origin: 100% 0; }
+/* the bottom of the page: the pill and Ctrl+Win while talking, later the words said and the app's answer */
+.h-talk, .h-hey { position: absolute; left: 0; right: 0; bottom: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.h-talk .pill { --pill-w: 220px; }
+.h-say { padding: 8px 16px; border-radius: 999px; background: var(--raised); border: 1px solid var(--border); font-size: 15px; white-space: nowrap; }
+.h-say b { color: var(--accent); }
+/* without the kit nothing would hide the passing moments; show the finished page */
+html:not(.kit) .h-writer :is(.h-old, .h-talk, .h-mini, .h-menu) { display: none; }
+/* the chips jump the playhead (home.js); with no playhead (reduced motion, no script) the scene is one still frame */
+html:not(.motion) .h-writer .chooser { display: none; }
+
+/* ---- H3: Ghost Media Hub, live. A drawn editor: preview above, timeline below ---- */
+.h-hub .stage { --stage-cap: 520px; }
+.h-ed { position: relative; width: 100%; max-width: 560px; padding: 12px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+  container-type: inline-size; }
+.h-view { position: relative; aspect-ratio: 16 / 9; border-radius: 8px; overflow: clip; }
+/* the clip's picture (a drawn beach at sunset; the same in both themes, it's footage) */
+.h-frame { position: absolute; inset: 0;
+  background: radial-gradient(circle at 72% 54%, #ffe1a8 0 5.5%, transparent 6%),
+    radial-gradient(ellipse 70% 40% at 12% 100%, #20304a 0 98%, transparent 100%),
+    linear-gradient(to bottom, transparent 60%, #2c5d7c 60% 78%, #e3c79a 78%),
+    linear-gradient(#3a4a86, #b97a96 45%, #f2b27e 60%); }
+/* the film look: a graded copy that fades in over the plain one from .42 */
+.h-frame.h-graded { filter: sepia(.7) saturate(1.5) contrast(1.1); opacity: clamp(.001, (var(--t) - .42) / .08, 1); }
+.h-title { position: absolute; left: 0; right: 0; top: 20%; margin: 0; padding-left: .3em; text-align: center; color: #fff;
+  font-size: 9cqi; font-weight: 800; line-height: 1; letter-spacing: .3em; text-shadow: 0 2px 12px rgba(0, 0, 0, .35); }
+.h-title span { --h-q: clamp(0, (var(--t) - var(--h-at)) / .04, 1); display: inline-block; opacity: max(.001, var(--h-q)); translate: 0 calc((1 - var(--h-q)) * -1.2em); }
+.h-title span:nth-child(1) { --h-at: .54; } .h-title span:nth-child(2) { --h-at: .57; } .h-title span:nth-child(3) { --h-at: .6; }
+.h-title span:nth-child(4) { --h-at: .63; } .h-title span:nth-child(5) { --h-at: .66; }
+.h-cap { position: absolute; left: 50%; bottom: 8%; margin: 0; padding: .3em .8em; border-radius: 6px; background: rgba(0, 0, 0, .55); color: #fff;
+  font-size: max(12px, 3.4cqi); white-space: nowrap; transform: translateX(-50%); }
+.h-tl { position: relative; display: grid; gap: 6px; margin-top: 10px; }
+.h-ruler { height: 8px; opacity: .6; background: repeating-linear-gradient(90deg, var(--faint) 0 1px, transparent 1px 5%); }
+.h-track { position: relative; height: 34px; }
+.h-clip { position: absolute; top: 0; bottom: 0; border-radius: 5px; background: color-mix(in srgb, var(--accent) 34%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); }
+.h-a { left: 0; width: 18%; }
+.h-b1 { left: 20%; width: 10%; border-radius: 5px 0 0 5px; }
+.h-b2 { left: 30%; width: 26%; border-radius: 0 5px 5px 0; }
+.h-c { left: 58%; right: 0; background: color-mix(in srgb, var(--wash-look-film) 34%, var(--card)); border-color: color-mix(in srgb, var(--wash-look-film) 60%, transparent); }
+/* the cut: the playhead reaches 30% at t = .3 and the clip opens there */
+.h-b1, .h-b2 { --h-s: clamp(0, (var(--t) - .3) / .03, 1); }
+.h-b1 { translate: calc(var(--h-s) * -3px) 0; }
+.h-b2 { translate: calc(var(--h-s) * 3px) 0; }
+.h-cut { position: absolute; left: 30%; top: -6px; bottom: -6px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--text); }
+.h-audio { height: 14px; border-radius: 4px; opacity: .7; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 45%, transparent) 0 2px, transparent 2px 5px); }
+/* the playhead: a zero-width mark moved across the timeline's width (the editor's width less its padding) */
+.h-head { position: absolute; left: 0; top: -4px; bottom: -4px; width: 0; translate: calc(var(--t) * (100cqi - 24px)) 0; }
+.h-head::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; background: var(--accent); }
+.h-head::after { content: ""; position: absolute; left: -5px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+/* the locked-beta stamp settles last */
+.h-stamp { position: absolute; top: -12px; right: -10px; padding: 7px 12px; border-radius: 999px; background: var(--accent); color: var(--on-accent);
+  font-size: 12px; font-weight: 700; line-height: 1; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; rotate: -6deg; }
+.scene .h-stamp.cue { translate: none; scale: calc(1.35 - .35 * var(--k-p)); }
+
+/* ---- H4: the promise. The meter stays flat, the Wi-Fi switch changes nothing, a packet visits the four stops ---- */
+.h-promise .stage { --stage-cap: 520px; }
+.h-proof { display: grid; gap: 20px; width: min(100%, 440px); padding: 24px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); }
+.h-proof p { margin: 0; }
+.h-dictated { font-size: 18px; line-height: 1.5; }
+.h-dictated span, .h-steps b { display: block; }
+.h-dictated span { margin-bottom: 6px; color: var(--faint); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.h-wifi { display: flex; align-items: center; gap: 12px; color: var(--muted); font-weight: 600; }
+.h-online { position: relative; padding-top: 4px; container-type: inline-size; }
+.h-online::before { content: ""; position: absolute; top: 10px; left: 12.5%; right: 12.5%; height: 1px; background: color-mix(in srgb, var(--accent) 35%, transparent); }
+.h-online ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.h-online li { --h-q: clamp(0, (var(--t) - var(--h-at)) / .03, 1); position: relative; padding-top: 22px; text-align: center;
+  font-size: 12px; font-weight: 700; opacity: calc(.45 + .55 * var(--h-q)); }
+.h-online li::before, .h-online li::after { content: ""; position: absolute; top: 0; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; box-sizing: border-box; }
+.h-online li::before { border: 2px solid var(--accent); background: var(--card); }
+.h-online li::after { background: var(--accent); opacity: var(--h-q); }
+/* the packet reaches each stop as it lights */
+.h-online li:nth-child(1) { --h-at: .1; } .h-online li:nth-child(2) { --h-at: .333; }
+.h-online li:nth-child(3) { --h-at: .567; } .h-online li:nth-child(4) { --h-at: .8; }
+.h-packet { position: absolute; left: 0; top: 4px; z-index: 1; width: 0; translate: calc(12.5cqi + 75cqi * clamp(0, (var(--t) - .1) / .7, 1)) 0; }
+.h-packet::before { content: ""; position: absolute; left: -4px; top: 2px; width: 8px; height: 8px; border-radius: 50%; background: var(--text); }
+
+/* ---- H5: how you get in. One line, three stops, a light travelling it (vertical on phones) ---- */
+.h-path .stage { --stage-h: auto; min-height: 220px; }
+.h-steps { --h-q: clamp(0, (var(--t) - .05) / .8, 1); position: relative; width: min(100%, 880px); container-type: inline-size; }
+.h-steps ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.h-steps li { --h-r: clamp(0, (var(--t) - var(--h-at)) / .04, 1); position: relative; padding-top: 36px; text-align: center; }
+.h-steps li:nth-child(1) { --h-at: .05; } .h-steps li:nth-child(2) { --h-at: .45; } .h-steps li:nth-child(3) { --h-at: .85; }
+.h-steps b { font-size: 18px; }
+.h-steps li span { display: block; margin-top: 6px; color: var(--muted); font-size: 15px; }
+.h-steps li::before { content: ""; position: absolute; top: 0; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; box-sizing: border-box;
+  border: 2px solid var(--accent); background: var(--bg); scale: calc(.7 + .3 * var(--h-r)); }
+.h-steps li::after { content: ""; position: absolute; top: 4px; left: 50%; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: var(--accent); opacity: var(--h-r); }
+.h-steps::before, .h-steps::after { content: ""; position: absolute; top: 7px; left: 16.67%; right: 16.67%; height: 2px; border-radius: 1px; background: var(--border); }
+.h-steps::after { background: var(--accent); transform-origin: 0 50%; scale: var(--h-q) 1; }
+.h-light { position: absolute; top: 8px; left: 16.67%; z-index: 1; width: 0; height: 0; translate: calc(66.67cqi * var(--h-q)) 0; }
+.h-light::before { content: ""; position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 16px var(--accent); }
+
+/* ---- H6: closing. The nodes come home, the halo swells once behind the wordmark ---- */
+.h-close .stage { --stage-h: 300px; }
+.h-close .h-mark { width: min(240px, 30svh); }
+.scene.h-close .h-trav.cue { translate: 0 calc((1 - var(--k-p)) * 60cqi); }
+.h-close .glow { inset: auto; left: 50%; top: 50%; width: min(640px, 130%); aspect-ratio: 1; translate: -50% -40%;
+  --h-swell: clamp(0, min((var(--t) - .5) / .2, (1 - var(--t)) / .3), 1); scale: calc(1 + .3 * var(--h-swell)); opacity: calc(.25 + .2 * var(--h-swell)); }
+.h-close .words { text-align: center; }
+.scene.h-close .words h2.h-wm { margin: 0; font-size: clamp(56px, 9vw, 104px); line-height: 1; letter-spacing: 0; }
+.h-wm-ghost { display: block; font-family: "Grenze Gotisch", "Old English Text MT", serif; font-weight: 800; letter-spacing: .04em; color: var(--accent); }
+.h-wm-rest { display: block; margin-top: .3em; font: 600 .26em/1.2 "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-variant: all-small-caps; letter-spacing: .3em; color: var(--muted); }
+.h-close .h-act { margin-top: 32px; }
+.h-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 28px; margin: 12px 0 0; }
+
+/* ---- phones: one column, 16 px gutters (the kit's), the stage under the words ---- */
+@media (max-width: 720px) {
+  .h-hero .h-mark { width: min(300px, 80vw, 48svh); }
+  .h-writer .window.h-doc .body { min-height: 0; padding: 18px 48px 148px 18px; font-size: 15px; }
+  .h-doc .h-menu { min-width: 0; }
+  .h-steps { width: min(100%, 300px); }
+  .h-steps ol { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; gap: 0; }
+  .h-steps li { padding: 0 0 20px 36px; text-align: left; }
+  .h-steps li::before { left: 0; margin-left: 0; }
+  .h-steps li::after { left: 4px; margin-left: 0; }
+  .h-steps::before, .h-steps::after { left: 7px; right: auto; width: 2px; height: 66.67%; }
+  .h-steps::after { transform-origin: 50% 0; scale: 1 var(--h-q); }
+  .h-light { top: 8px; left: 8px; height: 66.67%; translate: 0 calc(var(--h-q) * 100%); }
+  .scene.h-close .stage { order: 0; --stage-h: 34svh; }
+}
