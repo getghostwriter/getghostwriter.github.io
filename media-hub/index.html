@@ -23,9 +23,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/site.ba0b8dfc9c.css">
-<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
+<link rel="stylesheet" href="/assets/scenes.5748fd435a.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<link rel="stylesheet" href="/assets/hub.6860c0d739.css">
+<link rel="stylesheet" href="/assets/hub.b75600353e.css">
 <script src="/assets/head.3d74d729cb.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
@@ -106,7 +106,7 @@
 </header>
 <main id="main" tabindex="-1">
 <!-- [site-film] Ghost Media Hub's product film (dev/design/site-film/PLAN.html chapter 10): the hero, then M1 to M7.
-     Scene kit pieces used (scenes.js/scenes.css): .scene (data-play on the hero, data-scrub on M1-M7), .stage + .tilt
+     Scene kit pieces used (scenes.js/scenes.css): .scene (data-play on the hero, data-loop on M1-M7), .stage + .tilt
      (hero only), .glow + look-* / indigo washes, .window (the drawn editor's frame), .star, .build (the hero's clips
      assemble), .cue, .wipe, .type (M4 captions), .chooser/.chip + data-way, .more. The page's own pieces are in
      assets/hub.css + hub.js (the drawn editor, preview pictures, timeline and playhead, the blade, the look buttons,
@@ -145,7 +145,7 @@
   </div>
 </section>
 
-<section class="scene flip mh-m1" id="building" data-chapter="On your PC" data-scene="hub-timeline" data-scrub="180" aria-labelledby="building-title">
+<section class="scene flip mh-m1" id="building" data-chapter="On your PC" data-scene="hub-timeline" data-loop="7200" aria-labelledby="building-title">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">On your PC</p>
@@ -180,7 +180,7 @@
      Saturation); styled titles and captions made on the PC; the Dissolve, Wipe and Push transitions previewed on your own
      clips; recording a whole screen or one window with the PC's sound and the mic. ("Ghost Replay" is still left out:
      it isn't on the site's list yet.) -->
-<section class="scene mh-m2" id="cut" data-chapter="Cut and arrange" data-scene="hub-cut" data-scrub="180" data-way="cut" aria-labelledby="cut-t">
+<section class="scene mh-m2" id="cut" data-chapter="Cut and arrange" data-scene="hub-cut" data-loop="7200" data-way="cut" aria-labelledby="cut-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Cut and arrange</p>
@@ -214,7 +214,7 @@
   </div>
 </section>
 
-<section class="scene flip mh-m3" id="colour" data-chapter="Colour and looks" data-scene="hub-colour" data-scrub="180" data-way="look" data-mh-look="film" aria-labelledby="colour-t">
+<section class="scene flip mh-m3" id="colour" data-chapter="Colour and looks" data-scene="hub-colour" data-loop="7200" data-way="look" data-mh-look="film" aria-labelledby="colour-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Colour and looks</p>
@@ -261,7 +261,7 @@
   </div>
 </section>
 
-<section class="scene mh-m4" id="text" data-chapter="Text and captions" data-scene="hub-text" data-scrub="180" data-way="title" aria-labelledby="text-t">
+<section class="scene mh-m4" id="text" data-chapter="Text and captions" data-scene="hub-text" data-loop="7200" data-way="title" aria-labelledby="text-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Text and captions</p>
@@ -295,7 +295,7 @@
   </div>
 </section>
 
-<section class="scene flip mh-m5" id="transitions" data-chapter="Transitions" data-scene="hub-transitions" data-scrub="180" data-way="dissolve" aria-labelledby="transitions-t">
+<section class="scene flip mh-m5" id="transitions" data-chapter="Transitions" data-scene="hub-transitions" data-loop="7200" data-way="dissolve" aria-labelledby="transitions-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Transitions</p>
@@ -326,7 +326,7 @@
   </div>
 </section>
 
-<section class="scene mh-m6" id="record" data-chapter="Record your screen" data-scene="hub-record" data-scrub="150" data-way="screen" data-mh-sound="on" data-mh-mic="on" aria-labelledby="record-t">
+<section class="scene mh-m6" id="record" data-chapter="Record your screen" data-scene="hub-record" data-loop="6000" data-way="screen" data-mh-sound="on" data-mh-mic="on" aria-labelledby="record-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Record your screen</p>
@@ -357,7 +357,7 @@
   </div>
 </section>
 
-<section class="scene flip mh-m7" id="get" data-chapter="How to get it" data-scene="hub-get" data-scrub="120" aria-labelledby="get-title">
+<section class="scene flip mh-m7" id="get" data-chapter="How to get it" data-scene="hub-get" data-loop="4800" aria-labelledby="get-title">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Locked beta</p>
@@ -537,7 +537,7 @@
 <script src="/assets/logo.b5ae365e06.js" defer></script>
 <script src="/assets/stars.e5c827dea4.js" defer></script>
 <script src="/assets/frame.b7f0a42eb2.js" defer></script>
-<script src="/assets/scenes.6a7c0b8fda.js" defer></script>
+<script src="/assets/scenes.9251fdd171.js" defer></script>
 <script src="/assets/motion.9c7dc568f1.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
 <script src="/assets/hub.269e8e938d.js" defer></script>
