@@ -23,9 +23,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/site.ba0b8dfc9c.css">
-<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
+<link rel="stylesheet" href="/assets/scenes.5748fd435a.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<link rel="stylesheet" href="/assets/home.2869823cc8.css">
+<link rel="stylesheet" href="/assets/home.487dd092aa.css">
 <script src="/assets/head.3d74d729cb.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
@@ -106,10 +106,10 @@
 </header>
 <main id="main" tabindex="-1">
 <!-- Home: the company film (dev/design/site-film/PLAN.html chapter 07, scenes H1 to H6; H0, the boot logo, is site.js's).
-     Kit pieces used (site/assets/scenes.*): .scene (data-play on H1 and H6, data-scrub on H2 to H5), .cue, svg.build,
+     Kit pieces used (site/assets/scenes.*): .scene (data-play on H1 and H6, data-loop on H2 to H5), .cue, svg.build,
      .art (ghost, ghost-small), .glow + washes, .window.doc, .type, .keys, .pill, .menu, .toast, .meter, .switch,
      .light-pass, .chooser/.chip, .more, .star. Home-only (home.css + home.js, loaded because of data-home): the hub mark,
-     the two travelling nodes, the selection and the rewrite swap, the Media Hub editor, the online stops and their packet,
+     the two lower nodes (they stay on the mark), the selection and the rewrite swap, the Media Hub editor, the online stops and their packet,
      the path and its light, the closing halo, and the H2 chips jumping the playhead. -->
 <section class="hero-film scene h-hero" data-scene="umbrella" data-play="1600" data-home aria-labelledby="hero-t">
   <canvas class="wave-field" aria-hidden="true"></canvas>
@@ -133,7 +133,7 @@
   </div>
 </section>
 
-<section class="scene h-writer" id="writer" data-scene="writer" data-scrub="270" data-way="dictate" aria-labelledby="writer-t">
+<section class="scene h-writer" id="writer" data-scene="writer" data-loop="10800" data-way="dictate" aria-labelledby="writer-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow"><span class="h-node cue" data-at=".01" aria-hidden="true"></span>Ghost Writer</p>
@@ -183,7 +183,7 @@
   </div>
 </section>
 
-<section class="scene flip h-hub" id="media-hub" data-scene="hub" data-scrub="210" aria-labelledby="hub-t">
+<section class="scene flip h-hub" id="media-hub" data-scene="hub" data-loop="8400" aria-labelledby="hub-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow"><span class="h-node cue" data-at=".01" aria-hidden="true"></span>Ghost Media Hub</p>
@@ -212,7 +212,7 @@
   </div>
 </section>
 
-<section class="scene h-promise" id="promise" data-scene="promise" data-scrub="150" aria-labelledby="promise-t">
+<section class="scene h-promise" id="promise" data-scene="promise" data-loop="6000" aria-labelledby="promise-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Our promise</p>
@@ -235,7 +235,7 @@
   </div>
 </section>
 
-<section class="scene wide h-path" id="get-in" data-scene="path" data-scrub="150" aria-labelledby="path-t">
+<section class="scene wide h-path" id="get-in" data-scene="path" data-loop="6000" aria-labelledby="path-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">How you get in</p>
@@ -366,10 +366,10 @@
 <script src="/assets/logo.b5ae365e06.js" defer></script>
 <script src="/assets/stars.e5c827dea4.js" defer></script>
 <script src="/assets/media/pill.js" defer></script>
-<script src="/assets/scenes.6a7c0b8fda.js" defer></script>
+<script src="/assets/scenes.9251fdd171.js" defer></script>
 <script src="/assets/motion.9c7dc568f1.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
-<script src="/assets/home.82ac5c0a92.js" defer></script>
+<script src="/assets/home.e1a53ca316.js" defer></script>
 
 </body>
 </html>
