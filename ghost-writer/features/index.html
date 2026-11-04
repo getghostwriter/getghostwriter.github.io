@@ -23,10 +23,10 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/GrenzeGotisch-Site.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/site.ba0b8dfc9c.css">
-<link rel="stylesheet" href="/assets/scenes.77559ba7a5.css">
+<link rel="stylesheet" href="/assets/scenes.5748fd435a.css">
 <link rel="stylesheet" href="/assets/request.55162ab120.css">
-<link rel="stylesheet" href="/assets/gw.d0d975ddcd.css">
-<link rel="stylesheet" href="/assets/reel.5375233423.css">
+<link rel="stylesheet" href="/assets/gw.79965ef681.css">
+<link rel="stylesheet" href="/assets/reel.540fee7c18.css">
 <script src="/assets/head.3d74d729cb.js"></script><!-- theme, old-link forwarding, intro flag: runs before the page paints (no defer) -->
 <script type="application/ld+json">
 {
@@ -108,8 +108,8 @@
 <main id="main" tabindex="-1">
 <!-- Features: the reel (dev/design/site-film/PLAN.html chapter 09). Look in assets/reel.css, the hero curve's
      link handling in assets/reel.js; everything else is the scene kit (dev/design/site-film/README.md).
-     Kit pieces used: .scene (data-scrub / data-play / still), .curve (hero, 13 cards), .glow + washes, .type
-     (scrubbed and data-live), .keys, .pill, .window (.mail .doc .chat .browser), .menu, .toast, .confirm, .dialog,
+     Kit pieces used: .scene (data-loop / data-play / still), .curve (hero, 13 cards), .glow + washes, .type
+     (on the playhead and data-live), .keys, .pill, .window (.mail .doc .chat .browser), .menu, .toast, .confirm, .dialog,
      .cue, .ui-btn, .art (ghost-small, thinking-ghost), .dial, .switch, .count, .calendar, .build (list + SVG),
      .wipe, .chooser/.chip/.ways, .more. reel.* add only: the card previews, the fan of windows (F1), the floating
      hint (F2), the swap/selection (F4), the result layers (F5), the drive bar (F8), the stage theme (F11) and the
@@ -160,7 +160,7 @@
 </section>
 
 <!-- F1 Dictation: four app windows fan past, the same sentence types into each -->
-<section class="scene" id="dictation" data-chapter="Dictation" data-scene="dictation" data-scrub="150" data-way="hold" aria-labelledby="dictation-t">
+<section class="scene" id="dictation" data-chapter="Dictation" data-scene="dictation" data-loop="6000" data-way="hold" aria-labelledby="dictation-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Dictation</p>
@@ -201,7 +201,7 @@
 </section>
 
 <!-- F2 Gets names right: the name in the window floats to the box as a hint (Screen context on) -->
-<section class="scene flip" id="reads-the-room" data-chapter="Gets names right" data-scene="names" data-scrub="130" data-way="on" aria-labelledby="room-t">
+<section class="scene flip" id="reads-the-room" data-chapter="Gets names right" data-scene="names" data-loop="5200" data-way="on" aria-labelledby="room-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Gets names right</p>
@@ -284,7 +284,7 @@
 </section>
 
 <!-- F4 Rewrite: selection, the small ghost, the menu (or your voice), the result, Replace -->
-<section class="scene flip" id="rewrite" data-chapter="Rewrite" data-scene="rewrite" data-scrub="150" data-way="quick" aria-labelledby="rewrite-t">
+<section class="scene flip" id="rewrite" data-chapter="Rewrite" data-scene="rewrite" data-loop="6000" data-way="quick" aria-labelledby="rewrite-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Fix and rewrite</p>
@@ -334,7 +334,7 @@
 </section>
 
 <!-- F5 Hey Ghost: commands cycle with the scroll; the question card once, at the end -->
-<section class="scene" id="hey-ghost" data-chapter="Hey Ghost" data-scene="hey-ghost" data-scrub="190" data-way="say" aria-labelledby="hey-t">
+<section class="scene" id="hey-ghost" data-chapter="Hey Ghost" data-scene="hey-ghost" data-loop="7600" data-way="say" aria-labelledby="hey-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Voice commands &middot; beta</p>
@@ -408,7 +408,7 @@
 </section>
 
 <!-- F6 Voice notes: record, import, transcribe a file or train your Ghost; then one search lights three notes -->
-<section class="scene flip" id="voice-notes" data-chapter="Voice notes" data-scene="voice-notes" data-scrub="150" data-way="record" aria-labelledby="notes-t">
+<section class="scene flip" id="voice-notes" data-chapter="Voice notes" data-scene="voice-notes" data-loop="6000" data-way="record" aria-labelledby="notes-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Voice notes &middot; beta</p>
@@ -468,7 +468,7 @@
 </section>
 
 <!-- F7 Learns: fix a word where it was typed; the thinking ghost blinks; next time it's right -->
-<section class="scene" id="learns" data-chapter="Learns" data-scene="learns" data-scrub="130" data-way="fix" aria-labelledby="learns-t">
+<section class="scene" id="learns" data-chapter="Learns" data-scene="learns" data-loop="5200" data-way="fix" aria-labelledby="learns-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Learns from you</p>
@@ -513,7 +513,7 @@
 </section>
 
 <!-- F8 Search your PC: keys (or your voice), the pop-up, results as you type; then Clean up -->
-<section class="scene flip" id="search" data-chapter="Search your PC" data-scene="search" data-scrub="160" data-way="keys" aria-labelledby="search-t">
+<section class="scene flip" id="search" data-chapter="Search your PC" data-scene="search" data-loop="6400" data-way="keys" aria-labelledby="search-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Search your PC</p>
@@ -557,7 +557,7 @@
 </section>
 
 <!-- F9 Notepad and Transcribe: a note dictated beside its folders; a recording dropped in becomes paragraphs -->
-<section class="scene" id="notepad" data-chapter="Notepad" data-scene="notepad" data-scrub="130" data-way="notepad" aria-labelledby="notepad-t">
+<section class="scene" id="notepad" data-chapter="Notepad" data-scene="notepad" data-loop="5200" data-way="notepad" aria-labelledby="notepad-t">
   <div class="wrap scene-in">
     <div class="words">
       <p class="eyebrow">Notepad and Transcribe</p>
@@ -909,9 +909,9 @@
 <script src="/assets/stars.e5c827dea4.js" defer></script>
 <script src="/assets/frame.b7f0a42eb2.js" defer></script>
 <script src="/assets/media/pill.js" defer></script>
-<script src="/assets/scenes.6a7c0b8fda.js" defer></script>
+<script src="/assets/scenes.9251fdd171.js" defer></script>
 <script src="/assets/request.4b66f7353a.js" defer></script>
-<script src="/assets/gw.065c600f0a.js" defer></script>
+<script src="/assets/gw.1b44c8f0d3.js" defer></script>
 <script src="/assets/reel.acdfc73770.js" defer></script>
 
 </body>
