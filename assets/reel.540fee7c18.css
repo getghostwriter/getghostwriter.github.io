@@ -1,0 +1,312 @@
+/* Ghost Media Works site film: the Features reel's own look (pages/ghost-writer/features/, "assets: reel").
+   Everything else is the scene kit (scenes.css + scenes.js; manual dev/design/site-film/README.md). Kit pieces this
+   page uses: .scene (loop / play / still), .curve, .glow, .type, .keys, .pill, .window, .menu, .toast, .confirm,
+   .dialog, .cue, .ui-btn, .art, .dial, .switch, .count, .calendar, .build, .wipe, .chooser/.chip/.ways, .more.
+   This file adds only what the kit lacks: the hero's card previews, the fan of windows (F1), the floating hint (F2),
+   the selection and swap (F4), the command results (F5), the drive bar (F8), the stage theme (F11) and the
+   comparison rows (F13). Rules kept: per frame only translate/scale/rotate, opacity and clip-path change (every
+   moving value below is a calc of --t); at rest (--t = 1) every scene is its complete final frame. */
+
+/* ---- the hero: the kit's .curve inside the six hero blocks ------------------------------------------------------ */
+.reel-frame { display: flex; flex-direction: column; gap: 14px; aspect-ratio: 4 / 5; padding: 18px; border-radius: 14px;
+  background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; overflow: clip;
+  container-type: inline-size; -webkit-user-drag: none; }
+.reel-frame:hover { color: var(--text); }
+.reel-frame.on { z-index: 1; border-color: color-mix(in srgb, var(--accent) 60%, var(--border)); box-shadow: var(--star-shadow); }
+.reel-frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.reel-cap { font: 700 12px/1.3 var(--k-font); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.reel-cap b { margin-right: 10px; color: var(--accent); }
+.reel-pv { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; min-height: 0;
+  font-size: clamp(14px, 6.4cqi, 18px); line-height: 1.4; }
+@media (min-width: 721px) {
+  html.kit .hero-film .curve { height: min(500px, 62vh); --curve-item: 54%; }
+}
+@media (max-width: 720px) { .hero-film .curve > .reel-frame { aspect-ratio: 1; } }
+/* the previews: each chapter's final frame, drawn small (static, aria-hidden) */
+.reel-m-text { color: var(--text); }
+.reel-m-text b { font-weight: 600; text-decoration: underline 2px var(--accent); text-underline-offset: 3px; }
+.reel-m-text s { color: var(--faint); }
+.reel-m-text mark { background: var(--accent-soft); color: var(--accent-soft-text); border-radius: 4px; padding: 0 3px; }
+.reel-m-keys { display: flex; gap: 8px; }
+.reel-m-keys i, .reel-m-dial i, .reel-m-menu i, .reel-m-sw { font-style: normal; }
+.reel-m-keys i { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--accent); border-bottom-width: 3px; background: var(--accent-soft);
+  font-size: 13px; font-weight: 600; }
+.reel-m-line { height: 2px; width: 70%; border-radius: 1px; background: var(--accent); }
+.reel-m-bar { padding: 6px 10px; border-radius: 8px; background: var(--tile); border: 1px solid var(--border); color: var(--faint); font-size: 12px; }
+.reel-m-dial { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.reel-m-dial i { height: 10px; border-radius: 999px; background: var(--raised); }
+.reel-m-dial i.on { background: var(--accent); }
+.reel-m-menu { display: grid; gap: 4px; padding: 6px; border-radius: 10px; background: var(--raised); border: 1px solid var(--border); font-size: 13px; }
+.reel-m-menu i { padding: 5px 8px; border-radius: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reel-m-menu i.on { background: var(--accent-soft); color: var(--accent-soft-text); }
+.reel-m-say { color: var(--muted); }
+.reel-m-toast { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; padding: 8px 12px; border-radius: 12px;
+  background: var(--tile); border: 1px solid var(--border); font-weight: 700; }
+.reel-m-toast .art.ghost-small { height: 26px; }
+.reel-m-toast i { width: 16px; height: 16px; border-radius: 50%; background: var(--good); }
+.reel-m-wave { height: 40px; border-radius: 6px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 3px, transparent 3px 7px);
+  clip-path: polygon(0 40%, 8% 15%, 16% 35%, 24% 5%, 32% 30%, 40% 20%, 48% 0, 56% 25%, 64% 10%, 72% 35%, 80% 15%, 88% 30%, 100% 20%,
+    100% 80%, 88% 70%, 80% 85%, 72% 65%, 64% 90%, 56% 75%, 48% 100%, 40% 80%, 32% 70%, 24% 95%, 16% 65%, 8% 85%, 0 60%); }
+.reel-pv .art.thinking-ghost { height: 72px; align-self: flex-start; }
+.reel-m-box { padding: 8px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--tile); }
+.reel-m-split { display: grid; grid-template-columns: 40% 1fr; gap: 10px; align-items: start; }
+.reel-m-num { font-size: clamp(30px, 15cqi, 44px); font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+.reel-m-sub { color: var(--muted); font-size: 13px; }
+.reel-m-cal { height: 52px; border-radius: 6px;
+  background: radial-gradient(circle, var(--accent) 0 5px, transparent 5.5px) 0 0 / 14.28% 50%,
+    radial-gradient(circle, var(--raised) 0 5px, transparent 5.5px) 7% 0 / 14.28% 50%; }
+.reel-m-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: 10px;
+  background: var(--tile); border: 1px solid var(--border); }
+.reel-m-sw { position: relative; flex: none; width: 36px; height: 20px; border-radius: 999px; background: var(--raised); border: 1px solid var(--border); }
+.reel-m-sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--text); }
+.reel-m-sw.on { background: var(--accent); border-color: transparent; }
+.reel-m-sw.on::after { left: 19px; background: var(--on-accent); }
+.reel-m-vs { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; text-align: center; font-weight: 700; }
+.reel-m-vs > span:first-child, .reel-m-vs > span:last-child { padding: 14px 6px; border-radius: 10px; border: 1px solid var(--border); background: var(--tile); }
+.reel-m-vs > span:first-child { border-color: var(--accent); }
+.reel-m-vs > span:nth-child(2) { color: var(--faint); font-size: 12px; }
+
+/* ---- shared stage pieces ---------------------------------------------------------------------------------------- */
+.reel-col { display: grid; justify-items: center; align-content: center; gap: 16px; width: min(100%, 440px); }
+.reel-col.reel-tight { gap: 10px; width: 100%; }
+.reel-stack { display: grid; place-items: center; }
+.reel-stack > * { grid-area: 1 / 1; }
+.scene .reel-col .window { max-width: 440px; }
+.reel-cmd { margin: 0; max-width: 100%; padding: 8px 16px; border-radius: 999px; background: var(--raised); border: 1px solid var(--border);
+  color: var(--text); font-weight: 600; font-size: 15px; text-align: center; }
+.reel-note { margin: 0; color: var(--faint); font-size: 13px; text-align: center; }
+.reel-sbox { display: flex; align-items: center; gap: 10px; min-height: 40px; margin: 0; padding: 6px 12px; border-radius: 10px;
+  border: 1px solid var(--accent); background: var(--tile); color: var(--text); }
+.reel-sbox::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--faint); }
+.reel-file { display: inline-block; margin: 0 0 10px; padding: 6px 12px; border-radius: 8px; background: var(--raised); border: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; }
+.reel-file::before { content: ""; display: inline-block; width: 8px; height: 10px; margin-right: 8px; border: 1.5px solid var(--muted); border-radius: 2px; }
+.reel-paras { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.reel-wave { display: block; width: 100%; height: 36px; margin: 6px 0 10px; fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+
+/* ---- F1 dictation: four windows fan past; each later one pushes the others back a step --------------------------
+   Cheap per frame (site-film audit fix, 2026-11-03): the fan's steps are registered numbers, so they hold still between
+   their 6% ramps and nothing inside the windows restyles; the windows fence off --t (they move by --fan-*, their words
+   follow the playhead in scenes.js, and the "um," reads --fan-um). */
+@property --fan-a1 { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --fan-a2 { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --fan-a3 { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --fan-a { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --fan-d { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --fan-um { syntax: "<number>"; inherits: true; initial-value: 0; }
+.reel-fan { --fan-a1: clamp(0, (var(--t) - .25) / .06, 1); --fan-a2: clamp(0, (var(--t) - .5) / .06, 1); --fan-a3: clamp(0, (var(--t) - .75) / .06, 1);
+  --fan-um: calc(clamp(0, (var(--t) - .005) / .01, 1) * clamp(0, (.05 - var(--t)) / .015, 1));
+  display: grid; width: min(100%, 400px); padding-top: 66px; }
+.reel-fan > .window { --t: 1; grid-area: 1 / 1; align-self: start; transform-origin: 50% 0;
+  translate: calc((1 - var(--fan-a)) * 60% - var(--fan-d) * 5%) calc(var(--fan-d) * -22px); scale: calc(1 - var(--fan-d) * .05);
+  rotate: calc((1 - var(--fan-a)) * 6deg - var(--fan-d) * 1.5deg); opacity: max(.001, calc(var(--fan-a) * (1 - var(--fan-d) * .16))); }
+.reel-fan > .window > .body { min-height: 112px; font-size: 15px; }
+.reel-f0 { --fan-a: 1; --fan-d: calc(var(--fan-a1) + var(--fan-a2) + var(--fan-a3)); }
+.reel-f1 { --fan-a: var(--fan-a1); --fan-d: calc(var(--fan-a2) + var(--fan-a3)); }
+.reel-f2 { --fan-a: var(--fan-a2); --fan-d: var(--fan-a3); }
+.reel-f3 { --fan-a: var(--fan-a3); --fan-d: 0; }
+.reel-fan .window.mail .field + .reel-um-host { margin-top: 12px; }
+.reel-um-host { position: relative; margin: 0; }
+.reel-um { position: absolute; left: 0; top: 0; color: var(--faint); text-decoration: line-through; opacity: var(--fan-um); }
+.reel-field { margin: 0; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--tile); }
+.scene .reel-pill { --pill-w: 240px; }
+
+/* ---- F2 names: the hint word floats from the title bar down to the box ------------------------------------------ */
+.reel-names .body { display: grid; gap: 10px; }
+.reel-lane { min-height: 28px; justify-items: end; }
+.reel-hint { --h: clamp(0, (var(--t) - .08) / .3, 1); display: inline-block; padding: 3px 10px; border-radius: 999px;
+  border: 1px dashed var(--accent); color: var(--accent-soft-text); background: var(--accent-soft); font-size: 12px; font-weight: 600;
+  translate: 0 calc((var(--h) - 1) * 80px); opacity: calc(.25 + .5 * var(--h)); }
+.reel-box { min-height: 48px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--tile); }
+.reel-box p { margin: 0; }
+.reel-right { font-weight: inherit; text-decoration: underline 2px var(--accent); text-underline-offset: 3px; }
+.reel-wrong { font-weight: inherit; text-decoration: underline wavy var(--warn); text-underline-offset: 3px; }
+
+/* ---- F3 styles ---------------------------------------------------------------------------------------------------- */
+.reel-dialrow .dial { flex: 1 1 auto; }
+.reel-said { margin: 0; color: var(--faint); font-size: 13px; line-height: 1.45; text-align: center; max-width: 40ch; }
+.reel-styles .body { min-height: 120px; }
+.reel-styles p { margin: 0; }
+.reel-styles b { font-weight: inherit; border-radius: 4px; background: var(--accent-soft); color: var(--accent-soft-text); }
+.reel-tagrow { min-height: 30px; }
+.reel-tag { margin: 0; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted);
+  font: 700 12px/1.2 var(--k-font); letter-spacing: .06em; text-align: center; }
+
+/* ---- F4 rewrite: the selection draws, the old words give way to the new ----------------------------------------- */
+.reel-rw { --sel: clamp(0, (var(--t) - .04) / .09, 1); --s: clamp(0, (var(--t) - .84) / .04, 1);
+  --pr: calc(clamp(0, (var(--t) - .76) / .02, 1) * clamp(0, (.84 - var(--t)) / .02, 1)); }
+.reel-rw-body { position: relative; min-height: 110px; }
+.reel-swap { display: grid; margin: 0; }
+.reel-swap > * { grid-area: 1 / 1; }
+.reel-old { position: relative; isolation: isolate; opacity: calc(1 - var(--s)); }
+.reel-old::before { content: ""; position: absolute; inset: -2px -4px; z-index: -1; border-radius: 4px; background: var(--accent-soft);
+  clip-path: inset(0 calc((1 - var(--sel)) * 100%) 0 0); opacity: calc(1 - var(--s)); }
+.reel-new { opacity: max(.001, var(--s)); }
+.reel-rw-ghost { position: absolute; right: 10px; bottom: 6px; }
+.reel-rw-pop { position: relative; z-index: 1; width: 100%; margin-top: -30px; }
+.reel-rw-pop .menu { transform-origin: 50% 0; }
+.reel-rw-pop .dialog p:not([class]) { color: var(--text); }
+.reel-press { position: relative; }
+.reel-press::after { content: ""; position: absolute; inset: -5px; border-radius: inherit; border: 2px solid var(--accent); opacity: var(--pr); }
+
+/* ---- F5 Hey Ghost: one layer per way; the commands and their answers cycle ------------------------------------- */
+.reel-hg { width: min(100%, 440px); }
+.reel-hg-a { width: 100%; transition: opacity var(--xfade) var(--ease), visibility 0s; }
+.scene[data-way="own"] .reel-hg-a { opacity: 0; visibility: hidden; transition: opacity var(--xfade) var(--ease), visibility 0s linear var(--xfade); }
+.reel-hg-res { min-height: 176px; width: 100%; }
+.reel-timer, .reel-tabs, .reel-vol, .reel-learned { display: flex; align-items: center; gap: 14px; padding: 12px 18px; border-radius: 14px;
+  background: var(--card); border: 1px solid var(--border); font-weight: 700; }
+.reel-timer svg { color: var(--accent); rotate: -90deg; }
+.reel-tabs { --tb: clamp(0, (var(--t) - .42) / .05, 1); position: relative; isolation: isolate; gap: 0; padding: 6px; font-weight: 600; font-size: 14px; }
+.reel-tabs span { width: 84px; padding: 8px 0; text-align: center; }
+.reel-tabs i { position: absolute; z-index: -1; left: 6px; top: 6px; bottom: 6px; width: 84px; border-radius: 10px; background: var(--accent-soft);
+  translate: calc(var(--tb) * 100%) 0; }
+.reel-vol { --vl: clamp(0, (var(--t) - .73) / .07, 1); width: min(100%, 300px); }
+.reel-vol i { flex: 1; height: 8px; border-radius: 999px; background: var(--raised); position: relative; overflow: clip; }
+.reel-vol i::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--accent); transform-origin: 0 50%;
+  scale: calc(.4 + .3 * var(--vl)) 1; }
+.reel-own { width: 100%; gap: 12px; }
+.reel-phr { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.reel-phr li { padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--tile); font-size: 13px; }
+
+/* the small pop-up (search results), used by F5 and F8 */
+.reel-pop { display: grid; gap: 4px; width: min(100%, 360px); padding: 10px; border-radius: 14px; background: var(--card);
+  border: 1px solid var(--border); font-size: 14px; text-align: left; }
+.reel-pop > p { display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 6px 10px; border-radius: 8px; }
+.reel-pop > p i { font-style: normal; color: var(--faint); font-size: 12px; }
+.reel-pop > .reel-sbox { margin-bottom: 4px; justify-content: flex-start; }
+.reel-pop > .reel-row-on { background: var(--accent-soft); color: var(--accent-soft-text); }
+
+/* ---- F6 voice notes ----------------------------------------------------------------------------------------------- */
+.reel-vn .body { min-height: 150px; font-size: 14.5px; }
+.reel-vn .body p { margin: 0; }
+.reel-rec { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; font-weight: 600; }
+.reel-rec i { width: 10px; height: 10px; border-radius: 50%; background: #e5484d; }
+.reel-vn .body .reel-train { margin-bottom: 10px; }
+.reel-unsure { display: inline-grid; }
+.reel-unsure > * { grid-area: 1 / 1; text-decoration: underline wavy var(--warn); text-underline-offset: 3px; }
+.reel-unsure s { opacity: calc(1 - clamp(0, (var(--t) - .3) / .04, 1)); color: var(--muted); }
+.reel-unsure b { font-weight: inherit; text-decoration: underline 2px var(--accent); opacity: max(.001, clamp(0, (var(--t) - .3) / .04, 1)); }
+.scene .reel-pick { position: absolute; right: 16px; top: 44px; z-index: 1; min-width: 150px; }
+.reel-vn .body { position: relative; }
+.reel-learned { display: inline-flex; padding: 6px 12px; font-size: 13px; color: var(--accent-soft-text); background: var(--accent-soft); border: 0; }
+.reel-find { display: grid; gap: 8px; width: min(100%, 360px); }
+.scene .reel-notes { width: 100%; min-width: 0; }
+
+/* ---- F7 learns ---------------------------------------------------------------------------------------------------- */
+.reel-learn .body { position: relative; min-height: 120px; }
+.reel-learn .body p { margin: 0 0 10px; }
+.reel-learn .type b, .reel-learn .reel-fix b { font-weight: inherit; text-decoration: underline 2px var(--accent); text-underline-offset: 3px; }
+.reel-fix { display: inline-grid; }
+.reel-fix > * { grid-area: 1 / 1; }
+.reel-fix s { color: var(--muted); text-decoration: underline wavy var(--warn); opacity: calc(1 - clamp(0, (var(--t) - .2) / .06, 1)); }
+.reel-fix b { opacity: max(.001, clamp(0, (var(--t) - .2) / .06, 1)); }
+.reel-add { justify-content: space-between; }
+.reel-add::before { display: none; }
+.reel-think { position: absolute; right: 6px; top: 4px; }
+.reel-think .art.thinking-ghost { height: 64px; }
+.reel-dict { width: min(100%, 360px); padding: 12px 16px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); font-size: 14px; }
+.reel-dict-h { margin: 0 0 6px; color: var(--faint); font: 700 12px/1.2 var(--k-font); letter-spacing: .12em; text-transform: uppercase; }
+.reel-dict ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.reel-dict li > span, .reel-dict li:not(.ways) { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--raised); }
+.reel-dict li > span { background: var(--accent-soft); color: var(--accent-soft-text); }
+
+/* ---- F8 search, then Clean up: the drive bar fills, safe junk lights up ----------------------------------------  */
+.reel-srch { gap: 12px; }
+.reel-srch-trig { min-height: 44px; }
+.reel-clean { width: min(100%, 360px); padding: 12px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); font-size: 14px; }
+.reel-clean-h { display: flex; justify-content: space-between; margin: 0 0 8px; font-weight: 700; }
+.reel-clean-h span { color: var(--faint); font-weight: 600; font-size: 12px; }
+.reel-drive { --dv: clamp(0, (var(--t) - .58) / .1, 1); position: relative; height: 10px; margin: 0 0 8px; border-radius: 999px; background: var(--raised); overflow: clip; }
+.reel-drive i { position: absolute; inset: 0; border-radius: inherit; background: var(--accent); transform-origin: 0 50%; scale: calc(.08 + .54 * var(--dv)) 1; }
+.scene .reel-junk { width: 100%; min-width: 0; padding: 0; border: 0; background: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.scene .reel-junk > li { padding: 6px 10px; }
+.reel-big { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+
+/* ---- F9 notepad / transcribe -------------------------------------------------------------------------------------- */
+.reel-np { width: min(100%, 440px); }
+.reel-np-win .body { min-height: 170px; font-size: 14.5px; }
+.reel-np-split { display: grid; grid-template-columns: 34% 1fr; gap: 16px; }
+.reel-np-split p { margin: 0; }
+.reel-folders { display: grid; align-content: start; gap: 4px; margin: 0; padding: 0 12px 0 0; list-style: none; border-right: 1px solid var(--border); }
+.reel-folders li { padding: 5px 10px; border-radius: 8px; color: var(--muted); }
+.reel-folders li.on { background: var(--accent-soft); color: var(--accent-soft-text); }
+.reel-np-split .reel-np-h { font-weight: 700; margin-bottom: 6px; }
+.reel-drop { margin: 0 0 12px; padding: 12px; border-radius: 10px; border: 1px dashed var(--border); text-align: center; }
+.reel-drop .reel-file { margin: 0; }
+
+/* ---- F10 stats ---------------------------------------------------------------------------------------------------- */
+.scene .reel-stats { width: min(100%, 420px); }
+.reel-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+.reel-nums p { margin: 0; }
+.reel-nums .count { display: block; font-size: clamp(22px, 7cqi, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.reel-nums small { display: block; color: var(--muted); font-size: 12.5px; }
+.reel-stats .calendar { width: 100%; }
+.reel-reset { margin: 14px 0 0; text-align: right; }
+
+/* ---- F11 settings: the chips set the stage's theme (only the drawn window; the page keeps its own) ------------- */
+.scene[data-way="dark"] .reel-set { --card: #171a21; --tile: #1c2029; --raised: #242934; --border: #272b34; --text: #eef1f6; --muted: #a2acbc;
+  --faint: #8a94a5; --accent: #8f91ff; --on-accent: #0f1116; --accent-soft: #262a4a; --accent-soft-text: #b8baff; }
+.scene[data-way="light"] .reel-set { --card: #ffffff; --tile: #f6f8fb; --raised: #eceff4; --border: #dfe3ea; --text: #121826; --muted: #4a5566;
+  --faint: #5b6678; --accent: #4f52e0; --on-accent: #ffffff; --accent-soft: #e6e7ff; --accent-soft-text: #3a3dc0; }
+.scene .reel-set { width: min(100%, 440px); color: var(--text); }
+.reel-set .body { display: grid; gap: 12px; background: var(--card); }
+.reel-tiles { --dim: clamp(0, (var(--t) - .36) / .08, 1); display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 0; padding: 0; list-style: none; font-size: 13.5px; }
+.reel-tiles > li { padding: 8px 10px; border-radius: 10px; background: var(--tile); border: 1px solid var(--border); }
+.scene .reel-tiles > li:not(.hit) { opacity: max(.001, calc(var(--k-p) * (1 - .62 * var(--dim)))); }
+.reel-tiles > li.hit { border-color: var(--accent); }
+.reel-setrow { --sw: clamp(0, (var(--t) - .72) / .06, 1); display: flex; align-items: center; justify-content: space-between; margin: 0;
+  padding: 10px 12px; border-radius: 10px; background: var(--tile); border: 1px solid var(--border); }
+.reel-sw { position: relative; isolation: isolate; width: 42px; height: 24px; border-radius: 999px; background: var(--raised); border: 1px solid var(--border); }
+.reel-sw::before { content: ""; position: absolute; z-index: -1; inset: -1px; border-radius: inherit; background: var(--accent); opacity: var(--sw); }
+.reel-sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--text);
+  translate: calc(var(--sw) * 18px) 0; }
+
+/* ---- F12 modes ---------------------------------------------------------------------------------------------------- */
+.scene .reel-mode { width: min(100%, 440px); }
+.reel-mode .body { min-height: 250px; }
+.reel-mode p { margin: 0; }
+.reel-mode ol { display: grid; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.reel-mode li { padding-left: 22px; position: relative; color: var(--text); }
+.reel-mode li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.reel-badge { display: inline-block; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted);
+  font: 700 12px/1.3 var(--k-font); letter-spacing: .12em; text-transform: uppercase; }
+.reel-badge.on { border-color: var(--accent); color: var(--accent); }
+.reel-mode p.reel-mode-h { margin-top: 10px; font-size: 20px; font-weight: 700; line-height: 1.25; }
+
+/* ---- F13 the comparison: ten rows, each a small played scene (2 s) as it arrives -------------------------------- */
+.scene .stage.reel-cmp { --stage-h: auto; display: block; }
+.reel-rows { display: grid; gap: 12px; }
+.reel-row { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px 24px; align-items: start;
+  padding: 18px 20px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); }
+.reel-row p { margin: 0; }
+.reel-row-h { font-weight: 650; }
+.reel-gw, .reel-win { display: grid; gap: 8px; justify-items: start; }
+.reel-gw::before, .reel-win::before { font: 700 11px/1.2 var(--k-font); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.reel-gw::before { content: "Ghost Writer"; }
+.reel-win::before { content: "Windows voice typing"; }
+.reel-gw p { color: var(--text); }
+.reel-win p { color: var(--muted); }
+.reel-row .keys kbd { min-width: 40px; height: 34px; padding: 0 10px; font-size: 13px; }
+/* glyphs: words that stay on the PC, words that travel out, the connection */
+.reel-g { position: relative; display: block; width: 120px; height: 34px; }
+.reel-g-pc { --q: clamp(0, (var(--t) - .15) / .4, 1); border: 1.5px solid var(--accent); border-radius: 8px; width: 60px; }
+.reel-g-pc i { position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px; border-radius: 50%; background: var(--accent);
+  scale: calc(.4 + .6 * var(--q)); }
+.reel-g-out { --q: clamp(0, (var(--t) - .45) / .45, 1); }
+.reel-g-out::before { content: ""; position: absolute; left: 0; right: 30px; top: 50%; border-top: 1.5px dashed var(--border); }
+.reel-g-out b { position: absolute; right: 0; top: 4px; width: 30px; height: 26px; border-radius: 13px; border: 1.5px solid var(--muted); }
+.reel-g-out i { position: absolute; left: 0; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--muted);
+  translate: calc(var(--q) * 90px) 0; opacity: calc(1 - .7 * clamp(0, (var(--q) - .85) / .15, 1)); }
+.reel-g-net { --q: clamp(0, (var(--t) - .2) / .3, 1); width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--accent); }
+.reel-g-net::after { content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px; border-left: 2px solid var(--accent); rotate: 45deg;
+  transform-origin: 50% 50%; scale: 1 var(--q); }
+.reel-g-net i { position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: var(--good); }
+.reel-g-net.stop { border-color: var(--muted); }
+.reel-g-net.stop::after { border-color: var(--muted); }
+.reel-g-net.stop i { background: var(--warn); }
+.reel-src { margin: 16px 0 0; }
+@media (max-width: 720px) {
+  .reel-row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 16px; }
+}
