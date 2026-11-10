@@ -1,0 +1,13 @@
+{
+ "app": "media-hub",
+ "kind": "update-manifest",
+ "version": "0.3.0",
+ "issued": 1794282952,
+ "notes": "A new Home and Settings, voice and music separation, blank scenes, faster exports, and updates from inside the app.",
+ "full": {
+  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.3.0/Ghost-Media-Hub-Setup.exe",
+  "size": 887655704,
+  "sha256": "18bfe56bebc07b1280b84e82dee7c48541de23af7efe8099d1dcbbdb807c1e33"
+ },
+ "signature": "fFikFQhQjeHfmQoLmBcrfnKek9fNHV8oCe2y3zPkZthCK7UXEi9xwY2Gp7e1Amgk5K2W/fqc/33fTvalYG9aBA=="
+}
