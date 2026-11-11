@@ -1,0 +1,596 @@
+/* Ghost Media Works website: one stylesheet for every page.
+   Colours follow the app (dev/DESIGN-SYSTEM.md section 1): one indigo, no purple, no gradient headings. */
+/* The gothic font, cut down by build_site.py to the letters the site uses (OFL; licence in assets/fonts). */
+@font-face { font-family: "Grenze Gotisch"; font-weight: 800; font-display: swap;
+  src: url("/assets/fonts/GrenzeGotisch-Site.woff") format("woff"); }
+
+:root {
+  --bg: #040508; --card: #101218; --tile: #14161d; --raised: #1c1f28; --border: #1f232d;  /* near-black (owner, 2026-11-03) */
+  --text: #eef1f6; --muted: #a2acbc; --faint: #8a94a5;
+  --accent: #8f91ff; --accent-hover: #a4a6ff; --on-accent: #0f1116; --accent-soft: #262a4a; --accent-soft-text: #b8baff; --ring-dim: color-mix(in srgb, var(--accent) 28%, transparent); --ring-glow: color-mix(in srgb, var(--accent) 70%, transparent);
+  --good: #36d27a; --warn: #ffb454;
+  --edge: rgba(255,255,255,.07); --shadow: rgba(0,0,0,.45); --glow: rgba(143,145,255,.16); --sheen: rgba(255,255,255,.95);
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --bg: #f3f5f9; --card: #ffffff; --tile: #f6f8fb; --raised: #eceff4; --border: #dfe3ea;
+  --text: #121826; --muted: #4a5566; --faint: #5b6678;
+  --accent: #4f52e0; --accent-hover: #4346cc; --on-accent: #ffffff; --accent-soft: #e6e7ff; --accent-soft-text: #3a3dc0;  /* --ring-dim / --ring-glow follow --accent from :root */
+  --good: #15803d; --warn: #b45309;
+  --edge: rgba(17,24,39,.09); --shadow: rgba(17,24,39,.10); --glow: rgba(79,82,224,.10); --sheen: rgba(255,255,255,.7);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-wrap: break-word;
+  font: 17px/1.6 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif; }
+img { max-width: 100%; height: auto; }
+/* ==== site film: the starfield ground (assets/stars.js; owner's pick, 2026-11-03) ====
+   Dark theme only: stars.js sets html.stars while it draws, the body goes see-through and the site's cards and buttons
+   become frosted glass over the stars. Light theme keeps its plain ground. The drawn app pieces (windows, pop-ups) are
+   not here: they wear the app's own glass in both themes (scenes.css "the app's glass"). */
+canvas.stars { position: fixed; inset: 0; z-index: -2; width: 100%; height: 100%; pointer-events: none; }  /* under the wave field (-1) */
+html.stars body { background: transparent; }
+html.stars .card,
+html.stars .faq details, html.stars .change, html.stars .theme-button, html.stars .button::after, html.stars .btn::after,
+html.stars .scene .chip[aria-pressed="true"]::after {
+  background: color-mix(in srgb, var(--card) 55%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255,255,255,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
+/* the serif word: the accent phrase of every headline (owner, 2026-11-03; system serif until a licensed one is OK'd) */
+:root { --serif: Georgia, "Times New Roman", serif; --mono: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+.hero-film h1 em, .scene h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
+/* ==== /starfield ==== */
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+code { font: 14px/1.5 Consolas, "Cascadia Mono", ui-monospace, monospace; overflow-wrap: anywhere; }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -.01em; }
+h3 { font-size: 20px; margin: 0 0 6px; }
+p { margin: 0 0 14px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .wrap { padding: 0 16px; } }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--accent); color: var(--on-accent);
+  padding: 10px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; }
+.skip:focus { top: 12px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* each theme shows its own pictures: <img> pictures are <picture>s (build_site themed()); CSS ones load only for the
+   showing theme */
+:root[data-theme="light"] .lg .ghost-art .ghost { background-image: url("/assets/ghost-light-float-200.webp"); }
+:root[data-theme="light"] .ghost-art .ghost { background-image: url("/assets/ghost-light-float-600.webp"); }
+
+/* header (site film, PLAN.html chapter 06): the logo, the app switch (Ghost Writer | Media Hub), About, one "Get access"
+   and the theme switch. It slides away as the visitor scrolls down and returns on the first scroll up (site.js sets
+   .bar-away: transform only, never within the first 80 px, always shown at the top). Phones (under 721 px): the logo,
+   Get access and the theme switch, with the app switch as a full-width second row (never hidden: owner, 2026-11-11);
+   About moves to the chapter pill's list (site.js) and the footer. The first row's padding, height and logo size are
+   what the intro hand-off was measured at. */
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--bg); background: color-mix(in srgb, var(--bg) 94%, transparent);
+  border-bottom: 1px solid var(--edge); transition: transform 300ms var(--ease, cubic-bezier(.2,.7,.2,1)); }
+.site-header.bar-away { transform: translateY(calc(-100% - 1px)); }
+.site-header .inner { display: flex; align-items: center; gap: 12px 20px; min-height: 64px; flex-wrap: wrap; position: relative;
+  padding-top: 5px; padding-bottom: 5px; }
+.brand { margin-right: auto; min-width: 0; }
+.brand:hover { color: var(--text); }
+
+/* The logo (owner's pick 2026-11-01, "Badge + shockwave"; the five-node ring around the ghost removed, owner
+   2026-11-08): the hovering ghost (.ghost-art) in his glow, gothic GHOST, MEDIA WORKS in small caps stretched to
+   GHOST's width. Sizes are em of .lg's font-size (10px = design size). Header only, and only under html.motion: a
+   gentle sway and his hover (CSS); logo.js adds the click shockwave. Footer (.lg-still), no script or reduced
+   motion: the same artwork, still. */
+.lg { display: flex; align-items: center; font-size: 9px; line-height: 1; color: var(--text); text-decoration: none;
+  -webkit-tap-highlight-color: transparent; }
+.lg-press, .lg-sway { display: flex; align-items: center; transform-origin: 50% 50%; }
+.lg-orb { position: relative; flex-shrink: 0; display: grid; place-items: center; width: 7.6em; height: 7.6em; margin-right: 1.4em; }
+.lg-halo { position: absolute; inset: .4em; border-radius: 50%; opacity: .5;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 32%, transparent) 0%, transparent 66%); }
+/* the ghost: the hovering ghost at the orb's width (bigger than inside the old ring), its own small picture (a CSS
+   picture, so only the showing theme's file is fetched); .lg-halo is his glow, so .ghost-art's own is left out */
+.lg .ghost-art { --gw: 7.6em; }
+.lg .ghost-art::before { display: none; }
+.lg .ghost-art .ghost { filter: drop-shadow(0 0 1em var(--accent)); background-image: url("/assets/ghost-dark-float-200.webp"); }
+.lg-col { position: relative; display: inline-flex; flex-direction: column; }
+.lg-w { display: block; font-family: "Grenze Gotisch", "Old English Text MT", serif; font-weight: 800; font-size: 3.8em; color: var(--accent);
+  letter-spacing: .06em; margin-right: -.06em; white-space: nowrap; }
+.lg-l { display: inline-block; transform-origin: 50% 85%; }
+/* width 0 + min-width 100%: GHOST alone sets the width, MEDIA WORKS spreads to its edges */
+.lg-mw { display: flex; justify-content: space-between; align-items: center; width: 0; min-width: 100%; margin-top: .4em; opacity: .8;
+  font: 600 1.5em/1 "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; font-variant: small-caps; white-space: nowrap; }
+.lg-mw > span { display: inline-block; }
+.lg-mw .lg-sp { width: .8em; }
+.lg-spec { display: none; }
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  /* brushed metal: on each letter (on the word, letters would vanish while they move) */
+  .lg-col > .lg-w .lg-l { color: transparent; -webkit-background-clip: text; background-clip: text;
+    background-image: linear-gradient(180deg, color-mix(in srgb, var(--accent) 45%, #fff) 0%, var(--accent) 50%, color-mix(in srgb, var(--accent) 68%, #000) 100%); }
+  /* the highlight across the metal: a copy of the letters on top */
+  .site-header .lg-spec { position: absolute; inset: 0; display: flex; flex-direction: column; pointer-events: none; opacity: .38; }
+  .lg-spec .lg-w, .lg-spec .lg-mw { color: transparent; -webkit-background-clip: text; background-clip: text;
+    background-image: linear-gradient(100deg, transparent 40%, var(--sheen) 50%, transparent 60%); background-size: 320% 100%; background-position: 50% 0; }
+}
+html.motion .site-header .lg-sway { animation: lg-sway 16s linear infinite; }
+html.motion .site-header .lg-spec .lg-w, html.motion .site-header .lg-spec .lg-mw { animation: lg-sheen 16s linear infinite; }
+html.motion .lg-still .ghost-art * { animation: none; }  /* the footer's copy stays still */
+html.lg-paused .site-header .lg * { animation-play-state: paused !important; }  /* tab hidden or header off screen (logo.js) */
+@keyframes lg-sway {
+  0%, 100% { transform: perspective(560px) rotateY(0deg) rotateX(2deg); } 12.5% { transform: perspective(560px) rotateY(3deg) rotateX(1.4deg); }
+  25% { transform: perspective(560px) rotateY(4.2deg) rotateX(0deg); } 37.5% { transform: perspective(560px) rotateY(3deg) rotateX(-1.4deg); }
+  50% { transform: perspective(560px) rotateY(0deg) rotateX(-2deg); } 62.5% { transform: perspective(560px) rotateY(-3deg) rotateX(-1.4deg); }
+  75% { transform: perspective(560px) rotateY(-4.2deg) rotateX(0deg); } 87.5% { transform: perspective(560px) rotateY(-3deg) rotateX(1.4deg); } }
+@keyframes lg-sheen { 0%, 100% { background-position: 54% 0; } 12.5% { background-position: 40% 0; } 25% { background-position: 32% 0; }
+  37.5% { background-position: 34% 0; } 50% { background-position: 46% 0; } 62.5% { background-position: 60% 0; }
+  75% { background-position: 68% 0; } 87.5% { background-position: 66% 0; } }
+/* the click's shockwave rings (logo.js), clipped to the header bar */
+.lg-waves { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.lg-ring { position: absolute; border-radius: 50%; border: 1px solid var(--accent); opacity: 0;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 40%, transparent), inset 0 0 14px color-mix(in srgb, var(--accent) 25%, transparent); }
+.main-nav { display: flex; gap: 10px; align-items: center; }
+.main-nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px;
+  padding: 8px 12px; border-radius: 999px; white-space: nowrap; }
+.main-nav a:hover { color: var(--text); background: var(--raised); }
+.main-nav a[aria-current] { color: var(--text); background: var(--raised); box-shadow: inset 0 0 0 1px var(--edge); }
+/* The two apps side by side in one rounded switch (owner, 2026-11-11: "clear navigation at the top so that people can
+   choose between Ghost Writer or Ghost Media Hub"); the page's app is lit. Phones keep it as its own row (below). */
+.product-switch { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--card);
+  border: 1px solid var(--border); box-shadow: inset 0 1px 0 var(--edge), 0 6px 18px -10px var(--shadow); }
+.main-nav .product-switch a { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 7px 15px 7px 11px; color: var(--text); transition: background-color 200ms, color 200ms, box-shadow 200ms; }
+.product-switch svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--accent); }
+.main-nav .product-switch a[aria-current] { color: var(--accent-soft-text); background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); }
+.header-cta { flex-shrink: 0; }
+.theme-button { display: grid; place-items: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--card); color: var(--muted); cursor: pointer; padding: 0; }
+.theme-button:hover { color: var(--text); }
+.theme-button svg { width: 18px; height: 18px; }
+@media (max-width: 720px) {
+  .site-header .inner { gap: 6px 10px; min-height: 56px; padding-top: 4px; padding-bottom: 4px; }
+  .site-header .lg { font-size: clamp(5.4px, 1.8vw, 6.8px); }
+  .header-cta { min-height: 40px; padding: 6px 14px; font-size: 14px; }
+  .main-nav { order: 3; flex: 1 1 100%; flex-wrap: wrap; padding-bottom: 6px; }
+  .product-switch { flex: 1 1 100%; }
+  .main-nav .product-switch a { flex: 1 1 0; font-size: 14px; padding: 7px 8px; }
+  html.js .nav-plain { display: none; }  /* About lives in the chapter pill's list and the footer */
+}
+@media (max-width: 340px) { .header-cta { padding: 6px 10px; } .product-switch svg { display: none; } }
+/* Home's hero: the two apps as two cards, so a visitor picks one straight away (owner, 2026-11-11). */
+.app-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 26px; max-width: 560px; }
+.app-pick { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 18px; text-decoration: none;
+  color: var(--text); background: var(--card); background: color-mix(in srgb, var(--card) 82%, transparent);
+  border: 1px solid var(--border); box-shadow: inset 0 1px 0 var(--edge), 0 10px 26px -14px var(--shadow);
+  transition: transform 200ms, border-color 200ms, box-shadow 200ms; }
+.app-pick:hover { color: var(--text); border-color: color-mix(in srgb, var(--accent) 55%, transparent); transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 var(--edge), 0 14px 30px -14px var(--glow); }
+.app-pick svg { width: 26px; height: 26px; flex-shrink: 0; color: var(--accent); }
+.app-pick b { display: block; font-size: 17px; }
+.app-pick small { display: block; margin-top: 2px; color: var(--muted); font-size: 13.5px; line-height: 1.35; }
+@media (max-width: 520px) { .app-picks { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .app-pick:hover { transform: none; } }
+
+/* buttons: the hairline ring (owner's pick, 2026-11-03, take 4 of dev\design\site-film\button-options-6.html).
+   A 1 px ring of dim indigo with a white-hot bar circling it (::before, a square that turns: transform only, cheap),
+   the body (::after) in the card colour. Hover: the bar speeds up, the body brightens, the button lifts. No fill.
+   The ring turns only under html.motion (head.js: not with reduced motion). Secondary buttons keep a still ring.
+   .ring = the ring alone, for buttons with their own size (the phone pill's Get access, the help page's Copy). */
+.button, .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 24px;
+  border-radius: 999px; font: inherit; font-weight: 700; font-size: 17px; text-decoration: none; }
+.button, .btn, .ring { cursor: pointer; position: relative; isolation: isolate; overflow: hidden;
+  background: transparent; color: var(--text); border: 0; transition: transform .18s var(--ease-out, ease), box-shadow .18s var(--ease-out, ease), color .18s ease; }
+.button::before, .btn::before, .ring::before { content: ""; position: absolute; left: 50%; top: 50%; width: 120%; aspect-ratio: 1; z-index: -2; translate: -50% -50%;
+  background: conic-gradient(var(--ring-dim) 0 70%, var(--accent) 84%, #fff 90%, var(--accent) 94%, var(--ring-dim) 100%); }
+.button::after, .btn::after, .ring::after { content: ""; position: absolute; inset: 1px; z-index: -1; border-radius: inherit; background: var(--card); transition: background .18s ease; }
+html.motion .button::before, html.motion .btn::before, html.motion .ring::before { animation: ring-turn 3s linear infinite; }
+html.motion .button:hover::before, html.motion .btn:hover::before, html.motion .ring:hover::before { animation-duration: 1s; }
+@keyframes ring-turn { to { rotate: 360deg; } }
+/* loops run only on screen (CONTRACT.md rule 6): site.js marks rings and the floating ghost .loop-off while they are
+   off screen, so a page full of buttons doesn't restyle every frame (site-film audit fix, 2026-11-03). !important: the rules that
+   start the loops are more specific (the pressed chip's ring); a pause must always win. */
+html.motion .loop-off::before, html.motion .loop-off .ghost, html.motion .loop-off .floor { animation-play-state: paused !important; }
+.button:hover, .btn:hover, .ring:hover { color: var(--text); transform: translateY(-2px); box-shadow: 0 14px 30px -14px var(--ring-glow); }
+.button:hover::after, .btn:hover::after, .ring:hover::after { background: var(--raised); }
+.button:active, .btn:active, .ring:active { transform: scale(.97); transition-duration: 90ms; }
+.button.secondary::before, html.motion .button.secondary::before { background: var(--ring-dim); animation: none; }
+.button.small { min-height: 38px; padding: 7px 16px; font-size: 14.5px; }
+.button svg { width: 20px; height: 20px; flex-shrink: 0; }
+.button[disabled] { opacity: .6; cursor: progress; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+.text-link { font-weight: 600; }
+.hero-actions .text-link, .closing-more .text-link { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* page sections */
+main section { padding: 64px 0; scroll-margin-top: 80px; }
+main section + section { border-top: 1px solid var(--edge); }
+@media (max-width: 720px) { main section { padding: 48px 0; scroll-margin-top: 64px; } }
+.lead { color: var(--muted); font-size: 19px; max-width: 680px; margin: 0 0 24px; }
+.center { text-align: center; }
+.muted { color: var(--muted); }
+.small-print { color: var(--faint); font: 500 12.5px/1.6 var(--mono); letter-spacing: .02em; }
+.small-print a { color: var(--muted); }
+.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent-soft-text); white-space: nowrap; }
+.badge.plain { background: var(--raised); color: var(--muted); }
+
+/* The hovering ghost, the one way the site shows the big ghost (header logo, Home's top and closing marks, About,
+   the closing band): his glow, his floor-less picture bobbing up and down, and his floor light, which never moves
+   (owner, 2026-11-08: the light is on the floor because he hovers above it). As he sinks the pool gets brighter and
+   tighter, as he rises it fades and spreads. --gw sets the box's width; every distance is a share of it. */
+.ghost-art { --gw: min(300px, 62vw); position: relative; display: grid; place-items: center; }
+.ghost-art::before { content: ""; position: absolute; width: 80%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 65%); }
+.ghost-art > * { grid-area: 1 / 1; }
+.ghost-art .ghost { position: relative; z-index: 1; width: var(--gw); aspect-ratio: 600 / 463;  /* his picture fills the height */
+  background: url("/assets/ghost-dark-float-600.webp") center / contain no-repeat; }
+/* The pool sits where the app's own logo has its floor light (ui_art.LOGO_FLOOR: a thin pool just below his hem,
+   with a gap; the owner's pick 2026-11-08), guarded by test_logo_floor. */
+.ghost-art .floor { align-self: end; width: calc(var(--gw) * .66); height: calc(var(--gw) * .09);
+  margin-bottom: calc(var(--gw) * -.02); border-radius: 50%;
+  background: radial-gradient(ellipse closest-side, color-mix(in srgb, var(--accent) 60%, transparent), transparent);
+  filter: blur(calc(var(--gw) * .017)); }
+html.motion .ghost-art .ghost { animation: float 7s ease-in-out infinite; }
+html.motion .ghost-art .floor { animation: floor 7s ease-in-out infinite; }  /* the same clock as his bob: never out of step */
+@keyframes float { 0%, 100% { transform: translateY(calc(var(--gw) * .013)); } 50% { transform: translateY(calc(var(--gw) * -.047)); } }
+@keyframes floor { 0%, 100% { opacity: 1; transform: scale(.92); } 50% { opacity: .45; transform: scale(1.12); } }
+
+/* app screenshots, framed like a window */
+.shot { margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--card);
+  box-shadow: 0 24px 60px var(--shadow), 0 0 0 1px var(--edge); }
+.shot img { display: block; width: 100%; }
+figcaption { color: var(--faint); font-size: 14.5px; margin-top: 10px; }
+
+/* cards and grids */
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.grid.four { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 960px) { .grid.four { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 860px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .grid.four { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 6px 20px var(--shadow); }
+.card p { color: var(--muted); margin: 0 0 10px; }
+.card p:last-child { margin-bottom: 0; }
+
+kbd { display: inline-block; font: 600 .85em/1 "Segoe UI", system-ui, sans-serif; padding: .3em .55em; border-radius: 7px;
+  background: var(--raised); border: 1px solid var(--border); border-bottom-width: 2px; color: var(--text); }
+
+/* About (4B): the founder */
+.founder-card { display: flex; align-items: center; gap: 24px; max-width: 760px; }
+.founder-photo { width: 128px; height: 128px; flex-shrink: 0; object-fit: cover; object-position: 50% 30%;
+  border-radius: 50%; border: 2px solid var(--accent); box-shadow: 0 0 24px var(--glow); display: block; }
+.founder-card .founder-line { color: var(--text); font-size: 20px; margin-bottom: 6px; }
+@media (max-width: 600px) { .founder-card { flex-direction: column; align-items: flex-start; } }
+
+/* Features: Ghost Writer and Windows voice typing (11B) */
+.compare-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 16px; background: var(--card); }
+table.compare { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 560px; }
+.compare th, .compare td { text-align: left; vertical-align: top; padding: 14px 18px; border-bottom: 1px solid var(--edge); }
+.compare thead th { font-size: 15px; color: var(--text); background: var(--tile); }
+.compare tbody th { font-weight: 650; color: var(--text); width: 26%; }
+.compare td { color: var(--muted); }
+.compare tbody tr:last-child > * { border-bottom: 0; }
+.compare td:nth-child(2) { color: var(--text); }
+@media (max-width: 640px) {  /* phones: each line becomes a small block, no sideways scrolling */
+  table.compare { min-width: 0; }
+  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .compare tr { display: block; padding: 12px 16px; border-bottom: 1px solid var(--edge); }
+  .compare tbody tr:last-child { border-bottom: 0; }
+  .compare th, .compare td { display: block; padding: 0; border: 0; width: auto !important; }
+  .compare tbody th { margin-bottom: 6px; }
+  .compare td { margin: 4px 0; }
+  .compare td::before { content: attr(data-label) ": "; font-weight: 650; color: var(--faint); }
+}
+
+/* What people say (11B; shown only once real quotes exist: build_site quotes_html) */
+.quote blockquote { margin: 0 0 12px; font-size: 18px; color: var(--text); }
+.quote blockquote p { color: var(--text); }
+.quote figcaption { margin: 0; }
+
+/* tick lists and the quoted things you can say */
+.ticks { list-style: none; padding: 0; margin: 0; }
+.ticks li { position: relative; padding-left: 30px; margin: 10px 0; color: var(--muted); }
+.ticks li b { color: var(--text); }
+.ticks li::before { content: ""; position: absolute; left: 2px; top: .45em; width: 14px; height: 8px;
+  border-left: 3px solid var(--accent); border-bottom: 3px solid var(--accent); transform: rotate(-45deg); }
+.say { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; padding: 0; list-style: none; }
+.say li { background: var(--tile); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+.say li::before { content: "\201C"; color: var(--accent); } .say li::after { content: "\201D"; color: var(--accent); }
+
+/* the request form */
+.request { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: start; }
+@media (max-width: 900px) { .request { grid-template-columns: 1fr; gap: 24px; } }
+.request-form { display: grid; gap: 16px; }
+.request-form label { display: grid; gap: 6px; font-size: 15px; font-weight: 600; color: var(--text); }
+.request-form .hint { font-weight: 400; color: var(--faint); font-size: 14px; }
+.request-form input, .request-form textarea { font: inherit; font-size: 16px; color: var(--text); background: var(--tile); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 14px; width: 100%; }
+.request-form input:focus-visible, .request-form textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.request-form [aria-invalid="true"] { border-color: var(--warn); }
+.request-form textarea { min-height: 96px; resize: vertical; }
+.request-form select { font: inherit; font-size: 16px; font-weight: 400; color: var(--text); background: var(--tile); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 14px; width: 100%; }
+.request-form select:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.request-form label.tick { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+.request-form label.tick input { width: 22px; height: 22px; margin: 1px 0 0; padding: 0; flex-shrink: 0; accent-color: var(--accent); }
+.request-form label.tick .hint { display: block; }
+.request-form .rq-apps { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.request-form .rq-apps legend { width: 100%; padding: 0; margin-bottom: 6px; }
+.request-form label.tick input[aria-invalid="true"] { outline: 2px solid var(--warn); outline-offset: 2px; }
+.request-form .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.request-form button { justify-self: start; }
+.request-form .result { margin: 0; font-weight: 600; min-height: 1.6em; }
+.request-form .result.good { color: var(--good); } .request-form .result.bad { color: var(--warn); }
+.need { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; }
+.need li { display: flex; gap: 10px; color: var(--muted); }
+.need li b { color: var(--text); }
+
+/* download box */
+.download-box { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; }
+.download-box .what b { display: block; font-size: 22px; }
+.download-box .what span { color: var(--muted); }
+.fingerprint { margin-top: 16px; color: var(--faint); font-size: 14px; }
+
+/* questions */
+.faq { display: grid; gap: 12px; max-width: 860px; }
+.faq details { background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 16px 20px; font-weight: 650; font-size: 17.5px; border-radius: 14px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex-shrink: 0; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--raised); color: var(--accent); font-weight: 700; transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq .answer { padding: 0 20px 16px; color: var(--muted); }
+.faq .answer p:last-child { margin-bottom: 0; }
+
+/* what's new (from changelog.py) */
+.changes { display: grid; gap: 14px; }
+.change { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; }
+.change ul { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
+.more-changes summary { cursor: pointer; color: var(--accent); font-weight: 600; margin: 18px 0 12px; }
+
+/* legal pages */
+.legal { max-width: 780px; padding: 48px 0 64px; }
+.legal h1 { font-size: clamp(32px, 5vw, 44px); margin-bottom: 4px; }
+.legal .updated { color: var(--faint); margin-bottom: 28px; }
+.legal h2 { font-size: 21px; margin: 32px 0 8px; }
+.legal p, .legal li { color: var(--muted); overflow-wrap: anywhere; }
+.legal p.loud { color: var(--text); font-size: 15px; }
+
+/* dialog: "Download Ghost Writer?" */
+dialog.ask { border: 1px solid var(--border); border-radius: 18px; padding: 0; max-width: 460px; width: calc(100% - 32px);
+  background: var(--card); color: var(--text); box-shadow: 0 30px 80px var(--shadow); }
+dialog.ask::backdrop { background: rgba(5,6,9,.62); }
+dialog.ask .inside { padding: 26px 24px 22px; }
+dialog.ask h2 { font-size: 22px; margin: 0 0 10px; }
+dialog.ask p { color: var(--muted); font-size: 16px; }
+dialog.ask .row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+
+/* ==== frame ==== (owner's picks 2026-11-01, dev/design/site-redesign/audit-2026-11-01: 8B type, 11A closing band
+   and footer, 12A page changes). Owned by [Claude-site-frame]; other pages use these classes. */
+:root {
+  /* one motion language for the whole site: things arriving ease out, things changing state ease in-out, never bounce */
+  --ease-out: cubic-bezier(.16, 1, .3, 1); --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --t-slow: 700ms;
+  /* 8B: display headings; the Media Hub stamp in the logo's own Palatino small caps (system fonts) */
+  --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-label: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+/* 8B typography: a display scale, a lighter lead; eyebrows (site film token) keep their hairline */
+h1, h2 { font-family: var(--font-display); }
+h1 { font-size: clamp(44px, 7vw, 92px); line-height: 1.02; letter-spacing: -.04em; margin: 0 0 22px; text-wrap: balance; }
+h2 { font-size: clamp(32px, 4.6vw, 56px); line-height: 1.06; letter-spacing: -.03em; margin: 0 0 14px; text-wrap: balance; }
+.lead { font-size: clamp(18px, 1.9vw, 21px); font-weight: 350; line-height: 1.55; }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font: 500 12.5px/1.3 var(--mono); letter-spacing: .04em;
+  text-transform: lowercase; color: var(--muted); }  /* site film token (CONTRACT.md): the one eyebrow, scenes too; mono since 2026-11-03 */
+.eyebrow::before { content: ""; flex-shrink: 0; width: 28px; height: 1px; background: currentColor; opacity: .75; }
+.closing .eyebrow { justify-content: center; }
+.closing .eyebrow::after { content: ""; flex-shrink: 0; width: 28px; height: 1px; background: currentColor; opacity: .75; }
+/* headings that stay small keep a normal line height and spacing */
+.legal h1 { line-height: 1.1; letter-spacing: -.025em; }
+.legal h2, dialog.ask h2 { line-height: 1.2; letter-spacing: -.01em; }
+/* a big statement line (the closing band) */
+.statement { font-size: clamp(40px, 6vw, 76px); line-height: 1.02; letter-spacing: -.04em; max-width: 16ch; margin: 0 0 22px; }
+/* the stamp on Media Hub's drawn editor (hub.css sizes it) */
+.stamp { display: inline-block; font: 700 15px/1 var(--font-label); font-variant-caps: all-small-caps; letter-spacing: .24em;
+  color: var(--accent); border: 1.5px solid var(--accent); padding: 7px 12px 8px 15px; border-radius: 4px; transform: rotate(-3deg); }
+
+/* 11A: the closing call to action before the footer (site/_closing.html; build_site adds it to every page that
+   doesn't bring its own), with the gothic GHOST as a faint watermark cut off at the bottom */
+.closing { position: relative; overflow: hidden; isolation: isolate; text-align: center; padding: 112px 0 128px;
+  border-top: 1px solid var(--border);
+  background: radial-gradient(700px 360px at 50% 100%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%); }
+.closing .statement { margin-inline: auto; }
+.closing .actions { justify-content: center; }
+.closing .fine { color: var(--faint); font: 500 12.5px/1.6 var(--mono); margin: 16px 0 0; }
+.closing-ghost { --gw: 150px; margin: 0 auto 8px; }
+.closing-mark { position: absolute; left: 50%; bottom: 0; z-index: -1; transform: translate(-50%, 34%); pointer-events: none; user-select: none;
+  font: 800 clamp(150px, 26vw, 380px)/1 "Grenze Gotisch", "Old English Text MT", serif; letter-spacing: .02em; white-space: nowrap;
+  color: color-mix(in srgb, var(--accent) 6%, transparent); }
+/* arriving (frame.js, only with motion): the ghost rises 12 px and fades in, its glow brightens once */
+html.frame-js .closing-ghost { opacity: 0; transform: translateY(12px); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out); }
+html.frame-js .closing.seen .closing-ghost { opacity: 1; transform: none; }
+html.frame-js .closing.seen .closing-ghost::before { animation: halo-once 1.4s var(--ease-out) .2s both; }
+@keyframes halo-once { 0% { opacity: 1; transform: scale(1); } 40% { opacity: 1; transform: scale(1.18); filter: brightness(1.8); } 100% { opacity: 1; transform: scale(1); } }
+@media (max-width: 720px) { .closing { padding: 80px 0 96px; } .closing-ghost { --gw: 120px; } }
+
+/* the closing band's extra links on Ghost Writer pages (build_site CLOSING_MORE) */
+.closing-more { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 28px; margin: 12px 0 0; }
+
+/* footer (site film): the one call to action, three quiet columns, the legal line. Hairlines, no cards. */
+.site-footer { border-top: 1px solid var(--border); padding: 48px 0 32px; color: var(--faint); font-size: 14.5px; }
+.closing + .site-footer { border-top-color: var(--edge); }
+.foot-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--edge); }
+.foot-top .lg { font-size: 5.2px; margin: 0; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 32px 0; }
+.foot-h { margin: 0 0 8px; color: var(--text); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.foot-col ul { list-style: none; margin: 0; padding: 0; }
+.foot-col a { display: inline-block; padding: 5px 0; overflow-wrap: anywhere; }
+.foot-legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; margin: 0; padding-top: 20px;
+  border-top: 1px solid var(--edge); font-size: 13.5px; }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--text); text-decoration: underline; }
+.site-footer .foot-cta, .site-footer .foot-cta:hover { color: var(--text); text-decoration: none; }
+@media (max-width: 720px) {
+  .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .foot-col:last-child { grid-column: 1 / -1; }
+  .foot-col a { display: flex; align-items: center; min-height: 44px; padding: 0; }
+  .foot-legal a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* M1 tilt only on cards you can click (12A); other cards stay still */
+.card.tilt:not(:has(a)) { transform: none !important; }
+.card.tilt:not(:has(a))::after { display: none; }
+
+/* 12A: smooth page changes (browsers with cross-document View Transitions; others simply navigate as before).
+   The header stays put; the old page fades out, the new one fades in rising 8 px. Never with reduced motion. */
+@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+.site-header { view-transition-name: site-header; }
+::view-transition-group(site-header) { animation: none; }
+::view-transition-old(root) { animation: vt-out 160ms var(--ease-in-out) both; }
+::view-transition-new(root) { animation: vt-in 220ms var(--ease-out) both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+/* ==== /frame ==== */
+
+/* ==== site film: chapters ==== (PLAN.html chapter 06; owned by the frame, built by site.js from the page's own
+   chapters: every main section[id] with an h2, or data-chapter="Name" to name it).
+   Phones (under 721 px): the chapter pill above the home bar shows the current chapter and a progress ring (a tiny
+   canvas); tapping it fans the chapters upward, then "Top", then the site's links and Get access. Wider screens: the
+   chapter rail, a dotted line on the right edge, one dot per chapter (only with 3 or more). Both stay out of sight
+   while the intro plays. Without a script neither exists and the header's links show instead. */
+.cp, .rail { display: none; }
+@media (max-width: 720px) {
+  html.js .cp { display: block; }
+  html.js body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }  /* the pill never covers the legal line */
+}
+@media (min-width: 721px) { html.js .rail.on { display: block; } }
+html.intro .cp, html.intro .rail { visibility: hidden; }
+body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }  /* viewport-fit=cover */
+
+.cp-pill { position: fixed; z-index: 62; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; max-width: calc(100vw - 32px); padding: 6px 14px 6px 8px;
+  border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--text);
+  font: inherit; font-size: 15px; font-weight: 600; line-height: 1.2; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.cp-ring { width: 28px; height: 28px; flex-shrink: 0; }
+.cp-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 58vw; }
+.cp-chev { width: 16px; height: 16px; flex-shrink: 0; color: var(--muted); transition: transform 300ms var(--ease, cubic-bezier(.2,.7,.2,1)); }
+.cp.open .cp-chev { transform: rotate(180deg); }
+.cp-scrim { position: fixed; inset: 0; z-index: 60; background: rgba(5,6,9,.6); opacity: 0; visibility: hidden;
+  transition: opacity 300ms var(--ease, cubic-bezier(.2,.7,.2,1)), visibility 0s 300ms; }
+.cp.open .cp-scrim { opacity: 1; visibility: visible; transition: opacity 300ms var(--ease, cubic-bezier(.2,.7,.2,1)); }
+.cp-list { position: fixed; z-index: 61; left: 16px; right: 16px; bottom: calc(68px + env(safe-area-inset-bottom));
+  margin: 0; padding: 8px; list-style: none; max-height: calc(100vh - 120px); max-height: calc(100svh - 120px); overflow-y: auto;
+  overscroll-behavior: contain; background: var(--card); border: 1px solid var(--border); border-radius: 22px;
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity 300ms var(--ease, cubic-bezier(.2,.7,.2,1)), transform 300ms var(--ease, cubic-bezier(.2,.7,.2,1)), visibility 0s 300ms; }
+.cp.open .cp-list { opacity: 1; visibility: visible; transform: none;
+  transition: opacity 300ms var(--ease, cubic-bezier(.2,.7,.2,1)), transform 300ms var(--ease, cubic-bezier(.2,.7,.2,1)); }
+.cp-row { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 14px; border: 0; border-radius: 14px;
+  background: none; color: var(--text); font: inherit; font-size: 16px; font-weight: 600; text-align: left; text-decoration: none; cursor: pointer; }
+.cp-row:hover { background: var(--raised); color: var(--text); }
+.cp-row[aria-current] { color: var(--accent); }
+.cp-row[aria-current]::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.cp-site { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--edge); }
+.cp-site + .cp-site { margin-top: 0; padding-top: 0; border-top: 0; }
+.cp-row.cp-cta { justify-content: center; margin-top: 6px; border-radius: 999px; }  /* + .ring (site.js): the hairline ring */
+/* the fan: rows rise in from the pill, the nearest first, 40 ms apart (at most 10 staggered) */
+.cp.open .cp-list > li { animation: cp-in 300ms var(--ease, cubic-bezier(.2,.7,.2,1)) both; }
+.cp.open .cp-list > li:nth-last-child(2) { animation-delay: 40ms; } .cp.open .cp-list > li:nth-last-child(3) { animation-delay: 80ms; }
+.cp.open .cp-list > li:nth-last-child(4) { animation-delay: 120ms; } .cp.open .cp-list > li:nth-last-child(5) { animation-delay: 160ms; }
+.cp.open .cp-list > li:nth-last-child(6) { animation-delay: 200ms; } .cp.open .cp-list > li:nth-last-child(7) { animation-delay: 240ms; }
+.cp.open .cp-list > li:nth-last-child(8) { animation-delay: 280ms; } .cp.open .cp-list > li:nth-last-child(9) { animation-delay: 320ms; }
+.cp.open .cp-list > li:nth-last-child(n+10) { animation-delay: 360ms; }
+@keyframes cp-in { from { opacity: .001; transform: translateY(10px); } }
+
+.rail { position: fixed; z-index: 40; right: 0; top: 50%; transform: translateY(-50%); margin: 0; padding: 6px 0; list-style: none; }
+.rail::before { content: ""; position: absolute; top: 14px; bottom: 14px; right: 12px; border-right: 1px dotted var(--faint); }
+.rail-dot { position: relative; display: flex; align-items: center; justify-content: flex-end; width: 24px; height: 28px; text-decoration: none; }
+/* the dot sits 16 px from the edge, inside the page's 24 px gutter even at 721 px */
+.rail-dot::after { content: ""; position: relative; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: var(--faint);
+  transition: transform 300ms var(--ease, cubic-bezier(.2,.7,.2,1)), background-color 300ms ease; }
+.rail-dot:hover::after { background: var(--text); }
+.rail-dot[aria-current]::after { background: var(--accent); transform: scale(1.45); }
+.rail-dot:focus-visible { outline-offset: 0; }
+.rail-name { position: absolute; right: 30px; top: 50%; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--card); color: var(--text); font-size: 13px; font-weight: 600; line-height: 1.3; white-space: nowrap; pointer-events: none;
+  opacity: 0; transform: translate(6px, -50%); transition: opacity 160ms ease, transform 160ms ease; }
+.rail-dot:hover .rail-name, .rail-dot:focus-visible .rail-name { opacity: 1; transform: translate(0, -50%); }
+/* ==== /site film: chapters ==== */
+
+/* ==== site film: hero blocks ==== (CONTRACT.md "The six hero blocks", PLAN.html chapter 03). Every page opens on:
+     <section class="hero-film" aria-labelledby="hero-t">
+       <div class="wrap hero-in">
+         <div class="hero-words">
+           <p class="eyebrow">Ghost Writer</p>                       (optional)
+           <h1 id="hero-t">Talk. It types. <em>Anywhere.</em></h1>  (max 7 words; one <em> phrase may be in the accent)
+           <p class="hero-line">One line, at most 18 words.</p>
+           <div class="hero-actions"><a class="btn" href="/ghost-writer/#request">Get access</a>
+             <a class="text-link" href="#dictate">See how it works</a></div>
+           <p class="hero-fine">Free beta &middot; by invitation &middot; Windows 10 and 11</p>   (optional small print)
+         </div>
+         <div class="hero-object" data-wash="indigo"><span class="glow" aria-hidden="true"></span> ...star object... </div>
+       </div>
+     </section>
+   Desktop: words left 50%, object right 50%, vertically centred, 96 px of air. Phones: one column, the object under the
+   buttons at 55% of the screen height, 48 px of air. The section has no id/h2, so it is not a chapter ("Top" is). The
+   star object alone may take var(--star-shadow); .glow and .chip are the scene kit's (scenes.css); not .stage,
+   which the kit pins inside scenes. */
+:root { --star-shadow: 0 24px 60px rgba(0,0,0,.35); }
+main section.hero-film { padding: 96px 0; border-top: 0; }
+.hero-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.hero-in > * { min-width: 0; }
+.hero-words { max-width: 560px; }
+.hero-film h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.02; letter-spacing: -.02em; margin: 0 0 24px; text-wrap: balance; }
+.hero-film h1 em { color: var(--accent); }
+.hero-line { max-width: 56ch; margin: 0 0 32px; color: var(--muted); font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.hero-fine { margin: 24px 0 0; color: var(--faint); font-size: 14.5px; }
+.hero-object { position: relative; display: grid; place-items: center; min-height: min(560px, 64vh); }
+@media (max-width: 720px) {
+  main section.hero-film { padding: 48px 0; }
+  .hero-in { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .hero-object { min-height: 55vh; min-height: 55svh; }
+}
+/* ==== /site film: hero blocks ==== */
+
+/* The opening intro: the app's start-up logo over the page, every Home visit and once per visit elsewhere (head.js), always the dark
+   look, on a screen that is all one dark (#040508, the animation's own background). The animation plays
+   live in a see-through frame covering the whole screen, so it has no square or edge of its own; then
+   the whole screen fades into the page. */
+html.intro body { overflow: hidden; }
+html.intro body::before { content: ""; position: fixed; inset: 0; z-index: 999; background: #040508; }
+.intro-cover { position: fixed; inset: 0; z-index: 1000; background: #040508; transition: opacity .6s ease; cursor: pointer; }
+.intro-cover iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent;
+  color-scheme: normal; pointer-events: none; }
+.intro-cover.out { opacity: 0; pointer-events: none; }
+
+/* ---- Motion (owner's picks 2026-10-28; motion.js). html.motion is set by head.js before the page paints,
+   only without reduced motion. Without it every section below shows its full content, still. ---- */
+
+/* B2: faint voice waves behind a section's text (canvas, drawn only while on screen) */
+.wave-host { position: relative; isolation: isolate; }
+/* the flowing lines (motion.js): the whole page, above the stars, under the words (owner, 2026-11-03) */
+.wave-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: none; }
+html.motion .wave-field { display: block; }
+
+/* M1: cards that respond (mouse only; motion.js adds .tilt) */
+.card.tilt { position: relative; transition: transform .25s ease, box-shadow .25s ease; }
+.card.tilt::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .25s ease;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--glow), transparent 65%); }
+.card.tilt.lit::after { opacity: 1; }
+.card.tilt.lit { box-shadow: 0 18px 44px var(--shadow); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* small one-off adjustments (no inline style="" anywhere: the site can use a strict Content-Security-Policy) */
+.change .change-title { font-size: 20px; margin: 0; }
+.change .change-head { margin: 4px 0 0; font-weight: 600; color: var(--text); }
+.u-m0 { margin: 0 !important; }
+.u-mt20 { margin-top: 20px !important; } .u-w860 { max-width: 860px !important; } .u-logo { max-height: 200px; width: auto; }
+.u-ink-light { color: #4f52e0 !important; } .u-bg-light { background: #f3f5f9 !important; } .u-bg-dark { background: #0f1116 !important; }
+/* ^ the app's own grounds (ui_art BG), whatever the site's theme: the press kit's logo tiles */
+/* grid columns may shrink below their content's natural width */
+.grid > * { min-width: 0; }
