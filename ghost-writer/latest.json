@@ -1,20 +1,13 @@
 {
  "app": "ghost-writer",
- "delta": {
-  "from": "7.2",
-  "runtime": "871e652b8c3568678f78bf59a313d908ac64d3d11b4faac29e6a621f039bc53c",
-  "sha256": "4bc9ee40c31fca08a825f0e6f91c45aa713b2f8dc5464b34d03babed547a7c7a",
-  "size": 8207848,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.0/Ghost-Writer-Update-7.2.0.zip"
- },
  "full": {
-  "sha256": "5f4f890764ec1099f51f7b0ab3c4ac091305fa0e1793e22b642883950b3fde85",
-  "size": 704834439,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.0/Ghost-Writer-Setup.exe"
+  "sha256": "f06aabd35e9c32b0ba9dbc09f38f6616f1430ce4a834f438e7dbf7b003bcd7f4",
+  "size": 883005132,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.1/Ghost-Writer-Setup.exe"
  },
- "issued": 1793387419,
+ "issued": 1794414623,
  "kind": "update-manifest",
- "notes": "Moving your data to another PC is clearer.",
- "signature": "WB8gPGBbxVnF7TpFb3vQGG2VgktRT++yN6q8DE58+Iq+kUEVj/ODhYnMwBG5oz0W32wAUCLBppSwhrWjkdmyDw==",
- "version": "7.2.0"
+ "notes": "A new glass look, a Home you arrange, and your own AI if you want it.",
+ "signature": "VoRVkvQhz2kwcmwuSvcCiRa+W2TWL3ZmHEjrCMTuIui5w516OTHDJCLS0f4z9FvqYz2N6ZkUSLHzvXc56WeyBw==",
+ "version": "7.2.1"
 }
