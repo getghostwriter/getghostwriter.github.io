@@ -1,8 +1,8 @@
 # Ghost Media Works
 
-Private software for Windows that runs on your own PC.
+Windows apps that work for you.
 
-**Ghost Writer** is voice typing for Windows: hold a key, talk, and your words appear in almost any app. Speech is turned into text on your PC, so your voice and words never leave it. Free beta, by invitation.
+**Ghost Writer** is voice typing and a voice workspace for Windows: hold a key, talk, and your words appear in almost any app; then rewrite what you select, keep voice notes, search your PC and say "Hey Ghost". Speech is turned into text on your PC, so dictation works offline, and you can connect your own AI when you want more help. Beta, by invitation.
 
 **Website and download:** https://ghostmediaworks.com/ghost-writer/
 
