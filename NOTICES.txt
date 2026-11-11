@@ -1,8 +1,8 @@
 Ghost Writer
 Copyright (c) 2026 Ghost Media Works. All rights reserved.
 
-Ghost Writer runs entirely on your PC. It is built on the open-source work below; thank you
-to their authors. Each is used under its own licence, named here with where to find it.
+Ghost Writer is built on the open-source work below; thank you to their authors. Each is
+used under its own license, named here with where to find it.
 
 
 SPEECH RECOGNITION AND FORMATTING
@@ -22,7 +22,7 @@ CTranslate2 (OpenNMT) - MIT License
 Qwen3.5-4B (Alibaba Cloud, Qwen team) - Apache License 2.0   [Advanced mode only]
   https://huggingface.co/Qwen/Qwen3.5-4B
   Used as a Q4_K_M GGUF file (a smaller copy of the same model made with llama.cpp's tools); its
-  licence file comes with the Advanced pack, next to the model
+  license file comes with the Advanced pack, next to the model
 llama.cpp and ggml (the ggml authors) - MIT License   [Advanced mode only]
   https://github.com/ggml-org/llama.cpp
   Includes the LLVM OpenMP runtime (Apache License 2.0 with LLVM Exceptions)
@@ -31,26 +31,40 @@ whisper.cpp (the ggml authors) - MIT License   [Advanced mode on AMD and Intel c
   Windows Vulkan build by AMD's Lemonade project (MIT): https://github.com/lemonade-sdk/whisper.cpp-rocm
   Whisper large-v3-turbo converted for whisper.cpp (ggml, MIT): https://huggingface.co/ggerganov/whisper.cpp
   Includes SDL2 (zlib License): https://www.libsdl.org/
-NVIDIA CUDA runtime, cuBLAS and NVRTC libraries - NVIDIA proprietary licence, redistributed
+NVIDIA CUDA runtime, cuBLAS and NVRTC libraries - NVIDIA proprietary license, redistributed
   under the NVIDIA CUDA Toolkit End User License Agreement   [Advanced mode only]
   https://docs.nvidia.com/cuda/eula/
 ONNX Runtime (Microsoft) - MIT License
   https://github.com/microsoft/onnxruntime
 
 
+NATURAL VOICE   [the voice samples, and the natural voice download]
+
+Kokoro-82M voice model and voices (hexgrad) - Apache License 2.0
+  https://huggingface.co/hexgrad/Kokoro-82M
+  The voice samples in the app (src\ghostwriter\assets\voices) were made with it; the natural voice
+  download carries the model and voices themselves
+misaki (hexgrad) - Apache License 2.0
+  https://github.com/hexgrad/misaki
+  Its English pronunciation lists (gb_gold, gb_silver, us_gold, us_silver; in the natural voice
+  download, used as they are) and three word-ending rules adapted in the app's pronunciation code
+kokoro-onnx model files (thewh1teagle) - MIT License   [natural voice download]
+  Copyright (c) 2025 github.com/thewh1teagle
+  https://github.com/thewh1teagle/kokoro-onnx
+  The Kokoro model in ONNX form. The download carries its CREDITS.txt and both license texts
+  next to the files they cover
+
+
 THE APP
 
-Python (Python Software Foundation) - PSF License Agreement, with Tcl/Tk (BSD-style licence)
+Python (Python Software Foundation) - PSF License Agreement, with Tcl/Tk (BSD-style license)
   https://www.python.org/
 Pillow - MIT-CMU (HPND) License        https://github.com/python-pillow/Pillow
 NumPy - BSD 3-Clause License           https://numpy.org/
 PyAV - BSD 3-Clause License            https://github.com/PyAV-Org/PyAV
   PyAV includes FFmpeg libraries, licensed under the GNU LGPL version 2.1 or later. They are
-  separate DLL files in python\Lib\site-packages\av.libs and can be replaced. Source code:
-  https://ffmpeg.org/download.html
-pystray - GNU LGPL version 3            https://github.com/moses-palmer/pystray
-  Used unmodified as a separate Python package (python\Lib\site-packages\pystray); you may
-  replace it with your own copy. Source code is available at the address above.
+  shipped unmodified as separate DLL files in python\Lib\site-packages\av.libs and can be
+  replaced with your own build. Source code: https://ffmpeg.org/download.html
 sounddevice - MIT License, with PortAudio (MIT License)   https://github.com/spatialaudio/python-sounddevice
 PyAudioWPatch (S0D3S) - Apache License 2.0; PortAudio (MIT License), with WASAPI speaker loopback support
   https://github.com/s0d3s/PyAudioWPatch
@@ -67,11 +81,11 @@ Other Python packages used by the above: anyio (MIT), certifi (MPL-2.0), cffi (M
   pycparser (BSD-3-Clause), PyYAML (MIT), six (MIT), tqdm (MPL-2.0 and MIT),
   typing_extensions (PSF-2.0)
 Microsoft Visual C++ runtime libraries - redistributed under the Microsoft Visual C++
-  Redistributable licence
+  Redistributable license
 Grenze Gotisch font (Omnibus-Type) - SIL Open Font License 1.1
   https://fonts.google.com/specimen/Grenze+Gotisch
 Nuitka (Kay Hayen) - Apache License 2.0: turns the app's code into one compiled file; the
-  small runtime parts it adds to that file are covered by the same licence
+  small runtime parts it adds to that file are covered by the same license
   https://nuitka.net/
 
 
@@ -81,7 +95,8 @@ GSAP and its MotionPath plugin (GreenSock) - GSAP Standard "No Charge" License: 
   opening animation on the website, served from the website itself
   https://gsap.com/standard-license
 
-The full licence texts are in the licenses folder next to this file (Apache-2.0, MIT,
+The full license texts are in the licenses folder next to this file (Apache-2.0, MIT,
 OFL-1.1, zlib); Python's is python\LICENSE.txt, and each Python package's is in its folder
 under python\Lib\site-packages (the *.dist-info folders). The Advanced pack carries the
-NVIDIA and Qwen licence files beside the parts they cover.
+NVIDIA and Qwen license files beside the parts they cover, and the natural voice download
+its CREDITS.txt with the Apache 2.0 and kokoro-onnx MIT texts.
