@@ -1,13 +1,20 @@
 {
  "app": "ghost-writer",
- "full": {
-  "sha256": "f06aabd35e9c32b0ba9dbc09f38f6616f1430ce4a834f438e7dbf7b003bcd7f4",
-  "size": 883005132,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.1/Ghost-Writer-Setup.exe"
+ "delta": {
+  "from": "7.2.1",
+  "runtime": "ed7b39b30016682591b92a97e8082ec94fd97e783d34e4e229c603196e8ef190",
+  "sha256": "80ca26814f897525f11fd5815dd3d88400b18dee1bf5e7a978ceb89c67e34d97",
+  "size": 168293324,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.2/Ghost-Writer-Update-7.2.2.zip"
  },
- "issued": 1794414623,
+ "full": {
+  "sha256": "ca51c9522d46742ff80a3c17c723b8ed051776153835c1c38791ddad7104c68c",
+  "size": 882993274,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.2/Ghost-Writer-Setup.exe"
+ },
+ "issued": 1794437505,
  "kind": "update-manifest",
- "notes": "A new glass look, a Home you arrange, and your own AI if you want it.",
- "signature": "VoRVkvQhz2kwcmwuSvcCiRa+W2TWL3ZmHEjrCMTuIui5w516OTHDJCLS0f4z9FvqYz2N6ZkUSLHzvXc56WeyBw==",
- "version": "7.2.1"
+ "notes": "Your shortcut keys keep working, all day long.",
+ "signature": "LPJOwCBbshPu4Xn1NhrwpTndi+c1djx8cX9H8VTwDpVB2ukQz+zLuMETmfSN96mjDdONBe+itfSdDyN4knpXBQ==",
+ "version": "7.2.2"
 }
