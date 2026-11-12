@@ -1,13 +1,13 @@
 {
  "app": "media-hub",
  "kind": "update-manifest",
- "version": "0.3.0",
- "issued": 1794282952,
- "notes": "A new Home and Settings, voice and music separation, blank scenes, faster exports, and updates from inside the app.",
+ "version": "0.4.0",
+ "issued": 1794455855,
+ "notes": "Ghost Replay: a volume and mute control for the Replay viewer (remembered, mouse wheel, M and arrow keys), a big view, and a new 'Leave out this app's sound' option so watching a replay mid-game never echoes into your recordings. Keyboard media keys and the viewer's keys never reach your game. Also: code avatars.",
  "full": {
-  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.3.0/Ghost-Media-Hub-Setup.exe",
-  "size": 887655704,
-  "sha256": "18bfe56bebc07b1280b84e82dee7c48541de23af7efe8099d1dcbbdb807c1e33"
+  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.0/Ghost-Media-Hub-Setup.exe",
+  "size": 937330064,
+  "sha256": "c3c08ed5569530e02c80f46383c9e29b8c2d19bdf9bcc7ca74a5e9a486fcf1a3"
  },
- "signature": "fFikFQhQjeHfmQoLmBcrfnKek9fNHV8oCe2y3zPkZthCK7UXEi9xwY2Gp7e1Amgk5K2W/fqc/33fTvalYG9aBA=="
+ "signature": "aoJFWf66M6xhsAxaNCBDyZVFioIPUG5lsdLkcepQVLbAYWcZjnycob7WttXLEYbcFirhlm9fc0pTJYSMHaavBQ=="
 }
