@@ -1,13 +1,21 @@
 {
  "app": "media-hub",
  "kind": "update-manifest",
- "version": "0.4.0",
- "issued": 1794455855,
- "notes": "Ghost Replay: a volume and mute control for the Replay viewer (remembered, mouse wheel, M and arrow keys), a big view, and a new 'Leave out this app's sound' option so watching a replay mid-game never echoes into your recordings. Keyboard media keys and the viewer's keys never reach your game. Also: code avatars.",
+ "version": "0.4.1",
+ "issued": 1794464443,
+ "notes": "Ghost Replay: switching the viewer's sound no longer makes the controls flicker, and the mute button's icon and highlight sit neatly inside its pill.",
  "full": {
-  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.0/Ghost-Media-Hub-Setup.exe",
-  "size": 937330064,
-  "sha256": "c3c08ed5569530e02c80f46383c9e29b8c2d19bdf9bcc7ca74a5e9a486fcf1a3"
+  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.1/Ghost-Media-Hub-Setup.exe",
+  "size": 937291596,
+  "sha256": "499c06d16ca1e419fec90fc2bd3015679866817159d24c95333b93474b6389e5"
  },
- "signature": "aoJFWf66M6xhsAxaNCBDyZVFioIPUG5lsdLkcepQVLbAYWcZjnycob7WttXLEYbcFirhlm9fc0pTJYSMHaavBQ=="
+ "patch": {
+  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.1/Ghost-Media-Hub-Update-0.4.1.gmhpatch",
+  "size": 25089579,
+  "sha256": "f2d006b936fe69e1e9e2c97cf5c1bf902af14e80eecdbba4396c81900cf5fa0d",
+  "from": [
+   "0.4.0"
+  ]
+ },
+ "signature": "F/ek0y26+an0Pnp4XCcUjA+CQxgI+ShGoz9pKgVvf5IZj9lio/8p/Scw/QeeDm4QI/CJNS05GfrSBoJqoDQaAQ=="
 }
