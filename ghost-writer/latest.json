@@ -1,13 +1,13 @@
 {
  "app": "ghost-writer",
  "full": {
-  "sha256": "43c82b09ae7dee4e95874b90d70ee61a66f32861bd4e6cfc07aae96400a1eb1d",
-  "size": 881157528,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.3/Ghost-Writer-Setup.exe"
+  "sha256": "da35f531da8eb3ea1742ddabc45004f272c86a2a5666d0ae311754fd652a8150",
+  "size": 881295998,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.4/Ghost-Writer-Setup.exe"
  },
- "issued": 1794623520,
+ "issued": 1794670420,
  "kind": "update-manifest",
- "notes": "Natural voices that sound like a person talking.",
- "signature": "zMLjbF7dV5GyhL8IqoVGh3CtJpKnMh3MDu1BLziNNo4iVEZXp671SoT7JoGFqWBRlqtsv2/SMesiqy/HAkXhCw==",
- "version": "7.2.3"
+ "notes": "Your PCs stay in step: the same words, notes and lists on each one.",
+ "signature": "DeyLopPJbsny74RvWd4QoS1DG+SFSF9T6i2fs84UxUFgFzT0P9VoRFLtD05PR+KAAPmw2eoEkOKKeif6oG7fBA==",
+ "version": "7.2.4"
 }
