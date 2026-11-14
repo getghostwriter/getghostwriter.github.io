@@ -1,20 +1,13 @@
 {
  "app": "ghost-writer",
- "delta": {
-  "from": "7.2.1",
-  "runtime": "ed7b39b30016682591b92a97e8082ec94fd97e783d34e4e229c603196e8ef190",
-  "sha256": "80ca26814f897525f11fd5815dd3d88400b18dee1bf5e7a978ceb89c67e34d97",
-  "size": 168293324,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.2/Ghost-Writer-Update-7.2.2.zip"
- },
  "full": {
-  "sha256": "ca51c9522d46742ff80a3c17c723b8ed051776153835c1c38791ddad7104c68c",
-  "size": 882993274,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.2/Ghost-Writer-Setup.exe"
+  "sha256": "43c82b09ae7dee4e95874b90d70ee61a66f32861bd4e6cfc07aae96400a1eb1d",
+  "size": 881157528,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.3/Ghost-Writer-Setup.exe"
  },
- "issued": 1794437505,
+ "issued": 1794623520,
  "kind": "update-manifest",
- "notes": "Your shortcut keys keep working, all day long.",
- "signature": "LPJOwCBbshPu4Xn1NhrwpTndi+c1djx8cX9H8VTwDpVB2ukQz+zLuMETmfSN96mjDdONBe+itfSdDyN4knpXBQ==",
- "version": "7.2.2"
+ "notes": "Natural voices that sound like a person talking.",
+ "signature": "zMLjbF7dV5GyhL8IqoVGh3CtJpKnMh3MDu1BLziNNo4iVEZXp671SoT7JoGFqWBRlqtsv2/SMesiqy/HAkXhCw==",
+ "version": "7.2.3"
 }
