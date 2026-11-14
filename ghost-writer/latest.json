@@ -1,13 +1,13 @@
 {
  "app": "ghost-writer",
  "full": {
-  "sha256": "da35f531da8eb3ea1742ddabc45004f272c86a2a5666d0ae311754fd652a8150",
-  "size": 881295998,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.4/Ghost-Writer-Setup.exe"
+  "sha256": "0b0fc6a5de1ab342d60bf195e5d66f0660399353a29031b68e4571b9910b342a",
+  "size": 881158841,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.5/Ghost-Writer-Setup.exe"
  },
- "issued": 1794670420,
+ "issued": 1794682884,
  "kind": "update-manifest",
- "notes": "Your PCs stay in step: the same words, notes and lists on each one.",
- "signature": "DeyLopPJbsny74RvWd4QoS1DG+SFSF9T6i2fs84UxUFgFzT0P9VoRFLtD05PR+KAAPmw2eoEkOKKeif6oG7fBA==",
- "version": "7.2.4"
+ "notes": "Updates show what they are doing, start to finish.",
+ "signature": "96e/wLe3Hekqh3UiyNWxNUxtLygrHOeJPbwa2ObgT7SumF1yDz9XlOYWiFE5VQbSVy0oKpCZ9yAYg2By6NLLCA==",
+ "version": "7.2.5"
 }
