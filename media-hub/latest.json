@@ -1,22 +1,13 @@
 {
  "app": "media-hub",
  "kind": "update-manifest",
- "version": "0.4.2",
- "issued": 1794541686,
- "notes": "Replay Live now plays about 1.3 seconds behind, smoothly. New: keep speaker sound out of the microphone (Settings, Auto/On/Off, with Gentle/Normal/Strong strength).",
+ "version": "0.4.3",
+ "issued": 1794717897,
+ "notes": "Home has an Updates button next to Settings and Quit: check for a new version and install it in one click. Quit closes the app and everything it started. Import from a link now works with TikTok and Bandcamp.",
  "full": {
-  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.2/Ghost-Media-Hub-Setup.exe",
-  "size": 937408765,
-  "sha256": "5b745f19bb08fb8cdb87f7e2a5e9b01890bb2c6a90c95ed2d512eee40aab33ef"
+  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.3/Ghost-Media-Hub-Setup.exe",
+  "size": 974181263,
+  "sha256": "0bcc09f015a177b3b034196341b0af474aec9e6854159b5e59a4bd5da38f6556"
  },
- "patch": {
-  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.2/Ghost-Media-Hub-Update-0.4.2.gmhpatch",
-  "size": 25163491,
-  "sha256": "8c07ba0e70deb5c28c34074c3e75ffb842d1d6e61f10baf85a8db28d5058f2d7",
-  "from": [
-   "0.4.0",
-   "0.4.1"
-  ]
- },
- "signature": "3E8AsqwxNsL+e8/6muNrPpx9klvk0iQI0XjsaZ1S2k3bXcsOQY3GDuen9qj1SMWnsE/FhmJQN6CGKJwc7OD/AQ=="
+ "signature": "BhzNrT45SbYRJvrEmoVDz/WEmdXam3R014I3WgfJDCm0+EkugiZEJPUoy6p5Dz1zibUA5rYOLxHRrcHyfDMZBg=="
 }
