@@ -1,13 +1,20 @@
 {
  "app": "ghost-writer",
- "full": {
-  "sha256": "0b0fc6a5de1ab342d60bf195e5d66f0660399353a29031b68e4571b9910b342a",
-  "size": 881158841,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.5/Ghost-Writer-Setup.exe"
+ "delta": {
+  "from": "7.2.5",
+  "runtime": "a55f8b327dc2f4781a337efe2b75c986d28c52a29c4daee8c4f44ee436b486c9",
+  "sha256": "f5dd37e99cccc589f871e85d174a2b1bc28ecbd950e12bd75b2f1056356dd828",
+  "size": 16457494,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.6/Ghost-Writer-Update-7.2.6.zip"
  },
- "issued": 1794682884,
+ "full": {
+  "sha256": "08e01aa29cc5bd963d2222059781de9240bc0726fe015da1889a8aaf882fa9b8",
+  "size": 881185341,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.6/Ghost-Writer-Setup.exe"
+ },
+ "issued": 1794707831,
  "kind": "update-manifest",
- "notes": "Updates show what they are doing, start to finish.",
- "signature": "96e/wLe3Hekqh3UiyNWxNUxtLygrHOeJPbwa2ObgT7SumF1yDz9XlOYWiFE5VQbSVy0oKpCZ9yAYg2By6NLLCA==",
- "version": "7.2.5"
+ "notes": "Clearer update help, and Keep my PCs in step syncs your Home layout too.",
+ "signature": "mOm3ONwZcKQ4FN1mo0KGo8pTvqFrRmvAozkR+3vN7sNsEuVi3yd8n4JHJX+5fduDb2lNFLLL+NC3UofzHYk2Aw==",
+ "version": "7.2.6"
 }
