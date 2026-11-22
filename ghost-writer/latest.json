@@ -3,18 +3,18 @@
  "delta": {
   "from": "7.2.5",
   "runtime": "a55f8b327dc2f4781a337efe2b75c986d28c52a29c4daee8c4f44ee436b486c9",
-  "sha256": "f5dd37e99cccc589f871e85d174a2b1bc28ecbd950e12bd75b2f1056356dd828",
-  "size": 16457494,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.6/Ghost-Writer-Update-7.2.6.zip"
+  "sha256": "e09617f44e89e78f971f6ef07baa3d75f4ec68b1cb93c11ce2391d64fdd23596",
+  "size": 17279489,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.7/Ghost-Writer-Update-7.2.7.zip"
  },
  "full": {
-  "sha256": "08e01aa29cc5bd963d2222059781de9240bc0726fe015da1889a8aaf882fa9b8",
-  "size": 881185341,
-  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.6/Ghost-Writer-Setup.exe"
+  "sha256": "69dcfa479ca88132d87ae4ea873988443858a8b33dd57e12581148c867f2b327",
+  "size": 881563569,
+  "url": "https://github.com/getghostwriter/getghostwriter.github.io/releases/download/v7.2.7/Ghost-Writer-Setup.exe"
  },
- "issued": 1794707831,
+ "issued": 1795383195,
  "kind": "update-manifest",
- "notes": "Clearer update help, and Keep my PCs in step syncs your Home layout too.",
- "signature": "mOm3ONwZcKQ4FN1mo0KGo8pTvqFrRmvAozkR+3vN7sNsEuVi3yd8n4JHJX+5fduDb2lNFLLL+NC3UofzHYk2Aw==",
- "version": "7.2.6"
+ "notes": "Corrections you say out loud, and words that fit the text around them.",
+ "signature": "3uOevLjAaejQv2QjnZk2TOL7hkmjLdXo0UHXIY4DHI3b5/EsGovfrQXslBPGGg7N9jpKRK0zfXuS9YnvNDUBAQ==",
+ "version": "7.2.7"
 }
