@@ -171,7 +171,7 @@
   </div>
 </section>
 
-<!-- TODO-OWNER: confirm these scenes match Ghost Media Hub 0.4.3: cutting at the playhead, moving a clip and
+<!-- TODO-OWNER: confirm these scenes match Ghost Media Hub 0.4.4: cutting at the playhead, moving a clip and
      adding a music track; one-click looks (drawn here as Warm, Cool and Film) and colour controls (Exposure, Warmth,
      Saturation); styled titles and captions made on the PC; the Dissolve, Wipe and Push transitions previewed on your own
      clips; recording a whole screen or one window with the PC's sound and the mic. ("Ghost Replay" is still left out:
@@ -355,7 +355,7 @@
 
 <section id="new" data-chapter="What's new" aria-labelledby="new-title">
   <div class="wrap">
-    <p class="eyebrow">Version 0.4.3</p>
+    <p class="eyebrow">Version 0.4.4</p>
     <h2 id="new-title">What's new</h2>
     <figure class="u-m0"><div class="shot"><img src="/assets/screens/media-hub-home.webp" alt="Ghost Media Hub&#x27;s Home: a glass dashboard with canvas shapes to start a project, the last project to continue, and three example projects" loading="lazy" width="1783" height="974"></div><figcaption>The new Home</figcaption></figure>
     <div class="grid two u-mt20">
@@ -363,9 +363,13 @@
       <figure class="u-m0"><div class="shot"><img src="/assets/screens/media-hub-settings.webp" alt="Settings: a list of sections and a search box on the left, the sections on the right" loading="lazy" width="1783" height="974"></div><figcaption>Settings, with sections and search</figcaption></figure>
     </div>
     <div class="changes">
-      <div class="change"><h3 class="change-title">Ghost Replay</h3><ul>
-        <li>Live now plays about 1.3 seconds behind what you're doing, smoothly, instead of replaying the last few seconds.</li>
-        <li>Keep speaker sound out of the microphone: when your mic hears your speakers, it is turned down while only the speakers play, and your voice goes straight through. Settings: Auto, On or Off, with Gentle, Normal or Strong. No graphics card needed.</li>
+      <div class="change"><h3 class="change-title">Faster re-bakes</h3><ul>
+        <li>Bakes and exports reuse AI slow motion that is already rendered, so baking again after a small change, like removing one clip, takes seconds instead of minutes. Set how much disk space it may use in Settings (10 GB by default, 0 turns it off).</li>
+      </ul></div>
+      <div class="change"><h3 class="change-title">Editing helper</h3><ul>
+        <li>Tracks reversed clips from the right frame, and finds round objects like a camera lens more reliably.</li>
+        <li>Recognises planned dissolves after a bake instead of reporting them as uneven motion.</li>
+        <li>Fewer false warnings: AI slow-motion overlays and clips moved by a ripple delete no longer get flagged.</li>
       </ul></div>
     </div>
   </div>
@@ -468,13 +472,13 @@
     <p class="lead">This download is a <b>locked beta</b> for beta testers. It asks for your access key when you open it, and won't open without one. No key yet? <a href="#request">Request access</a> first.</p>
     <div class="card">
       <div class="download-box">
-        <div class="what"><b>Ghost Media Hub 0.4.3</b><span>929 MB &middot; Windows 10 and 11 (64-bit) &middot; locked beta, access key required</span></div>
-        <a class="button" href="https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.3/Ghost-Media-Hub-Setup.exe" data-download="mh">
+        <div class="what"><b>Ghost Media Hub 0.4.4</b><span>929 MB &middot; Windows 10 and 11 (64-bit) &middot; locked beta, access key required</span></div>
+        <a class="button" href="https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.4/Ghost-Media-Hub-Setup.exe" data-download="mh">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
           Download the locked beta
         </a>
       </div>
-      <p class="fingerprint">By installing, you agree to the <a href="/terms.html">Terms of use</a>. You need an access key to open it: it's checked online at start and every hour, and works offline for up to 3 days. SHA-256 fingerprint: <code>0bcc09f015a177b3b034196341b0af474aec9e6854159b5e59a4bd5da38f6556</code></p>
+      <p class="fingerprint">By installing, you agree to the <a href="/terms.html">Terms of use</a>. You need an access key to open it: it's checked online at start and every hour, and works offline for up to 3 days. SHA-256 fingerprint: <code>2df5d71574b20d9ee703f79a504c54d01bbfa1d320c162c83287082b49e9eebd</code></p>
     </div>
     <p class="small-print">Windows may say "Windows protected your PC" the first time, because Ghost Media Hub is new and not yet signed with a paid certificate. Click <b>More info</b>, then <b>Run anyway</b>.</p>
   </div>
@@ -525,7 +529,7 @@
     <p>The download is 840 MB, for Windows 10 (version 1809 or newer) or Windows 11, 64-bit. The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>. <a href="/ghost-writer/help/#install">Why?</a></p>
     </div>
     <div data-app="mh" hidden>
-    <p>Ghost Media Hub 0.4.3 is a <b>locked beta</b> for beta testers: it opens only with an access key (one key can open Ghost Writer too). No key yet? <a href="/media-hub/#request" class="ask-request">Request one first</a>: it arrives by email.</p>
+    <p>Ghost Media Hub 0.4.4 is a <b>locked beta</b> for beta testers: it opens only with an access key (one key can open Ghost Writer too). No key yet? <a href="/media-hub/#request" class="ask-request">Request one first</a>: it arrives by email.</p>
     <p>The download is 929 MB, for Windows 10 and 11 (64-bit). The first time you open it, Windows may say "Windows protected your PC": click <b>More info</b>, then <b>Run anyway</b>.</p>
     </div>
     <div class="row">
