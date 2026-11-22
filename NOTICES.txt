@@ -23,9 +23,57 @@ Qwen3.5-4B (Alibaba Cloud, Qwen team) - Apache License 2.0   [Advanced mode only
   https://huggingface.co/Qwen/Qwen3.5-4B
   Used as a Q4_K_M GGUF file (a smaller copy of the same model made with llama.cpp's tools); its
   license file comes with the Advanced pack, next to the model
-llama.cpp and ggml (the ggml authors) - MIT License   [Advanced mode only]
+SmolLM2-135M (Hugging Face) - Apache License 2.0   [hands-free helper download]
+  https://huggingface.co/HuggingFaceTB/SmolLM2-135M
+  Used as the Q8_0 GGUF file from https://huggingface.co/ggml-org/SmolLM2-135M-GGUF, unchanged; the
+  download carries its CREDITS.txt and the Apache 2.0 and MIT license texts
+llama.cpp and ggml (the ggml authors) - MIT License   [Advanced mode, and the hands-free helper download]
   https://github.com/ggml-org/llama.cpp
-  Includes the LLVM OpenMP runtime (Apache License 2.0 with LLVM Exceptions)
+  Runs Advanced mode's AI on the graphics card, and the hands-free helper's small model on the processor
+  The hands-free helper runs on Ghost Writer's own small program, built from llama.cpp's core alone (build
+  b11514: the llama and ggml libraries, no web server or web page). The parts inside that core:
+  llamafile matrix code, YaRN, tokenizer code adapted from ggllm.cpp, math routines adapted from Arm
+  Optimized Routines, and the DRY sampler, all listed below.
+  Advanced mode's program files (llama.cpp's own release, build b11514) contain the parts below, each under
+  its own license:
+  cpp-httplib (yhirose) - MIT License: the small web server llama.cpp runs on this PC
+    https://github.com/yhirose/cpp-httplib
+  BoringSSL (Google, with code from the OpenSSL Project and fiat-crypto) - Apache License 2.0:
+    secure-connection code built into llama.cpp
+    https://boringssl.googlesource.com/boringssl
+  JSON for Modern C++ (Niels Lohmann) - MIT License
+    https://github.com/nlohmann/json
+  stb_image (Sean Barrett) - MIT License: opens picture files
+    https://github.com/nothings/stb
+  miniaudio (David Reid) - public domain, or MIT No Attribution: opens sound files
+    https://github.com/mackron/miniaudio
+  subprocess.h (sheredom) and base64.hpp - public domain (Unlicense)
+    https://github.com/sheredom/subprocess.h
+  SHA-256 code (Igor Pavlov) - public domain, with rotate-bits.h (William Casarin) - MIT License
+    https://github.com/jb55/sha256.c
+  llamafile matrix code (Mozilla Foundation) - MIT License: faster math on the processor
+    https://github.com/ggml-org/llama.cpp (ggml/src/ggml-cpu/llamafile)
+  YaRN (Jeffrey Quesnelle and Bowen Peng) - MIT License: position math for long texts
+    https://github.com/jquesnelle/yarn
+  Tokenizer code adapted from ggllm.cpp (cmp-nct) - MIT License
+    https://github.com/cmp-nct/ggllm.cpp
+  Math routines adapted from Arm Optimized Routines (Arm Limited) - MIT License
+    https://github.com/ARM-software/optimized-routines
+  DRY sampler (pi6am, ported from KoboldCpp) - part of llama.cpp under its MIT License; Ghost Writer
+    never uses it
+    https://github.com/ggml-org/llama.cpp (src/llama-sampler.cpp)
+  Picture resizing adapted from Pillow - MIT-CMU (HPND) License
+    https://github.com/python-pillow/Pillow
+  LLVM OpenMP runtime (LLVM Project) - Apache License 2.0 with LLVM Exceptions: spreads work across
+    processor cores (libomp.dll; its license text is LICENSE-LLVM-OpenMP, beside it)
+    https://github.com/llvm/llvm-project
+  llama.cpp's built-in web page (the ggml authors) - MIT License; Ghost Writer never opens it
+    https://github.com/ggml-org/llama.cpp (tools/ui)
+    It includes Svelte, SvelteKit, bits-ui, Mermaid (with D3, Cytoscape, Langium and Chevrotain), KaTeX,
+    highlight.js, pdf.js, Dexie, DOMPurify, Lucide icons, the Model Context Protocol SDK, Zod, Workbox,
+    unified/remark/rehype, Tailwind CSS, nerdamer-prime, decimal.js, big-integer and the packages they
+    depend on (MIT, ISC, BSD, Apache 2.0 and public-domain licenses), and the KaTeX fonts (Copyright (c)
+    2009-2010 Design Science, Inc.; Copyright (c) 2014-2018 Khan Academy; SIL Open Font License 1.1)
 whisper.cpp (the ggml authors) - MIT License   [Advanced mode on AMD and Intel cards only]
   https://github.com/ggml-org/whisper.cpp
   Windows Vulkan build by AMD's Lemonade project (MIT): https://github.com/lemonade-sdk/whisper.cpp-rocm
@@ -98,5 +146,6 @@ GSAP and its MotionPath plugin (GreenSock) - GSAP Standard "No Charge" License: 
 The full license texts are in the licenses folder next to this file (Apache-2.0, MIT,
 OFL-1.1, zlib); Python's is python\LICENSE.txt, and each Python package's is in its folder
 under python\Lib\site-packages (the *.dist-info folders). The Advanced pack carries the
-NVIDIA and Qwen license files beside the parts they cover, and the natural voice download
-its CREDITS.txt with the Apache 2.0 and kokoro-onnx MIT texts.
+NVIDIA and Qwen license files beside the parts they cover, the natural voice download
+its CREDITS.txt with the Apache 2.0 and kokoro-onnx MIT texts, and the hands-free helper
+download its CREDITS.txt with the Apache 2.0 and MIT texts.
