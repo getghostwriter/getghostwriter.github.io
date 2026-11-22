@@ -1,13 +1,13 @@
 {
  "app": "media-hub",
  "kind": "update-manifest",
- "version": "0.4.3",
- "issued": 1794717897,
- "notes": "Home has an Updates button next to Settings and Quit: check for a new version and install it in one click. Quit closes the app and everything it started. Import from a link now works with TikTok and Bandcamp.",
+ "version": "0.4.4",
+ "issued": 1795381862,
+ "notes": "Bakes and exports reuse AI slow motion that is already rendered, so re-baking after a small change is much faster (cache size in Settings). The editing helper tracks reversed clips and round objects like lenses more reliably, recognises planned dissolves after a bake, and no longer warns about AI-slowed overlays.",
  "full": {
-  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.3/Ghost-Media-Hub-Setup.exe",
-  "size": 974181263,
-  "sha256": "0bcc09f015a177b3b034196341b0af474aec9e6854159b5e59a4bd5da38f6556"
+  "url": "https://github.com/getghostwriter/ghost-media-hub/releases/download/v0.4.4/Ghost-Media-Hub-Setup.exe",
+  "size": 974337007,
+  "sha256": "2df5d71574b20d9ee703f79a504c54d01bbfa1d320c162c83287082b49e9eebd"
  },
- "signature": "BhzNrT45SbYRJvrEmoVDz/WEmdXam3R014I3WgfJDCm0+EkugiZEJPUoy6p5Dz1zibUA5rYOLxHRrcHyfDMZBg=="
+ "signature": "tkHCel0HIvdDGhl/TJ2iThQ6VZKkDjAuksR3Av4p+gpPi/hiUeuut0rLeo8GVstkghKSM8YzvRNLSv5pV766AA=="
 }
